@@ -38,6 +38,7 @@
 
 \newsavebox{\tempbox} %{\raisebox{\dimexpr.5\ht\tempbox-.5\height\relax}}
 
+%% TODO aggiungere comandi funzioni
 
 \makeatother
 \renewcommand{\contentsname}{Indice}
@@ -116,7 +117,7 @@ $s_n$ viene chiamata somma parziale della serie $\{s_n\}$ e viene definita con i
 \begin{equation}
     s_n:=\displaystyle\sum_{k=1}^\infty a_k
 \end{equation}
-La serie numerica è la successione delle somme parziali costruisce sulla successione $\{a_k\}$. 
+La serie numerica è la successione delle somme parziali che costruisce sulla successione $\{a_k\}$. 
 
 Una serie numerica si dice convergente se il limite della successione delle somme parziali, costruite a partire dalla successione $a_k$, è pari ad un numero $s$:
 \begin{equation}
@@ -167,7 +168,7 @@ Utilizzando la tecnica dei fratti semplici si può riscrivere la somma parziale 
 
 In questo modo calcolando la somma parziale si ottiene:
 \begin{gather*}
-    s_n=\displaystyle\sum_{k=1}^n\left(\frac{1}{k}-\frac{1}{k+1}\right)=
+    s_n=\displaystyle\sum_{k=1}^n\left(\frac{1}{k}-\frac{1}{k+1}\right)\\
     \left({1}-\frac{1}{2}\right)+
     \left(\frac{1}{2}-\frac{1}{3}\right)+
     \left(\frac{1}{3}-\frac{1}{4}\right)+
@@ -177,13 +178,12 @@ In questo modo calcolando la somma parziale si ottiene:
 \end{gather*}
 Si può notare come l'addendo 1/2 si cancella con l'addendo della differenza successiva, così con 1/3, così per ogni valore della sommatoria, permettendo quindi di scrivere la somma parziale $s_n$ in forma chiusa esprimendo solamente il primo addendo e l'ultimo addendo:
 \begin{gather*}
-    s_n=\displaystyle\sum_{k=1}^n\left(\frac{1}{k}-\frac{1}{k+1}\right)=
-    \left({1}-\frac{1}{2}\right)+
-    \left(\frac{1}{2}-\frac{1}{3}\right)+
-    \left(\frac{1}{3}-\frac{1}{4}\right)+
+    \left({1}-\cancel{\frac{1}{2}}\right)+
+    \left(\cancel{\frac{1}{2}}-\bcancel{\frac{1}{3}}\right)+
+    \left(\bcancel{\frac{1}{3}}-\cancel{\frac{1}{4}}\right)+
     \cdots+
-    \left(\frac{1}{n-1}-\frac{1}{n}\right)+
-    \left(\frac{1}{n}-\frac{1}{n+1}\right)=
+    \left(\bcancel{\frac{1}{n-1}}-\cancel{\frac{1}{n}}\right)+
+    \left(\cancel{\frac{1}{n}}-\frac{1}{n+1}\right)=
     1-\frac{1}{n+1}
 \end{gather*}
 
@@ -191,6 +191,11 @@ Considerando il limite di questa serie si ha:
 \begin{equation*}
     \lim_{n\to\infty}\left(1-\displaystyle\frac{1}{n+1}\right)=1
 \end{equation*}
+
+In generale una serie telescopica, ha i suoi termini $a_k$ definiti come la differenza tra il termine $k+1$-esimo ed il termine $k$-esimo di una particolare successione $\{A_k\}$:
+\begin{equation*}
+    \displaystyle\sum_{k=1}^\infty a_k=\sum_{k=1}^\infty\left(A_{k+1}-A_{k}\right)
+\end{equation*} 
 
 \subsection{Serie Geometrica}
 
@@ -276,6 +281,228 @@ Il valore di questa successione quindi si comporta analogamente al precedente, c
         \nexists & x\leq-1
     \end{cases}
 \end{equation*}
+
+\subsection{Criteri di Convergenza}
+
+Esistono vari criteri per determinare la convergenza di una serie numerica. 
+
+%% PRIMO CRITERIO
+
+Il primo criterio definisce una condizione necessaria per la convergenza di una serie geometrica. 
+Si considera per ipotesi che una data serie numerica converge, equivale a dire che la serie delle somme parziali converge:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty a_k\rightarrow s_n=\sum_{k=1}^n a_k\\
+    \lim_{n\to\infty}s_n=s
+\end{gather*}
+
+Considerando il limite della successione generata aumentando l'indice di uno $n+1$, la combinazione lineare tra queste due successioni converge a zero, poiché rappresentano la stessa successione traslata di un elemento:
+\begin{gather*}
+    \lim_{n\to\infty}s_{n+1}=s\\
+    \lim_{n\to\infty}(s_{n+1}-s_n)=0
+\end{gather*}
+La successione $s_{n+1}$ corrisponde alla prima successione $s_n$ sommata ad un ulteriore elemento $a_{n+1}$, per cui si può riscrivere la loro differenza come:
+\begin{gather*}
+    s_{n+1}=s_n+a_{n+1}\\
+    s_{n+1}-s_{n}=a_{n+1}
+\end{gather*}
+Quindi la successione può convergere se il termine infinitesimo della serie converge:
+\begin{equation}
+    \lim_{n\to\infty}a_{n+1}=0
+\end{equation}
+Queste rappresenta solo una condizione necessaria, non garantisce che una serie converga, non è quindi una condizione sufficiente. 
+Se il termine infinitesimo di una serie non converge, allora la serie non può convergere, quindi diverge oppure è irregolare. 
+
+%% ESEMPIO
+
+Si considera la seguene serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{3k^2+1}{2k^2+3}
+\end{gather*}
+Si vuole studiare il carattere della seguente serie utilizzando la condizione appena descritta:
+\begin{gather*}
+    \lim_{k\to\infty}\displaystyle\frac{3k^2+1}{2k^2+3}=\frac{3}{2}\neq0
+\end{gather*}
+Questa serie quindi non può converge, potrebbe quindi divergere oppure essere irregolare. 
+
+
+Esiste un teorema che tratta le successioni numeriche, e si riflette sulle serie. Questo teorema afferma che data una successione monotona crescente $\{a_k\}\uparrow$ o decrescente $\{a_k\}\downarrow$, ovvero se tra il termine $a_k$ ed il termine $a_{k+1}$ esiste una relazione d'ordine, definitivamente, $\forall k\geq k_0$. Allora la successione non può essere irregolare. 
+
+Sia una serie $\sum_{k=0}^\infty a_k$, se $\forall k\geq k_0$ si ha $a_k>0$, allora la serie non è irregolare. Consideranddo un valore di $n\geq k_0$, si ha:
+\begin{gather*}
+    s_{n+1}=s_n+\overbrace{a_{n+1}}^{>0}\implies s_{n+1}>s_n
+\end{gather*}
+
+Poiché viene sommato ad $s_n$ un valore non nullo positivo, quindi una serie di termini di segno costante positivo corrisponde ad una successione di somme parziali definitivamente monotona crescente. Questa serie allora converge o diverge, è regolare. 
+
+Considerando la serie dell'esempio precedente, con il primo criterio si è confermato che la serie non converge, analizzando i segni della serie si ha:
+\begin{gather*}
+    3k^2+1>0\,\land\,2k^2+3>0\implies\displaystyle\frac{3k^2+1}{2k^2+3}
+\end{gather*}
+
+Quindi la serie è composta da termini definitivamente positivi, quindi la serie non può essere irregolare. Questa serie allora diverge ad infinito positivo. 
+
+%% PROPRIETÀ
+
+Si considerano due serie $\sum a_k$ e $\sum b_k$, convergenti rispettivamente a $\alpha$ e $\beta$, la serie combinazione lineare delle due serie $\sum(Aa_k+Bb_k)$ allora converge al valore $A\alpha+B\beta$. Tramite questa proprietà è possibile scomporre una serie ed analizzare i singoli termini per determinare il carattere della serie da cui derivano. Se una delle due diverge, mentre l'altra converge, allora la serie combinazione lineare diverge, allo stesso segno della serie divergente, per qualunque valore di $A$ e $B$, vale anche se entrambe le serie convergono ad infinito di segno concorde. Se invece entrambe le serie divergono ed il segno discorde, allora questo genera una forma indeterminata e quindi non è possibile determinare il comportamento della serie combinazione lineare. 
+
+\subsubsection{Criterio del Confronto}
+
+Siano $\sum_{k=1}^\infty a_k$ e $\sum_{k=1}^\infty b_k$ due serie di segno definitivamente costante tale che vale la seguente condizione: $\forall k\geq k_0\rightarrow 0<a_k\leq b_k$. Allora se lla serie maggiorante $\sum_{k=1}^\infty b_k$ converge, allora si dimostra che anche la serie minorante $\sum_{k=1}^\infty a_k$ converge. Analogamente vale il duale di questa proprietà se la serie minorante $\sum_{k=1}^\infty a_k$ diverge, allora anche la serie maggiorante $\sum_{k=1}^\infty b_k$ diverge anch'essa. 
+
+%% ESERCIZIO 
+
+Si considera la seguente serie, bisogna analizzarne il comportamento, tramite il criterio del confronto:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{|\sin k|}{2^k}
+\end{gather*}
+Si considera il modulo per avere termini definitivamente positivi, allora il termine generico della serie sarà maggiorato dal termine generico:
+\begin{gather*}
+    \displaystyle\frac{|\sin k|}{2^k}<\frac{1}{2^k},\,\forall k\in\mathbb{N}
+\end{gather*}
+È certamente diverso dal termine generico, poiché $k$ non può essere un multiplo di $\pi$. 
+La serie maggiorante corrisponde ad una serie geometrica di ragione $1/2$, e converge poiché la ragione è di modulo minore di uno, quindi converge anche la serie minorante. 
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{2+\cos k}{k}
+\end{gather*}
+Si può esprimere una serie maggiorante e minorante di questa serie:
+\begin{gather*}
+    \displaystyle\frac{1}{k}<\frac{2+\cos k}{k}<\frac{3}{k}
+\end{gather*}
+
+La serie minorante è una serie armonica, si dimostrerà che diverge a più infinito:
+\begin{equation*}
+    \displaystyle\sum_{k=1}^\infty\frac{1}{k}=+\infty
+\end{equation*}
+Mentre la serie armonica generalizzata, per $\alpha\in\mathbb{R}$ diverge solo per certi valori di $\alpha$:
+\begin{equation*}
+    \displaystyle\sum_{k=1}^\infty\frac{1}{k^\alpha}
+\end{equation*}
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{|\cos k|}{k}
+\end{gather*}
+La serie maggiorante rappresenta la serie armonica descritta precedentemente, per cui non è possibile utilizzare il criterio del confronto. Non è possibile stabilire il carattere della serie utilizzando questo criterio. 
+
+\subsubsection{Criterio della Radice}
+
+Sia una serie definitivamente monotona crescente $\sum_{k=1}^\infty a_k,\,\forall k\geq k_0$. 
+Si basa sulla definizione di una successione ausiliaria. Per costruire questa successione ausiliaria si considera, da $k>k_0$, $\{\sqrt[k]{a_k}\}$. Si considera per ipotesi che questa successione sia regolare:
+\begin{equation*}
+    \lim_{k\to\infty}\sqrt[k]{a_k}=\Lambda
+\end{equation*}
+
+Se questo limite converge ad un valore positivo maggiore di uno, oppure diverge ad infinito positivo, allora è dimostrabile che la serie di aprtenza diverge. 
+Se questo limite è positivo e minore di uno, allora la serie converge. Mentre se il limite è esattamente pari ad uno, allroa il problema rimane aperto, e non è possibile stabilire il comportamento della serie tramite questa successione. 
+
+\begin{equation}
+    \displaystyle\sum_{k=1}^\infty a_k:\begin{cases}
+        \text{diverge}&\Lambda > 1\,\lor\Lambda=+\infty\\
+        \text{convege}&0\leq\Lambda<1\\
+        ?&\Lambda=1
+    \end{cases}
+\end{equation}
+
+Considerando la seguente serie, determinare il carattere tramite il metodo della radice:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\left(\frac{1}{k}\right)^k
+\end{gather*}
+La sua serie ausiliaria è:
+\begin{gather*}
+    \displaystyle\left\{\sqrt[k]{\left(\frac{1}{k}\right)^{k}}\right\}=\left\{\frac{1}{k}\right\}
+\end{gather*}
+Questa successione corrisponde alla serie armonica, e diverge quindi la serie di partenza diverge. 
+
+\subsubsection{Criterio del Rapporto}
+
+Sia una serie definitivamente monotona crescente $\sum_{k=1}^\infty a_k,\,\forall k\geq k_0$. 
+Si basa sulla definizione di una successione ausiliaria. Per costruire questa successione ausiliaria si considera, da $k>k_0$:
+\begin{equation*}
+    \displaystyle\left\{\frac{a_{k+1}}{a_k}\right\}
+\end{equation*}
+Si considera per ipotesi che questa successione sia regolare:
+\begin{equation*}
+    \lim_{k\to\infty}\sqrt[k]{a_k}=\Lambda
+\end{equation*}
+
+Esistono casi dove la successione ausiliaria creata è irregolare, e quindi non è possibile utilizzare questi criteri. %% !! base55555555555555555555555555
+Analogamente al criterio precedente, in base al valore del limite la serie diverge, converge, oppure non è possibile determinarne il carattere:
+\begin{equation}
+    \displaystyle\sum_{k=1}^\infty a_k:\begin{cases}
+        \text{diverge}&\Lambda > 1\,\lor\Lambda=+\infty\\
+        \text{convege}&0\leq\Lambda<1\\
+        ?&\Lambda=1
+    \end{cases}
+\end{equation}
+
+%% ESEMPIO
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{2^k}{k!}
+\end{gather*}
+
+La sua serie ausiliaria è quindi:
+\begin{gather*}
+    \displaystyle\frac{\frac{2^{k+1}}{(k+1)!}}{\frac{2^k}{k!}}=
+    \frac{2^{k+1}}{(k+1)!}\cdot\frac{k!}{2^k}=\cancelto{\frac{1}{k+1}}{\frac{k!}{(k+1)!}}\cdot\cancelto{2}{\frac{2^{k+1}}{2^k}}=\frac{2}{k+1}\\
+    \lim_{k\to\infty}\frac{2}{k+1}=0
+\end{gather*}
+
+La serie quindi converge, invece se i termini della serie fossero inversi:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k!}{2^k}
+\end{gather*}
+
+\subsubsection{Criterio dell'Integrale}
+Sia una serie definitivamente monotona crescente $\sum_{k=1}^\infty a_k,\,\forall k\geq k_0$. 
+Si considera la funzione associata che sostituisce $\{a_k\}\rightarrow\{f(x)\}$. La funzione associata deve essere decrescente a partire da $k_0$: $f(x)\downarrow \forall x>k_0$. Sia:
+\begin{equation*}
+    t_n=\displaystyle\int_{k_0}^n f(x)\mathrm{d}x
+\end{equation*}
+
+Allora la successione definita su $t_n$: $\{t_n\}$ e la serie $\sum a_k$ hanno lo stesso carattere. 
+
+Si applica il criterio dell'integrale sulla serie armonica generalizzata, questa soddisfa l'ipotesi da $k_0=1$:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{1}{k^\alpha},\,\alpha\in\mathbb{R}\\
+    f(x)=\displaystyle\frac{1}{x^\alpha}
+\end{gather*}
+Se $\alpha$ fosse negativo, la funzione associata sarebbe monotona crescente, ma se fosse negativo la serie sarebbe $\sum k^{|\alpha|}$, per cui diverge. 
+Per $\alpha=0$, tutti i termini della serie sono pari ad uno, quindi il termine generico è uno e quindi la serie diverge allo stesso modo. Quindi solo per $\alpha>0$ la serie converge, e quindi solo per questo caso ha senso lo studio della serie armonica generalizzata
+
+Nel caso $\alpha>0$ la condizione necessaria è soddisfatta, quindi la funzione potrebbe convergere. Si studia il suo carattere con il criterio dell'integrale, si ha la seguente serie ausiliaria:
+\begin{gather*}
+    t_n=\displaystyle\int_{1}^n\frac{1}{x^\alpha}\mathrm{d}x=\begin{cases}
+        \bigg|\log(x)\bigg|_1^n &\alpha=1\\
+        \displaystyle\frac{1}{1-\alpha}\bigg|x^{1-\alpha}\bigg|_1^n&\alpha\neq1
+    \end{cases}=\begin{cases}
+        \log(n)&\alpha=1\\
+        \displaystyle\frac{1}{1-\alpha}\left(n^{1-\alpha}-1\right)&\alpha\neq1
+    \end{cases}
+\end{gather*}
+
+Per $\alpha=1$, la successione diverge, poiché il logaritmo è una funzione monotona crescente, mentre per $\alpha\neq1$:
+\begin{gather*}
+    \displaystyle\frac{1}{1-\alpha}\lim_{n\to\infty}\left(n^{1-\alpha}-1\right)=\begin{cases}
+        +\infty&\alpha<1\\
+        \displaystyle\frac{1}{1-\alpha}&\alpha>1
+    \end{cases}
+\end{gather*}
+La serie quindi diverge per $\alpha<1$, mentre converge per $\alpha>1$
+
+Il carattere della serie arominca generalizzata è quindi dato dal seguente:
+\begin{equation}
+    \displaystyle\sum_{k=1}^\infty\frac{1}{k^\alpha}:\begin{cases}
+        \text{diverge}&\alpha\le1\\
+        \text{converge}&\alpha>1        
+    \end{cases}
+\end{equation}
+
+
+
 
 
 \end{document}

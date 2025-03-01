@@ -1,5 +1,5 @@
 # Analisi II
-Appunti tratti dal corso di Basi di Dati, Anno Accademico 2024/25, Dipartimento di Ingegneria Industriale, Elettronica e Meccanica. 
+Appunti tratti dal corso di Analisi II, Anno Accademico 2024/25, Dipartimento di Ingegneria Industriale, Elettronica e Meccanica. 
 
 ## Contenuti:
 - [Appunti](Analisi-II.pdf) delle lezioni, tenute l'anno accademico 2024/25 dai professori Pierpaolo Natalini;
