@@ -73,7 +73,7 @@ Università degli Studi ``Roma Tre"}}
 
 \pagestyle{fancy}
 \fancyhead{}\fancyfoot{}
-\fancyhead[C]{\textit{Basi di Dati - Università degli Studi ``Roma Tre"}}
+\fancyhead[C]{\textit{Analisi II - Università degli Studi ``Roma Tre"}}
 \fancyfoot[C]{\thepage}
 \pagenumbering{Roman}
 
@@ -90,12 +90,12 @@ Una serie numerica $\{a_n\}$ è una \textit{particolare} successione numerica;
     \{a_n\}:\mathbb{N}\rightarrow\mathbb{C}\in\mathbb{R}
 \end{equation}
 
-Quindi è di interesse studiare il comportamento della serie numerica quando la variabile indipendente $n$ tende all'infinito. Data una sucecssione numerica, si interessa quindi:
+Quindi è di interesse studiare il comportamento della serie numerica quando la variabile indipendente $n$ tende all'infinito. Data una successione numerica, si interessa quindi:
 \begin{equation}
     \lim_{n\to\infty}a_n
 \end{equation}
 
-Si generalizza nel limite di una funzione quando si sostituisce alla variabile $n$ una varibaile indipendente reale $x\in\mathbb{R}$. 
+Si generalizza nel limite di una funzione quando si sostituisce alla variabile $n$ una variabile indipendente reale $x\in\mathbb{R}$. 
 
 Una successione può convergere ad un numero reale, può divergere positivamente o negativamente, in questi due casi è regolare, quindi ha un limite definito o indefinito. Altrimenti è possibile che il limite non esiste, quindi la sequenza non si stabilisce su nessun numero reale ed oscilla per $n$ tendente ad $\infty$. 
 
@@ -235,7 +235,7 @@ Della prima somma sopravvive solamente il primo addendo $1$, e della seconda l'u
 \begin{equation}
     s_n=\displaystyle\frac{1-x^{n+1}}{1-x}
 \end{equation}
-Si provvede ora a calcolare il limite di questa somma parziale, dividendolo per la proprietà di linearità, supponendo che questi due limiti risultatnti non corrispondono ad una forma indeterminata:
+Si provvede ora a calcolare il limite di questa somma parziale, dividendolo per la proprietà di linearità, supponendo che questi due limiti risultanti non corrispondono ad una forma indeterminata:
 \begin{equation*}
     \lim_{n\to\infty}\displaystyle\frac{1-x^{n+1}}{1-x}=\lim_{n\to\infty}\frac{1}{1-x}-\lim_{n\to\infty}\frac{x^{n+1}}{1-x}
 \end{equation*}
@@ -257,7 +257,7 @@ Per $|x|<1$ la funzione è decrescente, e tende a zero, mentre per $x>1$, la fun
     \lim_{n\to\infty}\left[(-1)^{n+1}\cdot |x|^{n+1}\right]
 \end{gather*}
 Il secondo fattore diverge, mentre il primo fattore oscilla di segno in base alla parità di $n$, per cui questa funzione oscilla di ampiezza sempre maggiore, per cui è irregolare. 
-Per $x=-1$ il secondo fattore vale uno, mentre il primo fattore si considera comunque, per cui continua ad oscillare alla stessa ampiezza, quindi rappresenza allo stesso modo un comportamento irregolare. 
+Per $x=-1$ il secondo fattore vale uno, mentre il primo fattore si considera comunque, per cui continua ad oscillare alla stessa ampiezza, quindi rappresenta allo stesso modo un comportamento irregolare. 
 
 Noto il comportamento di questo limite allora il valore della serie geometrica in base alla ragione è dato da:
 \begin{equation*}
@@ -314,7 +314,7 @@ Se il termine infinitesimo di una serie non converge, allora la serie non può c
 
 %% ESEMPIO
 
-Si considera la seguene serie:
+Si considera la seguine serie:
 \begin{gather*}
     \displaystyle\sum_{k=1}^\infty\frac{3k^2+1}{2k^2+3}
 \end{gather*}
@@ -327,7 +327,7 @@ Questa serie quindi non può converge, potrebbe quindi divergere oppure essere i
 
 Esiste un teorema che tratta le successioni numeriche, e si riflette sulle serie. Questo teorema afferma che data una successione monotona crescente $\{a_k\}\uparrow$ o decrescente $\{a_k\}\downarrow$, ovvero se tra il termine $a_k$ ed il termine $a_{k+1}$ esiste una relazione d'ordine, definitivamente, $\forall k\geq k_0$. Allora la successione non può essere irregolare. 
 
-Sia una serie $\sum_{k=0}^\infty a_k$, se $\forall k\geq k_0$ si ha $a_k>0$, allora la serie non è irregolare. Consideranddo un valore di $n\geq k_0$, si ha:
+Sia una serie $\sum_{k=0}^\infty a_k$, se $\forall k\geq k_0$ si ha $a_k>0$, allora la serie non è irregolare. Considerando un valore di $n\geq k_0$, si ha:
 \begin{gather*}
     s_{n+1}=s_n+\overbrace{a_{n+1}}^{>0}\implies s_{n+1}>s_n
 \end{gather*}
@@ -394,13 +394,13 @@ Si basa sulla definizione di una successione ausiliaria. Per costruire questa su
     \lim_{k\to\infty}\sqrt[k]{a_k}=\Lambda
 \end{equation*}
 
-Se questo limite converge ad un valore positivo maggiore di uno, oppure diverge ad infinito positivo, allora è dimostrabile che la serie di aprtenza diverge. 
-Se questo limite è positivo e minore di uno, allora la serie converge. Mentre se il limite è esattamente pari ad uno, allroa il problema rimane aperto, e non è possibile stabilire il comportamento della serie tramite questa successione. 
+Se questo limite converge ad un valore positivo maggiore di uno, oppure diverge ad infinito positivo, allora è dimostrabile che la serie di partenza diverge. 
+Se questo limite è positivo e minore di uno, allora la serie converge. Mentre se il limite è esattamente pari ad uno, allora il problema rimane aperto, e non è possibile stabilire il comportamento della serie tramite questa successione. 
 
 \begin{equation}
     \displaystyle\sum_{k=1}^\infty a_k:\begin{cases}
         \text{diverge}&\Lambda > 1\,\lor\Lambda=+\infty\\
-        \text{convege}&0\leq\Lambda<1\\
+        \text{converge}&0\leq\Lambda<1\\
         ?&\Lambda=1
     \end{cases}
 \end{equation}
@@ -432,7 +432,7 @@ Analogamente al criterio precedente, in base al valore del limite la serie diver
 \begin{equation}
     \displaystyle\sum_{k=1}^\infty a_k:\begin{cases}
         \text{diverge}&\Lambda > 1\,\lor\Lambda=+\infty\\
-        \text{convege}&0\leq\Lambda<1\\
+        \text{converge}&0\leq\Lambda<1\\
         ?&\Lambda=1
     \end{cases}
 \end{equation}
@@ -493,13 +493,188 @@ Per $\alpha=1$, la successione diverge, poiché il logaritmo è una funzione mon
 \end{gather*}
 La serie quindi diverge per $\alpha<1$, mentre converge per $\alpha>1$
 
-Il carattere della serie arominca generalizzata è quindi dato dal seguente:
+Il carattere della serie armonica generalizzata è quindi dato dal seguente:
 \begin{equation}
     \displaystyle\sum_{k=1}^\infty\frac{1}{k^\alpha}:\begin{cases}
         \text{diverge}&\alpha\le1\\
         \text{converge}&\alpha>1        
     \end{cases}
 \end{equation}
+
+
+Conviene applicare il criterio dell'integrale quando la funzione associata è facilmente integrabile. Considerata la seguente serie:
+\begin{equation*}
+    \displaystyle\sum_{k=1}^{\infty}\frac{\text{arctan}\, k}{1+k^2}
+\end{equation*}
+
+Per valutare il carattere di questa serie si potrebbe considerare il criterio del confronto, poiché l'arcotangente è una funzione superiormente limitata da $\pi/2$:
+\begin{gather*}
+    \displaystyle\frac{\text{arctan}\,k}{1+k^2}<\frac{\pi/2}{1+k^2}<\frac{\pi}{2k^2}
+\end{gather*}
+
+Considerando la serie maggiorante, questa è una serie armonica generalizzata con parametro $\alpha=2>1$, questa converge, quindi per il criterio del confronto converge anche la serie di partenza. 
+
+In questo caso funziona anche il criterio dell'integrale. La sua funzione associata è:
+\begin{gather*}
+    f(x)=\displaystyle\frac{\text{arctan}\, x}{1+x^2}
+\end{gather*}
+
+Si può notare come la funzione associata è il prodotto dell'arcotangente per la sua derivata, quindi l'integrale è immediato. Per utilizzare il criterio dell'integrale bisogna determinare che la funzione è monotona decrescente, si analizza quindi la sua derivata:
+\begin{gather*}
+    \displaystyle\frac{\mathrm{d}f(x)}{\mathrm{d}x}=\displaystyle\frac{\cancelto{1}{\frac{1}{1+x^2}(1+x^2)}-2x\text{arctan}\,x}{(1+x^2)^2}\\
+    1-2x\text{arctan}\,x <0
+\end{gather*}
+Il numeratore è sempre negativo per $x\in(1,\infty)$, per cui la funzione ausiliaria è monotona decrescente ed è possibile utilizzare il criterio dell'integrale:
+\begin{gather*}
+    t_k=\displaystyle\int_{1}^kf(x)\mathrm{d}x=\int_1^k\frac{\text{arctan}\,x}{1+x^2}\mathrm{d}x\\
+    u=\text{arctan}\,x\rightarrow\int_1^{\text{arctan}\,k}u \mathrm{d}u=\bigg|\frac{u^2}{2}+c\bigg|_1^{\text{arctan}\,k}= %% TODO finire
+\end{gather*}
+
+\subsubsection{Criterio di Condensazione}
+
+Sia una serie di segno definitivamente positivo: $\sum_{k=1}^\infty a_k | a_k>0\,\forall k\geq k_0$. Si considera la serie monotona decrescente $a_k\downarrow$, allora la serie $\sum 2^ka_{2^k}$ ha lo stesso carattere della serie di partenza. Generalmente si applica solo nel caso dove in $a_k$ è presente un fattore logaritmo di $k$. 
+
+Si considera la serie:
+\begin{equation*}
+    \displaystyle\sum_{k=1}^\infty\frac{\ln k}{k}
+\end{equation*}
+
+Si calcola la derivata della sua funzione ausiliaria:
+\begin{gather*}
+    \displaystyle f(x)=\frac{\ln x}{x}\\
+    f'(x)=\displaystyle\frac{1-\ln x}{x^2}<0
+\end{gather*}
+Si è verificata l'ipotesi della monotonia della serie. 
+Si applica quindi il criterio di condensazione:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty \cancel{2^k}\frac{\ln 2^k}{\cancel{2^k}}
+\end{gather*}
+
+Sfruttando le proprietà del logaritmo questo diventa:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty k\cdot{\ln 2}=\ln 2\displaystyle\sum_{k=1}^\infty k
+\end{gather*}
+
+Non verificando l'ipotesi di convergenza, non può convergere. 
+
+Si considera ora la serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{\ln k}{k^2}\\
+    \displaystyle f(x)=\frac{\ln x}{x^2}\\
+    f'(x)=\displaystyle\frac{x-2x\ln x}{x^4}=\frac{\cancel{x}(1-2\ln x)}{x^{\cancelto{3}{4}}}<0
+\end{gather*}
+
+Si applica il criterio di condensazione:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty \cancel{2^k}\frac{\ln 2^k}{(2^k)^{\cancel{2}}}=\ln2\sum_{k=1}^\infty\frac{k}{2^k}
+\end{gather*}
+Si studia il criterio del rapporto per poter determinarne il carattere:
+\begin{gather*}
+    \displaystyle\frac{\frac{k+1}{2^{k+1}}}{\frac{k}{2^k}}=\frac{k+1}{k}\frac{\cancel{2^k}}{2^{\cancel{k+1}}}=\frac{1}{2}\frac{k+1}{k}\\
+    \frac{1}{2}\lim_{k\to\infty}\frac{k+1}{k}=\frac{1}{2}<1
+\end{gather*}
+Poiché $a_{k+1}/a_{k}<1$ la serie converge, e quindi per il criterio di condensazione anche la serie di partenza converge.  
+
+\subsubsection{Criterio del Confronto Asintotico}
+
+In questo criterio si considerano due serie, entrambe a termini definitivamente positivi $\sum_{k=1}^\infty a_k \land \sum_{k=1}^\infty b_k | a_k>0,\,b>0\,\forall k\geq k_0$. Allora se il limite del rapporto all'infinito converge ad un numero reale non nullo, allora hanno lo stesso carattere
+\begin{gather*}
+    \lim_{k\to\infty}\frac{a_k}{b_k}=l\in\mathbb{R}\setminus\{0\}
+\end{gather*}
+Se $l=1$ allora le due successioni, analogamente per le funzioni, si dicono asintoticamente equivalenti per $k\to\infty$: $a_k$~$b_k$. %% TODO tilde c'è?
+Spesso si userà questo simbolo generalizzandolo come due funzioni asintoticamente equivalenti a meno di una costante, poiché è di interessa solamente il carattere e non il valore effettivo esplicito di una serie. 
+Se invece il rapporto converge a zero e la serie $\sum b_k$ converge, allora anche la serie $\sum a_k$ converge, ovvero $a_k$ è un infinitesimo di ordine superiore a $b_k$. 
+Se invece il limite di questo rapporto tende ad infinito, e la serie $\sum b_k$ diverge, allora divergerà anche la serie $\sum a_k$, $b_k$ è un infinitesimo di ordine superiore di $a_k$. 
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k}\right)
+\end{gather*}
+È soddisfatta la condizione necessaria per la convergenza, avendo:
+\begin{gather*}
+    \displaystyle\lim_{k\to\infty}\sin\left(\frac{1}{k}\right)=0
+\end{gather*}
+
+Bisogna ora trovare una serie $\sum b_k$, tale che:
+\begin{gather*}
+    \displaystyle\lim_{k\to\infty}\frac{\sin\left(\frac{1}{k}\right)}{b_k}=l\in\mathbb{R}\setminus\{0\}
+\end{gather*}
+Per il limite notevole $\sin x/x$, questa serie è $b_k=1/k$, per cui il limite converge ad uno:
+\begin{gather*}
+    \displaystyle\lim_{k\to\infty}\frac{\sin\left(\frac{1}{k}\right)}{\frac{1}{k}}=1
+\end{gather*}
+
+Queste due serie sono asintoticamente equivalenti tra di loro:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k}\right)\mbox{~}\sum_{k=1}^\infty\frac{1}{k}
+\end{gather*}
+La serie di destra è una serie armonica e diverge, quindi diverge anche la serie di partenza. 5
+
+Data ora la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k^2}\right)
+\end{gather*}
+
+I termini sono sempre positivi, ed è soddisfatta la condizione necessaria, la serie asintoticamente equivalente è data da:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k^2}\right)\mbox{~}\displaystyle\sum_{k=1}^\infty\frac{1}{k^2}
+\end{gather*}
+
+Questa è una serie armonia generalizzata per $\alpha=2>1$, quindi converge. Allora anche la serie di partenza converge.  
+
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k+1}{k}\right)
+\end{gather*}
+
+La serie ha termini di segno definitivamente positivo, poiché l'argomento è certamente maggiore di uno: $k+1>k$. Si scrive in forma equivalente l'argomento per evidenziare il limite notevole:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k+1}{k}\right)=
+    \displaystyle\sum_{k=1}^\infty\ln\left(1+\frac{1}{k}\right)\mbox{~}\sum_{k=1}^\infty\frac{1}{k}
+\end{gather*}
+
+Questa serie ha lo stesso carattere di una serie armonica divergente, quindi diverge. 
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\left(e^{1/k}-1\right)\mbox{~}\sum_{k=1}^\infty\frac{1}{k}
+\end{gather*}
+Per il limite notevole è asintoticamente equivalente ad una serie armonica divergente, quindi diverge. 
+
+Considerando ora la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\left(e^{1/\sqrt{k}}-1\right)\mbox{~}\sum_{k=1}^\infty\frac{1}{k^{1/2}}
+\end{gather*}
+Essendo asintoticamente equivalente ad una serie armonica generalizzata divergente, diverge. 
+Per avere avere una serie convergente, deve avere come argomento almeno un $k^\alpha$, con $\alpha>1$.. 
+
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k^2+5k-2}{k^2+3}\right)
+\end{gather*}
+Sicuramente è una serie a termini positivi, si vuole quindi riscrivere l'argomento del logaritmo nella forma $1+x$:
+% !! 55555555555555555555
+% ?? 55555555555555555555555555555555555555555555558555555555555555555555555555555555555555555555555555555555555
+% todo 55555555555555555555255555555555555555525555555585555555555555555554555555555555555555555565565555565656565555555555555555555555555555
+\begin{gather*}
+    \displaystyle\frac{k^2+5k-2}{k^2+3}=1+\frac{5k-5}{k^2+3}
+\end{gather*}
+Questa serie si comporta in modo equivalente alla serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k^2+5k-2}{k^2+3}\right)=
+    \displaystyle\sum_{k=1}^\infty\ln\left(1+\frac{5k-5}{k^2+3}\right)\mbox{~}\sum_{k=1}^\infty\frac{5k-5}{k^2+3}\mbox{~}\sum_{k=1}^\infty\frac{5k}{k^2}=5\sum_{k=1}^\infty\frac{\cancel{k}}{k^{\cancel{2}}}
+\end{gather*}
+Essendo asintoticamente equivalente ad una serie armonica divergente, anche essa diverge. 
+
+
+
+\clearpage
+
+\section{Funzioni}
+
+Si vuole approssimare funzioni come la somma di una serie parametriche rispetto ad una fattore $x$, che diventerà la variabile indipendente della funzione. Una funzione algebrica si può rappresentare come una certa serie, dimostrato nel caso di una serie telescopica e geometrica. Per serie di segno definitivamente positivo è possibile rappresentarle in forma esplicita, mentre per serie che non rispettano questa condizione, molto probabilmente non è possibile, quindi non è possibile ottenere una rappresentazione algebrica di queste. 
 
 
 
