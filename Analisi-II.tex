@@ -668,15 +668,174 @@ Questa serie si comporta in modo equivalente alla serie:
 \end{gather*}
 Essendo asintoticamente equivalente ad una serie armonica divergente, anche essa diverge. 
 
+\subsection*{Esercitazione}
+
+Studiare il carattere della serie numerica:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\ln\left(1+\frac{1}{k}\right)
+\end{gather*}
+Per il limite notevole, il carattere di questa serie è asintoticamente equivalente alla serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\ln\left(1+\frac{1}{k}\right)\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\frac{1}{k}=
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^4+k}
+\end{gather*}
+Il numeratore si comporta come $k^2$, sono asintoticamente equivalenti, mentre il denominatore è asintoticamente equivalente a $k^4$, quindi la serie è equivalente a:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^4+k}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{\cancel{k^2}}{k^{\cancelto{2}{4}}}
+\end{gather*}
+
+Questa è una serie armonica generalizzata con $\alpha=2>1$, per cui converge. 
 
 
-\clearpage
+Si può realizzare una serie di stesso carattere sostituendo il fattore trascendente con un altro sempre appartenente ad un limite notevole:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\left(e^{1/k}-1\right)\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\frac{1}{k}=
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^4+k}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{\cancel{k^2}}{k^{\cancelto{2}{4}}}
+\end{gather*}
+
+
+
+Studiare il carattere della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k^4+k^3}{k^5+1}\ln\left(\frac{k+1}{k}\right)=
+    \displaystyle\sum_{k=1}^\infty\frac{k^4+k^3}{k^5+1}\ln\left(1+\frac{1}{k}\right)\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{k^4+k^3}{k^5+1}\frac{1}{k}=
+    \displaystyle\sum_{k=1}^\infty\frac{k^5+k^4}{k^6+k}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{\cancel{k^5}}{k^{\cancel{6}}}=
+    \displaystyle\sum_{k=1}^\infty\frac{1}{k}
+\end{gather*}
+Essendo asintoticamente equivalente ad una serie armonica divergente, la serie diverge. 
+
+
+Studiare il carattere della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{5^k}{k^2(2^k+4^k)}
+\end{gather*}
+Poiché il calcolo della condizione necessaria di convergenza è complessa, per risolvere l'esercizio si suppone sia corretta e si utilizza subito uno dei criteri:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{5^k}{k^2(2^k+4^k)}=
+    \displaystyle\sum_{k=1}^\infty\frac{5^k}{k^24^k(1/2^k+1)}
+\end{gather*}
+Si mette in evidenza l'esponenziale con base maggiore, poiché il fattore con base minore di uno per $k\to\infty$ tende a zero, quindi questa serie è asintoticamente equivalente a:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{5^k}{k^24^k(1/2^k+1)}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{1}{k^2}\left(\frac{5}{4}\right)^k
+\end{gather*}
+Si utilizza ora il criterio del rapporto, si determina la serie ausiliaria:
+\begin{gather*}
+    \displaystyle\frac{\frac{1}{(k+1)^2}\left(\frac{5}{4}\right)^{\cancel{k+1}}}{\frac{1}{k^2}\cancel{\left(\frac{5}{4}\right)^k}}=\frac{5}{4}\left(\frac{k}{k+1}\right)^2\\
+    \frac{5}{4}\lim_{k\to\infty}\left(\frac{k}{k+1}\right)^2=\frac{5}{4}>1
+\end{gather*}
+Quindi la serie diverge.  
+
+
+Studiare il carattere della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{2^k+4^k}
+\end{gather*}
+Questo esercizio è molto simile al precedente, ed analogamente si manipola il denominatore per rimuovere la somma di esponenziali:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{2^k+4^k}=
+    \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{4^k(1/2^k+1)}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{4^k}=
+    \displaystyle\sum_{k=1}^\infty k^2\left(\frac{3}{4}\right)^k
+\end{gather*}
+Si utilizza analogamente alla precedente il criterio del rapporto; la sua serie ausiliaria è:
+\begin{gather*}
+    \displaystyle\frac{(k+1)^2\left(\frac{3}{4}\right)^{\cancel{k+1}}}{k^2\cancel{\left(\frac{3}{4}\right)^k}}=\frac{3}{4}\left(\frac{k+1}{k}\right)^2\\
+    \lim_{k\to\infty}\frac{3}{4}\left(\frac{k+1}{k}\right)^2=\frac{3}{4}<1
+\end{gather*}
+Poiché il rapporto tendente all'infinito è minore di uno, allora la serie converge. 
+
+
+Studiare il carattere della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\ln\left(\frac{k+1}{k}\right)
+\end{gather*}
+Questo è esattamente uguale al primo esercizio, quindi anch'esso diverge, l'argomento del logaritmo è scritto in una forma equivalente. 
+
+
+Studiare il carattere della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{2^k(k^2+\sin e^k)}{3^k}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{2^kk^2}{3^k}=
+    \displaystyle\sum_{k=1}^\infty k^2\left(\frac{2}{3}\right)
+\end{gather*}
+Nel numeratore si ha $k^2+\sin e^k$~$k^2$, poiché l'oscillazione di $\sin e^k$ viene smorzata all'infinito da $k^2$, può essere dimostrato tramite il criterio del confronto. 
+Si applica il criterio del rapporto:
+\begin{gather*}
+    \displaystyle\frac{(k+1)^2\left(\frac{2}{3}\right)^{\cancel{k+1}}}{k^2\cancel{\left(\frac{2}{3}\right)^k}}=\frac{3}{4}\left(\frac{k+1}{k}\right)^2\\
+    \lim_{k\to\infty}\frac{2}{3}\left(\frac{k+1}{k}\right)^2=\frac{2}{3}<1
+\end{gather*}
+Essendo il limite minore di uno, la serie converge. 
+
+%% TODO SEGNARE EQUAZIONE
+
+La formula di Stirling afferma che un fattoriale di un numero intero si comporta al limite per $k\to\infty$ come:
+\begin{gather*}
+    \displaystyle\lim_{k\to\infty}\frac{k!}{\sqrt{2k\pi}\left(\frac{k}{e}\right)^k}=1\\
+    k!\mbox{~}\sqrt{2k\pi}\left(\frac{k}{e}\right)^k
+\end{gather*}
+
+
+
+Studiare il carattere della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{\sin k^3-k^{3/5}}{k^{1/4}\ln(k^k+k!)}
+\end{gather*}
+Il denominatore è sempre positivo, mentre nel numeratore il seno può essere al massimo pari ad uno, mentre l'altro fattore $k^{3/5}$ è sicuramente maggiore di uno da un certo $k_0$, quindi si può esprimere come:
+\begin{gather*}
+    -\displaystyle\sum_{k=1}^\infty\frac{k^{3/5}-\sin k^3}{k^{1/4}\ln(k^k+k!)}
+\end{gather*}
+
+Il numeratore può essere sostituito con $k^{3/5}$, analogamente alla precedente utilizzando il criterio del confronto può essere dimostrato come il seno diviso questo fattore tende a zero per $k\to\infty$, quindi la serie si può riscrivere come:
+\begin{gather*}
+    -\displaystyle\sum_{k=1}^\infty\frac{k^{3/5}-\sin k^3}{k^{1/4}\ln(k^k+k!)}\mbox{~}
+    -\displaystyle\sum_{k=1}^\infty\frac{k^{3/5}}{k^{1/4}\ln(k^k+k!)}=
+    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln(k^k+k!)}
+\end{gather*}
+Essendo $k^k$ un infinito di ordine superiore a $k!$, si può esprimere il denominatore in modo asintoticamente equivalente come:
+\begin{gather*}
+    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln(k^k+k!)}=
+    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln\left[k^k\left(1+\frac{k!}{k^k}\right)\right]}=
+    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln k^k+\ln\left(1+\frac{k!}{k^k}\right)}\mbox{~}
+    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln k^k}    
+\end{gather*}
+Si dimostra:
+\begin{gather*}
+    \lim_{k\to\infty}\frac{\ln k^k+\ln\left(1+\frac{k!}{k^k}\right)}{\ln k^k}=
+    \lim_{k\to\infty}\left[\cancelto{1}{\frac{\ln k^k}{\ln k^k}}+\frac{\ln\left(1+\frac{k!}{k^k}\right)}{\ln k^k}\right]\\
+    \lim_{k\to\infty}\ln\left(1+\frac{k!}{k^k}\right)=0\rightarrow
+    \lim_{k\to\infty}\frac{\ln k^k+\ln\left(1+\frac{k!}{k^k}\right)}{\ln k^k}=1
+\end{gather*}
+Si può riscrivere come:
+\begin{gather*}
+    -\displaystyle\sum_{k=1}^\infty\frac{k^{7/20}}{k}\frac{1}{\ln k}=
+    -\displaystyle\sum_{k=1}^\infty\frac{1}{k^{13/20}\ln k}
+\end{gather*}
+
+In questa situazione si applica il criterio di condensazione creando la serie ausiliaria:
+\begin{gather*}
+    -\displaystyle\sum_{k=1}^\infty2^k\frac{1}{(2^k)^{13/20}\ln 2^k}=
+    -\displaystyle\sum_{k=1}^\infty\frac{2^k}{(2^k)^{13/20}}\frac{1}{k\ln 2}=
+    -\displaystyle\sum_{k=1}^\infty\frac{2^{7k/20}}{k\ln 2}=-\frac{1}{\ln 2}\sum_{k=1}^\infty\frac{2^{7k/20}}{k}
+\end{gather*}
+Applicando il criterio del rapporto si ha:
+\begin{gather*}
+    \displaystyle\frac{2^{\cancel{7(k+1/20)}}}{k+1}\frac{k}{\cancel{2^{7k/20}}}=2^{7/20}\frac{k}{k+1}\\
+    \lim_{k\to\infty}2^{7/20}\frac{k}{k+1}=2^{7/20}<1
+\end{gather*}
+Poiché il limite tende ad un valore minore di uno, la serie converge. 
+
+
 
 \section{Funzioni}
 
 Si vuole approssimare funzioni come la somma di una serie parametriche rispetto ad una fattore $x$, che diventerà la variabile indipendente della funzione. Una funzione algebrica si può rappresentare come una certa serie, dimostrato nel caso di una serie telescopica e geometrica. Per serie di segno definitivamente positivo è possibile rappresentarle in forma esplicita, mentre per serie che non rispettano questa condizione, molto probabilmente non è possibile, quindi non è possibile ottenere una rappresentazione algebrica di queste. 
-
-
 
 
 
