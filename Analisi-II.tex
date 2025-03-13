@@ -606,7 +606,7 @@ Per il limite notevole $\sin x/x$, questa serie è $b_k=1/k$, per cui il limite 
 
 Queste due serie sono asintoticamente equivalenti tra di loro:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k}\right)\mbox{~}\sum_{k=1}^\infty\frac{1}{k}
+    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k}\right)\sim\sum_{k=1}^\infty\frac{1}{k}
 \end{gather*}
 La serie di destra è una serie armonica e diverge, quindi diverge anche la serie di partenza. 5
 
@@ -617,7 +617,7 @@ Data ora la seguente serie:
 
 I termini sono sempre positivi, ed è soddisfatta la condizione necessaria, la serie asintoticamente equivalente è data da:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k^2}\right)\mbox{~}\displaystyle\sum_{k=1}^\infty\frac{1}{k^2}
+    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k^2}\right)\sim\displaystyle\sum_{k=1}^\infty\frac{1}{k^2}
 \end{gather*}
 
 Questa è una serie armonia generalizzata per $\alpha=2>1$, quindi converge. Allora anche la serie di partenza converge.  
@@ -631,20 +631,20 @@ Si considera la seguente serie:
 La serie ha termini di segno definitivamente positivo, poiché l'argomento è certamente maggiore di uno: $k+1>k$. Si scrive in forma equivalente l'argomento per evidenziare il limite notevole:
 \begin{gather*}
     \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k+1}{k}\right)=
-    \displaystyle\sum_{k=1}^\infty\ln\left(1+\frac{1}{k}\right)\mbox{~}\sum_{k=1}^\infty\frac{1}{k}
+    \displaystyle\sum_{k=1}^\infty\ln\left(1+\frac{1}{k}\right)\sim\sum_{k=1}^\infty\frac{1}{k}
 \end{gather*}
 
 Questa serie ha lo stesso carattere di una serie armonica divergente, quindi diverge. 
 
 Si considera la seguente serie:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\left(e^{1/k}-1\right)\mbox{~}\sum_{k=1}^\infty\frac{1}{k}
+    \displaystyle\sum_{k=1}^\infty\left(e^{1/k}-1\right)\sim\sum_{k=1}^\infty\frac{1}{k}
 \end{gather*}
 Per il limite notevole è asintoticamente equivalente ad una serie armonica divergente, quindi diverge. 
 
 Considerando ora la seguente serie:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\left(e^{1/\sqrt{k}}-1\right)\mbox{~}\sum_{k=1}^\infty\frac{1}{k^{1/2}}
+    \displaystyle\sum_{k=1}^\infty\left(e^{1/\sqrt{k}}-1\right)\sim\sum_{k=1}^\infty\frac{1}{k^{1/2}}
 \end{gather*}
 Essendo asintoticamente equivalente ad una serie armonica generalizzata divergente, diverge. 
 Per avere avere una serie convergente, deve avere come argomento almeno un $k^\alpha$, con $\alpha>1$.. 
@@ -664,9 +664,35 @@ Sicuramente è una serie a termini positivi, si vuole quindi riscrivere l'argome
 Questa serie si comporta in modo equivalente alla serie:
 \begin{gather*}
     \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k^2+5k-2}{k^2+3}\right)=
-    \displaystyle\sum_{k=1}^\infty\ln\left(1+\frac{5k-5}{k^2+3}\right)\mbox{~}\sum_{k=1}^\infty\frac{5k-5}{k^2+3}\mbox{~}\sum_{k=1}^\infty\frac{5k}{k^2}=5\sum_{k=1}^\infty\frac{\cancel{k}}{k^{\cancel{2}}}
+    \displaystyle\sum_{k=1}^\infty\ln\left(1+\frac{5k-5}{k^2+3}\right)\sim\sum_{k=1}^\infty\frac{5k-5}{k^2+3}\sim\sum_{k=1}^\infty\frac{5k}{k^2}=5\sum_{k=1}^\infty\frac{\cancel{k}}{k^{\cancel{2}}}
 \end{gather*}
 Essendo asintoticamente equivalente ad una serie armonica divergente, anche essa diverge. 
+
+\subsubsection{Criterio di Leibniz}
+
+Una prima famiglia di serie a termini di segno alterni permette comunque di poter calcolare. Considerata una serie con $a_k>0\forall k>k_0$, si esprime il fattore che rende la serie alterna:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty(-1)^ka_k
+\end{gather*}
+
+Il criterio di Leibniz suppone di avere una serie del genere, sia $\{a_k\}\downarrow0$, allora la serie converge. 
+
+
+Detta $S$ la somma della serie:
+\begin{gather*}
+    s=\displaystyle\sum_{k=0}^\infty(-1)^ka_k
+\end{gather*}
+
+All'aumentare di $n$, la somma $s_n$ dei primi $n$ elementi della serie, la serie oscilla sorpassando in positivo o in negativo la somma $s$, di valori sempre più piccoli, convergendo al valore $s$:
+
+%% TODO asse reale con S1, S2, ... S oscillazione
+\begin{gather*}
+    |s-s_1| < |s_1-s_2|\\
+    |s-s_n| \leq |s_n-s_{n-1}|=|a_n|
+\end{gather*}
+
+La somma $s_n$ si posizione al lato opposto di $s_{n-1}$ e si trova ad una posizione più vicina alla somma $s$ rispetto al precedente, quindi ha una distanza minore. 
+
 
 \subsection*{Esercitazione}
 
@@ -676,13 +702,13 @@ Studiare il carattere della serie numerica:
 \end{gather*}
 Per il limite notevole, il carattere di questa serie è asintoticamente equivalente alla serie:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\ln\left(1+\frac{1}{k}\right)\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\ln\left(1+\frac{1}{k}\right)\sim
     \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\frac{1}{k}=
     \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^4+k}
 \end{gather*}
 Il numeratore si comporta come $k^2$, sono asintoticamente equivalenti, mentre il denominatore è asintoticamente equivalente a $k^4$, quindi la serie è equivalente a:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^4+k}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^4+k}\sim
     \displaystyle\sum_{k=1}^\infty\frac{\cancel{k^2}}{k^{\cancelto{2}{4}}}
 \end{gather*}
 
@@ -691,9 +717,9 @@ Questa è una serie armonica generalizzata con $\alpha=2>1$, per cui converge.
 
 Si può realizzare una serie di stesso carattere sostituendo il fattore trascendente con un altro sempre appartenente ad un limite notevole:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\left(e^{1/k}-1\right)\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\left(e^{1/k}-1\right)\sim
     \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\frac{1}{k}=
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^4+k}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^4+k}\sim
     \displaystyle\sum_{k=1}^\infty\frac{\cancel{k^2}}{k^{\cancelto{2}{4}}}
 \end{gather*}
 
@@ -702,9 +728,9 @@ Si può realizzare una serie di stesso carattere sostituendo il fattore trascend
 Studiare il carattere della seguente serie:
 \begin{gather*}
     \displaystyle\sum_{k=1}^\infty\frac{k^4+k^3}{k^5+1}\ln\left(\frac{k+1}{k}\right)=
-    \displaystyle\sum_{k=1}^\infty\frac{k^4+k^3}{k^5+1}\ln\left(1+\frac{1}{k}\right)\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{k^4+k^3}{k^5+1}\ln\left(1+\frac{1}{k}\right)\sim
     \displaystyle\sum_{k=1}^\infty\frac{k^4+k^3}{k^5+1}\frac{1}{k}=
-    \displaystyle\sum_{k=1}^\infty\frac{k^5+k^4}{k^6+k}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{k^5+k^4}{k^6+k}\sim
     \displaystyle\sum_{k=1}^\infty\frac{\cancel{k^5}}{k^{\cancel{6}}}=
     \displaystyle\sum_{k=1}^\infty\frac{1}{k}
 \end{gather*}
@@ -722,7 +748,7 @@ Poiché il calcolo della condizione necessaria di convergenza è complessa, per 
 \end{gather*}
 Si mette in evidenza l'esponenziale con base maggiore, poiché il fattore con base minore di uno per $k\to\infty$ tende a zero, quindi questa serie è asintoticamente equivalente a:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{5^k}{k^24^k(1/2^k+1)}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{5^k}{k^24^k(1/2^k+1)}\sim
     \displaystyle\sum_{k=1}^\infty\frac{1}{k^2}\left(\frac{5}{4}\right)^k
 \end{gather*}
 Si utilizza ora il criterio del rapporto, si determina la serie ausiliaria:
@@ -740,7 +766,7 @@ Studiare il carattere della seguente serie:
 Questo esercizio è molto simile al precedente, ed analogamente si manipola il denominatore per rimuovere la somma di esponenziali:
 \begin{gather*}
     \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{2^k+4^k}=
-    \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{4^k(1/2^k+1)}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{4^k(1/2^k+1)}\sim
     \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{4^k}=
     \displaystyle\sum_{k=1}^\infty k^2\left(\frac{3}{4}\right)^k
 \end{gather*}
@@ -761,7 +787,7 @@ Questo è esattamente uguale al primo esercizio, quindi anch'esso diverge, l'arg
 
 Studiare il carattere della seguente serie:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{2^k(k^2+\sin e^k)}{3^k}\mbox{~}
+    \displaystyle\sum_{k=1}^\infty\frac{2^k(k^2+\sin e^k)}{3^k}\sim
     \displaystyle\sum_{k=1}^\infty\frac{2^kk^2}{3^k}=
     \displaystyle\sum_{k=1}^\infty k^2\left(\frac{2}{3}\right)
 \end{gather*}
@@ -778,7 +804,7 @@ Essendo il limite minore di uno, la serie converge.
 La formula di Stirling afferma che un fattoriale di un numero intero si comporta al limite per $k\to\infty$ come:
 \begin{gather*}
     \displaystyle\lim_{k\to\infty}\frac{k!}{\sqrt{2k\pi}\left(\frac{k}{e}\right)^k}=1\\
-    k!\mbox{~}\sqrt{2k\pi}\left(\frac{k}{e}\right)^k
+    k!\sim\sqrt{2k\pi}\left(\frac{k}{e}\right)^k
 \end{gather*}
 
 
@@ -794,7 +820,7 @@ Il denominatore è sempre positivo, mentre nel numeratore il seno può essere al
 
 Il numeratore può essere sostituito con $k^{3/5}$, analogamente alla precedente utilizzando il criterio del confronto può essere dimostrato come il seno diviso questo fattore tende a zero per $k\to\infty$, quindi la serie si può riscrivere come:
 \begin{gather*}
-    -\displaystyle\sum_{k=1}^\infty\frac{k^{3/5}-\sin k^3}{k^{1/4}\ln(k^k+k!)}\mbox{~}
+    -\displaystyle\sum_{k=1}^\infty\frac{k^{3/5}-\sin k^3}{k^{1/4}\ln(k^k+k!)}\sim
     -\displaystyle\sum_{k=1}^\infty\frac{k^{3/5}}{k^{1/4}\ln(k^k+k!)}=
     -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln(k^k+k!)}
 \end{gather*}
@@ -802,7 +828,7 @@ Essendo $k^k$ un infinito di ordine superiore a $k!$, si può esprimere il denom
 \begin{gather*}
     -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln(k^k+k!)}=
     -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln\left[k^k\left(1+\frac{k!}{k^k}\right)\right]}=
-    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln k^k+\ln\left(1+\frac{k!}{k^k}\right)}\mbox{~}
+    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln k^k+\ln\left(1+\frac{k!}{k^k}\right)}\sim
     -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln k^k}    
 \end{gather*}
 Si dimostra:
@@ -833,9 +859,139 @@ Poiché il limite tende ad un valore minore di uno, la serie converge.
 
 
 
-\section{Funzioni}
+Studiare il carattere della serie:
+\begin{gather*}
+    \displaystyle\sum_{k=0}^\infty\left(\sqrt[3]{k^3+1}-k\right)
+\end{gather*}
 
-Si vuole approssimare funzioni come la somma di una serie parametriche rispetto ad una fattore $x$, che diventerà la variabile indipendente della funzione. Una funzione algebrica si può rappresentare come una certa serie, dimostrato nel caso di una serie telescopica e geometrica. Per serie di segno definitivamente positivo è possibile rappresentarle in forma esplicita, mentre per serie che non rispettano questa condizione, molto probabilmente non è possibile, quindi non è possibile ottenere una rappresentazione algebrica di queste. 
+Si considera il prodotto notevole della differenza di due cubi, per determinare se questa serie soddisfa almeno la condizione necessaria per la convergenza:
+\begin{gather*}
+    \displaystyle a=\sqrt[3]{k^3+1}\land b=k\\
+    \displaystyle a^3-a^3=(a-b)(a^2+ab+B^b)\\
+    \displaystyle a-b=\frac{a^3-b^3}{a^2+ab+b^2}\\
+    \displaystyle\sqrt[3]{k^3+1}-k=\frac{\cancel{k^3}+1-\cancel{k^3}}{\left(\sqrt[3]{k^3+1}\right)^2+k\sqrt[3]{k^3+1}+k^2}\\
+    \displaystyle\sum_{k=0}^\infty\left(\sqrt[3]{k^3+1}-k\right)=
+    \sum_{k=0}^\infty\frac{1}{\left(\sqrt[3]{k^3+1}\right)^2+k\sqrt[3]{k^3+1}+k^2}
+\end{gather*}
+Ragruppando gli addendi di potenza più grande:
+\begin{gather*}
+    \sum_{k=0}^\infty\frac{1}{\left(\sqrt[3]{k^3+1}\right)^2+k\sqrt[3]{k^3+1}+k^2}
+    \displaystyle\sum_{k=0}^\infty\frac{1}{\sqrt[3]{k^6\left(1+\frac{2}{k^3}+\frac{1}{k^6}\right)}+k\sqrt[3]{k^3\left(1+\frac{1}{k^3}\right)}+k^2}\\
+    \sum_{k=0}^\infty\frac{1}{k^2\left(\sqrt[3]{1+\frac{2}{k^3}+\frac{1}{k^6}}+\sqrt[3]{1+\frac{1}{k^3}}+1\right)}
+    \sim\sum_{k=0}^\infty\frac{1}{k^2}
+\end{gather*}
+
+Al denominatore tutti i termini sono asintoticamente equivalenti a $k^2$, per cui questa serie è asintoticamente equivalente ad una serie armonica generalizzata con $\alpha=2$, a meno di una costante:
+\begin{gather*}
+    \displaystyle\sum_{k=0}^\infty\frac{1}{\left(\sqrt[3]{k^3+1}\right)^2+k\sqrt[3]{k^3+1}+k^2}
+    \sim\sum_{k=0}^\infty\frac{1}{k^2}
+\end{gather*} 
+Quindi converge. 
+
+
+Studiare la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{3^kk!}{k^k}
+\end{gather*}
+Considerando la formula di Stirling, si ottiene la serie asintoticamente equivalente:
+\begin{gather*}
+    \displaystyle\sum_{k=0}^\infty\frac{3^k}{k^k}\sqrt{2\pi k}\left(\frac{k}{e}\right)^k=\sum_{k=0}^\infty\left(\frac{3}{e}\right)^k\sqrt{2\pi k}
+\end{gather*}
+Utilizzando il criterio del rapporto, si costruisce la successione ausiliaria: 
+\begin{gather*}
+    \displaystyle\left(\frac{3}{e}\right)^{\cancel{k+1}}\cancel{\sqrt{2\pi}} \sqrt{(k+1)}\cancel{\left(\frac{e}{3}\right)^k}\frac{1}{\cancel{\sqrt{2\pi}} \sqrt{k}}=
+    \frac{3}{e}\frac{\sqrt{k+1}}{\sqrt{k}}\\
+    \lim_{k\to\infty}\frac{3}{e}\sqrt{\frac{k+1}{k}}=\frac{3}{e}>1
+\end{gather*}
+Quindi questa serie converge. 
+
+
+Studiare il carattere della seguente serie, per $\alpha\in\mathbb{R}^+$:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty k^{2/3-3\alpha}\left(e^{1/k^{2\alpha}}-1\right)
+\end{gather*}
+Si considera il limite notevole $e^{1/k^{2\alpha}}-1\sim1/k^{2\alpha}$ e si considera la serie asintoticamente equivalente:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty k^{2/3-3\alpha}\left(e^{1/k^{2\alpha}}-1\right)\sim
+    \displaystyle\sum_{k=1}^\infty \frac{k^{2/3-3\alpha}}{k^{2\alpha}}=\sum_{k=1}^\infty k^{2/3-5\alpha}
+\end{gather*}
+Si può rendere equivalente a duna serie armonica generalizzata:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{1}{k^{5\alpha-2/3}}:\begin{cases}
+        5\alpha-\displaystyle\frac{\strut 2}{\strut 3}>1 &\mbox{converge}\\
+        5\alpha-\displaystyle\frac{\strut 2}{\strut 3}<1 &\mbox{diverge}
+    \end{cases}=\begin{cases}
+        \alpha>\displaystyle\frac{\strut 1}{\strut 3} &\mbox{converge}\\
+        \alpha<\displaystyle\frac{\strut 1}{\strut 3} &\mbox{diverge}
+    \end{cases}
+\end{gather*}
+
+
+Studiare il carattere della seguente serie, per $\alpha\in\mathbb{R}^+$:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty k^{1/2-\alpha}\ln\left(1+\frac{1}{k^{3\alpha}}\right)\sim\sum_{k=1}^\infty k^{1/2-\alpha}\frac{1}{k^{3\alpha}}=\sum_{k=1}^\infty\frac{1}{k^{4\alpha-1/2}}
+\end{gather*}
+
+La serie converge per $4\alpha-1/2>1$
+
+
+
+
+Studiare il carattere della serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{(-1)^k}{k}
+\end{gather*}
+La serie rispetta il criterio di Leibniz e quindi converge. 
+
+
+Studiare il carattere della serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^{\infty}(-1)^k\frac{2^{k+1}}{3^{k+2}k!}=
+    \sum_{k=1}^\infty(-1)^k\left(\frac{2}{3}\right)^k\frac{2}{9}\frac{1}{k!}=\frac{2}{9}\sum_{k=1}^\infty(-1)^k\left(\frac{2}{3}\right)^k\frac{1}{k!}
+\end{gather*}
+
+
+
+Studiare il carattere della seguente serie, per $\alpha\in\mathbb{R}$:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k^{2\alpha}\cos(k\pi)}{k+1}
+\end{gather*}
+Avendo $\pi$ all'interno del coseno, ed essendo $k$ solo numeri naturali, il fattore coseno alterna segno, mentre di modulo vale sempre uno:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k^{2\alpha}\cos(k\pi)}{k+1}=
+    \sum_{k=1}^\infty(-1)^k\frac{k^{2\alpha}}{k+1}
+\end{gather*}
+
+Si considera la funzione associata $f(x)$, e si studia la sua derivata per determinare la sua monotonia:
+\begin{gather*}
+    f(x)=\displaystyle\frac{x^{2\alpha}}{x+1}\\
+    \displaystyle\frac{\mathrm{d}f(x)}{\mathrm{d}x}=\frac{2\alpha x^{2\alpha-1}(x+1)-x^{2\alpha}}{(x+1)^2}=
+    \frac{(2\alpha-1)x^{2\alpha}+2\alpha x^{2\alpha-1}}{(x+1)^2}=\frac{x^{2\alpha-1}}{x+1}\left[(2\alpha-1)x+2\alpha\right]\\\frac{x^{2\alpha-1}}{x+1}\left[(2\alpha-1)x+2\alpha\right]<0:\mbox{converge}:\,2\alpha-1<0\implies\alpha<\frac{1}{2}
+\end{gather*}
+
+
+Studiare il carattere della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty(-1)^k\frac{\sqrt{k}}{k+1}
+\end{gather*}
+Si vuole trovare un'approssimazione di $s$ a meno di $10^{-3}$:
+\begin{gather*}
+    |s-s_n|\leq|a_n|=\displaystyle\frac{\sqrt{n}}{n+1}<10^{-3}\\
+    \text{per }n=10^6\Rightarrow\frac{10^6}{10^6-1}=0.000\bar{9}<10^{-3}
+\end{gather*}
+
+Le prime tre cifre della somma per $n=10^6$ coincidono al valore reale della somma. 
+
+
+
+
+
+
+%!! ti amoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+%% TODO 
+% \section{Funzioni}
+
+% Si vuole approssimare funzioni come la somma di una serie parametriche rispetto ad una fattore $x$, che diventerà la variabile indipendente della funzione. Una funzione algebrica si può rappresentare come una certa serie, dimostrato nel caso di una serie telescopica e geometrica. Per serie di segno definitivamente positivo è possibile rappresentarle in forma esplicita, mentre per serie che non rispettano questa condizione, molto probabilmente non è possibile, quindi non è possibile ottenere una rappresentazione algebrica di queste. 
 
 
 
