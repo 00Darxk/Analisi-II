@@ -675,7 +675,7 @@ Una prima famiglia di serie a termini di segno alterni permette comunque di pote
     \displaystyle\sum_{k=1}^\infty(-1)^ka_k
 \end{gather*}
 
-Il criterio di Leibniz suppone di avere una serie del genere, sia $\{a_k\}\downarrow0$, allora la serie converge. 
+Il criterio di Leibniz suppone di avere una serie del genere, siano i termini della serie decrescenti, tendenti a 0: $\{a_k\}\downarrow0$, allora la serie converge. 
 
 
 Detta $S$ la somma della serie:
@@ -693,8 +693,63 @@ All'aumentare di $n$, la somma $s_n$ dei primi $n$ elementi della serie, la seri
 
 La somma $s_n$ si posizione al lato opposto di $s_{n-1}$ e si trova ad una posizione più vicina alla somma $s$ rispetto al precedente, quindi ha una distanza minore. 
 
+\subsubsection{Criterio di Convergenza Assoluta}
 
-\subsection*{Esercitazione}
+Il criterio di Leibniz si può utilizzare solo quando le serie hanno segno alterno, mentre, per altri tipo di serie in cui il segno non è né definitivamente positivo, o negativo, e né alterno, è necessario un altro criterio per poter determinarne il carattere. 
+
+Un criterio generale consiste nell'analizzare il carattere della serie $|a_k|$, questa serie risultante è a termini di segno costante positivo:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty|a_k|
+\end{gather*}
+
+Un teorema dimostrabile afferma che se una serie ha termini di segno non costante $\sum a_k$, se la serie formata mettendo in valore assoluto i termini della prima $\sum|a_k|$ converge, allora converge anche la serie iniziale. Si dice che converge in modo assoluto, o assolutamente. 
+
+Se la serie $\sum a_k$ converge assolutamente, allora la serie converge semplicemente, la convergenza studiata con i criteri precedenti. 
+
+\subsection{Serie di Potenze}
+
+In generale una serie di potenza viene espressa, partendo da 0 o 1, come:
+\begin{gather*}
+    \displaystyle\sum_{k=0}^\infty a_k(x-x_0)^k
+\end{gather*}
+Con $x_0\in\mathbb{R}$, si dice serie di potenze con centro in $x_0$. Le serie di potenze sono molto importanti e di facile analisi, anche se il calcolo del loro limite non è triviale. 
+
+Quando si analizzano serie di potenze si parla di intervallo di convergenza, poiché si analizza per quali valori del parametro $x$ la serie converge. Una serie geometrica è una particolare serie di potenze centrata in $x_0=0$, con $a_k=1$ per ogni valore di $k$, di cui si conosce anche la somma, per valori del parametro $x\in(-1,1)$:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty x^k=\frac{1}{1-x}
+\end{gather*}
+
+Tutte le volte che si ha una serie di potenze, la prima cosa che bisogna calcolare è il cosiddetto raggio di convergenza. La sua definizione è molto più ampia, ma studiando casi particolari non sarà necessario approfondirlo. Per calcolarlo si introduce una successione ausiliaria:
+\begin{gather*}
+    \left\{\displaystyle\left|\frac{a_k}{a_{k+1}}\right|\right\}
+\end{gather*}
+Questa serie si riferisce al criterio del rapporto, alternativamente si può usare la serie ausiliaria: %% TODO quale criterio
+\begin{gather*}
+    \left\{\displaystyle\frac{1}{\sqrt[k]{a_k}}\right\}
+\end{gather*}
+Bisogna dare per ipotesi che queste successioni siano regolari, per $k\to\infty$. Questo valore $R$ si trova calcolando il limite per $k\to\infty$ di una di queste due successioni:
+\begin{equation}
+    R=\lim_{k\to\infty}\displaystyle\left|\frac{a_k}{a_{k+1}}\right|=\lim_{k\to\infty}\frac{1}{\sqrt[k]{a_k}}=\begin{cases}
+        +\infty\\
+        0\\
+        \in\mathbb{R}^+
+    \end{cases}
+\end{equation}
+
+Se il limite esiste assume uno di questi tre possibili valori. Una volta determinato il raggio di convergenza, esiste un teorema che stabilisce dove questa serie risulta sicuramente convergente. 
+
+Sia $R$ il raggio di convergenza della serie di potenze $a_k$ con centro in $x_0$: $\sum a_k(x-x_0)^k$. Allora si può affermare:
+\begin{enumerate}
+    \item Se $R=0$, la serie converge solo nel centro $x_0$. 
+    \item Se $R=+\infty$, la serie converge in $\mathbb{R}$, ovvero qualunque sia il valore reale del parametro $x$. 
+    \item Se $R\in\mathbb{R}^+$, finito positivo e diverso da zero, la serie converge assolutamente, e quindi semplicemente, in $(x_0-R, x_0+R)$. Inoltre la serie non converge nell'intervallo $(-\infty,x_0-R)$ e $(x_0+R, +\infty)$. 
+\end{enumerate}
+
+Nell'ultimo caso $R$ rappresenta il centro dell'intervallo di convergenza, se il raggio è zero, contiene solo il centro, se è infinito, contiene tutti i numeri reali. 
+Per determinare il valore al limite dell'intervallo $x=x_0\pm R$, bisogna sostituire questo valore ad $x$ e studiare per via diretta il carattere della serie risultante. Per questo si distingue tra intervallo di convergenza ed insieme di convergenza, poiché potrebbero non coincidere, potrebbero comprendere gli estremi. Coincidono solo se ai valori estremi la serie non converge. 
+
+
+\subsection*{Esercizi}
 
 Studiare il carattere della serie numerica:
 \begin{gather*}
@@ -804,7 +859,7 @@ Essendo il limite minore di uno, la serie converge.
 La formula di Stirling afferma che un fattoriale di un numero intero si comporta al limite per $k\to\infty$ come:
 \begin{gather*}
     \displaystyle\lim_{k\to\infty}\frac{k!}{\sqrt{2k\pi}\left(\frac{k}{e}\right)^k}=1\\
-    k!\sim\sqrt{2k\pi}\left(\frac{k}{e}\right)^k
+    k!\sim\sqrt{2k\pi}\left(\frac{k}{e}\right)^k\tageq
 \end{gather*}
 
 
@@ -985,10 +1040,180 @@ Le prime tre cifre della somma per $n=10^6$ coincidono al valore reale della som
 
 
 
+Studiare il carattere della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{\sin k}{k^2}
+\end{gather*}
+Per il criterio di convergenza assoluta:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\left|\frac{\sin k}{k^2}\right|
+\end{gather*}
+Per il criterio del confronto si ha:
+\begin{gather*}
+    \displaystyle\frac{\sin k}{k^2}\leq\frac{1}{k^2}
+\end{gather*}
+La serie maggiorante è una serie armonica generalizzata convergente, quindi la serie iniziale converge. 
+
+
+
+
+Studiare l'insieme di convergenza di questa serie:
+\begin{gather*}
+    \displaystyle\sum_{k=0}^\infty x^k
+\end{gather*}
+Ha centro in $x_0$, e coefficienti unitari $a_k=1$. Si determina il valore del raggio di convergenza:
+\begin{gather*}
+    R=\lim_{k\to\infty}\left|\frac{a_k}{{a_{k+1}}}\right|=1
+\end{gather*}
+La serie converge sicuramente nell'intervallo di convergenza: $(-1,+1)$. Ci sono due casi dubbi nei punti $x=\pm1$:
+\begin{gather*}
+    \displaystyle\sum_{k=0}^\infty 1^k=\sum_{k=1}^\infty1=+\infty
+\end{gather*}
+La serie non converge per $x=1$, mentre in $x=-1$:
+\begin{gather*}
+    \displaystyle\sum_{k=0}^\infty (-1)^k
+\end{gather*}
+Questa serie a termini di segno alterno non soddisfa la condizione necessaria di convergenza, quindi non converge neanche in $x=-1$. 
+Quindi in questo caso l'insieme di convergenza coincide all'intervallo di convergenza. 
+
+È possibile esprimere la funzione $1/(1-x)$ in termini di questa serie, se $x$ appartiene all'insieme di convergenza. Si useranno serie, come la serie di Taylor per approssimare il comportamento di funzioni trascendenti in forma di polinomio. 
+
+
+
+Studiare l'insieme di convergenza della seguente serie di potenze:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{x^k}{k}
+\end{gather*}
+È sempre centrata in $x_0=0$, ma i coefficienti non sono costanti $a_k=k^{-1}$. 
+Si determina il valore del raggio di convergenza:
+\begin{gather*}
+    R=\lim_{k\to\infty}\left|\frac{a_k}{{a_{k+1}}}\right|=
+    \lim_{k\to\infty}\left|\frac{k^{-1}}{{(k+1)^{-1}}}\right|=
+    \lim_{k\to\infty}\frac{k+1}{k}=1
+\end{gather*}
+Quindi sicuramente questa serie converge nell'intervallo $(-1,+1)$. Bisogna studiare il carattere nei valori di frontiera:
+\begin{gather*}
+    x=1\rightarrow\displaystyle\sum_{k=1}^\infty\frac{1^k}{k}=\sum_{k=1}^\infty\frac{1}{k}=+\infty\\
+    x=-1\rightarrow\displaystyle\sum_{k=1}^\infty\frac{(-1)^k}{k}:\text{converge}
+\end{gather*}
+La serie converge perché è una serie di segno alterno, con $1/k$ decrescente tendente a zero. Quindi la serie converge in $[-1,1)$. 
+
+
+
+Studiare l'insieme di convergenza della seguente serie di potenze:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{x^k}{k^2}
+\end{gather*}
+È sempre centrata in $x_0=0$, dove il termine generico è $a_k=k^{-2}$. 
+Si determina il valore del raggio di convergenza:
+\begin{gather*}
+    R=\lim_{k\to\infty}\left|\frac{a_k}{{a_{k+1}}}\right|=
+    \lim_{k\to\infty}\left|\frac{k^{-2}}{{(k+1)^{-2}}}\right|=
+    \lim_{k\to\infty}\frac{(k+1)^2}{k^2}=1
+\end{gather*}
+Quindi sicuramente questa serie converge nell'intervallo $(-1,+1)$. Bisogna studiare il carattere nei valori di frontiera:
+\begin{gather*}
+    x=1\rightarrow\displaystyle\sum_{k=1}^\infty\frac{1^k}{k^2}=\sum_{k=1}^\infty\frac{1}{k^2}:\text{converge}\\
+    x=-1\rightarrow\displaystyle\sum_{k=1}^\infty\frac{(-1)^k}{k^2}:\text{converge}
+\end{gather*}
+La prima converge poiché è una serie armonica generalizzata con $\alpha>1$, mentre la seconda serie converge perché è una serie di segno alterno, con $1/k$ decrescente tendente a zero, per il criterio di Leibniz. Quindi la serie converge in $[-1,1]$. 
+
+
+
+
+Studiare l'insieme di convergenza della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k^2}{3^k}x^k
+\end{gather*}
+Si determina il raggio di convergenza della serie:
+\begin{gather*}
+    R=\lim_{k\to\infty}\left|\frac{a_k}{{a_{k+1}}}\right|=
+    \lim_{k\to\infty}\frac{\frac{k^2}{3^k}}{\frac{(k+1)^2}{3^{k+1}}}=
+    \lim_{k\to\infty}\frac{k^23^{\cancel{k+1}}}{\cancel{3^k}(k+1)^2}=3
+\end{gather*}
+Sicuramente la serie di potenze converge nell'intervallo di convergenza $(-3, 3)$. Si determina il comportamento agli estremi:
+\begin{gather*}
+    x=3\rightarrow\displaystyle\sum_{k=1}^\infty\frac{k^2}{\cancel{3^k}}\cancel{3^k}=+\infty\\
+    x=-3\rightarrow\displaystyle\sum_{k=1}^\infty\frac{k^2}{3^k}(-3)^k=
+    \sum_{k=1}^\infty(-1)^k\frac{k^2}{\cancel{3^k}}\cancel{3^k}=+\infty
+\end{gather*}
+In questo caso l'insieme di convergenza coincide con l'intervallo di convergenza: $(-3, 3)$. 
+
+
+
+Studiare il carattere della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{1}{k}\left(\frac{x}{4}\right)^k
+\end{gather*}
+Con un cambiamento di base si può riportare questa serie in una serie di potenze con centro nell'origine: $t=x/4$:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{t^k}{k}
+\end{gather*}
+Questa serie è già stata analizzata precedentemente, e converge con $t\in[-1,1)$. Ma bisogna sempre fare riferimento alla variabile originale, quindi la serie originale converge per $x\in[-4, 4)$. 
+
+
+Studiare il carattere della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k!2^k+5}{(k+3)!}(x+2)^k
+\end{gather*}
+Questa serie di potenze è centrata in $x_0=-2$, con termini generici:
+\begin{gather*}
+    \displaystyle\frac{k!2^k+5}{(k+3)!}
+\end{gather*}
+Si preferisce lavorare con serie di potenze con centro nell'origine, per cui si effettua il cambio di variabile $t=x+2$, mentre il termine generico rimane invariato:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k!2^k+5}{(k+3)!}t^k
+\end{gather*}
+% Si considera la serie asintoticamente equivalente:
+% \begin{gather*}
+%     \displaystyle\sum_{k=1}^\infty\frac{k!2^k+5}{(k+3)!}t^k\sim
+%     \displaystyle\sum_{k=1}^\infty\frac{k!}{(k+3)!}2^kt^k
+% \end{gather*}
+
+Si determina il valore del raggio di convergenza:
+\begin{gather*}
+    R=\displaystyle\lim_{k\to\infty}\frac{a_k}{a_{k+1}}=\frac{\frac{k!2^k+5}{(k+3)!}}{\frac{(k+1)!2^{k+1}+5}{(k+4)!}}=
+    \lim_{k\to\infty}\frac{(k!2^k+5)\cancelto{k+4}{(k+4)!}}{[(k+1)!2^{k+1}+5]\cancel{(k+3)!}}=
+    \lim_{k\to\infty}\frac{k!2^k+5}{(k+1)!2^{k+1}+5}(k+4)
+\end{gather*}
+Dato che si è scomposto in fattori si possono considerare fattori asintoticamente equivalenti:
+\begin{gather*}
+    k!2^k+5\sim k!2^k\\
+    (k+1)!2^{k+1}+5\sim(k+1)!2^{k+1}
+\end{gather*}
+Il limite diventa:
+\begin{gather*}
+    \lim_{k\to\infty}\frac{k!2^k+5}{(k+1)!2^{k+1}+5}(k+4)=
+    \lim_{k\to\infty}\frac{\cancel{k!}2^k}{\cancelto{k+1}{(k+1)!}2^{k+1}}(k+4)=
+    \lim_{k\to\infty}\frac{k+4}{k+1}\frac{\cancel{2^k}}{2^{\cancel{k+1}}}=\frac{1}{2}    
+\end{gather*}
+La serie converge nell'intervallo: $(-1/2, 1/2)$. Si analizza il suo comportamento agli estremi:
+\begin{gather*}
+    \displaystyle t=\frac{1}{2}\rightarrow\displaystyle\sum_{k=1}^\infty\frac{k!2^k+5}{(k+3)!}\frac{1}{2^k}\sim
+    \displaystyle\sum_{k=1}^\infty\frac{k!\cancel{2^k}}{(k+3)!}\frac{1}{\cancel{2^k}}=
+    \sum_{k=1}^\infty\frac{1}{(k+3)(k+2)(k+1)}\sim\sum_{k=1}^\infty\frac{1}{k^3}:\text{converge}\\
+    \displaystyle t=-\frac{1}{2}\rightarrow\displaystyle\sum_{k=1}^\infty\frac{k!2^k+5}{(k+3)!}\frac{(-1)^k}{2^k}\sim\sum_{k=1}^\infty\frac{(-1)^k}{k^3}:\text{converge}
+\end{gather*}
+La prima è una serie armonica generalizzata con $\alpha>1$, quindi converge, la seconda è una serie di segni alterni che soddisfa il criterio di Leibniz, quindi converge. L'intervallo di convergenza è $[-1/2, 1/2]$. La serie originale quindi converge per $x\in[-5/2, 3/2]$. 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 %!! ti amoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 %% TODO 
+
+
+
 % \section{Funzioni}
 
 % Si vuole approssimare funzioni come la somma di una serie parametriche rispetto ad una fattore $x$, che diventerà la variabile indipendente della funzione. Una funzione algebrica si può rappresentare come una certa serie, dimostrato nel caso di una serie telescopica e geometrica. Per serie di segno definitivamente positivo è possibile rappresentarle in forma esplicita, mentre per serie che non rispettano questa condizione, molto probabilmente non è possibile, quindi non è possibile ottenere una rappresentazione algebrica di queste. 
