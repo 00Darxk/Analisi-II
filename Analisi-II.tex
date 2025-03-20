@@ -424,7 +424,7 @@ Si basa sulla definizione di una successione ausiliaria. Per costruire questa su
 \end{equation*}
 Si considera per ipotesi che questa successione sia regolare:
 \begin{equation*}
-    \lim_{k\to\infty}\sqrt[k]{a_k}=\Lambda
+    \lim_{k\to\infty}\displaystyle\frac{a_{k+1}}{a_k}=\Lambda
 \end{equation*}
 
 Esistono casi dove la successione ausiliaria creata è irregolare, e quindi non è possibile utilizzare questi criteri. %% !! base55555555555555555555555555
@@ -748,8 +748,58 @@ Sia $R$ il raggio di convergenza della serie di potenze $a_k$ con centro in $x_0
 Nell'ultimo caso $R$ rappresenta il centro dell'intervallo di convergenza, se il raggio è zero, contiene solo il centro, se è infinito, contiene tutti i numeri reali. 
 Per determinare il valore al limite dell'intervallo $x=x_0\pm R$, bisogna sostituire questo valore ad $x$ e studiare per via diretta il carattere della serie risultante. Per questo si distingue tra intervallo di convergenza ed insieme di convergenza, poiché potrebbero non coincidere, potrebbero comprendere gli estremi. Coincidono solo se ai valori estremi la serie non converge. 
 
+\subsubsection{Teorema della Serie Derivata e Integrale}
 
-\subsection*{Esercizi}
+Sia una serie di potenze con centro $x_0$:
+\begin{gather*}
+    \displaystyle\sum_{k=0}^\infty a_k(x-x_0)^k
+\end{gather*}
+Tale che il raggio di convergenza è un numero reale positivo, oppure diverge ad infinito: $R\in\mathbb{R}^+$ o $R=+\infty$. 
+Allora per ogni valore nell'intervallo di insieme di convergenza centrato in $x_0$: 
+$\forall x\in I_R(x_0)$, la funzione somma è di classe $S(x)\in C^{\infty}(I_R(x_0))$, quindi è derivabile infinite volte, e tutte le sue derivate sono funzioni continue. La derivata rispetto alla variabile $x$ della somma è:
+\begin{gather*}
+    \forall x \in I_R(x_0)\implies\displaystyle\frac{\mathrm{d}}{\mathrm{d}x}S(x)=
+    \frac{\mathrm{d}}{\mathrm{d}x}\sum_{k=0}^\infty a_k(x-x_0)^k=
+    \sum_{k=0}^\infty a_k\frac{\mathrm{d}}{\mathrm{d}x}(x-x_0)^k=
+    \sum_{k=1}^\infty a_kk(x-x_0)^{k-1}
+\end{gather*}
+Il termine con $k=0$ è costante per cui la serie parte da $k=1$.
+Oltre a poter derivare termine a termine è possibile integrare termine a termine della funzione somma:
+\begin{gather*}
+    \forall x\in I_R(x_0)\implies\displaystyle\int_{x_0}^xS(t)\mathrm{d}t=\int_{x_0}^x\sum_{k=0}^\infty a_k(t-x_0)^k\mathrm{d}t=\sum_{k=0}^\infty a_k\int_{t_0}^x(t-x_0)^k\mathrm{d}t\\
+    \displaystyle\int_{x_0}^xS(t)\mathrm{d}t=
+    \sum_{k=0}^\infty a_k\frac{t-x_0}{k+1}^{k+1}
+\end{gather*}
+L'integrale della somma è uguale alla serie degli integrali, analogamente alla derivata. 
+
+
+%% ESEMPIO
+Per ogni $x$ nell'intervallo $(-1,1)$ si è dimostrato per via diretta che la funzione definita in $\mathbb{R}\setminus\{1\}$: $(1-x)^{-1}$ si può esprimere come una serie di potenze con raggio di convergenza uno e centro nell'origine:
+\begin{gather*}
+    \forall x\in(-1,1)\implies\displaystyle\frac{1}{1-x}=\sum_{k=0}^\infty x^k
+\end{gather*}
+Si considera nell'intervallo $I_1(0)$ l'integrale di questa funzione, per il teorema appena enunciato si può esprimere come la somma di integrali, effettuando il passaggio sotto il segno dell'integrale alla sommatoria: %% TODO fix wording
+\begin{gather*}
+    \forall x \in I_1(0)\implies\displaystyle\int_{0}^x\frac{1}{1-t}\mathrm{d}t=
+    \sum_{k=0}^\infty\int_{0}^x t^k\mathrm{d}t=
+    \sum_{k=0}^\infty\frac{t^{k+}1}{k+1}\bigg|_{0}^x=
+    \sum_{k=0}^\infty\frac{x^{k+1}}{k+1}=\sum_{k=1}^\infty\frac{x^k}{k}
+\end{gather*}
+Calcolando l'integrale direttamente si ottiene che vale:
+\begin{gather*}
+    \forall x\in(-1,1)\implies\displaystyle\int_0^x\frac{1}{1-t}\mathrm{d}t=-\ln(1-x)
+\end{gather*}
+Si è scoperto che se la $x$ è contenuta in questo intervallo dato lo sviluppo in serie di una funzione si ottiene anche lo sviluppo in serie della funzione:
+\begin{gather*}
+    \forall x\in I_1(0)\implies -\ln(1-x)=\displaystyle\sum_{k=1}^\infty\frac{x^k}{k}
+\end{gather*}
+L'uguaglianza si può estendere all'estremo $-1$ per il criterio di Leibniz, ma non per $x=1$:
+\begin{gather*}
+    \forall x\in [-1,1)\implies -\ln(1-x)=\displaystyle\sum_{k=1}^\infty\frac{x^k}{k}
+\end{gather*}
+
+
+\subsection{Esercizi}
 
 Studiare il carattere della serie numerica:
 \begin{gather*}
@@ -1197,27 +1247,125 @@ La serie converge nell'intervallo: $(-1/2, 1/2)$. Si analizza il suo comportamen
 La prima è una serie armonica generalizzata con $\alpha>1$, quindi converge, la seconda è una serie di segni alterni che soddisfa il criterio di Leibniz, quindi converge. L'intervallo di convergenza è $[-1/2, 1/2]$. La serie originale quindi converge per $x\in[-5/2, 3/2]$. 
 
 
+Determinare l'insieme di convergenza della seguente serie e determinarne la somma:
+\begin{gather*}
+    \displaystyle\sum_{k=0}^\infty\left(\frac{1}{1-\ln|x|}\right)^k
+\end{gather*}
+Per $x\in\mathbb{R}$, questa serie rappresenta una serie di potenze particolare, una serie geometrica con ragione $t$, convergente per $t\in(-1,1)$:
+\begin{gather*}
+    t=\displaystyle\frac{1}{1-\ln|x|}\\
+    \begin{cases}
+        \displaystyle\frac{\strut 1}{\strut 1-\ln|x|}< -1\\
+        \displaystyle\frac{\strut 1}{\strut 1-\ln|x|}> 1
+    \end{cases}
+\end{gather*}
+% Con somma $s$:
+% \begin{gather*}
+    
+% \end{gather*}
+%% TODO finire esercizio
+
+%% SOLUZIONE
+\begin{gather*}
+    A=(-\infty, -e^2)\cup(-1,0)\cup(0,1)\cup(e^2,\infty)
+\end{gather*}
+
+
+Studiare l'insieme di convergenza della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{e^{1/k}-1}{3\ln k+1}(x-5)^k
+\end{gather*}
+Questa è una serie di potenze con centro in $x_0=5$, si effettua una sostituzione per centrarla nell'origine, $x-5=t$:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{e^{1/k}-1}{3\ln k+1}t^k
+\end{gather*}
+Questa è una serie con termini a segno costante positivo, poiché per ogni $k>1$, si ha che $e^{1/k}>1$. Si determina la successione ausiliaria:
+\begin{gather*}
+    \displaystyle\left|\frac{a_k}{a_{k+1}}\right|=
+    \frac{\frac{e^{k^{-1}}-1}{3\ln k+1}}{\frac{e^{(k+1)^{-1}}-1}{3\ln(k+1)+1}}=\frac{e^{k^{-1}}-1}{\cancel{3}\ln k+1}\frac{\cancel{3}\ln(k+1)+1}{e^{(k+1)^{-1}}-1}
+\end{gather*}
+Entrambi sono di segno positivo, quindi si può togliere il modulo essendo di segno positivo, si ha che $e^{t}-1\sim t$, analogamente per il logaritmo si ha $\ln t+c\sim\ln t$:
+\begin{gather*}
+    \frac{e^{k^{-1}}-1}{\ln k}\frac{\ln(k+1)+1}{e^{(k+1)^{-1}}-1}\sim\frac{k^{-1}}{\ln k+1}\frac{\ln(k+1)}{(k+1)^{-1}}=\frac{k+1}{k}\frac{\ln(k+1)}{\ln k}
+\end{gather*}
+Si determina il raggio di convergenza:
+\begin{gather*}
+    R=\lim_{k\to\infty}\frac{k+1}{k}\frac{\ln(k+1)}{\ln k}=\cancelto{1}{\lim_{k\to\infty}\frac{k+1}{k}}\lim_{k\to\infty}\frac{\ln(k+1)}{\ln k}
+\end{gather*}
+Per il teorema di de l'Hopital si ha:
+\begin{gather*}
+    R=\lim_{k\to\infty}\frac{\ln(k+1)}{\ln k}=\lim_{k\to\infty}\frac{k}{k+1}=1
+\end{gather*}
+Il raggio di convergenza è quindi pari ad uno. L'intervallo di convergenza di questa serie è l'intervallo di estremi $(-1, 1)$, questo fa riferimento alla variabile $t$, in $x$ questo intervallo è $(4,6)$. Si determina ora il comportamento agli estremi:
+\begin{gather*}
+    t=1\implies
+    \displaystyle\sum_{k=1}^\infty\frac{e^{1/k}-1}{3\ln k+1}\cancel{1^k}\sim
+    \displaystyle\frac{1}{3}\sum_{k=1}^\infty\frac{1}{k\ln k}\sim\frac{1}{3}\sum_{k=1}^\infty\frac{\cancel{2^k}}{\cancel{2^k}\ln2^k}=\frac{1}{3\ln2}\sum_{k=1}^\infty\frac{1}{k}\to\infty
+    \\
+    t=-1\implies
+    \displaystyle\sum_{k=1}^\infty\frac{e^{1/k}-1}{3\ln k+1}(-1)^k
+\end{gather*}
+Per il primo caso si usano le funzioni asintoticamente equivalenti individuate nel calcolo del raggio di convergenza, per il secondo caso si usa il criterio di Leibniz, ma bisogna dimostrare che i termini della successione siano definitivamente decrescenti a zero. Il numeratore è un'esponenziale e decresce a zero per $k\to\infty$, il numeratore tende a zero, mentre il logaritmo cresce tendente a $+\infty$. Quindi questa serie converge per $t=-1$, l'insieme di convergenza diventa $[-1,1)\to[4,6)$. 
 
 
 
+Studiare il carattere della seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\left(\frac{k-1}{k+1}\right)^{k^2}x^{4k}
+\end{gather*}
+Questa serie si può trasformare in una serie di potenze con centro nell'origine, effettuando la sostituzione $t=x^4$:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\left(\frac{k-1}{k+1}\right)^{k^2}t^{k}
+\end{gather*}
+Conviene invece di usare la successione ausiliaria simile a quella del criterio del rapporto, si utilizza la successione ausiliaria:
+\begin{gather*}
+    \displaystyle\frac{1}{\sqrt[k]{a_k}}=\frac{1}{\sqrt[\cancel{k}]{\left(\frac{k-1}{k+1}\right)^{k^2}}}
+\end{gather*}
+Si determina il raggio di convergenza:
+\begin{gather*}
+    R=\lim_{k\to\infty}
+    \frac{1}{\sqrt[k]{\left(\frac{k-1}{k+1}\right)^{k^2}}}=
+    \lim_{k\to\infty}\left(\frac{k+1}{k-1}\right)^k=
+    \lim_{k\to\infty}\left(1+\frac{2}{k-1}\right)^k=
+    \lim_{k\to\infty}\left(1+\frac{2}{k-1}\right)^{k+1-1}\\
+    \lim_{k\to\infty}\left(1+\frac{2}{k-1}\right)^{k-1}\cancelto{1}{\left(1+\frac{2}{k-1}\right)}=e^2
+\end{gather*}
+L'intervallo di convergenza è quindi $(-e^2,e^2)$, si considerano gli estremi:
+\begin{gather*}
+    t=e^2\implies\displaystyle\sum_{k=1}^\infty\left(\frac{k-1}{k+1}\right)^{k^2}e^{2k}\\
+    t=-e^2\implies\displaystyle\sum_{k=1}^\infty\left(\frac{k-1}{k+1}\right)^{k^2}(-e)^{2k}
+\end{gather*}
+Poiché utilizzare uno dei criteri è abbastanza complesso, si analizza la condizione necessaria di convergenza:
+\begin{gather*}
+    \lim_{k\to\infty}\left(\frac{k-1}{k+1}\right)^{k^2}e^{2k}=
+    \lim_{k\to\infty}e^{\ln\left(\frac{k-1}{k+1}\right)^{k^2}}e^{2k}=
+    \lim_{k\to\infty}e^{k^2\ln\left(1-\frac{2}{k+1}\right)+2k}=
+    e^{\lim_{k\to\infty}k^2\ln\left(1-\frac{2}{k+1}\right)+2k}
+\end{gather*}
+Si utilizza la formula di Maclaurin, se il limite dell'esponente tende a zero, il limite tende ad uno e quindi la serie non può convergere, si controlla questo limite:
+
+\begin{gather*}
+    \displaystyle\lim_{k\to\infty}k^2\ln\left(1-\frac{2}{k+1}\right)+2k\sim
+    \lim_{k\to\infty}k^2\left(-\frac{2}{k+1}-\frac{2}{(k+1)^2}+o\left[\frac{1}{k^2}\right]\right)+2k\\
+    \lim_{k\to\infty}-\frac{2k^2}{k+1}-\frac{2k^2}{(k+1)^2}+\cancelto{0}{\frac{o\left[\frac{1}{k^2}\right]}{\frac{1}{k^2}}}+2k=
+    \lim_{k\to\infty}\frac{-2k^2(k+1)-2k^2+2k(k+1)^2}{(k+1)^2}\\
+    \lim_{k\to\infty}\frac{\cancel{-2k^3}\bcancel{-2k^2}\bcancel{-2k^2}+\cancel{2k^3}+\bcancel{4k^2}+2k}{(k+1)^2}=
+    \lim_{k\to\infty}{2k}{(k+1)^2}=0
+\end{gather*}
+
+L'esponente è un infinitesimo, quindi l'esponente tende ad uno, e quindi la serie non può convergere. Per $t=-e^2$ invece si ha una serie di segno alterno:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty(-1)^k\left(\frac{k-1}{k+1}\right)^{k^2}e^{2k}
+\end{gather*}
+Per converge la condizione necessaria deve valere, ma i termini di questa serie tendono ad uno, quindi questa serie si avvicina oscillando ad uno, ma non può convergere. Quindi l'intervallo di convergenza coincide con l'insieme di convergenza, quindi si ha che l'intervallo di convergenza in $x$ è dato da:
+\begin{gather*}
+    -e^2<x^4<e^2\implies x^4<e^2:-e<x^2<e\implies x^2<e:-\sqrt{e}<x<\sqrt{e}
+\end{gather*}
 
 
-
-
-
-
-
-
-
-%!! ti amoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-%% TODO 
-
-
-
+%% TODO aggiungere a qualche sezione
 % \section{Funzioni}
 
 % Si vuole approssimare funzioni come la somma di una serie parametriche rispetto ad una fattore $x$, che diventerà la variabile indipendente della funzione. Una funzione algebrica si può rappresentare come una certa serie, dimostrato nel caso di una serie telescopica e geometrica. Per serie di segno definitivamente positivo è possibile rappresentarle in forma esplicita, mentre per serie che non rispettano questa condizione, molto probabilmente non è possibile, quindi non è possibile ottenere una rappresentazione algebrica di queste. 
-
-
 
 \end{document}
