@@ -53,7 +53,7 @@
     \uline{\phantom{#1}}%
     \llap{\contour{white}{#1}}%
 }
-\fancypagestyle{link}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{Sorgente del file \LaTeX disponibile al seguente link: \url{https://github.com/00Darxk/Analisi-II/}}}
+\fancypagestyle{link}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{Sorgente del file \LaTeX ed ultima versione del testo disponibile al link: \url{https://github.com/00Darxk/Analisi-II/}}}
 
 \begin{document}
 
@@ -83,6 +83,8 @@ Università degli Studi ``Roma Tre"}}
 \pagenumbering{arabic}
 
 \section{Serie Numerica}
+
+%% TODO aggiungere commento a qualche sezione Si vuole approssimare funzioni come la somma di una serie parametriche rispetto ad una fattore $x$, che diventerà la variabile indipendente della funzione. Una funzione algebrica si può rappresentare come una certa serie, dimostrato nel caso di una serie telescopica e geometrica. Per serie di segno definitivamente positivo è possibile rappresentarle in forma esplicita, mentre per serie che non rispettano questa condizione, molto probabilmente non è possibile, quindi non è possibile ottenere una rappresentazione algebrica di queste. 
 
 Una serie numerica $\{a_n\}$ è una \textit{particolare} successione numerica; 
 è una particolare funzione che ha come dominio l'insieme dei numeri naturali $\mathbb{N}$ e come codominio un sottoinsieme $\mathbb{C}$ dell'asse dei numeri reali $\mathbb{R}$. 
@@ -772,12 +774,12 @@ Oltre a poter derivare termine a termine è possibile integrare termine a termin
 \end{gather*}
 L'integrale della somma è uguale alla serie degli integrali, analogamente alla derivata. 
 
+\subsubsection{Espansione in Serie}
 
-%% ESEMPIO
 Per ogni $x$ nell'intervallo $(-1,1)$ si è dimostrato per via diretta che la funzione definita in $\mathbb{R}\setminus\{1\}$: $(1-x)^{-1}$ si può esprimere come una serie di potenze con raggio di convergenza uno e centro nell'origine:
-\begin{gather*}
+\begin{gather}
     \forall x\in(-1,1)\implies\displaystyle\frac{1}{1-x}=\sum_{k=0}^\infty x^k
-\end{gather*}
+\end{gather}
 Si considera nell'intervallo $I_1(0)$ l'integrale di questa funzione, per il teorema appena enunciato si può esprimere come la somma di integrali, effettuando il passaggio sotto il segno dell'integrale alla sommatoria: %% TODO fix wording
 \begin{gather*}
     \forall x \in I_1(0)\implies\displaystyle\int_{0}^x\frac{1}{1-t}\mathrm{d}t=
@@ -794,578 +796,165 @@ Si è scoperto che se la $x$ è contenuta in questo intervallo dato lo sviluppo 
     \forall x\in I_1(0)\implies -\ln(1-x)=\displaystyle\sum_{k=1}^\infty\frac{x^k}{k}
 \end{gather*}
 L'uguaglianza si può estendere all'estremo $-1$ per il criterio di Leibniz, ma non per $x=1$:
-\begin{gather*}
+\begin{gather}
     \forall x\in [-1,1)\implies -\ln(1-x)=\displaystyle\sum_{k=1}^\infty\frac{x^k}{k}
+\end{gather}
+
+Effettuando il cambio di variabile $-x=u$, l'intervallo di convergenza diventa $u\in(-1, 1]$:
+\begin{gather*}
+    -\ln(1+u)=\displaystyle\sum_{k=1}^\infty\frac{(-u)^k}{k}=
+    \displaystyle\sum_{k=1}^\infty(-1)^k\frac{u^k}{k}\\
+    \ln(1+u)=-\displaystyle\sum_{k=1}^\infty(-1)^k\frac{u^k}{k}=
+    \displaystyle\sum_{k=1}^\infty(-1)^{k+1}\frac{u^k}{k}\\
+    \forall x\in(-1,1]\implies\displaystyle\sum_{k=1}^\infty(-1)^{k+1}\frac{x^k}{k}\tageq
 \end{gather*}
 
 
-\subsection{Esercizi}
-
-Studiare il carattere della serie numerica:
+%% TODO \ref alla prima eq
+Considerando la prima espansione, si effettua la sostituzione $x=-u^2$: 
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\ln\left(1+\frac{1}{k}\right)
-\end{gather*}
-Per il limite notevole, il carattere di questa serie è asintoticamente equivalente alla serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\ln\left(1+\frac{1}{k}\right)\sim
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\frac{1}{k}=
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^4+k}
-\end{gather*}
-Il numeratore si comporta come $k^2$, sono asintoticamente equivalenti, mentre il denominatore è asintoticamente equivalente a $k^4$, quindi la serie è equivalente a:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^4+k}\sim
-    \displaystyle\sum_{k=1}^\infty\frac{\cancel{k^2}}{k^{\cancelto{2}{4}}}
+    -1<x<1\\
+    -1<-u^2<1\\
+    -u^2<1\,\forall n\in\mathbb{R}\implies u^2<1:\,-1<n<1\\
+    u\in(-1,1)
 \end{gather*}
 
-Questa è una serie armonica generalizzata con $\alpha=2>1$, per cui converge. 
-
-
-Si può realizzare una serie di stesso carattere sostituendo il fattore trascendente con un altro sempre appartenente ad un limite notevole:
+La funzione e corrispondente serie diventa quindi:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\left(e^{1/k}-1\right)\sim
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\frac{1}{k}=
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^4+k}\sim
-    \displaystyle\sum_{k=1}^\infty\frac{\cancel{k^2}}{k^{\cancelto{2}{4}}}
+    \forall u\in(-1,1)\,\displaystyle\frac{1}{1+n^2}=\sum_{k=0}^\infty(-n^2)^k=
+    \sum_{k=0}^\infty(-1)^kn^{2k}
+\end{gather*}
+A questo punto si integra membro a membro e si scambia l'integrale sotto il segno della sommatoria:
+\begin{gather*}
+    \displaystyle\int_0^u\frac{1}{1+u^t}\mathrm{d}t=
+    \int_0^u\sum_{k=0}^\infty(-1)^kt^{2k}\mathrm{d}t=
+    \sum_{k=0}^\infty(-1)^k\int_0^ut^{2k}\mathrm{d}t=
+    \sum_{k=0}^\infty(-1)^k\frac{u^{2k+1}}{2k+1}\\
+    \arctan u=\sum_{k=0}^\infty(-1)^k\frac{u^{2k+1}}{2k+1}
 \end{gather*}
 
-
-
-Studiare il carattere della seguente serie:
+Quindi l'arcotangente di $x$ nell'intervallo $(-1,1)$ si può esprimere come la seguente serie:
+\begin{equation*}
+    \forall x\in(-1,1)\,\arctan x=\sum_{k=0}^\infty(-1)^k\frac{x^{2k+1}}{2k+1}
+\end{equation*}
+Bisogna comunque controllare se questa serie converge anche agli estremi dell'intervallo di convergenza. Per $x=1$ si ha:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^4+k^3}{k^5+1}\ln\left(\frac{k+1}{k}\right)=
-    \displaystyle\sum_{k=1}^\infty\frac{k^4+k^3}{k^5+1}\ln\left(1+\frac{1}{k}\right)\sim
-    \displaystyle\sum_{k=1}^\infty\frac{k^4+k^3}{k^5+1}\frac{1}{k}=
-    \displaystyle\sum_{k=1}^\infty\frac{k^5+k^4}{k^6+k}\sim
-    \displaystyle\sum_{k=1}^\infty\frac{\cancel{k^5}}{k^{\cancel{6}}}=
-    \displaystyle\sum_{k=1}^\infty\frac{1}{k}
+    \displaystyle\sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}
 \end{gather*}
-Essendo asintoticamente equivalente ad una serie armonica divergente, la serie diverge. 
-
-
-Studiare il carattere della seguente serie:
+Questa serie converge per il criterio di Leibniz poiché la serie ha termini strettamente decrescenti convergenti a zero; mentre per $x=-1$ si ha:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{5^k}{k^2(2^k+4^k)}
+    \displaystyle\sum_{k=0}^{\infty}\frac{(-1)^k(-1)^{2k+1}}{2k+1}=
+    \displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k+1}}{2k+1}
 \end{gather*}
-Poiché il calcolo della condizione necessaria di convergenza è complessa, per risolvere l'esercizio si suppone sia corretta e si utilizza subito uno dei criteri:
+Analogamente alla precedente vale il criterio di Leibniz quindi converge. L'identità diventa quindi:
+\begin{equation}
+    \forall x\in[-1,1]\,\arctan x=\displaystyle\sum_{k=0}^\infty(-1)^k\frac{x^{2k+1}}{2k+1}
+\end{equation}
+Questa serie venne utilizzata per calcolare il valore di pi greco, considerando la serie per il valore $x=1$:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{5^k}{k^2(2^k+4^k)}=
-    \displaystyle\sum_{k=1}^\infty\frac{5^k}{k^24^k(1/2^k+1)}
+    \arctan(1)=\displaystyle\frac{\pi}{4}=\displaystyle\sum_{k=0}^\infty\frac{(-1)^k}{2k+1}\\
+    \pi=4\displaystyle\sum_{k=0}^\infty\frac{(-1)^k}{2k+1}
 \end{gather*}
-Si mette in evidenza l'esponenziale con base maggiore, poiché il fattore con base minore di uno per $k\to\infty$ tende a zero, quindi questa serie è asintoticamente equivalente a:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{5^k}{k^24^k(1/2^k+1)}\sim
-    \displaystyle\sum_{k=1}^\infty\frac{1}{k^2}\left(\frac{5}{4}\right)^k
-\end{gather*}
-Si utilizza ora il criterio del rapporto, si determina la serie ausiliaria:
-\begin{gather*}
-    \displaystyle\frac{\frac{1}{(k+1)^2}\left(\frac{5}{4}\right)^{\cancel{k+1}}}{\frac{1}{k^2}\cancel{\left(\frac{5}{4}\right)^k}}=\frac{5}{4}\left(\frac{k}{k+1}\right)^2\\
-    \frac{5}{4}\lim_{k\to\infty}\left(\frac{k}{k+1}\right)^2=\frac{5}{4}>1
-\end{gather*}
-Quindi la serie diverge.  
+Con un indice molto elevato si può ottenere un'approssimazione molto accurata del pi greco. 
 
+\subsubsection{Serie di Taylor Swift}
 
-Studiare il carattere della seguente serie:
+Questa serie di potenze si può chiamare serie di Taylor. Data una funzione derivabile con continuità infinite volte $f\in C^\infty(I_R(x_0)) $, la sua serie di Taylor si definisce come la seguente:
+\begin{equation}
+    \displaystyle\sum_{k=0}^\infty\frac{f^{(k)}(x_0)}{k!}(x-x_0)
+\end{equation}
+
+Per certe funzioni, e certi intervalli, si può estendere il grado del polinomio di Taylor fino all'infinito. 
+
+Il polinomio di Maclaurin della serie esponenziale è la seguente:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{2^k+4^k}
+    e^x=\displaystyle\sum_{k=0}^n\frac{x^k}{k!}+o[x^n]
 \end{gather*}
-Questo esercizio è molto simile al precedente, ed analogamente si manipola il denominatore per rimuovere la somma di esponenziali:
+Si può dimostrare che tendendo $n\to\infty$ la serie di Maclaurin ottenuta continua a coincidere alla serie esponenziale; si vuole ottenere lo sviluppo in serie dell'esponenziale. 
+Partendo dalla serie di potenze si cattura il suo raggio di convergenza:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{2^k+4^k}=
-    \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{4^k(1/2^k+1)}\sim
-    \displaystyle\sum_{k=1}^\infty\frac{k^23^k}{4^k}=
-    \displaystyle\sum_{k=1}^\infty k^2\left(\frac{3}{4}\right)^k
+    \displaystyle\sum_{k=0}^\infty\frac{x^k}{k!}\\
+    R=\lim_{k\to\infty}\displaystyle\left|\frac{a_k}{a_{k+1}}\right|=
+    \lim_{k\to\infty}\frac{1}{\cancel{k!}}(k+1)\cancel{!}=\lim_{k\to\infty}{k+1}=+\infty
 \end{gather*}
-Si utilizza analogamente alla precedente il criterio del rapporto; la sua serie ausiliaria è:
+Essendo il raggio di convergenza infinito, la serie converge in $\mathbb{R}$:
 \begin{gather*}
-    \displaystyle\frac{(k+1)^2\left(\frac{3}{4}\right)^{\cancel{k+1}}}{k^2\cancel{\left(\frac{3}{4}\right)^k}}=\frac{3}{4}\left(\frac{k+1}{k}\right)^2\\
-    \lim_{k\to\infty}\frac{3}{4}\left(\frac{k+1}{k}\right)^2=\frac{3}{4}<1
+    \forall x\in\mathbb{R}\, S(x)=\displaystyle\sum_{k=0}^\infty\frac{x^k}{k!}
 \end{gather*}
-Poiché il rapporto tendente all'infinito è minore di uno, allora la serie converge. 
-
-
-Studiare il carattere della seguente serie:
+Si vuole dimostrare che la somma di questa serie $S(x)$ coincide all'esponenziale $e^x$. Si applica il teorema del passaggio della derivata sotto il segno della sommatoria:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^2+1}{k^3+1}\ln\left(\frac{k+1}{k}\right)
+    \displaystyle\frac{\mathrm{d}}{\mathrm{d}x}S(x)=\frac{\mathrm{d}}{\mathrm{d}x}\sum_{k=0}^\infty\frac{x^k}{k!}=
+    \displaystyle\sum_{k=0}^\infty\frac{1}{k!}\frac{\mathrm{d}}{\mathrm{d}x}x^k=
+    \sum_{k=1}^\infty x^{k-1}\frac{\cancel{k}}{\cancel{k}(k-1)!}=
+    \displaystyle\sum_{k=1}^\infty\frac{x^{k-1}}{(k-1)!}\\
 \end{gather*}
-Questo è esattamente uguale al primo esercizio, quindi anch'esso diverge, l'argomento del logaritmo è scritto in una forma equivalente. 
-
-
-Studiare il carattere della seguente serie:
+La serie della derivata parte da $k=1$, poiché il primo addendo $a_0$ è costante e nel passaggio della derivata si annulla. 
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{2^k(k^2+\sin e^k)}{3^k}\sim
-    \displaystyle\sum_{k=1}^\infty\frac{2^kk^2}{3^k}=
-    \displaystyle\sum_{k=1}^\infty k^2\left(\frac{2}{3}\right)
-\end{gather*}
-Nel numeratore si ha $k^2+\sin e^k$~$k^2$, poiché l'oscillazione di $\sin e^k$ viene smorzata all'infinito da $k^2$, può essere dimostrato tramite il criterio del confronto. 
-Si applica il criterio del rapporto:
-\begin{gather*}
-    \displaystyle\frac{(k+1)^2\left(\frac{2}{3}\right)^{\cancel{k+1}}}{k^2\cancel{\left(\frac{2}{3}\right)^k}}=\frac{3}{4}\left(\frac{k+1}{k}\right)^2\\
-    \lim_{k\to\infty}\frac{2}{3}\left(\frac{k+1}{k}\right)^2=\frac{2}{3}<1
-\end{gather*}
-Essendo il limite minore di uno, la serie converge. 
-
-%% TODO SEGNARE EQUAZIONE
-
-La formula di Stirling afferma che un fattoriale di un numero intero si comporta al limite per $k\to\infty$ come:
-\begin{gather*}
-    \displaystyle\lim_{k\to\infty}\frac{k!}{\sqrt{2k\pi}\left(\frac{k}{e}\right)^k}=1\\
-    k!\sim\sqrt{2k\pi}\left(\frac{k}{e}\right)^k\tageq
+    S'(x)=\displaystyle\sum_{k=1}^\infty\frac{x^{k-1}}{(k-1)!}=
+    \displaystyle\sum_{k=0}^\infty\frac{x^{k}}{k!}=S(x)
 \end{gather*}
 
-
-
-Studiare il carattere della seguente serie:
+La derivata prima di questa funzione coincide con la funzione di partenza, a meno di una costante, per ogni $x\in\mathbb{R}$. Inoltre si ha che $S(0)=1$, questo rappresenta un problema di Cauchy:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{\sin k^3-k^{3/5}}{k^{1/4}\ln(k^k+k!)}
+    \begin{cases}
+        S'(x)=S(x)&\forall x\in\mathbb{R}\\
+        S(0)=1
+    \end{cases}\\
+    \displaystyle\frac{S'(x)}{S(x)}=1\implies\int_0^x\frac{S'(t)}{S(t)}\mathrm{d}t=x\\
+    \ln|S(t)|\bigg|_0^x=x\implies \ln|S(x)|-\cancelto{0}{\ln|S(0)|}=x\\
+    S(x)=e^x
 \end{gather*}
-Il denominatore è sempre positivo, mentre nel numeratore il seno può essere al massimo pari ad uno, mentre l'altro fattore $k^{3/5}$ è sicuramente maggiore di uno da un certo $k_0$, quindi si può esprimere come:
+Per cui si è dimostrato che la funzione somma $S(x)$ è la funzione esponenziale, e si è definita la sua espansione:
+\begin{equation}
+    \forall x\in\mathbb{R}\implies\,e^x=\displaystyle\sum_{k=0}^\infty\frac{x^k}{k!}
+\end{equation}
+
+Si considera l'approssimazione di Maclurin della funzione coseno:
 \begin{gather*}
-    -\displaystyle\sum_{k=1}^\infty\frac{k^{3/5}-\sin k^3}{k^{1/4}\ln(k^k+k!)}
+    \cos x=\displaystyle\sum_{k=1}^n(-1)^k\frac{x^{2k}}{(2k)!}+o[x^{2n}]
 \end{gather*}
-
-Il numeratore può essere sostituito con $k^{3/5}$, analogamente alla precedente utilizzando il criterio del confronto può essere dimostrato come il seno diviso questo fattore tende a zero per $k\to\infty$, quindi la serie si può riscrivere come:
-\begin{gather*}
-    -\displaystyle\sum_{k=1}^\infty\frac{k^{3/5}-\sin k^3}{k^{1/4}\ln(k^k+k!)}\sim
-    -\displaystyle\sum_{k=1}^\infty\frac{k^{3/5}}{k^{1/4}\ln(k^k+k!)}=
-    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln(k^k+k!)}
-\end{gather*}
-Essendo $k^k$ un infinito di ordine superiore a $k!$, si può esprimere il denominatore in modo asintoticamente equivalente come:
-\begin{gather*}
-    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln(k^k+k!)}=
-    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln\left[k^k\left(1+\frac{k!}{k^k}\right)\right]}=
-    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln k^k+\ln\left(1+\frac{k!}{k^k}\right)}\sim
-    -\displaystyle\sum_{k=1}^\infty \frac{k^{7/20}}{\ln k^k}    
-\end{gather*}
-Si dimostra:
-\begin{gather*}
-    \lim_{k\to\infty}\frac{\ln k^k+\ln\left(1+\frac{k!}{k^k}\right)}{\ln k^k}=
-    \lim_{k\to\infty}\left[\cancelto{1}{\frac{\ln k^k}{\ln k^k}}+\frac{\ln\left(1+\frac{k!}{k^k}\right)}{\ln k^k}\right]\\
-    \lim_{k\to\infty}\ln\left(1+\frac{k!}{k^k}\right)=0\rightarrow
-    \lim_{k\to\infty}\frac{\ln k^k+\ln\left(1+\frac{k!}{k^k}\right)}{\ln k^k}=1
-\end{gather*}
-Si può riscrivere come:
-\begin{gather*}
-    -\displaystyle\sum_{k=1}^\infty\frac{k^{7/20}}{k}\frac{1}{\ln k}=
-    -\displaystyle\sum_{k=1}^\infty\frac{1}{k^{13/20}\ln k}
-\end{gather*}
-
-In questa situazione si applica il criterio di condensazione creando la serie ausiliaria:
-\begin{gather*}
-    -\displaystyle\sum_{k=1}^\infty2^k\frac{1}{(2^k)^{13/20}\ln 2^k}=
-    -\displaystyle\sum_{k=1}^\infty\frac{2^k}{(2^k)^{13/20}}\frac{1}{k\ln 2}=
-    -\displaystyle\sum_{k=1}^\infty\frac{2^{7k/20}}{k\ln 2}=-\frac{1}{\ln 2}\sum_{k=1}^\infty\frac{2^{7k/20}}{k}
-\end{gather*}
-Applicando il criterio del rapporto si ha:
-\begin{gather*}
-    \displaystyle\frac{2^{\cancel{7(k+1/20)}}}{k+1}\frac{k}{\cancel{2^{7k/20}}}=2^{7/20}\frac{k}{k+1}\\
-    \lim_{k\to\infty}2^{7/20}\frac{k}{k+1}=2^{7/20}<1
-\end{gather*}
-Poiché il limite tende ad un valore minore di uno, la serie converge. 
-
-
-
-Studiare il carattere della serie:
-\begin{gather*}
-    \displaystyle\sum_{k=0}^\infty\left(\sqrt[3]{k^3+1}-k\right)
-\end{gather*}
-
-Si considera il prodotto notevole della differenza di due cubi, per determinare se questa serie soddisfa almeno la condizione necessaria per la convergenza:
-\begin{gather*}
-    \displaystyle a=\sqrt[3]{k^3+1}\land b=k\\
-    \displaystyle a^3-a^3=(a-b)(a^2+ab+B^b)\\
-    \displaystyle a-b=\frac{a^3-b^3}{a^2+ab+b^2}\\
-    \displaystyle\sqrt[3]{k^3+1}-k=\frac{\cancel{k^3}+1-\cancel{k^3}}{\left(\sqrt[3]{k^3+1}\right)^2+k\sqrt[3]{k^3+1}+k^2}\\
-    \displaystyle\sum_{k=0}^\infty\left(\sqrt[3]{k^3+1}-k\right)=
-    \sum_{k=0}^\infty\frac{1}{\left(\sqrt[3]{k^3+1}\right)^2+k\sqrt[3]{k^3+1}+k^2}
-\end{gather*}
-Ragruppando gli addendi di potenza più grande:
-\begin{gather*}
-    \sum_{k=0}^\infty\frac{1}{\left(\sqrt[3]{k^3+1}\right)^2+k\sqrt[3]{k^3+1}+k^2}
-    \displaystyle\sum_{k=0}^\infty\frac{1}{\sqrt[3]{k^6\left(1+\frac{2}{k^3}+\frac{1}{k^6}\right)}+k\sqrt[3]{k^3\left(1+\frac{1}{k^3}\right)}+k^2}\\
-    \sum_{k=0}^\infty\frac{1}{k^2\left(\sqrt[3]{1+\frac{2}{k^3}+\frac{1}{k^6}}+\sqrt[3]{1+\frac{1}{k^3}}+1\right)}
-    \sim\sum_{k=0}^\infty\frac{1}{k^2}
-\end{gather*}
-
-Al denominatore tutti i termini sono asintoticamente equivalenti a $k^2$, per cui questa serie è asintoticamente equivalente ad una serie armonica generalizzata con $\alpha=2$, a meno di una costante:
-\begin{gather*}
-    \displaystyle\sum_{k=0}^\infty\frac{1}{\left(\sqrt[3]{k^3+1}\right)^2+k\sqrt[3]{k^3+1}+k^2}
-    \sim\sum_{k=0}^\infty\frac{1}{k^2}
-\end{gather*} 
-Quindi converge. 
-
-
-Studiare la seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{3^kk!}{k^k}
-\end{gather*}
-Considerando la formula di Stirling, si ottiene la serie asintoticamente equivalente:
-\begin{gather*}
-    \displaystyle\sum_{k=0}^\infty\frac{3^k}{k^k}\sqrt{2\pi k}\left(\frac{k}{e}\right)^k=\sum_{k=0}^\infty\left(\frac{3}{e}\right)^k\sqrt{2\pi k}
-\end{gather*}
-Utilizzando il criterio del rapporto, si costruisce la successione ausiliaria: 
-\begin{gather*}
-    \displaystyle\left(\frac{3}{e}\right)^{\cancel{k+1}}\cancel{\sqrt{2\pi}} \sqrt{(k+1)}\cancel{\left(\frac{e}{3}\right)^k}\frac{1}{\cancel{\sqrt{2\pi}} \sqrt{k}}=
-    \frac{3}{e}\frac{\sqrt{k+1}}{\sqrt{k}}\\
-    \lim_{k\to\infty}\frac{3}{e}\sqrt{\frac{k+1}{k}}=\frac{3}{e}>1
-\end{gather*}
-Quindi questa serie converge. 
-
-
-Studiare il carattere della seguente serie, per $\alpha\in\mathbb{R}^+$:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty k^{2/3-3\alpha}\left(e^{1/k^{2\alpha}}-1\right)
-\end{gather*}
-Si considera il limite notevole $e^{1/k^{2\alpha}}-1\sim1/k^{2\alpha}$ e si considera la serie asintoticamente equivalente:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty k^{2/3-3\alpha}\left(e^{1/k^{2\alpha}}-1\right)\sim
-    \displaystyle\sum_{k=1}^\infty \frac{k^{2/3-3\alpha}}{k^{2\alpha}}=\sum_{k=1}^\infty k^{2/3-5\alpha}
-\end{gather*}
-Si può rendere equivalente a duna serie armonica generalizzata:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{1}{k^{5\alpha-2/3}}:\begin{cases}
-        5\alpha-\displaystyle\frac{\strut 2}{\strut 3}>1 &\mbox{converge}\\
-        5\alpha-\displaystyle\frac{\strut 2}{\strut 3}<1 &\mbox{diverge}
-    \end{cases}=\begin{cases}
-        \alpha>\displaystyle\frac{\strut 1}{\strut 3} &\mbox{converge}\\
-        \alpha<\displaystyle\frac{\strut 1}{\strut 3} &\mbox{diverge}
-    \end{cases}
-\end{gather*}
-
-
-Studiare il carattere della seguente serie, per $\alpha\in\mathbb{R}^+$:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty k^{1/2-\alpha}\ln\left(1+\frac{1}{k^{3\alpha}}\right)\sim\sum_{k=1}^\infty k^{1/2-\alpha}\frac{1}{k^{3\alpha}}=\sum_{k=1}^\infty\frac{1}{k^{4\alpha-1/2}}
-\end{gather*}
-
-La serie converge per $4\alpha-1/2>1$
-
-
-
-
-Studiare il carattere della serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{(-1)^k}{k}
-\end{gather*}
-La serie rispetta il criterio di Leibniz e quindi converge. 
-
-
-Studiare il carattere della serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^{\infty}(-1)^k\frac{2^{k+1}}{3^{k+2}k!}=
-    \sum_{k=1}^\infty(-1)^k\left(\frac{2}{3}\right)^k\frac{2}{9}\frac{1}{k!}=\frac{2}{9}\sum_{k=1}^\infty(-1)^k\left(\frac{2}{3}\right)^k\frac{1}{k!}
-\end{gather*}
-
-
-
-Studiare il carattere della seguente serie, per $\alpha\in\mathbb{R}$:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^{2\alpha}\cos(k\pi)}{k+1}
-\end{gather*}
-Avendo $\pi$ all'interno del coseno, ed essendo $k$ solo numeri naturali, il fattore coseno alterna segno, mentre di modulo vale sempre uno:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^{2\alpha}\cos(k\pi)}{k+1}=
-    \sum_{k=1}^\infty(-1)^k\frac{k^{2\alpha}}{k+1}
-\end{gather*}
-
-Si considera la funzione associata $f(x)$, e si studia la sua derivata per determinare la sua monotonia:
-\begin{gather*}
-    f(x)=\displaystyle\frac{x^{2\alpha}}{x+1}\\
-    \displaystyle\frac{\mathrm{d}f(x)}{\mathrm{d}x}=\frac{2\alpha x^{2\alpha-1}(x+1)-x^{2\alpha}}{(x+1)^2}=
-    \frac{(2\alpha-1)x^{2\alpha}+2\alpha x^{2\alpha-1}}{(x+1)^2}=\frac{x^{2\alpha-1}}{x+1}\left[(2\alpha-1)x+2\alpha\right]\\\frac{x^{2\alpha-1}}{x+1}\left[(2\alpha-1)x+2\alpha\right]<0:\mbox{converge}:\,2\alpha-1<0\implies\alpha<\frac{1}{2}
-\end{gather*}
-
-
-Studiare il carattere della seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty(-1)^k\frac{\sqrt{k}}{k+1}
-\end{gather*}
-Si vuole trovare un'approssimazione di $s$ a meno di $10^{-3}$:
-\begin{gather*}
-    |s-s_n|\leq|a_n|=\displaystyle\frac{\sqrt{n}}{n+1}<10^{-3}\\
-    \text{per }n=10^6\Rightarrow\frac{10^6}{10^6-1}=0.000\bar{9}<10^{-3}
-\end{gather*}
-
-Le prime tre cifre della somma per $n=10^6$ coincidono al valore reale della somma. 
-
-
-
-
-Studiare il carattere della seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{\sin k}{k^2}
-\end{gather*}
-Per il criterio di convergenza assoluta:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\left|\frac{\sin k}{k^2}\right|
-\end{gather*}
-Per il criterio del confronto si ha:
-\begin{gather*}
-    \displaystyle\frac{\sin k}{k^2}\leq\frac{1}{k^2}
-\end{gather*}
-La serie maggiorante è una serie armonica generalizzata convergente, quindi la serie iniziale converge. 
-
-
-
-
-Studiare l'insieme di convergenza di questa serie:
-\begin{gather*}
-    \displaystyle\sum_{k=0}^\infty x^k
-\end{gather*}
-Ha centro in $x_0$, e coefficienti unitari $a_k=1$. Si determina il valore del raggio di convergenza:
-\begin{gather*}
-    R=\lim_{k\to\infty}\left|\frac{a_k}{{a_{k+1}}}\right|=1
-\end{gather*}
-La serie converge sicuramente nell'intervallo di convergenza: $(-1,+1)$. Ci sono due casi dubbi nei punti $x=\pm1$:
-\begin{gather*}
-    \displaystyle\sum_{k=0}^\infty 1^k=\sum_{k=1}^\infty1=+\infty
-\end{gather*}
-La serie non converge per $x=1$, mentre in $x=-1$:
-\begin{gather*}
-    \displaystyle\sum_{k=0}^\infty (-1)^k
-\end{gather*}
-Questa serie a termini di segno alterno non soddisfa la condizione necessaria di convergenza, quindi non converge neanche in $x=-1$. 
-Quindi in questo caso l'insieme di convergenza coincide all'intervallo di convergenza. 
-
-È possibile esprimere la funzione $1/(1-x)$ in termini di questa serie, se $x$ appartiene all'insieme di convergenza. Si useranno serie, come la serie di Taylor per approssimare il comportamento di funzioni trascendenti in forma di polinomio. 
-
-
-
-Studiare l'insieme di convergenza della seguente serie di potenze:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{x^k}{k}
-\end{gather*}
-È sempre centrata in $x_0=0$, ma i coefficienti non sono costanti $a_k=k^{-1}$. 
-Si determina il valore del raggio di convergenza:
-\begin{gather*}
-    R=\lim_{k\to\infty}\left|\frac{a_k}{{a_{k+1}}}\right|=
-    \lim_{k\to\infty}\left|\frac{k^{-1}}{{(k+1)^{-1}}}\right|=
-    \lim_{k\to\infty}\frac{k+1}{k}=1
-\end{gather*}
-Quindi sicuramente questa serie converge nell'intervallo $(-1,+1)$. Bisogna studiare il carattere nei valori di frontiera:
-\begin{gather*}
-    x=1\rightarrow\displaystyle\sum_{k=1}^\infty\frac{1^k}{k}=\sum_{k=1}^\infty\frac{1}{k}=+\infty\\
-    x=-1\rightarrow\displaystyle\sum_{k=1}^\infty\frac{(-1)^k}{k}:\text{converge}
-\end{gather*}
-La serie converge perché è una serie di segno alterno, con $1/k$ decrescente tendente a zero. Quindi la serie converge in $[-1,1)$. 
-
-
-
-Studiare l'insieme di convergenza della seguente serie di potenze:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{x^k}{k^2}
-\end{gather*}
-È sempre centrata in $x_0=0$, dove il termine generico è $a_k=k^{-2}$. 
-Si determina il valore del raggio di convergenza:
-\begin{gather*}
-    R=\lim_{k\to\infty}\left|\frac{a_k}{{a_{k+1}}}\right|=
-    \lim_{k\to\infty}\left|\frac{k^{-2}}{{(k+1)^{-2}}}\right|=
-    \lim_{k\to\infty}\frac{(k+1)^2}{k^2}=1
-\end{gather*}
-Quindi sicuramente questa serie converge nell'intervallo $(-1,+1)$. Bisogna studiare il carattere nei valori di frontiera:
-\begin{gather*}
-    x=1\rightarrow\displaystyle\sum_{k=1}^\infty\frac{1^k}{k^2}=\sum_{k=1}^\infty\frac{1}{k^2}:\text{converge}\\
-    x=-1\rightarrow\displaystyle\sum_{k=1}^\infty\frac{(-1)^k}{k^2}:\text{converge}
-\end{gather*}
-La prima converge poiché è una serie armonica generalizzata con $\alpha>1$, mentre la seconda serie converge perché è una serie di segno alterno, con $1/k$ decrescente tendente a zero, per il criterio di Leibniz. Quindi la serie converge in $[-1,1]$. 
-
-
-
-
-Studiare l'insieme di convergenza della seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k^2}{3^k}x^k
-\end{gather*}
+Si effettua un procedimento analogo, partendo dalla serie, tendendola all'infinito, e ci si aspetta che $o[x^{2n}]$ tende a zero. Si dimostra che la somma di questa serie $S(x)$ non può essere altro che la funzione coseno. 
 Si determina il raggio di convergenza della serie:
 \begin{gather*}
-    R=\lim_{k\to\infty}\left|\frac{a_k}{{a_{k+1}}}\right|=
-    \lim_{k\to\infty}\frac{\frac{k^2}{3^k}}{\frac{(k+1)^2}{3^{k+1}}}=
-    \lim_{k\to\infty}\frac{k^23^{\cancel{k+1}}}{\cancel{3^k}(k+1)^2}=3
+    \displaystyle\sum_{k=0}^\infty(-1)^k\frac{x^{2k}}{(2k)!}=S(x)\\
+    %% TODO calcolo del raggio
+    R=+\infty
 \end{gather*}
-Sicuramente la serie di potenze converge nell'intervallo di convergenza $(-3, 3)$. Si determina il comportamento agli estremi:
-\begin{gather*}
-    x=3\rightarrow\displaystyle\sum_{k=1}^\infty\frac{k^2}{\cancel{3^k}}\cancel{3^k}=+\infty\\
-    x=-3\rightarrow\displaystyle\sum_{k=1}^\infty\frac{k^2}{3^k}(-3)^k=
-    \sum_{k=1}^\infty(-1)^k\frac{k^2}{\cancel{3^k}}\cancel{3^k}=+\infty
-\end{gather*}
-In questo caso l'insieme di convergenza coincide con l'intervallo di convergenza: $(-3, 3)$. 
 
-
-
-Studiare il carattere della seguente serie:
+Analogamente all'esponenziale la serie converge per ogni $x$ reale $x\in\mathbb{R}$. Si deriva membro a membro l'equazione:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{1}{k}\left(\frac{x}{4}\right)^k
+    S'(x)=\displaystyle\sum_{k=0}^\infty(-1)^k\frac{\mathrm{d}}{\mathrm{d}x}\frac{x^{2k}}{(2k)!}=
+    \sum_{k=1}^\infty(-1)^k\frac{\cancel{2k}}{\cancel{2k}}\frac{x^{2k-1}}{(2k-1)!}
 \end{gather*}
-Con un cambiamento di base si può riportare questa serie in una serie di potenze con centro nell'origine: $t=x/4$:
+ANalogamente all'esponenziale il termine $a_0$ è una costante, quindi si annulla e la serie parte da $k=1$. Questa serie rappresenta, a meno del segno, lo sviluppo in serie del seno. Si deriva nuovamente membro a membro e si ottiene la seguente:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{t^k}{k}
+    S''(x)=\displaystyle\sum_{k=1}^\infty(-1)^k\frac{\cancel{2k-1}}{\cancel{2k-1}}\frac{x^{2k-2}}{(2k-2)!}
 \end{gather*}
-Questa serie è già stata analizzata precedentemente, e converge con $t\in[-1,1)$. Ma bisogna sempre fare riferimento alla variabile originale, quindi la serie originale converge per $x\in[-4, 4)$. 
-
-
-Studiare il carattere della seguente serie:
+Si effettua una traslazione, per impostare il valore iniziale a $k=0$:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k!2^k+5}{(k+3)!}(x+2)^k
+    S''(x)=\displaystyle\sum_{k=1}^\infty(-1)^{k+1}\frac{x^{2k-2}}{(2k-2)!}=
+    -\sum_{k=0}^\infty(-1)^{k+1}\frac{x^{2k}}{(2k)!}=-S(x)
 \end{gather*}
-Questa serie di potenze è centrata in $x_0=-2$, con termini generici:
+La seconda derivata della funzione iniziale coincide alla funzione stessa, quindi la funzione è o un coseno o un seno, le uniche due funzioni che rispettano questa condizione. Inoltre deve soddisfare $S(0)=1$, e solo la funzione coseno rispetta questo problema di Cauchy:
 \begin{gather*}
-    \displaystyle\frac{k!2^k+5}{(k+3)!}
-\end{gather*}
-Si preferisce lavorare con serie di potenze con centro nell'origine, per cui si effettua il cambio di variabile $t=x+2$, mentre il termine generico rimane invariato:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k!2^k+5}{(k+3)!}t^k
-\end{gather*}
-% Si considera la serie asintoticamente equivalente:
-% \begin{gather*}
-%     \displaystyle\sum_{k=1}^\infty\frac{k!2^k+5}{(k+3)!}t^k\sim
-%     \displaystyle\sum_{k=1}^\infty\frac{k!}{(k+3)!}2^kt^k
-% \end{gather*}
-
-Si determina il valore del raggio di convergenza:
-\begin{gather*}
-    R=\displaystyle\lim_{k\to\infty}\frac{a_k}{a_{k+1}}=\frac{\frac{k!2^k+5}{(k+3)!}}{\frac{(k+1)!2^{k+1}+5}{(k+4)!}}=
-    \lim_{k\to\infty}\frac{(k!2^k+5)\cancelto{k+4}{(k+4)!}}{[(k+1)!2^{k+1}+5]\cancel{(k+3)!}}=
-    \lim_{k\to\infty}\frac{k!2^k+5}{(k+1)!2^{k+1}+5}(k+4)
-\end{gather*}
-Dato che si è scomposto in fattori si possono considerare fattori asintoticamente equivalenti:
-\begin{gather*}
-    k!2^k+5\sim k!2^k\\
-    (k+1)!2^{k+1}+5\sim(k+1)!2^{k+1}
-\end{gather*}
-Il limite diventa:
-\begin{gather*}
-    \lim_{k\to\infty}\frac{k!2^k+5}{(k+1)!2^{k+1}+5}(k+4)=
-    \lim_{k\to\infty}\frac{\cancel{k!}2^k}{\cancelto{k+1}{(k+1)!}2^{k+1}}(k+4)=
-    \lim_{k\to\infty}\frac{k+4}{k+1}\frac{\cancel{2^k}}{2^{\cancel{k+1}}}=\frac{1}{2}    
-\end{gather*}
-La serie converge nell'intervallo: $(-1/2, 1/2)$. Si analizza il suo comportamento agli estremi:
-\begin{gather*}
-    \displaystyle t=\frac{1}{2}\rightarrow\displaystyle\sum_{k=1}^\infty\frac{k!2^k+5}{(k+3)!}\frac{1}{2^k}\sim
-    \displaystyle\sum_{k=1}^\infty\frac{k!\cancel{2^k}}{(k+3)!}\frac{1}{\cancel{2^k}}=
-    \sum_{k=1}^\infty\frac{1}{(k+3)(k+2)(k+1)}\sim\sum_{k=1}^\infty\frac{1}{k^3}:\text{converge}\\
-    \displaystyle t=-\frac{1}{2}\rightarrow\displaystyle\sum_{k=1}^\infty\frac{k!2^k+5}{(k+3)!}\frac{(-1)^k}{2^k}\sim\sum_{k=1}^\infty\frac{(-1)^k}{k^3}:\text{converge}
-\end{gather*}
-La prima è una serie armonica generalizzata con $\alpha>1$, quindi converge, la seconda è una serie di segni alterni che soddisfa il criterio di Leibniz, quindi converge. L'intervallo di convergenza è $[-1/2, 1/2]$. La serie originale quindi converge per $x\in[-5/2, 3/2]$. 
-
-
-Determinare l'insieme di convergenza della seguente serie e determinarne la somma:
-\begin{gather*}
-    \displaystyle\sum_{k=0}^\infty\left(\frac{1}{1-\ln|x|}\right)^k
-\end{gather*}
-Per $x\in\mathbb{R}$, questa serie rappresenta una serie di potenze particolare, una serie geometrica con ragione $t$, convergente per $t\in(-1,1)$:
-\begin{gather*}
-    t=\displaystyle\frac{1}{1-\ln|x|}\\
     \begin{cases}
-        \displaystyle\frac{\strut 1}{\strut 1-\ln|x|}< -1\\
-        \displaystyle\frac{\strut 1}{\strut 1-\ln|x|}> 1
+        S''(x)=-S(x)&\forall x\in\mathbb{R}\\
+        S(0)=1
     \end{cases}
 \end{gather*}
-% Con somma $s$:
-% \begin{gather*}
-    
-% \end{gather*}
-%% TODO finire esercizio
 
-%% SOLUZIONE
-\begin{gather*}
-    A=(-\infty, -e^2)\cup(-1,0)\cup(0,1)\cup(e^2,\infty)
-\end{gather*}
+Quindi la funzione coseno si può esprimere nell'intero asse reale con la seguente espansione:
+\begin{equation}
+    \forall x\in\mathbb{R}\cos x=\displaystyle\sum_{k=0}^\infty (-1)^k\frac{x^{2k}}{(2k)!}
+\end{equation}
 
+%% TODO seno dimostrare
 
-Studiare l'insieme di convergenza della seguente serie:
+Si può dimostrare allo stesso modo l'espansione seno sull'intero asse dei reali:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{e^{1/k}-1}{3\ln k+1}(x-5)^k
-\end{gather*}
-Questa è una serie di potenze con centro in $x_0=5$, si effettua una sostituzione per centrarla nell'origine, $x-5=t$:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{e^{1/k}-1}{3\ln k+1}t^k
-\end{gather*}
-Questa è una serie con termini a segno costante positivo, poiché per ogni $k>1$, si ha che $e^{1/k}>1$. Si determina la successione ausiliaria:
-\begin{gather*}
-    \displaystyle\left|\frac{a_k}{a_{k+1}}\right|=
-    \frac{\frac{e^{k^{-1}}-1}{3\ln k+1}}{\frac{e^{(k+1)^{-1}}-1}{3\ln(k+1)+1}}=\frac{e^{k^{-1}}-1}{\cancel{3}\ln k+1}\frac{\cancel{3}\ln(k+1)+1}{e^{(k+1)^{-1}}-1}
-\end{gather*}
-Entrambi sono di segno positivo, quindi si può togliere il modulo essendo di segno positivo, si ha che $e^{t}-1\sim t$, analogamente per il logaritmo si ha $\ln t+c\sim\ln t$:
-\begin{gather*}
-    \frac{e^{k^{-1}}-1}{\ln k}\frac{\ln(k+1)+1}{e^{(k+1)^{-1}}-1}\sim\frac{k^{-1}}{\ln k+1}\frac{\ln(k+1)}{(k+1)^{-1}}=\frac{k+1}{k}\frac{\ln(k+1)}{\ln k}
-\end{gather*}
-Si determina il raggio di convergenza:
-\begin{gather*}
-    R=\lim_{k\to\infty}\frac{k+1}{k}\frac{\ln(k+1)}{\ln k}=\cancelto{1}{\lim_{k\to\infty}\frac{k+1}{k}}\lim_{k\to\infty}\frac{\ln(k+1)}{\ln k}
-\end{gather*}
-Per il teorema di de l'Hopital si ha:
-\begin{gather*}
-    R=\lim_{k\to\infty}\frac{\ln(k+1)}{\ln k}=\lim_{k\to\infty}\frac{k}{k+1}=1
-\end{gather*}
-Il raggio di convergenza è quindi pari ad uno. L'intervallo di convergenza di questa serie è l'intervallo di estremi $(-1, 1)$, questo fa riferimento alla variabile $t$, in $x$ questo intervallo è $(4,6)$. Si determina ora il comportamento agli estremi:
-\begin{gather*}
-    t=1\implies
-    \displaystyle\sum_{k=1}^\infty\frac{e^{1/k}-1}{3\ln k+1}\cancel{1^k}\sim
-    \displaystyle\frac{1}{3}\sum_{k=1}^\infty\frac{1}{k\ln k}\sim\frac{1}{3}\sum_{k=1}^\infty\frac{\cancel{2^k}}{\cancel{2^k}\ln2^k}=\frac{1}{3\ln2}\sum_{k=1}^\infty\frac{1}{k}\to\infty
-    \\
-    t=-1\implies
-    \displaystyle\sum_{k=1}^\infty\frac{e^{1/k}-1}{3\ln k+1}(-1)^k
-\end{gather*}
-Per il primo caso si usano le funzioni asintoticamente equivalenti individuate nel calcolo del raggio di convergenza, per il secondo caso si usa il criterio di Leibniz, ma bisogna dimostrare che i termini della successione siano definitivamente decrescenti a zero. Il numeratore è un'esponenziale e decresce a zero per $k\to\infty$, il numeratore tende a zero, mentre il logaritmo cresce tendente a $+\infty$. Quindi questa serie converge per $t=-1$, l'insieme di convergenza diventa $[-1,1)\to[4,6)$. 
-
-
-
-Studiare il carattere della seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\left(\frac{k-1}{k+1}\right)^{k^2}x^{4k}
-\end{gather*}
-Questa serie si può trasformare in una serie di potenze con centro nell'origine, effettuando la sostituzione $t=x^4$:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\left(\frac{k-1}{k+1}\right)^{k^2}t^{k}
-\end{gather*}
-Conviene invece di usare la successione ausiliaria simile a quella del criterio del rapporto, si utilizza la successione ausiliaria:
-\begin{gather*}
-    \displaystyle\frac{1}{\sqrt[k]{a_k}}=\frac{1}{\sqrt[\cancel{k}]{\left(\frac{k-1}{k+1}\right)^{k^2}}}
-\end{gather*}
-Si determina il raggio di convergenza:
-\begin{gather*}
-    R=\lim_{k\to\infty}
-    \frac{1}{\sqrt[k]{\left(\frac{k-1}{k+1}\right)^{k^2}}}=
-    \lim_{k\to\infty}\left(\frac{k+1}{k-1}\right)^k=
-    \lim_{k\to\infty}\left(1+\frac{2}{k-1}\right)^k=
-    \lim_{k\to\infty}\left(1+\frac{2}{k-1}\right)^{k+1-1}\\
-    \lim_{k\to\infty}\left(1+\frac{2}{k-1}\right)^{k-1}\cancelto{1}{\left(1+\frac{2}{k-1}\right)}=e^2
-\end{gather*}
-L'intervallo di convergenza è quindi $(-e^2,e^2)$, si considerano gli estremi:
-\begin{gather*}
-    t=e^2\implies\displaystyle\sum_{k=1}^\infty\left(\frac{k-1}{k+1}\right)^{k^2}e^{2k}\\
-    t=-e^2\implies\displaystyle\sum_{k=1}^\infty\left(\frac{k-1}{k+1}\right)^{k^2}(-e)^{2k}
-\end{gather*}
-Poiché utilizzare uno dei criteri è abbastanza complesso, si analizza la condizione necessaria di convergenza:
-\begin{gather*}
-    \lim_{k\to\infty}\left(\frac{k-1}{k+1}\right)^{k^2}e^{2k}=
-    \lim_{k\to\infty}e^{\ln\left(\frac{k-1}{k+1}\right)^{k^2}}e^{2k}=
-    \lim_{k\to\infty}e^{k^2\ln\left(1-\frac{2}{k+1}\right)+2k}=
-    e^{\lim_{k\to\infty}k^2\ln\left(1-\frac{2}{k+1}\right)+2k}
-\end{gather*}
-Si utilizza la formula di Maclaurin, se il limite dell'esponente tende a zero, il limite tende ad uno e quindi la serie non può convergere, si controlla questo limite:
-
-\begin{gather*}
-    \displaystyle\lim_{k\to\infty}k^2\ln\left(1-\frac{2}{k+1}\right)+2k\sim
-    \lim_{k\to\infty}k^2\left(-\frac{2}{k+1}-\frac{2}{(k+1)^2}+o\left[\frac{1}{k^2}\right]\right)+2k\\
-    \lim_{k\to\infty}-\frac{2k^2}{k+1}-\frac{2k^2}{(k+1)^2}+\cancelto{0}{\frac{o\left[\frac{1}{k^2}\right]}{\frac{1}{k^2}}}+2k=
-    \lim_{k\to\infty}\frac{-2k^2(k+1)-2k^2+2k(k+1)^2}{(k+1)^2}\\
-    \lim_{k\to\infty}\frac{\cancel{-2k^3}\bcancel{-2k^2}\bcancel{-2k^2}+\cancel{2k^3}+\bcancel{4k^2}+2k}{(k+1)^2}=
-    \lim_{k\to\infty}{2k}{(k+1)^2}=0
+    \forall x\in\mathbb{R} \sin x=\displaystyle\sum_{k=0}^\infty(-1)^k\frac{x^{2k+1}}{(2k+1)!}
 \end{gather*}
 
-L'esponente è un infinitesimo, quindi l'esponente tende ad uno, e quindi la serie non può convergere. Per $t=-e^2$ invece si ha una serie di segno alterno:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty(-1)^k\left(\frac{k-1}{k+1}\right)^{k^2}e^{2k}
-\end{gather*}
-Per converge la condizione necessaria deve valere, ma i termini di questa serie tendono ad uno, quindi questa serie si avvicina oscillando ad uno, ma non può convergere. Quindi l'intervallo di convergenza coincide con l'insieme di convergenza, quindi si ha che l'intervallo di convergenza in $x$ è dato da:
-\begin{gather*}
-    -e^2<x^4<e^2\implies x^4<e^2:-e<x^2<e\implies x^2<e:-\sqrt{e}<x<\sqrt{e}
-\end{gather*}
-
-
-%% TODO aggiungere a qualche sezione
-% \section{Funzioni}
-
-% Si vuole approssimare funzioni come la somma di una serie parametriche rispetto ad una fattore $x$, che diventerà la variabile indipendente della funzione. Una funzione algebrica si può rappresentare come una certa serie, dimostrato nel caso di una serie telescopica e geometrica. Per serie di segno definitivamente positivo è possibile rappresentarle in forma esplicita, mentre per serie che non rispettano questa condizione, molto probabilmente non è possibile, quindi non è possibile ottenere una rappresentazione algebrica di queste. 
+\clearpage
 
 \end{document}

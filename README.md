@@ -2,7 +2,8 @@
 Appunti tratti dal corso di Analisi II, Anno Accademico 2024/25, Dipartimento di Ingegneria Industriale, Elettronica e Meccanica. 
 
 ## Contenuti:
-- [Appunti](Analisi-II.pdf) delle lezioni, tenute l'anno accademico 2024/25 dal professore Pierpaolo Natalini;
+ - [Appunti](Analisi-II.pdf) delle lezioni, tenute l'anno accademico 2024/25 dal professore Pierpaolo Natalini;
+ - [Esercizi](./Esercizi/Esercizi-Svolti.pdf) svolti durante il corso;
 
 ## Contenuti del Corso
  - Integrali impropri. 
