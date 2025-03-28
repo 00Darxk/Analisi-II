@@ -83,7 +83,7 @@ Università degli Studi ``Roma Tre"}}
 \pagenumbering{arabic}
 
 
-\section{Esercizi}
+\section{Serie Numeriche}
 
 Studiare il carattere della serie numerica:
 \begin{gather*}
@@ -665,5 +665,208 @@ Questa identità vale solamente se $x\in[-1,1)$, ed è verificata per il valore 
     -\frac{1}{4}\ln\left(1-\frac{3}{4}\right)=-\frac{1}{4}\ln\left(\frac{1}{4}\right)=
     \frac{1}{4}\ln4=\frac{\ln2}{2}=\ln\sqrt{2}
 \end{gather*}
+
+
+\clearpage
+
+\section{Integrali Impropri}
+
+Studiare la convergenza del seguente integrale:
+\begin{gather*}
+\displaystyle\int_0^1\frac{1+x}{\sqrt{x}}\mathrm{d}x
+\end{gather*}
+La funzione presente un punto critico in $x=0$, la funzione integranda per $x\to0^+$ si può stabilire sia asintoticamente equivalente alla funzione:
+\begin{gather*}
+    \displaystyle\frac{1+x}{\sqrt{x}}\sim\frac{1}{\sqrt{x}}
+\end{gather*}
+La funzione integranda è asintoticamente equivalente alla funzione campione $x^{-1/2}$, ed è noto sia convergente, quindi l'integrale improprio della funzione di partenza converge. 
+
+
+Stabilire la convergenza del seguente integrale:
+\begin{gather*}
+    \displaystyle\int_0^1\frac{\mathrm{d}x}{\sqrt{x(1-x)}}
+\end{gather*}
+La funzione integranda presente due punti di singolarità per $x=0$ e $x=1$, si applica la proprietà additiva dell'integrale:
+\begin{gather*}
+    \displaystyle\int_0^1\frac{\mathrm{d}x}{\sqrt{x(1-x)}}=
+    \overbrace{\int_0^a\frac{\mathrm{d}x}{\sqrt{x(1-x)}}}^{I_1}+
+    \underbrace{\int_a^1\frac{\mathrm{d}x}{\sqrt{x(1-x)}}}_{I_2}\,\mbox{dove }0<a<1
+\end{gather*}
+Per convergere questo integrale, devono convergere entrambi gli integrali. Si considera il primo:
+\begin{gather*}
+    I_1=\displaystyle\int_0^a\frac{\mathrm{d}x}{\sqrt{x(1-x)}}
+\end{gather*}
+La sua funzione integranda è asintoticamente equivalente per $x\to0^+$:
+\begin{gather*}
+    \displaystyle\frac{1}{\sqrt{x}\sqrt{1-x}}\sim\frac{1}{\sqrt{x}}
+\end{gather*}
+Ed è noto che l'integrale improprio della funzione campione converge, quindi $I_1$ converge, mentre per la seconda funzione integranda, per $x\to1^-$:
+\begin{gather*}
+    \displaystyle\frac{1}{\sqrt{x}\sqrt{1-x}}\sim\frac{1}{(1-x)^{1/2}}
+\end{gather*}
+L'integrale improprio della funzione campione $(1-x)^{-1/2}$ è noto convergere, per un'esponente minore di uno, quindi anche l'integrale $I_2$, quindi l'integrale di partenza $I_1+I_2$ converge. 
+
+
+Determinare la convergenza del seguente integrale improprio:
+\begin{gather*}
+    \displaystyle\int_0^2\frac{1}{x^3\sin x}\mathrm{d}x
+\end{gather*}
+La funzione integranda presenta un punto di singolarità per $x=0$, si considera per $x\to0^+$ la funzione asintoticamente equivalente:
+\begin{gather*}
+    \displaystyle\frac{1}{x^3\sin x}\sim\frac{1}{x^4}
+\end{gather*}
+Per il limite notevole $\sin x/x$, l'integrale improprio di questa funzione non converge, quindi la funzione integranda non è integrabile nell'intervallo $[0,2]$. 
+Analogamente si ha lo stesso risultato per la funzione integranda $1/\sin x$. Per renderla integrabile bisogna elevare l'argomento del seno ad una potenza minore di uno:
+\begin{gather*}
+    \displaystyle\int_0^2\frac{1}{\sin x^\alpha}\mathrm{d}x
+\end{gather*}
+Dove $0<\alpha<1$, allora l'integrale improprio di seconda specie converge. 
+
+
+
+Considerare il seguente integrale improprio e valutarne la convergenza:
+\begin{gather*}
+    \displaystyle\int_1^2\frac{1}{\ln x}\mathrm{d}x
+\end{gather*}
+La funzione integranda presenta un punto critico per $x=1$, si considera $x\to1^+$:
+\begin{gather*}
+    \ln x\sim x-1
+\end{gather*}
+Si dimostra considerando il seguente limite:
+\begin{gather*}
+    \lim_{x\to1^+}\frac{\ln x}{x-1}
+\end{gather*}
+Utilizzando il teorema di de l'Hopital:
+\begin{gather*}
+    \lim_{x\to1^+}\frac{\frac{1}{x}}{1}=1
+\end{gather*}
+La funzione integranda per $x\to1^+$ è asintoticamente equivalente a:. 
+\begin{gather*}
+    \displaystyle\frac{1}{\ln x}\sim\frac{1}{x-1}
+\end{gather*}
+Questa funzione è divergente, poiché $\alpha=1$
+
+
+
+Studiare la convergenza del seguente integrale improprio:
+\begin{gather*}
+    \displaystyle\int_1^{2}\frac{1}{x\ln x}\mathrm{d}x
+\end{gather*}
+Il punto di singolarità è $x=1$, per la funzione logaritmo che tende il denominatore a zero. Per $x\to1^+$ si ha:
+\begin{gather*}
+    \ln x\sim x-1\\
+    x\sim 1
+\end{gather*}
+Quindi si ha un integrale analogo al precedente, ed anch'esso diverge. 
+Si considera ora l'integrale nell'intervallo $[0,1/2]$:
+\begin{gather*}
+    \displaystyle\int_0^{1/2}\frac{1}{x\ln x}\mathrm{d}x
+\end{gather*}
+Il punto di singolarità è $x=0$, non si riesce a trovare una funzione asintoticamente equivalente, ma si prova a verificare in maniera diretta mediante la definizione: 
+\begin{gather*}
+    \displaystyle\int_0^{1/2}\frac{1}{x\ln x}\mathrm{d}x=
+    \lim_{\varepsilon\to0^+}\int_{0+\varepsilon}^{1/2}\frac{\mathrm{d}(\ln x)}{\ln x}=\ln |\ln x|\bigg|_{0+\varepsilon}^{1/2}=\lim_{\varepsilon\to0^+}\left\{\ln\left|\ln\left(\frac{1}{2}\right)\right|-\overbrace{\ln|\underbrace{\ln(\varepsilon)}_{+\infty}|}^{+\infty}\right\}=-\infty
+\end{gather*}
+L'integrale improprio diverge a $-\infty$.
+%% TODO add:
+% Integrali impropri notevoli:
+% \begin{gather*}
+%     \displaystyle\int_0^{1/2}\frac{1}{x^\alpha\ln^\beta x}\mathrm{d}x
+% \end{gather*}
+% Qualunque sia il valore di $\beta$, se $\alpha<1$, l'integrale converge. 
+
+
+Studiare la convergenza del seguente integrale:
+\begin{gather*}
+    \displaystyle\int_0^1\frac{e^x}{\sqrt{1-\cos x}}\mathrm{d}x
+\end{gather*}
+Presenta un punto di singolarità per $x\to0^+$, si considerano le equivalenze asintotiche per $x\to0^+$:, per il limite notevole $1-\cos x/x^2$:
+\begin{gather*}
+    \displaystyle\frac{e^x}{\sqrt{1-\cos x}}\sim\frac{1}{\sqrt{\frac{1}{2}x^2}}=\sqrt{2}\frac{1}{x}
+\end{gather*}
+L'integrale improprio di questa funzione diverge, avendo un esponente maggiore o uguale ad uno, quindi la funzione integranda di partenza non è integrabile in senso improprio. 
+Un modo alternativo consiste nello sfruttare l'espansione in serie del coseno, per $x\to0^+$, mediante la serie di Maclaurin
+\begin{gather*}
+    \cos x=1-\displaystyle\frac{x^2}{2}+o[x^2]
+\end{gather*}
+Sostituendo quest'approssimazione nella funzione integranda si ha:
+\begin{gather*}
+    1-\cos x=\displaystyle\frac{x^2}{2}+o[x^2]\\
+    \displaystyle\frac{e^x}{\sqrt{1-\cos x}}=\frac{e^x}{\sqrt{\frac{x^2}{2}+o[x^2]}}
+\end{gather*}
+
+Considerando il seguente integrale improprio, bisogna utilizzare la formula di Maclaurin di ordine quattro:
+\begin{gather*}
+    \displaystyle\int_0^1\frac{e^x}{\sqrt[3]{1-\frac{x^2}{2}-\cos x}}\mathrm{d}{x}\\
+    \cos x=1-\displaystyle\frac{x^2}{2}+\frac{x^4}{4!}+o[x^4]\implies
+    \displaystyle1-\frac{x^2}{2}-\cos x=-\frac{x^4}{4!}+o[x^4]\\
+    \displaystyle\frac{1-\frac{x^2}{2}-\cos x}{-\frac{x^4}{4!}}=1+o[1]\\
+    \displaystyle\frac{e^x}{\sqrt[3]{1-\frac{x^2}{2}-\cos x}}\sim-\frac{\sqrt[3]{4!}}{\sqrt[3]{x^4}}
+\end{gather*}
+L'integrale di questa funzione diverge poiché $\alpha>1$. 
+
+
+Valutare la convergenza del seguente integrale:
+\begin{gather*}
+    \displaystyle\int_0^1\frac{\sin x+\cos x}{\sqrt[5]{1-x^3}}\mathrm{d}x
+\end{gather*}
+La funzione integranda presenta un punto di singolarità per $x=1$, nell'intorno sinistro di uno la funzione si mantiene positiva, quindi si può applicare il criterio del confronto asintotico, il numeratore non crea problemi, essendo $\sin x+\cos x\sim \sin1+\cos1$, si ha per prodotto notevole della differenza di due cubi:
+\begin{gather*}
+    \displaystyle\frac{\sin x+\cos x}{\sqrt[5]{1-x^3}}\sim\frac{\sin1+\cos1}{\sqrt[5]{1-x}\sqrt[5]{1+x+x^2}}\sim
+    \frac{\sin 1+\cos 1}{\sqrt[5]{3}}\frac{1}{(1-x)^{1/5}}
+\end{gather*}
+L'integrale di questa funzione converge perché $\alpha<1$. 
+
+
+Studiare la convergenza del seguente integrale improprio:
+\begin{gather*}
+    \displaystyle\int_0^1\frac{1}{e^x-\cos x}
+\end{gather*}
+Si considera l'espansione mediante la serie di Maclaurin per $x\to0^+$, del denominatore:
+\begin{gather*}
+    e^x=1+x+o[x]\\
+    \cos x=1+o[x]\\
+    e^x-\cos x=\cancel1+x+{o[x]}-\cancel1-{o[x]}=x+o[x]\implies e^x-\cos x\sim x
+    \displaystyle\frac{1}{e^x-\cos x}\sim\frac{1}{x}
+\end{gather*}
+L'integrale di questa funzione non converge, quindi la funzione di partenza non è integrabile in senso improprio. 
+
+
+Considerare il seguente integrale improprio:
+\begin{gather*}
+    \displaystyle\int_0^1\frac{1-e^{-x}}{x\sqrt{x}}\mathrm{d}x
+\end{gather*}
+La funzione ha un punto critico per $x=0$, e si può usare il criterio del confronto asintotico, essendo definitamente positiva per $x\to0^+$. Al denominatore è già presente la funzione campione. Si considera l'espansione mediante la formula di Maclaurin dell'esponenziale:
+\begin{gather*}
+    e^{-x}=1-x+o[x]\implies1-e^{-x}=x+o[x]\\
+    \displaystyle\frac{1-e^{-x}}{x^{3/2}}\sim\frac{x}{x^{3/2}}=\frac{1}{x^{1/2}}
+\end{gather*}
+La funzione ottenuta è integrabile in modo improprio, quindi l'integrale di partenza converge. 
+
+
+
+Studiare la convergenza del seguente integrale improprio:
+\begin{gather*}
+    \displaystyle\int_0^1\sin\left(\frac{1}{x}\right)e^{-\frac{1}{x}}x^{-2}\mathrm{d}x
+\end{gather*}
+La funzione integranda ha un punto di singolarità per $x=0$. La funzione non si mantiene positiva nell'intorno di zero, poiché il seno continua ad oscillare a frequenza sempre maggiore per $x\to0^+$. Quindi non si può utilizzare il criterio del confronto asintotico, quindi si studia la convergenza assoluta:
+\begin{gather*}
+    \displaystyle\int_0^1\left|\sin\left(\frac{1}{x}\right)e^{-\frac{1}{x}}x^{-2}\right|\mathrm{d}x
+\end{gather*}
+Si può applicare su questa funzione integranda il criterio del confronto:
+\begin{gather*}
+    \left|\sin\left(\frac{1}{x}\right)e^{-\frac{1}{x}}x^{-2}\right|\leq e^{-\frac{1}{x}}x^{-2}
+\end{gather*}
+Si determina una funzione asintoticamente equivalente a questa funzione maggiorante:
+\begin{gather*}
+    \lim_{x\to0^+}\displaystyle\frac{e^{-\frac{1}{x}}x^{-2}}{x^{1/2}}
+\end{gather*}
+Se questo limite tende a zero, allora la funzione maggiorante converge. 
+\begin{gather*}
+    \lim_{x\to0^+}\displaystyle\frac{x^{-5/2}}{e^{1/x}}
+\end{gather*}
+Il denominatore è un infinito di ordine superiore, quindi il limite tende a zero. Un corollario del teorema del confronto asintotico afferma che se il limite della funzione integranda fratto un'altra funzione $g(x)$ è uguale a zero, e questa funzione ammette un integrale improprio convergente, allora lo ammette anche la funzione integranda. Quindi converge anche l'integrale improprio di partenza. 
+Questo può valere per qualsiasi funzione $g(x)=x^\alpha$, con $\alpha<1$. 
+
 
 \end{document}
