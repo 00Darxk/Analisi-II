@@ -38,9 +38,27 @@
 
 \newsavebox{\tempbox} %{\raisebox{\dimexpr.5\ht\tempbox-.5\height\relax}}
 
-%% TODO aggiungere comandi funzioni
 
 \makeatother
+%% Derivate:
+\newcommand{\df}{\mathrm{d}}
+\newcommand{\diff}[2]{\displaystyle\frac{\df{#1}}{\df{#2}}}
+\newcommand{\diffn}[3]{\displaystyle\frac{\df^{#3}{#1}}{\df{#2}^{#3}}}
+\newcommand{\pdiff}[2]{\displaystyle\frac{\partial{#1}{\partial{#2}}}}
+\newcommand{\pdiffn}[3]{\displaystyle\frac{\partial^{#3}{#1}{\partial{#2}^{#3}}}}
+
+%% Integrali:
+\newcommand{\intab}[4]{\displaystyle\int_{#1}^{#2}{#3}\df{#4}}
+\newcommand{\intinf}[2]{\intab{-\infty}{+\infty}{#1}{#2}}
+\newcommand{\intpinf}[2]{\intab{0}{+\infty}{#1}{#2}}
+\newcommand{\intninf}[2]{\intab{-\infty}{0}{#1}{#2}}
+
+%% Sommatorie:
+\newcommand{\sumab}[4]{\displaystyle\sum_{#4=#1}^{#2}{#4}}
+\newcommand{\suminf}[2]{\sumab{-\infty}{+\infty}{1}{2}}
+\newcommand{\sumpinf}[2]{\sumab{0}{+\infty}{1}{2}}
+\newcommand{\sumninf}[2]{\sumab{-\infty}{0}{1}{2}}
+
 \renewcommand{\contentsname}{Indice}
 \numberwithin{equation}{subsection}
 \newcommand{\tageq}{\tag{\stepcounter{equation}\theequation}}
@@ -1158,16 +1176,200 @@ La funzione integranda è continua ed illimitata in $[0,1)$ ha un punto critico 
 \end{gather*}
 È asintoticamente equivalente ad una funzione campione $(1-x)^{-\alpha}$, essendo $\alpha<1$ la funzione converge. 
 
+\subsection{Integrali Impropri di Prima Specie}
+
+Sia la funzione $f$ continua in $[a,+\infty)$, allora ha senso parlare dell'integrale:
+\begin{gather*}
+    \displaystyle\int_a^hf(x)\mathrm{d}x
+\end{gather*}
+Per $h>a$, una volta calcolato questo integrale, per ottenere il valore dell'integrale improprio sull'intero intervallo $[a,+\infty)$ si calcola il limite:
+\begin{gather*}
+    \lim_{h\to+\infty}\displaystyle\int_a^hf(x)\mathrm{d}x=\begin{cases}
+        \exists\displaystyle\int_a^{+\infty}f(x)\mathrm{d}x\\
+        \pm\infty\\
+        \nexists
+    \end{cases}
+\end{gather*}
+Se il limite esiste, la funzione è integrabile in modo improprio nell'intervallo $[a,+\infty)$, analogamente l'integrale improprio di prima specie della funzione $f$ converge. Altrimenti il limite può non converge, oppure può essere irregolare e non esistere. 
+
+Si determini il valore del seguente integrale improprio:
+\begin{gather*}
+    \displaystyle\int_{-\infty}^{+\infty}\frac{\df x}{1+x^2}
+    =\lim_{h\to+\infty}\int_{-h}^h\frac{1}{1+x^2}\df x
+\end{gather*}
+Essendo una funzione pari si può esprimere come:
+\begin{gather*}
+    \displaystyle\int_{-\infty}^{+\infty}\frac{\df x}{1+x^2}=
+    2\lim_{h\to+\infty}\int_0^h\frac{1}{1+x^2}\df x=
+    2\lim_{h\to+\infty}\arctan x\bigg|_0^h=\pi\in\mathbb{R}
+\end{gather*}
+
+
+Studiare la convergenza del seguente integrale:
+\begin{gather*}
+    \displaybreak\intpinf{xe^{-x}}{x}=\lim_{h\to+\infty}\int_0^hxe^{-x}\df x=-\lim_{h\to+\infty}\int_0^he\df(e^{-x})=
+    -\lim_{h\to+\infty}\left\{xe^{-x}\bigg|_0^h-\int_0^he^{-x}\df x\right\}\\
+    -\lim_{h\to+\infty}\left\{he^{-h}+e^{-x}\bigg|_0^h\right\}=
+    -\lim_{h\to+\infty}\left\{\overbrace{he^{-h}}^{\to0}+\underbrace{e^{-h}}{\to0}-1\right\}=-1
+\end{gather*}
+
+
+Studiare il seguente integrale:
+\begin{gather*}
+    \displaystyle\intab{e^2}{+\infty}{\frac{1}{x\ln^3 x}}{x}=\lim_{h\to+\infty}\int_{e^2}^{h}\frac{\df (\ln x)}{(\ln x)^3}=
+    \lim_{h\to+\infty}\int_{e^2}^h(\ln x)^{-3}\df(\ln x)=\lim_{h\to+\infty}\frac{(\ln x)^{-2}}{2}\bigg|_{e^2}^h\\
+    -\frac{1}{2}\lim_{h\to+\infty}\left\{\overbrace{\frac{1}{\ln^2 h}}^0-\frac{1}{\ln^2e^2}\right\}=\frac{1}{2}\frac{1}{4}=\frac{1}{8}
+\end{gather*}
+
+
+Studiare la convergenza del seguente integrale, al variare del parametro reale $\alpha\in\mathbb{R}$, con $a>0$:
+\begin{gather*}
+    \intab{a}{+\infty}{\frac{1}{x^\alpha}}{x}
+\end{gather*}
+Si considera il primo caso per $\alpha=1$:
+\begin{gather*}
+    \displaystyle\int_a^{+\infty}\frac{1}{x}\df x=\lim_{h\to\infty}\ln x\bigg|_a^h=\lim_{h\to\infty}(\ln h-\ln 0)=+\infty
+\end{gather*}
+Per $\alpha\neq1$:
+\begin{gather*}
+    \intab{a}{+\infty}{\frac{1}{x^\alpha}}{x}=\lim_{h\to\infty}\int_a^{+\infty}x^{-\alpha}\df x=\lim_{h\to\infty}\frac{x^{-\alpha+1}}{-\alpha+1}\bigg|_a^h=
+    \frac{1}{1-\alpha}\lim_{h\to\infty}\left\{h^{1-\alpha}-a^{1-\alpha}\right\}
+\end{gather*}
+Si considera per quali esponenti si ha $h$ divergente o convergente a zero:
+\begin{gather*}
+    h^{1-\alpha}=\begin{cases}
+        +\infty & \alpha<1\\
+        0^+ & \alpha>1
+    \end{cases}
+\end{gather*}
+Quindi l'integrale di partenza:
+\begin{gather*}
+    \intab{a}{+\infty}{\frac{1}{x^\alpha}}{x}=
+    \begin{cases}
+        +\infty& \alpha\leq1\\
+        l\in\mathbb{R}&\alpha>1
+    \end{cases}
+\end{gather*}
+
+\subsubsection{Teorema Condizione Necessaria di Convergenza}
+
+Sia $f$ continua nell'intervallo $[a,+\infty)$ e sia l'integrale $\int_a^{+\infty}f(x)\df x$ convergente, allora:
+\begin{gather*}
+    \lim_{x\to+\infty}f(x)=0
+\end{gather*}
+
+\subsubsection{Teorema ??}
+
+Sia $f$ continua nell'intervallo $[a,+\infty)$ e sia $f$ definitivamente non negativa $f(x)\geq0$ in $(\delta, +\infty)$.
+Allora l'integrale improprio della funzione $f(x)$ sull'intervallo $[a,+\infty)$ è regolare. 
+
+\subsubsection{Criterio del Confronto}
+
+Il criterio del confronto afferma le stesse nozioni enunciate nel criterio del confronto per integrali impropri di seconda specie. 
+Siano $f$ e $g$ due funzioni continue nello stesso intervallo illimitato superiormente $[a,+\infty)$. E sia $0\leq f(x)\leq g(x)$ definitamente. 
+%% TODO riscrivere in modo migliore
+Allora se l'integrale di $g(x)$ converge, allora converge anche l'integrale di $f(x)$, invece se l'integrale sulla funzione $f(x)$ diverge, anche l'integrale di $g(x)$ diverge. 
 
 
 
+Studiare il carattere del seguente integrale:
+\begin{gather*}
+    \displaystyle\int_1^{+\infty}\frac{2+\cos x}{x^2}\df x
+\end{gather*}
+Si può maggiorare e minorare:
+\begin{gather*}
+    \displaystyle\frac{1}{x^2}\leq\frac{2+\cos x}{x^2}\leq\frac{3}{x^2}\\
+    \displaystyle\int_1^{+\infty}\frac{3}{x^2}\df x\in\mathbb{R}
+\end{gather*}
+Quindi converge anche l'integrale di partenza. 
 
 
+Studiare il carattere del seguente integrale:
+\begin{gather*}
+    \displaystyle\int_0^{+\infty}\frac{2+\cos x}{x^2}\df x
+\end{gather*}
+Questo integrale è sia di prima che seconda specie. Si divide in due integrali per studiarne il carattere separatamente:
+\begin{gather*}
+    \displaystyle\int_0^{+\infty}\frac{2+\cos x}{x^2}\df x=
+    \int_0^{1}\frac{2+\cos x}{x^2}\df x+
+    \underbrace{\int_1^{+\infty}\frac{2+\cos x}{x^2}\df x}_{\mbox{converge}}
+\end{gather*}
+
+Per il teorema del confronto si ha:
+\begin{gather*}
+    \displaystyle\frac{1}{x^2}\leq\frac{2+\cos x}{x^2}\leq\frac{3}{x^2}\implies
+    \displaystyle\int_0^{1}\frac{3}{x^2}\df x=\infty
+\end{gather*}
+Poiché $\alpha<1$, quindi l'integrale di partenza non converge. 
+
+\subsubsection{Teorema del Confronto Asintotico}
+
+Siano $f$ e $g$ due funzioni continue nello stesso intervallo illimitato superiormente $[a,+\infty)$. E sia $f(x),\,g(x)\geq0$ definitamente.
+
+Allora se il limite:
+\begin{gather*}
+    \lim_{x\to+\infty}\displaystyle\frac{f(x)}{g(x)}=l\in\mathbb{R}^+
+\end{gather*}
+Allora gli integrali impropri di $f(x)$ e $g(x)$ hanno lo stesso carattere, in particolare $f(x)\sim g(x)$ per $x\to\infty$. 
+
+Invece se:
+\begin{gather*}
+    \lim_{x\to+\infty}\displaystyle\frac{f(x)}{g(x)}=0
+\end{gather*}
+E l'integrale impropri della funzione $g(x)$ converge, allora anche l'integrale improprio di $f(x)$ converge. 
 
 
+Se:
+\begin{gather*}
+    \lim_{x\to+\infty}\displaystyle\frac{f(x)}{g(x)}=+\infty
+\end{gather*}
+E l'integrale improprio della funzione $g(x)$ diverge, allora anche l'integrale improprio sulla funzione $f(x)$ diverge. 
 
+\subsubsection{Teorema Convergenza Assoluta}
 
+Sia $f$ continua in $[a,+\infty)$, allora se l'integrale improprio:
+\begin{gather*}
+    \displaystyle\int_a^{+\infty}|f(x)|\df x
+\end{gather*}
+Converge, anche l'integrale improprio senza valore assoluto converge. Questo si dice criterio di convergenza assoluta ed implica la convergenza semplice. La funzione $f$ si dice assolutamente integrabile. 
 
+%% TODO sin x/x^2 [1, inf) |sin x|/x^2
+%% TODO sin x/x [1, inf) |sin x|/x => conv smp, div abs
 
+\begin{gather*}
+    \displaystyle\int_{1}^{+\infty}\frac{\sin x}x\df x
+\end{gather*}
+Non potendo utilizzare i teoremi, si calcola direttamente:
+\begin{gather*}
+    \displaystyle\int_{1}^{+\infty}\frac{\sin x}x\df x=
+    \lim_{h\to\infty}\int_{1}^{h}\frac{-\df(\cos x)}x=
+    -\lim_{h\to\infty}\left\{\frac{\cos x}{x}\bigg|_1^h+\intab{1}{h}{\frac{\cos x}{x^2}}{x}\right\}\\
+    -\lim_{h\to\infty}\left\{\cancelto{0}{\frac{\cos h}{h}}-\cos1+\intab{1}{h}{\frac{\cos x}{x^2}}{x}\right\}=
+    \lim_{h\to\infty}\left\{\cos1-\intab{1}{h}{\frac{\cos x}{x^2}}{x}\right\}\\
+    \displaystyle\int_{1}^{+\infty}\frac{\sin x}x\df x=\cos1-\int_1^{+\infty}\frac{\cos x}{x^2}\df x
+\end{gather*}
+Si è trasformato l'integrale di partenza in un integrabile dove è applicabile il teorema del confronto, e si dimostra che converge. %% TODO
+
+%% TODO Dimostrare convergenza di cos x/x sullo stesso intervallo 
+
+Dimostrare che:
+\begin{gather*}
+    \displaystyle\int_1^{+\infty}\frac{|\sin x|}{x}\df x=+\infty
+\end{gather*}
+Si suppone per assurdo che questo integrale converga, la funzione è sicuramente maggiorabile da:
+\begin{gather*}
+    \sin^2x\leq|\sin x|\leq1
+\end{gather*}
+Ma per il teorema del confronto converge anche l'integrale della funzione minorante:
+\begin{gather*}
+    \displaystyle\int_{1}^{+\infty}\frac{\sin^2 x}x\df x
+\end{gather*}
+sfruttando la formula di duplicazione del coseno:
+\begin{gather*}
+    \displaystyle\int_{1}^{+\infty}\frac{\sin^2 x}x\df x=
+    \int_1^{+\infty}\frac{1-\cos2x}{2x}\df x=
+    \frac{1}{2}\int_1^{+\infty}\frac{\df x}{x}-\int_1^{+\infty}\frac{\cos(2x)}{2x}\df (2x)
+\end{gather*}
+Il secondo integrale corrisponde a quello dimostrato precedentemente, il primo è un integrale notevole che diverge, ma per ipotesi converge, quindi l'ipotesi iniziale è errata e quindi l'integrale non converge. 
 
 \end{document}
