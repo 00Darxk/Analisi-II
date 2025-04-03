@@ -547,7 +547,7 @@ Si può notare come la funzione associata è il prodotto dell'arcotangente per l
 Il numeratore è sempre negativo per $x\in(1,\infty)$, per cui la funzione ausiliaria è monotona decrescente ed è possibile utilizzare il criterio dell'integrale:
 \begin{gather*}
     t_k=\displaystyle\int_{1}^kf(x)\mathrm{d}x=\int_1^k\frac{\text{arctan}\,x}{1+x^2}\mathrm{d}x\\
-    u=\text{arctan}\,x\rightarrow\int_1^{\text{arctan}\,k}u \mathrm{d}u=\bigg|\frac{u^2}{2}+c\bigg|_1^{\text{arctan}\,k}= %% TODO finire
+    u=\text{arctan}\,x\rightarrow\int_1^{\text{arctan}\,k}u \mathrm{d}u=\bigg|\frac{u^2}{2}+c\bigg|_1^{\text{arctan}\,k}=\frac{\arctan^2k}{2}-\frac{\pi^2}{8} %% TODO finire
 \end{gather*}
 
 \subsubsection{Criterio di Condensazione}
@@ -1371,5 +1371,195 @@ sfruttando la formula di duplicazione del coseno:
     \frac{1}{2}\int_1^{+\infty}\frac{\df x}{x}-\int_1^{+\infty}\frac{\cos(2x)}{2x}\df (2x)
 \end{gather*}
 Il secondo integrale corrisponde a quello dimostrato precedentemente, il primo è un integrale notevole che diverge, ma per ipotesi converge, quindi l'ipotesi iniziale è errata e quindi l'integrale non converge. 
+
+\clearpage
+
+\section{Equazioni Differenziali} 
+%% 3/4/25
+
+Le equazioni differenziali sono un modello matematico di tipo algebrico, sono un modo di studiare un fenomeno, in genere fisico. Prima di studiare il fenomeno bisogna studiare le grandezze di questo fenomeno, ed in seguito bisogna individuare un legame per definire o possibilmente determinare l'evoluzione del fenomeno stesso. 
+
+Un'equazione differenziale è un'equazione dove l'incognita è una funzione $y=f(x)$, continua nell'intervallo su cui è definita l'equazione, e sono presenti dei termini differenziali di $n$-esimo ordine della funzione $y$:
+\begin{equation}
+    f(x, y, y', \cdots, y^{(n)})=0
+\end{equation}
+La funzione e tutte le sue derivate sono tutte definite su un insieme dell'asse reale $\mathbb{R}$. 
+
+Considerando il valore generico della variabile indipendente $x$, l'equazione differenziale è una relazione tra i valori della $x$ ed i valori assunti dalla funzione incognita e le sue derivate. 
+Per ordine dell'equazione si intende ordine massimo della derivata presente nell'equazione, $n-$esimo. Se è possibile esplicitare la derivata $n-$esima dell'equazione, allora l'equazione si dice espressa in forma normale:
+\begin{equation}
+    y^{(n)}=f(x, y, y', \cdots, y^{(n-1)})
+\end{equation}
+
+Un'equazione differenziale si dice lineare se sia la funzione che le sue derivate sono elevate ad una potenza massima pari ad uno, e non sono presenti termini misti. 
+
+
+Si considera un'equazione differenziale ordinaria di primo ordine $y'=f(x,y)$, si possono rappresentare sul piano le coppie di questa funzione $(\bar{x},\bar{y})$, e la derivata ha un significato grafico ovvero la pendenza in questo punto. Questa funzione viene definita in un intervallo che individua un rettangolo, se per ogni punto di questo insieme si può disegnare 
+un segmento che rappresenta la pendenza in questo punto, si genera una figura simile ad un campo vettoriale. La funzione $y'$ è l'inviluppo di tutti questi segmenti così individuati. 
+
+%% TODO ??
+% Sia un valore $x_0\in I$, dove $I$ è l'intervallo su cui è definita l'equazione differenziale, e la funzione $f(x)$ è continua. Se $y_0=y(x_0)\neq0$, nell'intorno di $x_0$, $I(x_0)$, la funzione $y(x)$ ha sempre lo stesso segno:
+% \begin{gather*}
+%     x\in I(x_0):y(x)\neq0\implies \displaystyle\frac{y(x)}{y_0}>0
+% \end{gather*}
+
+
+\subsection{Equazione a Variabili Separabili}
+
+Un'equazione differenziale ordinaria a variabili separabili è un'equazione che può essere ricondotta ad una forma nota come la seguente:
+\begin{equation}
+    y'=g(x)\cdot h(y)
+\end{equation}
+Si considerano integrali singolari, che corrispondono alle soluzioni di $h(y)=0$, questi integrali singolari vengono esclusi dai procedimenti successivi, per $h(y)\neq0$, si può risolvere considerando:
+\begin{gather*}
+    \displaystyle\frac{\df y}{\df x}=g(x)\cdot h(y)\\
+    \displaystyle\frac{1}{h(y)}\df y=g(x)\df x\\
+    \displaystyle\int\frac{1}{h(y)}\df y=\int g(x)\df x
+\end{gather*}
+In seguito si prova ad esprimere esplicitamente l'incognita $y$ in funzione della variabile indipendente $x$. Questo primo modo di procedere è laborioso. 
+Si può risolvere in modo più rigoroso considerando la primitiva del primo membro:
+\begin{gather*}
+    H(y)=\displaystyle\int\frac{1}{h(y)}\df y\implies H'(y)=\frac{1}{h(y)}
+\end{gather*}
+Sostituendola nell'equazione di partenza si ottiene:
+\begin{gather*}
+    H'(y)y'=g(x)
+\end{gather*}
+Il primo membro ora somiglia alla derivata di una funzione composta, quindi si può riscrivere come:
+\begin{gather*}
+    \displaystyle\frac{ \df H}{\df x}=g(x)\\
+    \displaystyle H(y(x))=\int g(x)\df x+c
+\end{gather*}
+Quindi in teoria $H(y)$ è una funzione monotona, e quindi continua, poiché la sua derivata è il reciproco di $h(y)$ e non si annulla, quindi è invertibile. Si può quindi considerare la funzione inversa di $H(y)$: $H^{-1}(y)$. Applicandola membro a membro all'equazione ottenuta precedentemente si ottiene:
+\begin{gather}
+    H^{-1}\left[H(y(x))\right]=y(x)=H^{-1}\left[\displaystyle\int g(x)\df x+c\right]
+\end{gather}
+Anche se la funzione è invertibile non è detto che si riesca ad individuare la sua inversa, per cui a volte bisogna accontentarsi dell'espressione implicita: 
+\begin{gather*}
+    \displaystyle H(y(x))=\int g(x)\df x+c
+\end{gather*}
+
+
+%% ESEMPIO
+
+Si considera la seguente equazione differenziale:
+\begin{gather*}
+    y'=y(1-y)
+\end{gather*}
+Si individuano gli integrali singolari in $y_0=0$ e $y_1=1$, si separano ora le variabili e si ottiene la seguente:
+\begin{gather*}
+    \displaystyle\frac{\df y}{y(1-y)}=\df x\\
+    \displaystyle\int \frac{\df y}{y(1-y)}=\int \df x=x+c_0
+\end{gather*}
+Si separa la funzione integranda del primo membro in fratti semplici:
+\begin{gather*}
+    \displaystyle\int\frac{\df y}{y(1-y)}=\int\frac{\df y}{y}-\int\frac{\df y}{y-1}=x+c_0\\
+    \ln|y|-\ln|y-1|+c_1=x+c_0\,\land c_2=c_0-c_1\\
+    \ln|y|-\ln|y-1|=x+c_2\\
+    \ln\left|\displaystyle\frac{y}{y-1}\right|=x+c_2
+\end{gather*}
+
+Per eliminare il logaritmo si considera entrambi i membri come l'argomento dell'esponenziale:
+\begin{gather*}
+    \displaystyle\frac{y}{y-1}=e^{c_2}e^x=c_3e^x\\
+    y=c_3e^x(y-1)=c_3ye^x-c_3e^x\\
+    y(1-c_3e^x)=-c_3e^x\implies y=-\frac{c_3e^x}{1-c_3e^x}=\frac{c_3e^x}{c_3e^x-1}
+\end{gather*}
+
+
+Si considera la seguente equazione differenziale:
+\begin{gather*}
+    y'=\displaystyle\frac{e^x+1}{e^y+1}
+\end{gather*}
+Integrali singolari corrispondono a $e^y+1=0$, ma non esistono valori reali di $y$ tali da annullare il denominatore: $\nexists y\in\mathbb{R}$. 
+Si separano le variabili:
+\begin{gather*}
+    \displaystyle\int(e^y+1)\df y=\int (e^x+1)\df x\\
+    e^y+y+c_0=e^x+x+c_1\implies e^y+y=e^x+x+c_2
+\end{gather*} 
+
+\subsection{Problema di Cauchy}
+
+Il problema di Cauchy consiste nell'assegnare una condizione iniziale ad un'equazione differenziale:
+\begin{gather*}
+    \begin{cases}
+        y'=f(x,y)\\
+        y(x_0)y_0
+    \end{cases}
+\end{gather*}
+
+
+%% TODO esercizi y'=(1+y^2)?? y'=cos^2y->y=arctan(x+c)
+\subsection{le equazioni differenziali lieari del primo ordine}
+
+Sono equazioni del tipo:
+\begin{gather*}
+    y'+p(x)y=f(x)
+\end{gather*}
+Dove le funzioni $p$ ed $f$ sono definite su un intervallo dove è definita anche la funzione incognita $y(x)$. La funzione $p$ viene chiamata funzione coefficiente e la funzione $f$ funzione forzante. Per risolvere questo tipo di equazioni è fondamentale la determinazione del fattore integrante.
+% cia u sei kattivaciaOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+Si considera la seguente equazione differenziale:
+\begin{gather*}
+    y'+\displaystyle\frac{2}{x}y=\frac{2}{x^3}\\
+    x^2y'+2xy=\displaystyle\frac{\df (x^2y)}{\df x}=\frac{2}{x}\\
+    \displaystyle x^2y=\int \frac{2}{x}\df x=2\ln x + c
+\end{gather*}
+
+Si vuole lavorare in modo che un membro diventi una derivata, considerando l'equazione generale si moltiplicano ambo i lati per la funzione $\mu$:
+\begin{gather*}
+    \mu y'+\mu p(x)y=\mu f(x)
+\end{gather*}% !! <3 ily 2
+Si vuole avere la derivata del prodotto al primo membro:
+\begin{gather*}
+    (\mu y)'=\mu'x+\mu y'\\
+    \cancel{\mu y'}+\mu p(x)y=\mu'x+\cancel{\mu y'}\\
+    \mu p(x)=\mu'\implies\displaystyle\int\frac{y'}{y}=p(x)\\
+    \ln\mu=\displaystyle\int p(x)\df x\\
+    \mu=e^{\int p(x)\df x}
+\end{gather*}
+
+%% TODO si può riportare in equazione a variabili separabili
+
+%% ESEMPIO
+
+Si considera il seguente problema di Cauchy:
+\begin{gather*}
+    \begin{cases}
+        y'+5y=0\\
+        y(1)=-2
+    \end{cases}
+\end{gather*}
+Si determina il fattore integrante:
+\begin{gather*}
+    A(x)=\displaystyle\int p(x)\df x=\int5\df x=5x\\
+    e^{A(x)}=e^{5x}
+\end{gather*}
+Si moltiplica l'equazione differenziale per il fattore integrante appena trovato e si determina la derivata di partenza:
+\begin{gather*}
+    e^{5x}(y'+5y)=D[y\cdot e^{5x}]=0
+\end{gather*}
+Poiché la derivata è nulla, la funzione è costante quindi si ha:
+\begin{gather*}
+    y\cdot e^{5x}=c\implies y=ce^{-5x}
+\end{gather*}
+Per determinare il valore della costante $c$ si inserisce il vincolo:
+\begin{gather*}
+    y(1)=ce^{-5(1)}=-2\implies c=-2e^5\\
+    y=-2e^5e^{-5x}=-2e^{5(1-x)}
+\end{gather*}
+
+
+Considerare il seguente problema di Cauchy :
+\begin{gather*}
+    \begin{cases}
+        \displaystyle x'(t)-\frac{1}{t+1}x(t)=3\\
+        x(0)=1 & t\in(-1,+\infty)
+    \end{cases}\\
+    A(t)=\displaystyle-\int\frac{1}{t+1}\df t=-\ln(t+1)+c_0\implies e^{A(t)}=\frac{e^{c_0}}{t+1}\\
+    \displaystyle\frac{e^{c_0}}{t+1}\left[ x'(t)-\frac{1}{t+1}x(t)\right]=\frac{3}{t+1}=D\left[\frac{x}{t+1}\right]\\
+    \displaystyle\cancel{\int}\cancel{\df}\left(\frac{x}{t+1}\right)=e^{-c_0}\int \frac{3}{t+1}=3e^{-c_0}\ln(t+1)+c_1e^{-c_0}\\
+    x=(t+1)e^{-c_0}\ln(t+1)^3+c_1e^{-c_0}(t+1)
+\end{gather*}
 
 \end{document}
