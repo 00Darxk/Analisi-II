@@ -37,11 +37,28 @@
 }
 
 \newsavebox{\tempbox} %{\raisebox{\dimexpr.5\ht\tempbox-.5\height\relax}}
-
-%% TODO aggiungere comandi funzioni
-
 \makeatother
+%% Derivate:
+\newcommand{\df}{\mathrm{d}}
+\newcommand{\diff}[2]{\displaystyle\frac{\df{#1}}{\df{#2}}}
+\newcommand{\diffn}[3]{\displaystyle\frac{\df^{#3}{#1}}{\df{#2}^{#3}}}
+\newcommand{\pdiff}[2]{\displaystyle\frac{\partial{#1}{\partial{#2}}}}
+\newcommand{\pdiffn}[3]{\displaystyle\frac{\partial^{#3}{#1}{\partial{#2}^{#3}}}}
+
+%% Integrali:
+\newcommand{\intab}[4]{\displaystyle\int_{#1}^{#2}{#3}\df{#4}}
+\newcommand{\intinf}[2]{\intab{-\infty}{+\infty}{#1}{#2}}
+\newcommand{\intpinf}[2]{\intab{0}{+\infty}{#1}{#2}}
+\newcommand{\intninf}[2]{\intab{-\infty}{0}{#1}{#2}}
+
+%% Sommatorie:
+\newcommand{\sumab}[4]{\displaystyle\sum_{#4=#1}^{#2}{#4}}
+\newcommand{\suminf}[2]{\sumab{-\infty}{+\infty}{1}{2}}
+\newcommand{\sumpinf}[2]{\sumab{0}{+\infty}{1}{2}}
+\newcommand{\sumninf}[2]{\sumab{-\infty}{0}{1}{2}}
+
 \renewcommand{\contentsname}{Indice}
+
 \numberwithin{equation}{subsection}
 \newcommand{\tageq}{\tag{\stepcounter{equation}\theequation}}
 \AtBeginDocument{%
@@ -868,5 +885,200 @@ Se questo limite tende a zero, allora la funzione maggiorante converge.
 Il denominatore è un infinito di ordine superiore, quindi il limite tende a zero. Un corollario del teorema del confronto asintotico afferma che se il limite della funzione integranda fratto un'altra funzione $g(x)$ è uguale a zero, e questa funzione ammette un integrale improprio convergente, allora lo ammette anche la funzione integranda. Quindi converge anche l'integrale improprio di partenza. 
 Questo può valere per qualsiasi funzione $g(x)=x^\alpha$, con $\alpha<1$. 
 
+\section{Esercitazione 4/4/25}
+
+Studiare la convergenza di questo integrale improprio:
+\begin{gather*}
+    \displaystyle\int_1^{+\infty}\frac{\df x}{x\sqrt{1+\sqrt{x}}}
+\end{gather*}
+La funzione è positiva in tutto l'intervallo, ed è un integrale improprio di prima specie. Considerando la funzione integranda si mette in evidenza la radice di $x$, per $x\to+\infty$:
+\begin{gather*}
+    \displaystyle\frac{1}{x\sqrt{1+\sqrt{x}}}=\frac{1}{x\sqrt{\sqrt{x}\left(\frac{1}{\sqrt{x}}+1\right)}}=
+    \frac{1}{x\sqrt{\sqrt{x}}\cdot\sqrt{\frac{1}{\sqrt{x}}+1}}\\
+    \displaystyle\sqrt{\frac{1}{\sqrt{x}+1}}\to1\implies
+    \frac{1}{x\sqrt{\sqrt{x}}\cdot\sqrt{\frac{1}{\sqrt{x}}+1}}\sim
+    \frac{1}{x\sqrt{\sqrt{x}}}=\frac{1}{x^{5/4}}
+\end{gather*}
+Questa funzione è integrabile in modo improprio nell'intervallo $[1,+\infty)$, quindi per il criterio del confronto asintotico lo è anche la funzione integranda di partenza. 
+
+
+Studiare la convergenza di questo integrale:
+\begin{gather*}
+    \intinf{\frac{1}{(1+x^2)^2}}{x}
+    =\int_{\mathbb{R}}\frac{1}{(1+x^2)^2}\df x
+\end{gather*}
+Si applica il teorema del confronto asintotico, essendo monotona positiva, per $x\to+\infty$
+\begin{gather*}
+    \frac{1}{(1+x^2)^2}=
+    \frac{1}{1+2x^2+x^4}\sim\frac{1}{x^4}
+\end{gather*}
+essendo la funzione pari si può calcolare analogamente come:
+\begin{gather*}
+    \intinf{\frac{1}{(1+x^2)^2}}{x}=
+    \intpinf{\frac{1}{(1+x^2)^2}}{x}
+\end{gather*}
+In questo modo bisogna calcolare un limite in meno, solo per $h\to+\infty$. 
+
+
+
+
+Verificare la convergenza o meno di questo integrale:
+\begin{gather*}
+    \displaystyle\int_{1/2}^{+\infty}\frac{1}{x^2\sqrt{4x^2-1}}\df x
+\end{gather*}
+Questo è un integrale improprio di prima e di seconda specie, avendo un punto critico in $x=1/2$, si sfrutta la proprietà additiva degli integrali, scegliendo un punto intermedio $a>1/2$:
+\begin{gather*}
+    \displaystyle\int_{1/2}^{+\infty}\frac{1}{x^2\sqrt{4x^2-1}}\df x=
+    \overbrace{\int_{1/2}^{a}\frac{1}{x^2\sqrt{4x^2-1}}\df x}^{I_1}+
+    \underbrace{\int_{a}^{+\infty}\frac{1}{x^2\sqrt{4x^2-1}}\df x}_{I_2}
+\end{gather*}
+Entrambi questi integrali devono converge, affinché l'integrale di partenza converga. 
+Si considera la funzione integranda, espressa mediante il prodotto notevole della somma di quadrati. Per $x\to1/2$ si ha:
+\begin{gather*}
+    \displaystyle\frac{1}{x^2\sqrt{4x^2-1}}=\frac{1}{x^2\sqrt{2x-1}\sqrt{2x+1}}\sim\frac{1}{\frac{1}{4}\sqrt{2\left(x-\frac{1}{2}\right)}\sqrt{2}}=\frac{1}{\frac{1}{2}\left(x-\frac{1}{2}\right)^{1/2}}
+\end{gather*}
+Questa funzione è integrabile in modo improprio di seconda specie, avendo un esponente $\alpha<1$, quindi $I_1$ converge. 
+Si considera ora la funzione integranda di $I_2$ per $x\to+\infty$:
+\begin{gather*}
+    \displaystyle\frac{1}{x^2\sqrt{4x^2-1}}=\frac{1}{x^2x\sqrt{4-\frac{1}{x^2}}}\sim\frac{1}{2x^3}
+\end{gather*}
+Poiché questa funzione ha un esponente maggiore di uno $\alpha>1$ questa funzione è integrabile in modo improprio di prima specie, quindi l'integrale $I_2$ converge. 
+
+
+Studiare la convergenza del seguente integrale improprio:
+\begin{gather*}
+    \displaystyle\int_1^{+\infty}\frac{\ln x}{x}\df x
+\end{gather*}
+Essendo una funzione logaritmica non confrontabile, si utilizza la definizione per calcolarlo:
+\begin{gather*}
+    \displaystyle\int_1^{+\infty}\frac{\ln x}{x}\df x=
+    \lim_{h\to\infty}\int_1^{h}\ln x\df(\ln x)=
+    \lim_{h\to\infty}\frac{\ln^2x}{2}\bigg|_1^h=+\infty
+\end{gather*}
+Quindi l'integrale non converge. Questo integrale è un caso particolare di questo integrale notevole:
+\begin{gather*}
+    \displaystyle\int_{a}^{+\infty}\frac{\df x}{x^\alpha(\ln x)^\beta}
+\end{gather*}
+Questo integrale è dimostrabile converge se $\alpha>1$ e $\forall\beta\in\mathbb{R}$. Oppure converge sempre se $\alpha=1$ e $\beta>1$. Mentre l'integrale diverge a $+\infty$ se $\alpha<1$, qualunque sia $\beta$ reale: $\forall\beta\in\mathbb{R}$, oppure se $\alpha=1$ e $\beta\leq1$. 
+
+
+
+Valutare la convergenza del seguente integrale:
+\begin{gather*}
+    \displaystyle\int_1^{+\infty}\frac{\ln\left(1+\frac{1}{x}\right)}{\sqrt{x^2-1}}\df x
+\end{gather*}
+Essendo sia di prima che di seconda specie si divide tramite la proprietà additiva degli integrali, con $a>1$:
+\begin{gather*}
+    \displaystyle\int_1^a\frac{\ln\left(1+\frac{1}{x}\right)}{\sqrt{x^2-1}}\df x
+\end{gather*}
+Si considera la funzione integranda per $x\to1^+$:
+\begin{gather*}
+    \displaystyle\frac{\ln\left(1+\frac{1}{x}\right)}{\sqrt{x^2-1}}\sim\frac{\ln2}{\sqrt{x-1}\sqrt{x+1}}\sim\frac{\ln2}{\sqrt2(x-1)^{1/2}}
+\end{gather*}
+Questa funzione è integrabile in modo improprio di seconda specie, si considera ora l'altro caso:
+\begin{gather*}
+    \displaystyle\int_a^{+\infty}\frac{\ln\left(1+\frac{1}{x}\right)}{\sqrt{x^2-1}}\df x
+\end{gather*}
+Per $x\to+\infty$ la funzione integranda diventa:
+\begin{gather*}
+    \frac{\ln\left(1+\frac{1}{x}\right)}{\sqrt{x^2-1}}\df x\sim\frac{\frac{1}{x}}{x}=\frac{1}{x^2}
+\end{gather*}
+Essendo $\alpha>1$ l'integrale per $[a,+\infty)$ converge. 
+
+
+
+Studiare la convergenza del seguente integrale improprio:
+\begin{gather*}
+    \intpinf{\frac{\sin\left(\frac{1}{x^2}\right)}{\ln\left(1+\sqrt{x}\right)}}{x}
+\end{gather*}
+Si divide in due integrali in un punto intermedio $a>0$ essendo improprio sia di prima che di secona specie:
+\begin{gather*}
+    \intpinf{\frac{\sin\left(\frac{1}{x^2}\right)}{\ln\left(1+\sqrt{x}\right)}}{x}=
+    \overbrace{\int_0^a\frac{\sin\left(\frac{1}{x^2}\right)}{\ln\left(1+\sqrt{x}\right)}\df x}^{I_1}+
+    \underbrace{\int_a^{+\infty}\frac{\sin\left(\frac{1}{x^2}\right)}{\ln\left(1+\sqrt{x}\right)}\df x}_{I_2}
+\end{gather*}
+Si considera l'integrale $I_1$, ma non esistono criteri per poter valutare la sua convergenza. L'unico strumento a disposizione è studiare la convergenza assoluta:
+\begin{gather*}
+    \displaystyle\int_0^a\left|\frac{\sin\left(\frac{1}{x^2}\right)}{\ln\left(1+\sqrt{x}\right)}\right|\df x=\int_0^a\frac{\left|\sin\left(\frac{1}{x^2}\right)\right|}{\ln\left(1+\sqrt{x}\right)}\df x
+\end{gather*}
+Si considera la funzione maggiorante, per $x\to0^+$:
+\begin{gather*}
+    \frac{|\sin\left(\frac{1}{x^2}\right)|}{\ln\left(1+\sqrt{x}\right)}\leq\frac{1}{\ln(1+\sqrt{x})}\sim\frac{1}{\sqrt{x}}
+\end{gather*}
+La funzione è integrabile in senso improprio avendo $\alpha<1$, $I_1$ converge in senso assoluto quindi anche semplicemente. Si analizza ora $I_2$, per $x\to+\infty$, la sua funzione integranda diventa:
+\begin{gather*}
+    \displaystyle\frac{\sin\overbrace{\frac{1}{x^2}}^{\to0}}{\ln\left(1+\sqrt{x}\right)}\sim
+    \frac{\frac{1}{x^2}}{\ln\left(1+\sqrt{x}\right)}<\frac{1}{x^2}
+\end{gather*}
+Per il teorema del confronto l'integrale improprio di prima specie di $x^{-2}$ converge, quindi converge per il criterio del confronto asintotico $I_2$. 
+
+
+
+Valutare la convergenza del seguente integrale improprio di prima specie:
+\begin{gather*}
+    \displaystyle\int_1^{+\infty}\frac{\df x}{x+\sin^2x}
+\end{gather*}
+Si maggiora la funzione integranda:
+\begin{gather*}
+    x+\sin^2x\leq x+1\implies\displaystyle\frac{1}{x+\sin^2x}\geq\frac{1}{x+1}\sim\frac{1}{x}
+\end{gather*}
+Per $x\to+\infty$ l'integrale notevole improprio che minora la funzione integranda diverge, quindi anche l'integrale diverge a $+\infty$. 
+
+
+
+Studiare la convergenza del seguente integrale improprio:
+\begin{gather*}
+    \displaystyle\int_1^{+\infty}\frac{x+\sqrt{x+1}}{x^2+2\sqrt[5]{x^4+1}}\df x
+\end{gather*}
+Si raccoglie al numeratore ed al denominatore il fattore $x$ di esponente maggiore:
+\begin{gather*}
+    \displaystyle\frac{x+\sqrt{x+1}}{x^2+2\sqrt[5]{x^4+1}}=
+    \frac{x+\sqrt{x}\sqrt{\frac{1}{x}+1}}{x^2+2\sqrt[5]{x^4\left(1+\frac{1}{x^4}\right)}}=
+    \frac{x+\sqrt{x}\sqrt{\frac{1}{x}+1}}{x^2+2x^{4/5}\sqrt[5]{\left(1+\frac{1}{x^4}\right)}}\sim\frac{x}{x^2}=\frac{1}{x}
+\end{gather*}
+Avendo $\alpha=1$, la funzione non è integrabile in senso improprio, quindi anche l'integrale di partenza non converge. 
+
+
+
+Studiare la convergenza del seguente integrale improprio, per $\alpha\in\mathbb{R}$: 
+\begin{gather*}
+    \intpinf{\frac{\sqrt{x}}{(1-\cos x+x^2)^{\alpha-1}(x+1)^2}}{x}
+\end{gather*}
+È un integrale improprio di prima specie e di seconda specie avendo un punto critico in $x=0$. Si considera un punto intermedio $a>0$:
+\begin{gather*}
+    \displaystyle\int_0^a\frac{\sqrt{x}}{(1-\cos x+x^2)^{\alpha-1}(x+1)^2}\df x
+\end{gather*}
+Per determinare una funzione asintoticamente equivalente alla funzione integranda per $x\to0^+$ si utilizza la formula di Maclaurin per il coseno:
+\begin{gather*}
+    \cos=1-\displaystyle\frac{x^2}{2}+o[x^2]\implies
+    1-\cos x+x^2=\frac{3}{2}x^2+o[x^2]\\
+    1-\cos x+x^2\sim\displaystyle\frac{3}{2}x^2\\
+    \displaystyle\frac{\sqrt{x}}{(1-\cos x+x^2)^{\alpha-1}(x+1)^2}
+    \sim\frac{\sqrt{x}}{(\frac{3}{2}x^2)^{\alpha-1}\cdot(1)}=\left(\frac{2}{3}\right)^{\alpha-1}\frac{x^{1/2}}{x^{2\alpha-2}}=\left(\frac{2}{3}\right)^{\alpha-1}\frac{1}{x^{2\alpha-5/2}}
+\end{gather*}
+La funzione converge se l'esponente è minore di uno, essendo un integrale di seconda specie: $2\alpha-5/2<1$:
+\begin{gather*}
+    2\alpha-\displaystyle\frac{5}{2}<1\implies\alpha<\frac{7}{4}
+\end{gather*}
+
+Si considera ora l'integrale di prima specie:
+\begin{gather*}
+    \displaystyle\frac{\sqrt{x}}{(1-\cos x+x^2)^{\alpha-1}(x+1)^2}\sim
+    \frac{x^{1/2}}{x^{2\alpha-2}\cdot x^2}=\frac{1}{x^{2\alpha-1/2}}
+\end{gather*}
+L'integrale converge se l'esponente è maggiore di uno, essendo un integrale di prima specie:
+\begin{gather*}
+    2\alpha-\displaystyle\frac{1}{2}>1\implies\alpha>\frac{3}{4}
+\end{gather*}
+
+L'integrale converge se $\alpha\in[3/4,7/4]$. 
+
+
+
+%% TODO foto fine lezione 4/4/25
+% Studiare la convergenza del seguente integrale  per $\alpha\in\mathbb{R}$:
+% \begin{gather*}
+%     \displaystyle\int_1^{+\infty}\frac{\df x}{}
+% \end{gather*}
 
 \end{document}
