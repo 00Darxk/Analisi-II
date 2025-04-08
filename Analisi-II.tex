@@ -1372,6 +1372,73 @@ sfruttando la formula di duplicazione del coseno:
 \end{gather*}
 Il secondo integrale corrisponde a quello dimostrato precedentemente, il primo è un integrale notevole che diverge, ma per ipotesi converge, quindi l'ipotesi iniziale è errata e quindi l'integrale non converge. 
 
+\subsection{Funzioni}
+%% DEF 1
+Le serie di Fourier sono serie di funzioni utilizzate per approssimare funzioni periodiche. Una funzione $f$ definita su $D_f$ illimitato, si dice periodica di periodo $T$ se $\forall x\in D_f$ si ha:
+\begin{enumerate}
+    \item $x+kT\in D_f\,\,\forall k\in\mathbb{Z}$
+    \item $f(x+kT)=f(x)$
+\end{enumerate}
+%% DEF 2
+Una funzione $f$ si dice continua a tratti in un intervallo limitato $I$, se $f$ è continua in $I$, tranne che in una quantità finita di punti di discontinuità di prima o terza specie. 
+
+È integrabile in $I$ ed il suo integrale esiste, è utile poiché per determinare la serie di Fourier bisognerà risolvere integrali. 
+
+%% DEF 3
+Una funzione $f$ si dice regolare a tratti in un intervallo limitato $I$, se è continua a tratti in $I$, e se ha derivata continua in $I$ tranne che nel punto di discontinuità più altri punti dove $f$ non è derivabile, in quantità finita. In tali punti esistono finiti i limiti $\lim_{x\to x_0^-}f'(x)\neq\lim_{x\to x_0^+}f'(x)$. 
+
+% punto angoloso , discontinuità a tratti
+Una funzione si dire continua o regolare a tratti in $\mathbb{R}$, se in lo è in ogni arbitrario intervallo limitato. 
+
+
+%% IMG serie di triangoli /\/\/\/\/\
+
+Sia $f$ una funzione continua a tratti in $\mathbb{R}$ è periodica di periodo $T$, l'integrale su un periodo $T$, $\forall a\in\mathbb{R}$, si può esprimere in maniera equivalente come:
+\begin{gather*}
+    \displaystyle\intab{a}{a+T}{f(x)}{x}=
+    \displaystyle\intab{0}{T}{f(x)}{x}=
+    \displaystyle\intab{-T/2}{T/2}{f(x)}{x}
+\end{gather*}
+Per semplicità si vuole considerare un intervallo simmetrico, per facilitare il calcolo, sfruttando eventuali simmetrie della funzione. 
+
+
+La serie di Fourier di $f$ viene definita come:
+\begin{gather}
+    \displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)+b_k\sin\left(\frac{2k\pi}{T}x\right)
+\end{gather}
+Dove i coefficienti $a_k$ e $b_k$ sono dati da:
+\begin{gather}
+    a_k=\displaystyle\frac{2}{T}\int_{-T/2}^{T/2}f(x)\cos\left(\frac{2k\pi}{T}x\right)\df x\\
+    b_k=\displaystyle\frac{2}{T}\int_{-T/2}^{T/2}f(x)\sin\left(\frac{2k\pi}{T}x\right)\df x
+\end{gather}
+
+Può succedere che la funzione $f$ rispetta la simmetria, e quindi si possono semplificare queste formule. Se $f$ è pari:
+\begin{gather*}
+    a_k=\displaystyle\frac{4}{T}\int_{0}^{T/2}f(x)\cos\left(\frac{2k\pi}{T}x\right)\df x\\
+    b_k=\displaystyle\frac{2}{T}\int_{-T/2}^{T/2}f(x)\sin\left(\frac{2k\pi}{T}x\right)\df x=0\\
+    \displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)
+\end{gather*}
+Mentre se $f$ è dispari si ha:
+
+\begin{gather*}
+    a_k=\displaystyle\frac{4}{T}\int_{-T/2}^{T/2}f(x)\cos\left(\frac{2k\pi}{T}x\right)\df x=0\\
+    b_k=\displaystyle\frac{4}{T}\int_{0}^{T/2}f(x)\sin\left(\frac{2k\pi}{T}x\right)\df x\\
+    \displaystyle\sum_{k=1}^\infty b_k\sin\left(\frac{2k\pi}{T}x\right)
+\end{gather*}
+
+\subsubsection{Teorema}
+Sia $f$ regolare a tratti in $\mathbb{R}$ ed inoltre sia periodica di periodo $T$. Allora se $f$ è continua in $x_0$:
+\begin{gather*}
+    \displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)+b_k\sin\left(\frac{2k\pi}{T}x\right)=f(x_0)
+\end{gather*}
+Se $f(x)$ non è continua in $x_0$ allora:
+\begin{gather*}
+    \displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)+b_k\sin\left(\frac{2k\pi}{T}x\right)=\frac{f(x_0^-)+f(x_0^+)}{2}\,\mbox{dove}\\
+    f(x_0^-)=\lim_{x\to x_0^-}f(x)\\
+    f(x_0^+)=\lim_{x\to x_0^+}f(x)
+\end{gather*}
+
+    
 \clearpage
 
 \section{Equazioni Differenziali} 
