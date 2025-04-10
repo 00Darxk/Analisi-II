@@ -1557,7 +1557,8 @@ Il problema di Cauchy consiste nell'assegnare una condizione iniziale ad un'equa
 
 
 %% TODO esercizi y'=(1+y^2)?? y'=cos^2y->y=arctan(x+c)
-\subsection{le equazioni differenziali lieari del primo ordine}
+
+\subsection{Equazioni Differenziali Lineari del Primo Ordine}
 
 Sono equazioni del tipo:
 \begin{gather*}
@@ -1628,5 +1629,210 @@ Considerare il seguente problema di Cauchy :
     \displaystyle\cancel{\int}\cancel{\df}\left(\frac{x}{t+1}\right)=e^{-c_0}\int \frac{3}{t+1}=3e^{-c_0}\ln(t+1)+c_1e^{-c_0}\\
     x=(t+1)e^{-c_0}\ln(t+1)^3+c_1e^{-c_0}(t+1)
 \end{gather*}
+
+
+\subsection{Operatore Differenziale}
+
+Sia $p(x)$ continua in $I$, l'operatore differenziale $L$ assegna ad ogni funzione $y$:
+\begin{gather*}
+    L[y]=y'+p(x)y
+\end{gather*}
+Questo operatore è molto comodo per rappresentare equazioni differenziali lineare di primo ordine. 
+L'operatore differenziale è lineare, per cui data una funzione $y_1$, tale che $L[y_1]=0$ e $y_2$ tale che $L[y_2]=0$, allora si ha:
+\begin{gather*}
+    L[c_1y_1+c_2y_2]=c_1y'_1+p(x)c_1y_1+c_2y'_2+p(x)c_2y_2=c_1L[y_1]+c_2L[y_2]=0
+\end{gather*}
+La combinazione lineare di due soluzioni è soluzione dell'equazione lineare omogenea. 
+
+Data una soluzione $\omega_1$ ed $\omega_2$ ad un'equazione differenziale lineare di primo ordine non omogenea: $L[\omega_1]=f(x)$, $L[\omega_2]=f(x)$, allora si ha che:
+\begin{gather*}
+    L[\omega_1-\omega_2]=L[\omega_1]-L[\omega_2]=f(x)-f(x)=0
+\end{gather*}
+Quindi la differenza tra queste due soluzioni, rappresenta una soluzione per l'equazione omogenea $\omega_1-\omega_2=y$. Ogni soluzione della omogenea si può esprimere come:
+\begin{gather*}
+    y=c\cdot y e^{-A(t)}\mbox{ dove } A(t)=\displaystyle\int p(x)\df x
+\end{gather*}
+Per cui fissando $\omega_2$, la soluzione generale ad un'equazione non omogenea si ottiene fissando una particolare soluzione ed aggiungendo l'integrale generale per la sua soluzione omogenea:
+\begin{gather}
+    \omega_1-\omega_2=y=c\cdot e^{-A(t)}\implies\omega_1=\overbrace{\omega_2}^{\text{non omogenea}}+\underbrace{c\cdot e^{-A(t)}}_{\text{omogenea}}
+\end{gather}
+Questo permette di semplificare l'integrazione in un caso abbastanza particolare. 
+Supponendo che $p(x)$ sia una costante $k$, allora la soluzione particolare $\bar{y}$ è dello stesso tipo della forzante $f(x)$, per il criterio della similarità. La funzione $f(x)$ può essere una costante, un polinomio, una funzione sinusoidale o esponenziale. Questo rappresenta un modo euristico per risolvere il problema, considerando una soluzione dello stesso tipo, a differenza di una costante, da individuare. 
+
+
+Sia questa equazione differenziale:
+\begin{gather*}
+    y'-\displaystyle\frac{1}{2}y=x^2-1\\
+    \bar{y}=ax^2+bx+c\\
+    2ax+b-\displaystyle\frac{1}{2}\left(ax^2+bx+c\right)=x^2-1
+\end{gather*}
+Per la proprietà di identità dei polinomi si ha:
+\begin{gather*}
+    \begin{cases}
+        \displaystyle-\frac{\strut 1}{\strut 2}a=1\\
+        2a-\displaystyle\frac{\strut1}{\strut2}b=0\\
+        b-\displaystyle\frac{\strut1}{\strut2}c=-1
+    \end{cases}\implies\begin{cases}
+        a=-2\\
+        -4-\displaystyle\frac{\strut1}{\strut2}b=0\implies b=-8\\
+        -8-\displaystyle\frac{\strut1}{\strut2}c=-1\implies c=-14
+    \end{cases}\\
+    \bar{y}=-2x^2-8x-14
+\end{gather*}
+La soluzione di questa equazione differenziale è quindi:
+\begin{gather*}
+    y=c\cdot e^{-\int\frac{1}{2}\df x}-2x^2-8x-14
+\end{gather*}
+
+
+
+Considerare quest'equazione differenziale:
+\begin{gather*}
+    L[y]=y'+5y=\sin2x
+\end{gather*}
+La soluzione particolare è quindi del tipo:
+\begin{gather*}
+    \bar{y}=A\sin2x+B\cos2x\\
+    \bar{y}'=2A\cos2x-2B\sin2x\\
+    \bar{y}'+5\bar{y}=2A\cos2x-2B\sin2x+5(A\sin2x+B\cos2x)=\sin2x\\
+    \begin{cases}
+        2A+5B=0\\
+        -2B+5A=1
+    \end{cases}\implies\begin{cases}
+        A=\displaystyle-\frac{\strut5}{\strut2}B\\
+        -2B-\displaystyle\frac{\strut25}{\strut2}B=1\implies B=\displaystyle-\frac{1}{29}
+    \end{cases}\implies\begin{cases}
+        A=\displaystyle\frac{\strut5}{29}\\
+        B=\displaystyle-\frac{\strut2}{\strut29}
+    \end{cases}\\
+    \bar{y}=\displaystyle\frac{5}{29}\sin2x-\frac{2}{29}\cos2x
+\end{gather*}
+La soluzione dell'equazione differenziale è quindi:
+\begin{gather*}
+    y=c\cdot e^{-\int 5\df  x}\displaystyle\frac{5}{29}\sin2x-\frac{2}{29}\cos2x
+\end{gather*}
+
+
+Se si ha un esponenziale nella soluzione particolare che coincide all'integrale omogeneo:
+\begin{gather*}
+    L[y]=y'+\alpha y=\beta e^{-\alpha x}
+\end{gather*}
+La soluzione particolare non è del tipo $ke^{-\alpha x}$ come la forzante $\beta e^{-\alpha x}$, non segue completamente la regola della similarità:
+\begin{gather*}
+    \bar{y}=kxe^{-\alpha x}\\
+    \bar{y}'=ke^{-\alpha x}-\alpha kxe^{-\alpha x}
+\end{gather*}
+La costante $k$ è quindi:
+\begin{gather*}
+    ke^{-\alpha x}-\cancel{\alpha kxe^{-\alpha x}}+\bcancel{\alpha kxe^{-\alpha x}}=\beta\cdot e^{-\alpha x}\\
+    k=\beta
+\end{gather*}
+La soluzione generale dell'equazione differenziale è quindi:
+\begin{gather*}
+    y=ce^{-\int\alpha\df x}+\bar{y}=ce^{-\int\alpha\df x}+\beta xe^{-\alpha x}
+\end{gather*}
+
+
+Sia $L[y]=y'p(x)y=0$, e siano due soluzioni particolari $\bar{y}_1$ e $\bar{y}_2$ rispettivamente $L[\bar{y}_1]=f(x)$ e $L[\bar{y}_2]=g(x)$, allora l'equazione differenziale $L[y]=f(x)+g(x)$ ha soluzione particolare in $\bar{y}_1+\bar{y}_2$. 
+Analogamente la loro combinazione lineare rappresenta integrale particolare dell'equazione differenziale: $c_1\bar{y}_1+c_2\bar{y}_2$. 
+
+\subsection{Riduzione dell'Ordine}
+
+Data un'equazione differenziale $y'=f(x,y)$, può essere che al secondo membro non sia presente la variabile $y$, e quindi assume la forma $y'=f(x)$. Questa equazione differenziale si può risolvere quindi per integrazione diretta:
+\begin{gather*}
+    y=\displaystyle\int f(x)\df x
+\end{gather*}
+
+Analogamente per un'equazione differenziale del tipo $y''=f(x,y,y')$, se la costante per $y$ è nulla diventa: $y"=f(x,y')$. Si può effettuare una sostituzione con $z=y'$, per ridurre l'ordine dell'equazione differenziale:
+\begin{gather*}
+    z'=f(x,z)
+\end{gather*}
+Risolvendo per $z$, si può ottenere la soluzione $y$, effettuando un'integrazione diretta:
+\begin{gather*}
+    y=\displaystyle\int z\df z
+\end{gather*}
+
+\subsection{Equazione Differenziale di Bernoulli}
+
+Un'equazione di Bernoulli è un'equazione del tipo:
+\begin{gather*}
+    y'+p(x)y+q(x)y^m=0
+\end{gather*}
+Per risolvere l'equazione si dividono ambo i membri per $y^{m}$:
+\begin{gather*}
+    y^{-m}y'+p(x)y^{1-m}+q(x)=0
+\end{gather*}
+A questo punto si introduce un'altra variabile. Si pone $u=y^{1-m}$:
+\begin{gather*}
+    u'=(1-m)y^{-m}y'\\
+    \displaystyle\frac{1}{1-m}u'+p(x)u+q(x)=0
+\end{gather*}
+In questo modo è diventata un'equazione differenziale lineare del primo ordine, risolubile con i metodi precedenti. 
+
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    y'-2y=-e^xy^2
+\end{gather*}
+Per il metodo di Bernoulli diventa:
+\begin{gather*}
+    y^{-2}y'-2y^{-1}=-e^{x}\\
+    u=y^{-1}\implies u'=-y^{-2}y'\\
+    -u'-2u'=-e^{-x}\to u'+2u'=e^{x}
+\end{gather*}
+L'equazione omogenea ha per soluzione:
+\begin{gather*}
+    u_0=c\cdot e^{-\int 2\df x}
+\end{gather*}
+La soluzione particolare è della forma:
+\begin{gather*}
+    \bar{u}=ke^{x}\to\bar{u}'=kxe^x\\
+    kxe^x+2ke^{x}=e^x\\
+    k=\displaystyle\frac{1}{3}\\
+    \bar{u}=\displaystyle\frac{1}{3}e^{x}
+\end{gather*}
+La soluzione dell'equazione differenziale è quindi data dalla somma tra la soluzione particolare ed omogenea:
+\begin{gather*}
+    u=c\cdot e^{-\int 2\df x}+\bar{u}=c\cdot e^{-\int 2\df x}+\displaystyle\frac{1}{3}e^{x}
+\end{gather*}
+Per ottenere la soluzione in termini di $y$ si considera $u=y^{-1}$:
+\begin{gather*}
+    y=u^{-1}=\displaystyle\frac{1}{c\cdot e^{-\int 2\df x}+\frac{1}{3}e^{x}}
+\end{gather*}
+
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    y'-\displaystyle\frac{y}{x}=-\frac{1}{y}
+\end{gather*}
+Questa rappresenta un'equazione di Bernoulli con $m=-1$, si pone $u=y^2$:
+\begin{gather*}
+    \frac{1}{2}u'-\frac{u}{x}=-1\\
+    u'-\frac{2u}{x}=-2
+\end{gather*}
+Si risolve rispetto ad $u$:
+\begin{gather*}
+    A(x)=-\displaystyle\int\frac{2}{x}\df x=-2\ln x=\ln\frac{1}{x^2}\\
+    e^{-A(x)}=x^2
+\end{gather*}
+
+%% TODO fix
+% u=2x+cx^2
+%% TODO solve: y'-2y/x=2x\sqrt{y}
+
+Un'esercizio abbastanza frequente è l'esercizio inverso, dove viene data una soluzione ad un'equazione differenziale $y(x)$ e si chide di ottenere un'equazione differenziale. 
+% y=cx+sinx
+Il primo metodo consiste nel derivare la soluzione per trovare il valore della costante, e poi sostituirlo nell'equazione originaria. 
+%% TODO risolvere con questo metodo
+Un altro metodo consiste nel prendere la porzione della soluzione corrispondente alla soluzione omogenea, tale che $L[y_0]=0$, ed eguagliarla a $cx^{-A(x)}$, per determinare $p(x)$, derivando $A(x)$. 
+%% TODO risolvere con questo metodo
+Quindi si può esprimere come:
+\begin{gather*}
+    L[y]=f(x)\equiv y'+A'(x)y=f(x)
+\end{gather*}
+%% TODO finish 
+% y'-y/x=cosx-sinx/x
+%% TODO foto esercizi lavagna 10/4/25
+
 
 \end{document}
