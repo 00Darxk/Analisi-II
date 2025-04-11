@@ -1122,4 +1122,76 @@ La formula $\cos(k\pi)=(-1)^k$ è molto ricorrente nell'ambito delle serie di Fo
 
 %% TODO esercizi da foto 8/4/25 ~15:45:xx
 
+\section{Esercizi 11/4/25}
+
+Calcolare la serie di Fourier della seguente funzione:
+\begin{gather*}
+    f(x)=|x|\,\mbox{ se } x\in[-\pi,\pi)
+\end{gather*}
+Inoltre $\forall x\in\mathbb{R}$ si ha $f(x+2\pi)=f(x)$. Inoltre calcolare la somma:
+%% TODO grafico funzione
+\begin{gather*}
+    \displaystyle\sum_{k=0}^\infty\frac{1}{(2k+1)^2}
+\end{gather*}
+La serie di Fourier permette di calcolare più facilmente alcune somme. %% TODO add teoria
+
+Inoltre la funzione è pari, per cui la sua serie di Fourier si può esprimere come:
+\begin{gather*}
+    f(x)=\displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)+b_k\sin\left(\frac{2k\pi}{T}x\right)\\
+    b_k=\displaystyle\frac{2}{T}\int_{-T/2}^{T/2}f(x)\sin\left(\frac{2k\pi}{T}x\right)\df x=0
+\end{gather*}
+La serie di Fourier diventa:
+\begin{gather*}
+    f(x)=\displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)\\
+    a_k=\displaystyle\frac{2}{T}\int_{-T/2}^{T/2}f(x)\cos\left(\frac{2k\pi}{T}x\right)\df x=\displaystyle\frac{4}{T}\int_{0}^{T/2}f(x)\cos\left(\frac{2k\pi}{T}x\right)\df x=\frac{2}{\pi}\int_0^{\pi}|x|\cos(kx)\df x\\
+    a_0=\displaystyle\frac{2}{\pi}\int_{0}^\pi x\cancelto{1}{\cos(0\cdot x)}\df x=\frac{\cancel{2}}{\cancel{\pi}}\frac{\pi^{\cancel{2}}}{\cancel{2}}=\pi\\
+    \displaystyle\frac{2}{\pi}\int_0^{\pi}|x|\cos(kx)\df x=\frac{2}{\pi}\int_0^{\pi}x\cos(kx)\df x=\left[\frac{2}{k\pi}x\sin(kx)+\frac{2}{k^2\pi}\cos(kx)\right.\bigg|_0^\pi\\
+    a_k=\left[\frac{2}{k\pi}\cancelto{0}{x\sin(kx)}+\frac{2}{k^2\pi}\cos(kx)\right.\bigg|_0^\pi=\frac{2}{k^2\pi}(-1)^k-\frac{2}{k^2\pi}=\frac{2}{k^2\pi}\left((-1)^{k}-1\right)
+\end{gather*}
+%   D     I
+% + x     cos kx
+% - 1     sin kx/k
+% + 0     -cos x/k^2
+
+La serie di Fourier è quindi:
+\begin{gather*}
+    f(x)=\displaystyle\frac{\pi}{2}+\sum_{k=1}^\infty\frac{2}{k^2\pi}\left((-1)^{k}-1\right)\cos(kx)=\frac{\pi}{2}+\frac{2}{\pi}\sum_{k=1}^\infty\frac{(-1)^{k}-1}{k^2}\cos(kx)\\
+    f(x=0)=0=\displaystyle\frac{\pi}{2}+\frac{2}{\pi}\sum_{k=1}^\infty\frac{(-1)^{k}-1}{k^2}\\
+    \displaystyle\sum_{k=1}^\infty\frac{(-1)^{k}-1}{k^2}=-\frac{\pi^2}{4}=-2+0-\frac{2}{3^2}+0-\frac{2}{5^2}+0-\cdots\\
+    -2\left(1+\displaystyle\frac{1}{3^2}+\frac{1}{5^2}+\frac{1}{7^2}+\cdots\right)=-2\sum_{k=0}^\infty\frac{1}{(2k+1)^2}=-\frac{\pi^2}{4}\\
+    \displaystyle\sum_{k=0}^\infty\frac{1}{(2k+1)^2}=\frac{\pi^2}{8}
+\end{gather*}
+Si è individuata la somma della serie proposta all'inizio è convergente e finita. 
+
+
+
+Calcolare la serie di Fourier della seguente funzione:
+\begin{gather*}
+    f(x)=x^2\,\mbox{ se } x\in[-\pi,\pi)
+\end{gather*}
+Inoltre $\forall x\in\mathbb{R}$ si ha $f(x+2\pi)=f(x)$. Inoltre calcolare la somma:
+%% TODO grafico funzione
+\begin{gather*}
+    \displaystyle\sum_{k=0}^\infty\frac{1}{k^2}%=\frac{\pi^2}{6}
+\end{gather*}
+Questa funzione è pari quindi la sua serie di Fourier diventa:
+\begin{gather*}
+    f(x)=\displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos(kx)\\
+    a_0=\displaystyle\frac{2}{\pi}\int_0^\pi x^2\df x=\frac{2}{\cancel{\pi}}\frac{\pi^{\cancel{3}}}{3}=\frac{2\pi^2}{3}\\
+    a_k=\displaystyle\frac{2}{\pi}\int_0^\pi x^2\cos(kx)\df x=\frac{2}{\pi}\left[\frac{1}{k}x^2\sin(kx)+\frac{2}{k^2}x\cos(kx)-\frac{2}{k^3}\sin(kx)\right.\bigg|_0^\pi\\
+    a_k=\frac{2}{\pi}\left[\frac{1}{k}\cancel{x^2\sin(kx)}+\frac{2}{k^2}x\cos(kx)-\frac{2}{k^3}\bcancel{\sin(kx)}\right.\bigg|_0^\pi=\frac{4}{k^2\pi}x\cos(kx)\bigg|_0^\pi=\frac{4}{k^2\cancel{\pi}}\cancel{\pi}(-1)^k\\
+    f(x)=\frac{\pi^3}{3}+\sum_{k=0}^\infty\frac{4}{k^2}(-1)^k\cos(kx)
+\end{gather*}
+%   D       I
+% + x^2     cos(kx)
+% - 2x      sin(kx)/k
+% + 2       -cos(kx)/k^2
+% - 0       -sin(kx)/k^3
+
+Per arrivare alla serie iniziale si sceglie $x=\pi$:
+\begin{gather*}
+    f(\pi)=\pi^2=\frac{\pi^2}{3}+4\sum_{k=0}^\infty\frac{(-1)^k}{k^2}(-1)^k\\
+    \sum_{k=0}^\infty\frac{1}{k^2}=\frac{2\pi^2}{3}\frac{1}{4}=\frac{\pi^2}{6}
+\end{gather*}
+
 \end{document}
