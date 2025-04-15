@@ -1438,9 +1438,6 @@ Se $f(x)$ non è continua in $x_0$ allora:
     f(x_0^+)=\lim_{x\to x_0^+}f(x)
 \end{gather*}
 
-
-
-
 \clearpage
 
 \section{Equazioni Differenziali} 
@@ -1835,6 +1832,268 @@ Quindi si può esprimere come:
 %% TODO finish 
 % y'-y/x=cosx-sinx/x
 %% TODO foto esercizi lavagna 10/4/25
+
+\clearpage
+
+\section{Funzioni Multi-Variabili}
+
+
+Una funzione è definita come $f:D_f\subseteq\mathbb{R}\to C_f\subseteq\mathbb{R}$, si può estendere questa definizione, aumentando la dimensione del dominio:
+\begin{gather*}
+    f:D_f\subseteq\mathbb{R}^2\to C_f\subseteq\mathbb{R}\\
+    P=(x,y)\rightarrow z=f(x,y)
+\end{gather*}
+Il suo grafico $\mathscr{G}_f$ si può definire come l'insieme dei punti tridimensionali tali che:
+\begin{gather*}
+    \mathscr{G}_f=\left\{(x,y,z)\in\mathbb{R}^3\big|(x,y)\in D_f,\,z=f(x,y)\right\}
+\end{gather*}
+Si considera la seguente funzione bidimensionale:
+\begin{gather*}
+    z=f(x,y)=x^2+y^2
+\end{gather*}
+Questo paraboloide ha la seguente forma nello spazio tridimensionale: 
+%% TODO add img paraboloide da IA-ML
+\begin{figure}[H]
+    \centering%
+    \includegraphics[scale=0.5]{example-image.png}%    
+\end{figure}
+Tenendo fissa una variabile, e considerando un taglio di questa figura, si ottiene una parabola. 
+
+Aumentando la dimensione del dominio della funzione ulteriormente, impedisce a questa di essere rappresentata:
+\begin{gather*}
+    f: D_f\subseteq\mathbb{R}^3\to C_f\subseteq\mathbb{R}\\
+    P=(x,y,z)\to w=(x,y,z)
+\end{gather*}
+Aumentando ulteriormente rende ancora più difficile la sua rappresentazione. 
+
+
+Analogamente è possibile aumentare la dimensione del codominio, in questo modo si crea una funzione vettoriale:
+\begin{gather*}
+    f:D_f\subseteq\mathbb{R}\to C_f\subseteq\mathbb{R}^2\\
+    t\to f(t)=\begin{pmatrix}
+        x(t)\\y(t)
+    \end{pmatrix}
+\end{gather*}
+Questa è un'equazione parametrica per rappresentare una curva nel piano. Funzioni vettoriali a due dimensioni, di una variabile reale servono per descrivere pariteticamente una curva nel piano bidimensionale. 
+
+Si può aumentare arbitrariamente l'ordine del codominio, in modo che l'immagine della variabile sia un vettore nello spazio $n$-dimensionale. Le componenti di questo vettore vengono chiamate equazioni parametri di una curva nello spazio. 
+% \begin{gather*}
+%     f:D_f\subseteq\mathbb{R}\to C_f\subseteq\mathbb{R}^n\\
+%     t\to f(t)=\begin{pmatrix}
+%         x_1(t)\\\vdots\\x_n(t)
+%     \end{pmatrix}
+% \end{gather*}
+Generalizzando ancora il concetto si può avere un ordine superiore al primo sia per il dominio che pe ril codominio della funzione:.
+\begin{gather*}
+    f: D_f\subseteq\mathbb{R}^2\to C_f\subseteq\mathbb{R}^3\\
+    (u,v)\to f(u,v)=\begin{pmatrix}
+        x(u,v)\\y(u,v)\\z(u,v)
+    \end{pmatrix}
+\end{gather*}
+Avendo due variabili indipendenti si definisce un'equazione parametrica per una superficie. Questo tipo di funzioni sono molto usate in fisica per definire spazi campi vettoriali, se le dimensioni di dominio e codominio sono uguali, e altre funzioni per definire campi di forze. 
+
+\subsection{Funzioni Reali a Più variabili Reali}
+
+Dopo aver generalizzato la nozione di funzione, si considerano funzioni reali a più variabili reali: $\mathbb{R}\to\mathbb{R}^n$. 
+
+
+Si considera la seguente funzione:
+\begin{gather*}
+    z=f(x,y)=2x^2+2xy-y-5
+\end{gather*}
+Non sono presenti vincoli sul dominio della funzione, essendo composta solamente da potenze: $D_f\subseteq\mathbb{R}^2$. Altre funzioni invece presentano dei vincoli per definire il loro dominio:
+\begin{gather*}
+    z=f(x,y)=\sqrt{2x+y-5}
+\end{gather*}
+
+Bisogna impostare un vincolo per determinare la scelta appropriata della $x$ e della $y$, il dominio deve considerare nel piano euclideo tutti i numeri reali che soddisfano la condizione:
+\begin{gather*}
+    2x+y-5\geq0
+\end{gather*}
+Dal punto di vista teorico non sono presenti problemi, i problemi sono dal punto di vista pratico, bisogna risolvere una disequazione di più incognite. 
+Si parte dall'equazione per poi risolvere la disequazione, si considera quindi la retta:
+\begin{gather*}
+    2x+y-5=0\\
+    y=-2x+5
+\end{gather*}
+Tutti i punti che soddisfano quest'equazione sono punti accettabili. 
+%% TODO add img retta 
+Dopo aver rappresentato questa retta, si divide il piano in una porzione sopra e sotto alla retta, bisogna determinare la porzione che soddisfa la disequazione $y>-2x+5$, quindi bisogna scegliere tutti i punti superiori alla retta. Il dominio della funzione è individuato dal semipiano superiore alla retta, compresa:
+\begin{gather*}
+    D_f=\left\{(x,y)\in\mathbb{R}^2\big| 2x+y-5\geq0\right\}
+\end{gather*}
+
+%% TODO ex analogo
+Data la funzione:
+\begin{gather*}
+    z=f(x,y)=\displaystyle\frac{2x+y}{x^2+y^2}
+\end{gather*}
+Questa funzione presente una singolarità, nel punto dove si annulla il denominatore, ovvero dove $x^2+y^2=0$, quindi nell'origine: $D_f=\mathbb{R}^2\setminus\{(0,0)\}$
+
+
+
+Considerare la seguente funzione:
+\begin{gather*}
+    z=f(x,y)=\displaystyle\frac{\sqrt[4]{x^2+y^2-2x-4y-11}}{\ln(2x+y)}
+\end{gather*}
+Per definire il suo dominio, bisogna utilizzare tre vincoli, uno per la radice, uno per il denominatore, ed uno per il logaritmo:
+\begin{gather*}
+    \begin{cases}
+        x^2+y^2-2x-4y-11\geq0\\
+        \ln(2x+y)\neq0\\
+        2x+y>0
+    \end{cases}
+\end{gather*}
+Partendo dall'ultima disequazione si considera la retta $2x+y=0\to y=-2x$, poiché è una relazione stretta, i punti che appartengono a questa equazione vanno scartati. 
+% x   | y
+% -------
+% 0   | 0
+% 1/2 | 1
+%% TODO add img retta e piano 
+Essendo $y>-2x$ si considerano tutti i punti sopra a questa retta. Passando alla seconda disequazione, affinché il logaritmo non sia nullo bisogna imporre:
+\begin{gather*}
+    2x+y\neq1\\
+    y\neq-2x+1
+\end{gather*}
+Rappresentando questa retta, bisogna escludere solamente i punti di questa retta $y=-2x+1$. 
+%% TODO add img retta sovrapposta al semipiano precedente
+La prima disequazione rappresenta un'equazione di un cerchio, centrato in punto da determinare:
+\begin{gather*}
+    x^2+y^2-2x-4y-11\geq0\\
+    (x^2-2x+1)+(y^2-4y+4)-16\geq0\\
+    (x-1)^2+(y-4)^2\geq4^2
+\end{gather*}
+Si è ottenuta l'equazione di una circonferenza, di raggio 4 e centro in $(2,4)$:
+\begin{gather*}
+    (x-1)^2+(y-4)^2=4^2
+\end{gather*}
+%% TODO add img circonferenza al semipiano precedente
+Questo vincolo esclude tutti i punti interni, circonferenza esclusa. Il dominio della funzione è quindi data da:
+\begin{gather*}
+    D_f=\left\{(x,y)\in\mathbb{R}^2\big|(x-1)^2+(y-4)^2\geq4^2\land y\neq-2x+1\land y>-2x\right\}
+\end{gather*}
+
+\subsubsection{Limite Multi-Variabile}
+
+Considerare la seguente funzione:
+\begin{gather*}
+    z=f(x,y)=\displaystyle\frac{\arcsin(2x+y)}{\sqrt{5-2x-3y}}
+\end{gather*}
+Per determinare il dominio della funzione, bisogna analizzare il comportamento della funzione in punti di accumulazione ed analizzare il loro comportamento, generalizzando il concetto di limite. La distanza euclidea in due dimensioni, dati due punti $P=(x_p,y_p)$ e $Q=(x_q,y_q)$, è data da:
+\begin{gather*}
+    \df(PA)=\sqrt{(x_p-x_q)^2+(y_p-y_q)^2}
+\end{gather*}
+Si deve definire l'intorno di un punto in due dimensioni $P_0(x_0,y_0)$, di raggio $\delta>0$:
+\begin{equation}
+    I_\delta(P_0)=\left\{P\in\mathbb{R}^2\big| \df (P_0P)<\delta\right\}
+\end{equation}
+%% TODO add img intorno aperto, senza circonferenza
+Dato l'intorno sferico di un punto, bisogna definire il punto di accumulazione, e studiare il comportamento della funzione in questo punto. 
+$P_0\in\mathbb{R}^2$ è punto di accumulazione di $D_f$ se $\forall\delta>0$ si ha che l'intorno sferico di raggio $\delta$ bucato $I_\delta(P_0)\setminus\{P_0\}$ deve contenere almeno un punto del dominio:
+\begin{equation}
+    \left(I_\delta(P_0)\setminus\{P_0\}\right)\cap D_f\neq0
+\end{equation}
+Ci si può avvicinare arbitrariamente al punto $P_0$, senza mai lasciare il dominio $D_f$. 
+
+Si suppone di avere una funzione $f$ definita su un piano euclideo ed ha valori reali:
+\begin{gather*}
+    f: D_f\subseteq\mathbb{R}^2\to C_f\subseteq\mathbb{R}
+    (x,y)\to x=f(x,y)% funzione analitica
+\end{gather*}
+Si considera un punto di accumulazione $P_0\in\mathbb{R}^2$ del dominio $D_f$. 
+
+Il limite della funzione, avvicinandosi al punto $P_0$ può essere:
+\begin{gather*}
+    \lim_{P\to P_0}f(x,y)=\lim_{(x,y)\to (x_0,y_0)}f(x,y)=\begin{cases}
+        l\in\mathbb{R}\\
+        \pm\infty\\
+        \nexists
+    \end{cases}
+\end{gather*}
+Nei primi due casi la funzione è regolare, mentre nel terzo caso la funzione è irregolare. 
+
+Si estende il concetto di continuità, se il limite di $P\to P_0$ di $f$ esiste ed ha un valore $l$, allora se $\forall\varepsilon>0\,\exists\delta_\varepsilon>0$ talle che $\forall P\in D_f$ per cui $\df(P_0P)<\delta_\varepsilon$ allora $|f(x,y)<l+\varepsilon$. 
+\begin{equation}
+    \forall\varepsilon>0\,\exists\delta_\varepsilon>0\big|\forall P\in D_f\mbox{ per cui }\df(P_0P)<\delta_\varepsilon\implies l-\varepsilon<f(x,y)<l+\varepsilon
+\end{equation}
+Allora la funzione è continua in $P_0$ se:
+\begin{equation}
+    \lim_{P\to P_0}f(x,y)=f(x_0,y_0)
+\end{equation}
+Dal punto di vista applicativo su una sola dimensione è sufficiente controllare due limiti, da destra e da sinatra, poiché sono gli unici due modi in cui si può tendere al punto di accumulazione $x_0$. Ma in più di una dimensione sono presenti infiniti modi di tendere ad un punto di accumulazione $P_0$. 
+Il problema è individuare le traiettorie che portano al punto di accumulazione, se esistono due traiettorie per cui il limite non esiste, allora il limite non esiste. 
+Si considera il seguente limite:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}\displaystyle\frac{xy}{x^2+y^2}
+\end{gather*}
+Si fissa $x=0$ e si considera di arrivare a $P_0$ per $y\to 0^+$, quindi il punto $P$ di partenza appartiene all'asse $y$:
+\begin{gather*}
+    \lim_{y\to0}\displaystyle\frac{0}{0+y^2}=0
+\end{gather*}
+Analogamente se ci si muove sull'asse delle $x$:
+\begin{gather*}
+    \lim_{x\to0}\displaystyle\frac{0}{x^2+0}=0
+\end{gather*}
+Si ci si muove sulla bisettrice del primo quadrante, definita da $y=x$, si ha invece:
+\begin{gather*}
+    \lim_{x=y\to0}\displaystyle\frac{x^2}{2x^2}=\frac{1}{2}
+\end{gather*}
+Secondo la bisettrice quindi il limite è diverso, ma poiché un limite non può avere valori diversi per traiettorie diverse è irregolare. Quindi non è possibile estendere la funzione al punto $P_0=(0,0)$. 
+
+Invece considerando il seguente limite:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}\displaystyle\frac{x^3}{x^2+y^2}
+\end{gather*}
+Se ci si muove sull'asse $x$ o $y$, si ha lo stesso limite pari a zero, così per la bisettrice. L'unico strumento, in questo corso, per calcolare questi limiti è il passaggio alle coordinate polari: $(x,y)\to(\rho,\theta)$:
+\begin{gather*}
+    \begin{cases}
+        x=x_0+\rho\cos\theta\\
+        y=y_0+\rho\sin\theta\\
+    \end{cases}
+\end{gather*}
+In questo caso il punto di accumulazione $P_0$ si trova nell'origine, quindi:
+\begin{gather*}
+    \begin{cases}
+        x=\rho\cos\theta\\
+        y=\rho\sin\theta\\
+    \end{cases}    
+\end{gather*}
+Applicando questa sostituzione il limite diventa:
+\begin{gather*}
+    \lim_{\rho\to0}\displaystyle\frac{\rho^3\cos^3\theta}{\rho^2(\cancelto{1}{\cos^2\theta+\sin^2\theta})}=\lim_{\rho\to0}\rho\cos^3\theta
+\end{gather*}
+Se si può eliminare la presenza del parametro $\theta$, si può ragionare solamente con il parametro $\rho$ e risolvere direttamente questo limite. Si applica quindi il teorema del confronto:
+\begin{gather*}
+    -\rho\leq\rho\cos^3\theta\leq\rho
+\end{gather*}
+Studiare questo limite è come studiare il limite degli estremi, e se questi coincidono allora il valore del limite coincide a questo valore, per il teorema del confronto:
+\begin{gather*}
+    \lim_{\rho\to0}-\rho=\lim_{\rho\to0}\rho=0\\
+    \lim_{\rho\to0}\rho\cos^3\theta=0
+\end{gather*}
+Quindi il limite originale esiste e tende a zero:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}\displaystyle\frac{x^3}{x^2+y^2}=0
+\end{gather*}
+Tendenzialmente si svincolano le dipendenze a $\theta$ tramite il confronto $|\cos\theta|\leq1$ e $|\sin\theta|\leq1$. 
+
+
+Si considera il seguente limite:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}\displaystyle\frac{x^3y}{x^2+y^2}\\
+    \lim_{\rho\to0}\displaystyle\frac{\rho^3\cos^3\theta\cdot\rho\sin\theta}{\rho^2}\\
+    \lim_{\rho\to0}\rho^2\cos^3\theta\sin\theta    
+\end{gather*}
+Per il teorema del confronto si ha:
+\begin{gather*}
+    -\rho\leq\rho\cos^3\theta\sin\theta\leq\rho\\
+    \lim_{\rho\to0}-\rho=\lim_{\rho\to0}\rho=0\\
+    \lim_{\rho\to0}\rho\cos^3\theta\sin\theta=0
+\end{gather*}
+Il limite quindi è definito ed ha valore:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}\displaystyle\frac{x^3}{x^2+y^2}=0
+\end{gather*}
 
 
 \end{document}
