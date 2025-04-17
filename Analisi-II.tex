@@ -1629,7 +1629,6 @@ Considerare il seguente problema di Cauchy :
     x=(t+1)e^{-c_0}\ln(t+1)^3+c_1e^{-c_0}(t+1)
 \end{gather*}
 
-
 \subsection{Operatore Differenziale}
 
 Sia $p(x)$ continua in $I$, l'operatore differenziale $L$ assegna ad ogni funzione $y$:
@@ -1832,6 +1831,290 @@ Quindi si può esprimere come:
 %% TODO finish 
 % y'-y/x=cosx-sinx/x
 %% TODO foto esercizi lavagna 10/4/25
+
+\subsection{?}
+
+Equazione di Manfredi:
+\begin{gather*}
+    y'=f\left(\displaystyle\frac{ax+by}{cd+dy}\right)    
+\end{gather*}
+Si considera funzioni omogenee di grado zero:
+\begin{gather*}
+    y'=f(x,y)=f(tx,ty)
+\end{gather*}
+Se si considera $t=x^{-1}$ si ottiene:
+\begin{gather*}
+    y'=f\left(1,\displaystyle\frac{y}{x}\right)
+\end{gather*}
+Per trovare una soluzione si effettua un'ulteriore sostituzione $z=yx^{-1}$:
+\begin{gather*}
+    y=xz,\,y'=z+xz'\\
+    z+xz'=f(1,z)=F(z)
+\end{gather*}
+Quest'ultima diventa un'equazione a variabili separabili del tipo:
+\begin{gather*}
+    xz'=F(z)-z\\
+    \displaystyle\frac{\df z}{F(z)-z}=\frac{\df x}{x}
+\end{gather*}
+
+
+Un esempio classico di questo tipo di funzione è:
+\begin{gather*}
+    y'=\displaystyle\frac{x-y}{x+y}
+\end{gather*}
+Applicando la sostituzione $z=y/x$, si divide tutto per $x$:
+\begin{gather*}
+    z+xz'=f(x,y)=F(z)=\displaystyle\frac{1-z}{1+z}
+\end{gather*}
+Allora si può scrivere come:
+\begin{gather*}
+    \displaystyle\frac{\df z}{\frac{1-z}{1+z}-z}=\frac{\df x}{x}\\
+    \displaystyle\frac{1+z}{1-z-z-z^2}\df z=\frac{\df x}{x}\\
+    \displaystyle\frac{1}{2}\frac{2z+2}{x^2+2z-1}\df z=\frac{1}{2}\frac{\df(z^2+2z-1)}{z^2+2z-1}=-\frac{\df x}{x}\\
+    \displaystyle\frac{1}{2}\ln|z^2+2z-1|=-\ln x+c\\
+    \displaystyle\ln|z^2+2z-1|=-\ln x^2+c
+\end{gather*}
+Elevando a potenza entrambi i membri si ottiene la seguente:
+\begin{gather*}
+    z^2+2z-1=\frac{c}{x^2}
+\end{gather*}
+Considerando la sostituzione $z=y/x$, si sostituisce e si ottiene:
+\begin{gather*}
+    \displaystyle\frac{y^2}{x^2}+2\frac{y}{x}-1=\frac{c}{x^2}
+\end{gather*}
+
+%% TODO ex a casa:
+Risolvere la seguente equazione differenziale;
+\begin{gather*}
+    y'=\displaystyle\frac{x^3+y^3}{xy^2}
+\end{gather*}
+
+\subsection{Equazione di Riccati}
+
+La conoscenza di una radice permette di semplificare l'esercizio di determinare ulteriori radici di un polinomio. Analogamente conoscendo una soluzione di un'equazione differenziale, è possibile individuare più facilmente altre soluzioni. 
+L'equazione di Riccati del primo ordine è del tipo:
+\begin{gather*}
+    y'=p(t)y^2+q(t)y+r(t)
+\end{gather*}
+Sembra, anche se non lo è, un'equazione di Bernoulli. Si suppone si conosca una soluzione $u(t)$ di questa equazione, a questo punto si sostituisce $y=u(t)+1/z$:
+\begin{gather*}
+    u'(t)-\displaystyle\frac{z'}{z}=p(t)\left(u(t)+\frac{1}{z}\right)^2+q(t)\left(u(t)+\frac{1}{z}\right)+r(t)\\
+    u'(t)-\displaystyle\frac{z'}{z}=p(t)\left(u(t)^2+2\frac{u(t)}{z}+\frac{1}{z^2}\right)+q(t)\left(u(t)+\frac{1}{z}\right)+r(t)\\
+    \displaystyle-\frac{z'}{z^2}=-u'(t)+p(t)u^2+p(t)\frac{1}{z^2}+2\frac{p(t)u(t)}{z}+q(t)\left(u(t)+\frac{1}{z}\right)+r(t)
+\end{gather*}
+Sapendo che $u(t)$ è una soluzione, si può sostituire: %% TODO ??
+\begin{gather*}
+    -z'=\left(-u'(t)+p(t)u^2+p(t)\frac{1}{z^2}+2\frac{p(t)u(t)}{z}+q(t)\left(u(t)+\frac{1}{z}\right)+r(t)\right)z^2\\
+    -z'=(2u(t)p(t)+q(t))z-p(t)
+\end{gather*}
+
+%% TODO ??
+Esempio perché non gli andava di continuare la cosa di prima:
+\begin{gather*}
+    \begin{cases}
+        y'+y^2-1=0\\
+        y(0)=-\displaystyle\frac{\strut 1}{\strut3}
+    \end{cases}\\
+    y=k=1
+\end{gather*}
+Si sostituisce $y=1+1/z$, supponendo che $1$ sia una soluzione:
+\begin{gather*}
+    \displaystyle-\frac{1}{z^2}z'+1+\frac{1}{z^2}+\frac{2}{z}-1=0\\
+    -z'+\cancel{z^2}+1+2z-\bcancel{z^2}=0\\
+    -z'+2z+1=0\to z'-2z=1
+\end{gather*}
+Si risolve ora quest'equazione semplificata:
+\begin{gather*}
+    A(t)=\displaystyle\int-2\df v=-2t\\
+    e^{A(t)}=e^{-2t}\implies e^{-2t}\left[z'-2z\right]=e^{-2t}
+\end{gather*}
+\begin{gather*}
+    D[ze^{-2t}]=e^{-2t}\\
+    ze^{-2t}=\displaystyle\int e^{-2t}\df t+c=-\frac{1}{2}\int e^{-2t}\df(-2t)+c\\
+    z=e^{-2t}\left(-\frac{1}{2e^{-2t}}+c\right)=ce^{2t}-\frac{1}{2}
+\end{gather*}
+Considerando la sostituzione iniziale, si ha:
+\begin{gather*}
+    z=\displaystyle\frac{1}{y-1}=ce^{2t}-\frac{1}{2}
+\end{gather*}
+
+\subsection{Equazioni Esatte}
+
+Le equazioni frate sono un tipo di equazioni nella forma:
+\begin{gather*}
+    X(x,y)\df x+Y(x,y)\df y=0
+\end{gather*}
+Si può portare nella forma di un'equazione differenziale come:
+\begin{gather*}
+    X(x,y)+Y(x,y)\displaystyle\frac{\df y}{\df x}=0
+\end{gather*}
+
+\subsection{Esistenza ed Unicità di una Soluzione}
+
+% Le equazioni differenziali del primo ordine trattate,
+Data un'equazione differenziale in forma normale, supponendo siano stat assegnate 
+\begin{gather*}
+    y'=f(x,y)\\
+    y_0=y(x_0)
+\end{gather*}
+
+Il teorema di Picard afferma che se la funzione $f$ è continua e se la derivata parziale rispetto ad $y$ è anch'essa una funzione continua in un rettangolo $x,y$, allora l'equazione differenziale assegnata ha sempre una ed una sola soluzione. 
+Ed esiste un numero reale $h$, tale che nell'intorno di $x_0$: $|x-x_0|<h$, ammette una ed una sola funzione. 
+
+\subsection{Equazioni Differenziali del Secondo Ordine}
+
+Un'equazione differenziale del secondo ordine è un'equazione che presente un termine $y$ derivato secondo. Molte equazioni di secondo grado non hanno una soluzione calcolabile in modo esplicito, ma sono presenti molte equazioni particolari di cui si può calcolare la soluzione. 
+Considerando un'equazione:
+\begin{gather*}
+    y''-xy=0
+\end{gather*}
+Questo tipo di equazioni si chiama equazioni di Airy. Si tratteranno solamente equazioni lineari del secondo ordine:
+\begin{gather*}
+    y''+P(x)y'+Q(x)y=R(x)
+\end{gather*}
+Il teorema dell'esistenza ed unicità delle soluzioni afferma che se queste funzioni $P(x),\,Q(x),\,R(x)$ sono continue su un'intervallo $[a,b]$ allora la soluzione esiste ed è unica, dati i vincoli $y_0=y(x_0)$ e $y_0'=y'(x_0)$. 
+
+
+Si considera un caso particolare:
+\begin{gather*}
+    y''=f(x)
+\end{gather*}
+La sua soluzione è immediata, è sufficiente integrare ambo le parti:
+\begin{gather*}
+    y'=\displaystyle\int f(t)\df t+c_1\\
+    y=\displaystyle\int\left(\int f(t)\df t+c_1\right) \df v+c_2
+\end{gather*}
+
+
+
+%% SKIP
+
+Si considerano prima equazioni di secondo grado lineari con il termine noto nullo:
+\begin{gather*}
+    y''+a(x)y'+b(x)y=0
+\end{gather*}
+Si considera l'operatore differenziale $L[y]=0$. Questo problema di integrazione si risolve in modo semplice quando i coefficienti sono delle costanti:
+\begin{gather*}
+    y''+ay'+by=0
+\end{gather*}
+Per individuare una soluzione si considerano funzioni del tipo $e^{\lambda t}$:
+\begin{gather*}
+    y=e^{\lambda t}\\
+    y'=\lambda e^{\lambda t}\\
+    y''=\lambda^2e^{\lambda t}
+\end{gather*}
+Sostituendo nell'equazione di partenza si ottiene:
+\begin{gather*}
+    \lambda^2e^{\lambda t}+a\lambda e^{\lambda t}+be^{\lambda t}=0\\
+    e^{\lambda t}\left[\lambda^2+a\lambda+b\right]=0
+\end{gather*}
+
+L'esponenziale non può essere mai nullo, quindi solo se il polinomio in termini di $\lambda$ è nullo esiste una soluzione, con $\lambda$:
+\begin{gather*}
+    \lambda=\displaystyle\frac{-a\pm\sqrt{a^2-4b}}{2}
+\end{gather*}
+Quest'equazione da risolvere si chiama equazione caratteristica, e la soluzione dipende dal discriminante $\Delta$:
+%% TODO vari casi per Delta >=< 0
+% \begin{gather*}
+%   \Delta:\begin{cases}
+%     >0\\
+%     =0\\
+%     <0
+% \end{cases}    
+% \end{gather*}
+
+Si considera un'equazione lineare omogenea:
+\begin{gather*}
+    y''+y=0\to\,y''=-y\\
+    y(0)=3\\
+    y'(0)=0
+\end{gather*}
+Una possibile soluzione è una funzione sinusoidale:
+\begin{gather*}
+    y=k\cos x\\
+    y'=-k\sin x\\
+    y''=-k\cos x
+\end{gather*}
+Per individuare la soluzione bisogna utilizzare le condizioni al contorno fornite:
+\begin{gather*}
+    y(0)=k\cos(0)=k=3\\
+    y'(0)=3\sin(0)=0
+\end{gather*}
+La soluzione individuata $y=3\cos x$ è unica. 
+
+
+Se i coefficienti dell'equazione differenziale ordinaria di secondo ordine non sono costanti si ha:
+\begin{gather*}
+    y''+P(x)y'+Q(x)y=0
+\end{gather*}
+Si utilizza allora l'operatore differenziale:
+\begin{gather*}
+    L[y]=y''+P(x)y'+Q(x)y
+\end{gather*}
+Questo operatore è lineare, quindi siano $y_1$ e $y_2$ soluzioni dell'equazione non omogenea, allora una loro combinazione lineare è anch'essa una soluzione:
+\begin{gather*}
+    L[c_1y_2+c_2y_2]=c_1y_1''+c_1P(x)y_1'+c_1Q(x)y_1+c_2y_2''+c_2P(x)y_2'+c_2Q(x)y_2=c_1L[y_1]+c_2L[y_2]
+\end{gather*}
+
+Considerando ora l'equazione non omogenea, data $\bar{y}$ la soluzione dell'equazione non omogenea, e $y_1$ una soluzione dell'equazione omogenea, allora l'operatore applicato alla loro combinazione lineare diventa:
+\begin{gather*}
+    L[y_1+\bar{y}]=L[y_1]+L[\bar{y}]
+\end{gather*}
+Il primo addendo è nullo poiché è soluzione dell'equazione omogenea quindi si ha:
+\begin{gather*}
+    L[y_1+\bar{y}]=\cancelto{0}{L[y_1]}+L[\bar{y}]=R(x)
+\end{gather*}
+Quindi la combinazione lineare tra una soluzione dell'equazione omogenea e di quella non omogenea, è una soluzione per l'equazione non omogenea.
+Mentre date due soluzioni per l'equazione non omogenea $\bar{y}_1$ e $\bar{y}_2$, l'operatore differenziale applicato alla loro differenza sarà nullo:
+\begin{gather*}
+    L[\bar{y}_1-\bar{y_2}]=L[\bar{y}_1]-L[\bar{y}_2]=R(x)-R(x)=0
+\end{gather*}
+La differenza di due soluzioni dell'equazione non otogena è una soluzione all'equazione omogenea. Quindi fissando una delle due soluzioni si può attuare lo stesso procedimento per le equazioni lineari di primo ordine, dove 
+la soluzione generale per un'equazione di primo ordine è data dall'integrale particolare per l'omogenea più una soluzione generale per la non omogenea. %% TODO fix per secondo ordine scrivere soluzione tipo y+\bar{y}
+\begin{gather*}
+    L[y+\bar{y}]
+\end{gather*}
+
+
+Esempio a caso:
+\begin{gather*}
+    y''+2y'+y=0
+\end{gather*}
+Si considera la sua equazione caratteristica:
+\begin{gather*}
+    e^{\lambda t}(\lambda^2+2\lambda+1)=0
+\end{gather*}
+Il determinante è nullo $\Delta=0$, quindi si ha $\lambda=-1$, quindi le due soluzioni dell'equazione sono:
+\begin{gather*}
+    y_1=e^{-x}\\
+    y_2=xe^{-x}
+\end{gather*}
+La soluzione generale di quest'equazione è quindi del tipo:
+\begin{gather*}
+    y=c_1e^{-x}+c_2xe^{-x}
+\end{gather*}
+
+%% ??
+%% TODO fix wording and shi
+Date due equazioni $y_1(x)$ e $y_2(x)$, se esse sono linearmente indipendenti se non esistono costanti $c_i\neq0$ tali che $c_1y_1(x)+c_2y_2(x)$. Se invece esistono queste costanti, sempre diverse da zero, le funzioni si dicono linearmente dipendenti. 
+
+
+Date $y_1(x)$ e $y_2(x)$ soluzioni linearmente indipendenti, di un'equazione lineare di secondo ordine omogenea $y''+P(x)y'+Q(x)y=0$, allora ogni soluzione combinazione lineare di queste due soluzioni allora: $y=c_1y_1+c_2y_2$. 
+Date le condizioni al contorno $y_0$ e $y_0'$, si possono individuare le costanti $c_1$ e $c_2$:
+\begin{gather*}
+    c_1y_1(x_0)+c_2y_2(x_0)=y_0\\
+    c_1y_1'(x_0)+c_2y_2'(x_0)=y_0'
+\end{gather*}
+Queste costanti esistono quando il determinante dei coefficienti è diverso da zero:
+\begin{gather*}
+    \begin{pmatrix}
+        y_1(x_0) & y_2(x_0)\\
+        y_1'(x_0) & y_2'(x_0)
+    \end{pmatrix}\neq0
+\end{gather*}
+Questo si chiama il Wronskiano relativo a $y_1$ e $y_2$. 
+Si vuole trovare due soluzioni linearmente indipendenti, quindi considerando il Wronskiano se è nullo allora le soluzioni non solo linearmente indipendenti e quindi non può essere utilizzato per individuare la soluzione. 
+
 
 \clearpage
 
@@ -2095,5 +2378,6 @@ Il limite quindi è definito ed ha valore:
     \lim_{(x,y)\to(0,0)}\displaystyle\frac{x^3}{x^2+y^2}=0
 \end{gather*}
 
+\clearpage
 
 \end{document}
