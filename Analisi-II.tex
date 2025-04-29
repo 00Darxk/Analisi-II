@@ -2321,7 +2321,7 @@ Si ci si muove sulla bisettrice del primo quadrante, definita da $y=x$, si ha in
 \begin{gather*}
     \lim_{x=y\to0}\displaystyle\frac{x^2}{2x^2}=\frac{1}{2}
 \end{gather*}
-Secondo la bisettrice quindi il limite è diverso, ma poiché un limite non può avere valori diversi per traiettorie diverse è irregolare. Quindi non è possibile estendere la funzione al punto $P_0=(0,0)$. 
+Secondo la bisettrice quindi il limite è diverso, ma poiché un limite non può avere valori diversi per traiettorie diverse, è irregolare. Quindi non è possibile estendere la funzione al punto $P_0=(0,0)$. 
 
 Invece considerando il seguente limite:
 \begin{gather*}
@@ -2375,8 +2375,147 @@ Per il teorema del confronto si ha:
 \end{gather*}
 Il limite quindi è definito ed ha valore:
 \begin{gather*}
-    \lim_{(x,y)\to(0,0)}\displaystyle\frac{x^3}{x^2+y^2}=0
+    \lim_{(x,y)\to(0,0)}\displaystyle\frac{x^3y}{x^2+y^2}=0
 \end{gather*}
+
+% recap su vari limiti xy/x^2+y^2: \nexists
+%% RECAP
+
+Si considera una funzione il cui limite non esiste nell'origine:
+\begin{gather*}
+    f(x,y)=\begin{cases}
+        \displaystyle\frac{\strut xy}{\strut x^2+y^2}&(x,y)\neq(0,0)\\
+        0&(x,y)=(0,0)
+    \end{cases}
+\end{gather*}
+In questo modo è definita nell'origine, ma affinché sia continua anche nell'origine, il valore del limite, deve coincidere al valore della funzione nell'origine:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}f(x,y)\neq f(0,0)=0
+\end{gather*}
+Dato che il limite non esiste, allora non può essere uguale a zero, e non è continua nell'origine, ma è definita su tutto il dominio $D_f=\mathbb{R}^2$. 
+
+Il passaggio a coordinate polari, con centro in $(x_0,y_0)$ permette di risolvere questi limiti. Dopo aver cambiato le coordinate, si prova svincolare il calcolo dall'angolo $\theta$, in modo da renderlo indipendente dalla traiettoria. 
+
+
+
+%% TODO add to esercizi
+Determinare se esiste un valore $\alpha\in\mathbb{R}$ tale che la seguente funzione è continua:
+\begin{gather*}
+    f(x,y)=
+    \begin{cases}
+        \displaystyle\frac{\strut x^4+y^2e^x}{\strut\sqrt{x^2+y^2}}&(x,y)\neq(0,0)\\
+        \alpha&(x,y)=(0,0)    
+    \end{cases}
+\end{gather*}
+
+Non si riesce ad individuare due traiettorie per cui il limite diverge, quindi si calcola direttamente, effettuando un cambiamento di coordinate:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}\displaystyle\frac{x^4+y^2e^x}{\sqrt{x^2+y^2}}=
+    \lim_{\rho\to0}\frac{\rho^4\cos^4\theta+\rho^2\sin^2\theta e^{\rho\cos\theta}}{\rho}=
+    \lim_{\rho\to0}\rho^3\cos^4\theta+\rho\sin^2\theta (1+\cos\theta+o[\rho])
+\end{gather*}
+Si usa una formula di Maclaurin dell'esponenziale per riscrivere l'esponenziale come:
+\begin{gather*}
+    e^t=1+t+o[t]\mbox{ per }t\to0
+\end{gather*}
+Il limite diventa:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}\rho^3\cos^4\theta+\rho\sin^2+\rho^2\cos^2\theta\sin\theta+o[\rho^2]
+\end{gather*}
+Tutti i termini in questo limite tendono a zero, quindi il limite tende a zero. 
+La funzione originale quindi è continua se $\alpha=0$:
+\begin{gather*}
+    f(x,y)=
+    \begin{cases}
+        \displaystyle\frac{\strut x^4+y^2e^x}{\strut\sqrt{x^2+y^2}}&(x,y)\neq(0,0)\\
+        0&(x,y)=(0,0)    
+    \end{cases}
+\end{gather*}
+
+
+Determinare il valore $\alpha\in\mathbb{R}$ per cui la funzione data risulti continua anche nell'origine:
+\begin{gather*}
+    f(x,y)=
+    \begin{cases}
+        \displaystyle\frac{\strut x^2y^2}{\strut3x^2+y^2}&(x,y)\neq(0,0)\\
+        \alpha&(x,y)=(0,0)    
+    \end{cases}
+\end{gather*}
+Si effettua un cambio di coordinate nel limite per coordinate polari centrate nell'origine:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}\displaystyle\frac{\strut x^2y^2}{\strut3x^2+y^2}=
+    \lim_{\rho\to0}\frac{\rho^4\cos^2\theta\sin^2\theta}{\rho^2\left(3\cos^2\theta+\sin^2\right)}=
+    \lim_{\rho\to0}\frac{\rho^2\cos^2\theta\sin^2\theta}{2\cos^2\theta+1}
+\end{gather*}
+Il denominatore è sempre maggiore o uguale a zero, quindi per il teorema del confronto si ha:
+\begin{gather*}
+    0\leq\frac{\rho^2\cos^2\theta\sin^2\theta}{2\cos^2\theta+1}\leq\rho^2\sin^2\theta\cos^2\theta\leq\rho^2\to0
+\end{gather*}
+Essendo sia il limite maggiorante che minorante tendente a zero, allora il limite converge a zero, ed il valore $\alpha=0$:
+\begin{gather*}
+    f(x,y)=
+    \begin{cases}
+        \displaystyle\frac{\strut x^2y^2}{\strut3x^2+y^2}&(x,y)\neq(0,0)\\
+        0&(x,y)=(0,0)    
+    \end{cases}
+\end{gather*}
+
+
+\subsection{Derivate Parziali}
+
+Si suppone di avere una funzione $z=f(x,y)$, definita nel dominio $D_f$. Si suppone esista un punto $P_0=(x_0,y_0)\in D_f\cap\mathscr{D}D_f$, punto di accumulazione, derivabile di $f$. %% TODO simbolo per insieme derivabile
+
+%% TODO add img grafico
+
+Si considera un incremento solamente sull'asse $x$, dal punto $P_0$, per quantificare questo incremento si considera la differenza del valore di $z$: $\Delta z$, in seguito a questo incremento, ovvero il rapporto incrementale:
+\begin{gather*}
+    \displaystyle\frac{f(x_0+h,y)-f(x_0,y_0)}{h}
+\end{gather*}
+Si considera il limite di questo rapporto incrementale:
+\begin{gather*}
+    \lim_{h\to0}\displaystyle\frac{f(x_0+h,y)-f(x_0,y_0)}{h}=l\in\mathbb{R}
+\end{gather*}
+Se questo limite del rapporto incrementale ottenuto aumentando solamente la variabile indipendente $x$, esiste ed è finito, allora la funzione $f$ si dice parzialmente derivabile rispetto ad $x$ nel punto $x_0$. Se esiste ed è finito, si indica come:
+\begin{gather*}
+    f_x(P_0)=f_x(x_0,y_0)=\displaystyle\frac{\partial f}{\partial x}(x_0,y_0)
+\end{gather*}
+Questa viene chiamata derivata parziale di $f$ rispetto ad $x$ nel punto $P_0$. 
+
+Analogamente si considera un incremento solamente sulla variabile indipendente $y$ di $k$. A seguito di questo spostamento fino al punto $P(x_0,y_0+k)$ del dominio, anche la funzione subisce un incremento. Si considera ora il rapporto incrementale dovuto a questo incremento:
+\begin{gather*}
+    \lim_{k\to0}\displaystyle\frac{f(x_0,y_0+k)-f(x_0,y_0)}{k}=l\in\mathbb{R}
+\end{gather*}
+Se esiste ed è definito il limite del rapporto incrementale, allora la funzione si dice parzialmente derivabile rispetto a $y$ nel punto $y_0$. Si rappresenta analogamente come:
+\begin{gather*}
+    f_y(P_0)=f_y(x_0,y_0)=\displaystyle\frac{\partial f}{\partial y}(x_0,y_0)
+\end{gather*}
+% È il concetto di differnziabilità che estende il concetto di derivabilità. 
+%% TODO add affinché esiste il piano derivata allora la funzione deve essere differenziabile
+
+Si considera una funzione polinomiale $f$, definita e continua su $D_f\in\mathbb{R}^2$:
+\begin{gather*}
+    f(x,y)=2x^3+5x^2y+3xy^4-2y^3
+\end{gather*}
+La funzione è parzialmente derivabile rispetto a $x$ ed $y$ in tutti i punti di $\mathbb{R}^2$. Per calcolare la derivata si utilizza il calcolo dei limiti delle derivate:
+\begin{gather*}
+    f_x(x,y)=6x^2+10xy+3y^4=\displaystyle\frac{\partial f}{\partial x}\\
+    f_y(x,y)=5x^2+12xy^3-6y^2=\displaystyle\frac{\partial f}{\partial y}
+\end{gather*}
+%% TODO cambiare con de/de
+Si possono derivare nuovamente rispetto $x$ ed $y$, formando derivate parziali miste:
+\begin{gather*}
+    f_{xx}(x,y)=12x+10y=\displaystyle\frac{\partial^2 f}{\partial x^2}\\
+    f_{xy}=10x+12y^3=\displaystyle\frac{\partial^2 f}{\partial y\partial x}\\
+    f_{yx}=10x+12y^3=\displaystyle\frac{\partial^2 f}{\partial x\partial y}\\
+    f_{yy}=36xy^2-12y=\displaystyle\frac{\partial^2f}{\partial y^2}
+\end{gather*}
+L'ordine delle variabili è rilevante, dato che due derivate parziali miste non sono necessariamente equivalenti $f_{xy}\neq f_{yx}$, ma se la funzione è continua allora per il teorema di Schwarz le derivate parziali miste sono uguali. 
+
+Date queste derivate parziali seconde si possono ottenere le derivate terze, derivando parzialmente queste altre funzioni. 
+
+%% TODO determinare dov'è derivabile la funzione f = 2x\ln(x+2y^2+1)+3y^2
+% parabola x > -2y^2-1: punti a destra e non della parabola sono validi per la continuità
+
 
 \clearpage
 
