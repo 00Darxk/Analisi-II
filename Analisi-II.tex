@@ -2460,7 +2460,6 @@ Essendo sia il limite maggiorante che minorante tendente a zero, allora il limit
     \end{cases}
 \end{gather*}
 
-
 \subsection{Derivate Parziali}
 
 Si suppone di avere una funzione $z=f(x,y)$, definita nel dominio $D_f$. Si suppone esista un punto $P_0=(x_0,y_0)\in D_f\cap\mathscr{D}D_f$, punto di accumulazione, derivabile di $f$. %% TODO simbolo per insieme derivabile
@@ -2515,6 +2514,90 @@ Date queste derivate parziali seconde si possono ottenere le derivate terze, der
 
 %% TODO determinare dov'è derivabile la funzione f = 2x\ln(x+2y^2+1)+3y^2
 % parabola x > -2y^2-1: punti a destra e non della parabola sono validi per la continuità
+
+
+%% TODO add 2/5/25
+
+
+In una dimensione, se una funzione è derivabile in un punto, allora è anche continua in quel punto, mentre questo concetto non si estende in due dimensioni, quindi se una funzione bidimensionale è derivabile in un punto $P_0$ sia rispetto ad $x$ che ad $y$, questo non implica che sia continua nello stesso punto $P_0$. 
+Un esempio di una funzione del genere è la seguente:
+\begin{gather*}
+    f(x,y)=\begin{cases}
+        \displaystyle\frac{\strut xy}{\strut x^2+y^2}&(x,y)\neq(0,0)\\
+        0&(x,y)=(0,0)
+    \end{cases}
+\end{gather*}
+
+
+Affinché sia continua il limite della funzione tendente all'origine deve essere uguale a zero:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}f(x,y)=\nexists
+\end{gather*}
+Questo limite è già stato dimostrato che non converge, per una traiettoria bisettrice infatti converge a $1/2$, metre su una traiettoria che si muove solamente lungo uno dei due assi, converge a $0$. La funzione non ammette limite, quindi non è continua nel punto $(0,0)$. Per essere continua deve essere regolare e valere $0$. 
+
+
+Dal punto di vista grafico per studiare la derivabilità bisogna considerare un incremento $h$ sull'asse $x$ ed $y$, e si studia il limite di questa funzione, rispetto all'origine:
+\begin{gather*}
+    \lim_{h\to0}\displaystyle\frac{f(h,0)-f(0,0)}{h}=\lim_{h\to0}\frac{0-0}{h}=0
+\end{gather*}
+Questo diventa un limite di una funzione ad una variabile. La derivata parziale rispetto ad $x$ nell'origine esiste e vale $0$, analogamente per simmetria si ha che esiste anche la derivata parziale rispetto ad $y$ e vale anch'essa zero:
+\begin{gather*}
+    \displaystyle\frac{\partial f}{\partial x}(0,0)=0\\
+    \displaystyle\frac{\partial f}{\partial y}(0,0)=0
+\end{gather*}
+
+\subsection{Integrai Doppi}
+
+Un'integrale doppio è definito su un dominio di integrazione $D\in\mathbb{R}^2$, e si indica come:
+\begin{gather*}
+    \iint_Df(x,y)\df x\df y
+\end{gather*}
+Si semplifica l'analisi di questi integrali imponendo che questo dominio $D$ sia un dominio normale rispetto all'asse $x$, è l'insieme dei punti del piano tali che la variabile indipendente $x$ si deve muovere esclusivamente tra due costanti:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\bigg|a\leq x\leq b,\alpha(x)\leq y\leq\beta(x)\right\}
+\end{gather*}
+Dove $\alpha$ e $\beta$ sono continue in $[a,b]$. 
+
+%% TODO img esempio dominio normale di integrazione rispetto all'asse x
+
+Il caso più semplice è che il dominio normale di integrazione è un rettangolo. Si utilizza questa definizione di domino poiché esiste una formula che semplifica il calcolo di integrali doppi, a cui verrà attribuito anche un significato geometrico. 
+Un'integrale doppio si può calcolare come il prodotto tra due integrali:
+\begin{gather*}
+    \displaystyle\iint_D f(x,y)\df x \df y=\int_a^b\df x\int_{\alpha(x)}^{\beta(x)}f(x,y)\df y
+\end{gather*}
+Questo integrale rappresenta il volume del sotto-grafico, è un'estensione della relazione tra area sottesa da un grafico ed integrale monodimensionale. 
+
+C'è anche la possibilità di definire un domino normale rispetto all'asse $y$, ed in questo caso si inverte il ruolo delle due variabili. 
+
+%% TODO img esempio dominio normale di integrazione rispetto all'asse y
+Per questi integrali vale la proprietà additiva $D=D_1\cup D_2$, quindi l'integrale su $D$ è uguale alla somma tra gli integrali su $D_1$ e $D_2$. 
+
+Si considera un triangolo $T$ nel piano definito da tre vertici $A=(0,0)$, $B=(2,0)$ e $C=(1,1)$, si vuole calcolare l'integrale su questo triangolo della funzione $f=xy+y^2$:
+\begin{gather*}
+    \iint_T(xy+y^2)\df x\df y
+\end{gather*}
+
+%% TODO img triangolo
+Si utilizza la formula:
+\begin{gather*}
+    a=0\land b=2\\
+    \alpha(x)=0\land
+    \beta(x)=\begin{cases}
+        x&0\leq x\leq 1\\
+        2-x &1\leq x\leq 2
+    \end{cases}\\
+\end{gather*}
+Si divide l'intervallo di integrazione in $T_1$ e $T_2$ e si ottiene quindi:
+\begin{gather*}
+    \iint_T(xy+y^2)\df x\df y=
+    \int_0^1\df x\int_{0}^{x}(xy+y^2)\df y+
+    \int_1^2\df x\int_{0}^{2-x}(xy+y^2)\df y\\
+    \int_0^1\df x\left(\frac{1}{2}x^3+\frac{1}{3}x^3\right)+
+    \int_1^2\df x\left(\frac{1}{2}x(2-x)^2+\frac{1}{3}(2-x)^3\right)\\
+    \displaystyle\frac{5}{6}\int_0^1x^3\df x+\int_1^2\frac{1}{2}\left(x^3-4x^2+4x\right)+\frac{1}{3}\left(-x^3+6x^2-12x+8\right)\df x\\
+    \frac{5}{24}+\int_1^2\frac{1}{6}x^3-2x+\frac{8}{3}\df x=\frac{5}{24}+\left[\frac{1}{24}x^4-x^2+\frac{8}{3}x\right]_1^2\\
+    \frac{5}{25}+\left(\frac{16}{24}-4+\frac{16}{3}\right)-\left(\frac{1}{24}-1+\frac{8}{3}\right)=\frac{20}{24}-3+\frac{8}{3}=\frac{20-3\cdot24+8\cdot8}{24}=\frac{84-72}{24}=\frac{1}{2}
+\end{gather*}
 
 
 \clearpage

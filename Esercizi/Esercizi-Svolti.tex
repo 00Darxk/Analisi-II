@@ -1194,4 +1194,50 @@ Per arrivare alla serie iniziale si sceglie $x=\pi$:
     \sum_{k=0}^\infty\frac{1}{k^2}=\frac{2\pi^2}{3}\frac{1}{4}=\frac{\pi^2}{6}
 \end{gather*}
 
+\section{Esercizi 6/5/25}
+
+Considerare la seguente funzione:
+\begin{gather*}
+    f(x,y)=\begin{cases}
+        \displaystyle\frac{\strut x^4+y^2e^x}{\strut\sqrt{x^2+y^2}}&(x,y)\neq(0,0)\\
+        0&(x,y)=(0,0)
+    \end{cases}
+\end{gather*}
+Studiare la continuità e la derivabilità parziale rispetto alla $x$ e la $y$ in $(0,0)$. 
+
+Si considera la continuità della funzione nell'origine, quindi si calcola il valore del limite:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}f(x,y)=\lim_{(x,y)\to(0,0)}\displaystyle\frac{x^4+y^2e^x}{\sqrt{x^2+y^2}}
+\end{gather*}
+Si effettua una trasformazione in coordinate polari:
+\begin{gather*}
+    \lim_{(x,y)\to(0,0)}\displaystyle\frac{x^4+y^2e^x}{\sqrt{x^2+y^2}}=
+    \lim_{\rho\to0}\frac{\rho^4\cos^4\theta+\rho^2\sin^2\theta e^{\rho\cos\theta}}{\sqrt{\rho^2(\cos^2\theta+\sin^2\theta)}}=
+    \lim_{\rho\to0}{\rho^3\cos^4\theta+\rho\sin^2\theta e^{\rho\cos\theta}}    
+\end{gather*}
+Si considera la formula di Maclaurin per l'esponenziale:
+\begin{gather*}
+    e^{\rho\cos\theta}=1+\rho\cos\theta+o[\rho]\\
+    \lim_{\rho\to0}{\rho^3\cos^4\theta+\rho\sin^2\theta e^{\rho\cos\theta}}=
+    \lim_{\rho\to0}{\rho^3\cos^4\theta+\rho\sin^2\theta (1+\rho\cos\theta+o[\rho])}\\
+    \lim_{\rho\to0}\rho^3\cos^4\theta+\rho\sin^2\theta+\rho^2\sin\theta\cos\theta+o[\rho^2]    
+\end{gather*}
+Tutti i termini di questo limite tendono a zero, quindi anche il limite complessivo deve tendere a zero. La funzione è quindi continua nell'origine. Tutti gli addendi possono essere analizzai con il teorema del confronto. 
+
+Per determinare la derivabilità si considera un incremento $h$ lungo l'asse $x$ ed un incremento $k$ lungo l'asse $y$ e si calcola il limite del loro rapporto incrementale:
+\begin{gather*}
+    \lim_{h\to0}\frac{f(h,0)-f(0,0)}{h}=
+    \lim_{h\to0}\frac{\frac{h^4}{\sqrt{h^2}}-0}{h}=
+    \lim_{h\to0}\frac{h^{\cancelto{2}{3}}}{\cancel{h}}=0\\
+    \lim_{k\to0}\frac{f(0,k)-f(0,0)}{k}=
+    \lim_{k\to0}\frac{\frac{k^2e^0}{\sqrt{k^2}}-0}{k}=
+    \lim_{k\to0}\frac{k}{|k|}=\nexists
+\end{gather*}
+La funzione è derivabile in modo parziale rispetto a $x$ nell'origine, ma non rispetto a $y$, ed ha valore
+\begin{gather*}
+    \displaystyle\frac{\partial f}{\partial x}(0,0)=0
+\end{gather*}
+
+
+
 \end{document}
