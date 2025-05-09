@@ -1946,8 +1946,191 @@ Le equazioni frate sono un tipo di equazioni nella forma:
 \end{gather*}
 Si può portare nella forma di un'equazione differenziale come:
 \begin{gather*}
-    X(x,y)+Y(x,y)\displaystyle\frac{\df y}{\df x}=0
+    X(x,y)+Y(x,y)\displaystyle\frac{\df y}{\df x}=0\\
+    y'=\displaystyle-\frac{X(x,y)}{Y(x,y)}
 \end{gather*}
+
+La soluzione è una funzione $\Phi$ che ammette derivate parziali, le quali sono uguali a $X$ e $Y$:
+\begin{gather*}
+    \displaystyle\frac{\partial\Phi}{\partial x}=X(x,y)\\
+    \displaystyle\frac{\partial\Phi}{\partial y}=Y(x,y)
+\end{gather*}
+E derivata nulla rispetto ad $x$:
+\begin{gather*}
+    \displaystyle\frac{\df\Phi}{\df x}=0
+\end{gather*}
+Le sue derivate parziali sono i coefficienti della forma lineare differenziale dell'equazione esatta:
+\begin{gather*}
+    \displaystyle\frac{\df\Phi}{\df x}=\frac{\partial\Phi}{\partial x}+\frac{\partial\Phi}{\partial y}\frac{\df y}{\df x}=
+    X(x,y)+Y(x,y)\frac{\df y}{\df x}
+\end{gather*}
+Se questo è verificato la soluzione è del tipo $\Phi(x,y)=c$, ma devono essere verificate le condizioni per l'esistenza della soluzione. 
+
+La condizione da verificare è la condizione di chiusura, ovvero le derivate miste devono essere congruenti e deve quindi essere verificato il teorema di Schwarz:
+\begin{gather*}
+    \displaystyle\frac{\partial\Phi}{\partial x\partial y}=\frac{\partial\Phi}{\partial y\partial x}
+\end{gather*}
+In un dominio rettangolare del piano $(x,y)$:
+%% TODO add img piano rettangolo
+
+Le funzioni $X$ e $Y$ devono essere continue, quindi devono essere continue le derivate parziali di $\Phi$. 
+
+
+
+Si considera un'equazione in forma esatta:
+\begin{gather*}
+    (4y^2+y-4x^2)\df x+(8xy+x)\df y=0
+\end{gather*}
+Si verifica la condizione di chiusura:
+\begin{gather*}
+    X_y=\frac{\partial}{\partial y}(4y^2+y-4x^2)=8y+1\\
+    Y_x=\frac{\partial}{\partial x}(8xy+x)=8y+1
+\end{gather*}
+La condizione di chiusura è verificata, quindi si può proseguire alla risoluzione. Dato che $\Phi_x=X$ e $\Phi_y=Y$, si possono integrare le funzioni $X$ e $Y$ rispetto ad $x$ ed a $y$ per ottenere la funzione di partenza $\Phi$:
+\begin{gather*}
+    \Phi=\int X\df x=\int(4y^2+y-4x)\df x=4xy^2+xy-\frac{4}{3}x^3+h(y)
+\end{gather*}
+La costante è una funzione in termini di $y$, poiché nella derivata parziale di $\Phi$ rispetto ad $x$, tutti i termini che non contengono la variabile $x$ sono costanti rispetto ad $x$. Per determinare il valore di queste costanti $h(y)$ effettuare la derivata parziale della primitiva ottenuta rispetto ad $y$ e confrontarla con la funzione $Y$:
+\begin{gather*}
+    \Phi_y=\frac{\partial}{\partial y}\left(4xy^2+xy-\frac{4}{3}x^3\right)=\cancel{8xy}+\cancel{x}+h'(y)=\bcancel{8xy}+\bcancel{x}=Y\\
+    h'(y)=0\implies h(y)=c\\
+    4xy^2+xy-\frac{4}{3}x^3=c
+\end{gather*}
+
+
+
+Considerare la seguente equazione esatta:
+\begin{gather*}
+    2x\cos y\df x-x^2\sin y\df y=0
+\end{gather*}
+Si verifica la condizione di chiusura:
+\begin{gather*}
+    X_y=-2x\sin y=Y_x
+\end{gather*}
+Si considera $\Phi_x=X$ e si integra rispetto $X$ rispetto ad $x$:
+\begin{gather*}
+    \Phi_x=2x\cos y\\
+    \Phi=\int 2x\cos y\df x=x^2\cos y+h(y)
+\end{gather*}
+Si deriva rispetto ad $y$ e si confronta con $Y$ per determinare la funzione $h(y)$:
+\begin{gather*}
+    \frac{\partial}{\partial y}(x^2\cos y+h(y))=-\cancel{x^2\sin y}+h'(y)=-\bcancel{x^2\sin y}=Y\\
+    h'(y)=0\implies h(y)=c\\
+    x^2\cos y=c
+\end{gather*}
+
+
+Considerare la seguente equazione esatta:
+\begin{gather*}
+    (3x+2y)\df x+x\df y=0
+\end{gather*}
+Le due derivate parziali sono diverse:
+\begin{gather*}
+    X_y=2x\neq1=Y_x
+\end{gather*}
+Si può trasformare in un'altra equazione differenziale, equivalente moltiplicando entrambi i membri per $x$. Questa equazione intuitivamente ha le stesse soluzioni della prima equazione, ma in questo caso la condizione di chiusura è verificata:
+\begin{gather*}
+    (3x^2+2xy)\df x+x^2\df y=0\\
+    X_y=2x=Y_x
+\end{gather*}
+Si risolve questa nuova equazione che risulta esatta:
+\begin{gather*}
+    \Phi(x,y)=\int (3x^2+2xy)\df x=x^3+x^2y+h(y)\\
+    \Phi_y=\cancel{x^2}+h'(y)=\bcancel{x^2}=Y\\
+    h'(y)=0\implies h(y)=c\\
+    \Phi(x,y)=x^3+x^2y=c
+\end{gather*}
+
+\subsubsection{Fattore Integrante}
+
+Il problema nella risoluzione di equazioni esatte, è la ricerca del fattore integrante $\mu$ che moltiplicato ad entrambi i membri rende l'equazione esatta. Nella precedenza equazione questo fattore era $x$, questo può dipendere da entrambe le variabili indipendenti, ma generalmente conviene scegliere un fattore integrante che dipende o solo dalla $x$ o solo dalla $y$. 
+
+Data un'equazione:
+\begin{gather*}
+    X(x,y)\df x+Y(x,y)\df y=0
+\end{gather*}
+Si considera un fattore integrante $\mu(x)$ e si moltiplicano ambo i membri:
+\begin{gather*}
+    \mu(x)X(x,y)\df x+\mu(x)Y(x,y)\df y=0
+\end{gather*}
+Si verifica la condizione di chiusura:
+\begin{gather*}
+    \frac{\partial}{\partial y}\left(\mu(x)X(x,y)\right)=\mu(x)X_y\\
+    \frac{\partial}{\partial x}\left(\mu(x)Y(x,y)\right)=\mu'(x)Y+\mu(x)Y_x\\
+    \mu(x)X_y=\mu'(x)Y+\mu(x)Y_x  
+\end{gather*}
+Si dividono entrambi i membri per $\mu(x)$:
+\begin{gather*}
+    \frac{\mu'}{\mu}Y+Y_x=X_y    
+\end{gather*}
+Questa è un'equazione differenziale a variabili separabili in termini di $\mu$:
+\begin{gather*}
+    Y\frac{\mu'}{\mu}=X_y-Y_x\\
+    \frac{\df \mu}{\df x}\frac{1}{\mu}=\frac{X_y-Y_x}{Y}\\
+    \frac{\df\mu}{\mu}=\frac{X_y-Y_x}{Y}\df x
+\end{gather*}
+Si ha che $X_y-Y_x$ non rispetta la condizione di chiusura, e quindi è diverso da zero. Bisogna determinare la funzione $K$ e bisogna verificare che si tratta di una funzione nella sola $x$:
+\begin{gather*}
+    \frac{X_y-Y_x}{Y}=K(x)
+\end{gather*}
+Allora il fattore integrante $\mu$ è dato da:
+\begin{gather*}
+    \int\frac{\df\mu}{\mu}=\int K(x)\df x\\
+    \ln\mu=\int K(x)\df x\\
+    \mu(x)=e^{\int K(x)\df x}
+\end{gather*}
+Analogamente se $\mu$ dipende interamente dalla $y$, si ha:
+\begin{gather*}
+    \mu(y)X(x,y)\df x+\mu(y)Y(x,y)\df y=0    
+\end{gather*}
+Le derivate parziali sono quindi:
+\begin{gather*}
+    \mu'X+\mu X_y=\mu Y_x
+\end{gather*}
+Si ottiene la seguente equazione a variabili separabili:
+\begin{gather*}
+    \frac{\df\mu}{\mu}=\frac{X_y-Y_x}{-X}\df y
+\end{gather*}
+Si considera $-X$ al denominatore per mantenere il numeratore equivalente al precedente caso con $\mu(x)$, si verifica ora che il secondo membro sia un'equazione interamente in $y$, $K(y)$:
+\begin{gather*}
+    \frac{Y_x-X_y}{X}=K(y)
+\end{gather*}
+Allora si risolve l'equazione a variabili separabili:
+\begin{gather*}
+    \mu(y)=e^{\int K(y)\df y}
+\end{gather*}
+
+
+Si considera la seguente equazione:
+\begin{gather*}
+    y\df x+(y-x)\df y=0\\
+    X_y=1\neq-1=Y_x
+\end{gather*}
+Si determina il fattore integrante rispetto ad $y$:
+\begin{gather*}
+    \mu(y)=e^{\int K(y)\df y}=e^{\int\frac{2}{-y}\df y}=e^{-2\ln y}=\frac{1}{y^2}
+\end{gather*}
+Quindi moltiplicando l'equazione di partenza per il fattore integrante $\mu$ si ha:
+\begin{gather*}
+    \frac{1}{y}\df x+\frac{y-x}{y^2}\df y=0
+\end{gather*}
+La condizione di chiusura è verificata poiché si è moltiplicati per il fattore integrante. A questo punto si determina $\Phi$, integrando $X$ rispetto alla $x$:
+\begin{gather*}
+    \Phi(x,y)=\int\frac{1}{y}\df x=\frac{x}{y}+h(y)
+\end{gather*}
+Si determina il valore della funzione $h(y)$:
+\begin{gather*}
+    Y=\frac{y-x}{y^2}=\frac{1}{y}-\cancel{\frac{x}{y^2}}=-\bcancel{\frac{x}{y^2}}+h'(y)=\Phi_y
+\end{gather*}
+La funzione $h'(y)$ non è nulla quindi si ha:
+\begin{gather*}
+    h'(y)=\frac{1}{y}\implies h(y)=\ln y
+\end{gather*}
+La soluzione è quindi:
+\begin{gather*}
+    \Phi(x,y)=\frac{x}{y}+\ln y=c
+\end{gather*}
+
 
 \subsection{Esistenza ed Unicità di una Soluzione}
 
@@ -2115,6 +2298,103 @@ Queste costanti esistono quando il determinante dei coefficienti è diverso da z
 Questo si chiama il Wronskiano relativo a $y_1$ e $y_2$. 
 Si vuole trovare due soluzioni linearmente indipendenti, quindi considerando il Wronskiano se è nullo allora le soluzioni non solo linearmente indipendenti e quindi non può essere utilizzato per individuare la soluzione. 
 
+\clearpage
+
+\section{Trasformata di Laplace}
+
+La trasformata di Laplace essenzialmente è un'integrale improprio di seconda specie. 
+%% TODO ??
+
+% funzione discontinua a tratti e etc
+
+La discontinuità in questi punti deve essere di prima o terza specie%% TODO ??
+
+Se una funzione rinuncia alla limitatezza della funzione, allora è discontinua in un numero finito di punti, dove può presentare discontinuità di seconda specie, questa è una funzione a tratti. 
+
+
+La trasformata di Laplace è una funzione di questo tipo. Data una funzione $f(t)$ definita per $t\geq0$, allora la funzione di Laplace $\mathscr{L}$ di questa funzione è definita come:
+\begin{gather*}
+    F(s)=\mathscr{L}[f(t)]=\intpinf{f(t)e^{-st}}{t}
+\end{gather*}
+Quest'integrale deve essere finito per certi valori $s>a$. La trasformata di Laplace è una funzione in $s$ $F(s)$, più propriamente la trasformata è un limite:
+\begin{gather*}
+    \mathscr{L}[f(t)]=\lim_{w\to\infty}\int_0^\omega f(t)e^{-st}\df t
+\end{gather*}
+
+\subsection{Trasformate di Funzioni Elementari}
+
+Si determina la trasformata di una costante $f(t)=k$, utilizzando la funzione come limite:
+\begin{gather*}
+    \mathscr{L}[f(t)]=\lim_{w\to\infty}\int_0^\omega ke^{-st}\df t
+\end{gather*}
+Quest'integrale è immediato:
+\begin{gather*}
+    F(s)=\lim_{\omega\to\infty}\left\{-\frac{1}{s}ke^{-st}\bigg|_0^\omega\right\}
+\end{gather*}
+Si possono invertire i limite di integrazione:
+\begin{gather*}
+    F(s)=\lim_{\omega\to\infty}\left\{\frac{1}{s}ke^{-st}\bigg|_\omega^0\right\}=
+    \frac{k}{s}-\cancelto{0}{\lim_{\omega\to\infty}\frac{k}{s}e^{-s\omega}}
+\end{gather*}
+La trasformata di una costante è quindi:
+\begin{gather*}
+    \mathscr{L}[k]=\frac{k}{s}
+\end{gather*}
+
+
+Si considera la trasformata di una funzione lineare:
+\begin{gather*}
+    \mathscr{L}[t]=\lim_{\omega\to\infty}\int_0^\omega te^{-st}\df t
+\end{gather*}
+Si integra per parti:
+\begin{gather*}
+    \mathscr{L}[t]=\lim_{\omega\to\infty}-\frac{1}{s}\left\{te^{-st}+\frac{1}{s}e^{-st}\bigg|_0^\omega\right\}=
+    \lim_{\omega\to\infty}\left\{\cancelto{0}{-\frac{\omega}{s} e^{-s\omega}}+\cancelto{0}{-\frac{1}{s^2}e^{-s\omega}}+\frac{1}{s^2}\right\}=\frac{1}{s^2}
+\end{gather*}
+
+
+In generale una funzione del tipo $f(t)=t^n$ ha una trasformata di Laplace:
+\begin{gather*}
+    \mathscr{L}\left[t^n\right]=\frac{n!}{s^{n+1}}
+\end{gather*}
+Si dimostra per induzione, per $n=0$ si ha:
+\begin{gather*}
+    \mathscr{L}[1]=\frac{1}{s}
+\end{gather*}
+Questo si è già calcolato precedentemente. 
+Si suppone che sia vero per $n=k$, quindi si ha:
+\begin{gather*}
+    \mathscr{L}\left[t^{k}\right]=\frac{k!}{s^{k+1}}
+\end{gather*}
+Si determina allora per $n=k+1$:
+\begin{gather*}
+    \mathscr{L}\left[t^{k+1}\right]=\int_0^{+\infty} t^{k+1}e^{-st}\df t
+\end{gather*}
+Integrando per parti si ha:
+\begin{gather*}
+    \mathscr{L}\left[t^{k+1}\right]=\overbrace{\left[-\frac{t^{k+1}e^{-st}}{s}\right]_0^{+\infty}}^0+\frac{k+1}{s}\int_0^{+\infty}t^ke^{-st}\df t=\frac{k+1}{s}\mathscr{L}\left[t^k\right]=\frac{k+1}{s}\frac{k!}{s^{k+1}}=\frac{(k+1)!}{s^{k+2}}
+\end{gather*}
+
+
+Si determina la trasformata di Laplace del seno:
+\begin{gather*}
+    \mathscr{L}\left[\sin(at)\right]=\int_0^{+\infty}\sin(at)e^{-st}\df t
+\end{gather*}
+Integrando per parti si ha:
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        &D&I\\\hline
+        +&$e^{-st}$&$\sin(at)$\\\hline
+        -&$-se^{-st}$&$-\cos(at)/a$\\\hline
+        +&$s^2e^{-st}$&$-\sin(at)/a^2$\\\hline
+    \end{tabular}
+\end{center}
+\begin{gather*}
+    \mathscr{L}[\sin at]=-e^{-st}\frac{\cos(at)}{a}-se^{-st}\frac{\sin(at)}{a^2}-\frac{s^2}{a^2}\int_0^{+\infty}e^{-st}\sin(at)\df t\\
+    \left(1+\frac{s^2}{a^2}\right)\mathscr{L}[\sin(at)]=\left[-e^{-st}\frac{\cos(at)}{a}-se^{-st}\frac{\sin(at)}{a^2}\right]_0^{+\infty}=\frac{1}{a}\\
+    \mathscr{L}[\sin(at)]=\frac{1}{a}\frac{a^2}{a^2+s^2}=\frac{a}{a^2+s^2}
+\end{gather*}
 
 \clearpage
 
