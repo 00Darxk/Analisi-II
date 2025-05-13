@@ -2880,6 +2880,118 @@ Si divide l'intervallo di integrazione in $T_1$ e $T_2$ e si ottiene quindi:
 \end{gather*}
 
 
+Si considera il seguente integrale doppio:
+\begin{gather*}
+    \iint_D(x^2+y^2)\df x\df y
+\end{gather*}
+Dove $D=[1,2]\times[0,1]$.
+%% TODO img dominio di integrazione sull'asse xy
+Si risolve mediante la formula:
+\begin{gather*}
+    \iint_D(x^2+y^2)\df x\df y=\int_1^2\df x\int_0^1(x^2+y^2)\df y=\int_1^2\left[x^2y+\frac{1}{3}y^3\right]_0^1\df x\\
+    \int_1^2\left(x^2+\frac{1}{3}\right)\df x=\frac{1}{3}\left[x^3+x\right]_1^2=\frac{1}{3}(8+2-1-1)=\frac{8}{3}
+\end{gather*}
+Si considera ora il dominio normale rispetto all'asse $y$:
+\begin{gather*}
+    \iint_D(x^2+y^2)\df x\df y=\int_0^1\df y\int_1^2(x^2+y^2)\df x=
+    \int_0^1\left[y^2x+\frac{1}{3}x^3\right]_1^2\df y\\
+    \int_0^1\left(y^2+\frac{7}{3}\right)\df y=\frac{1}{3}\left[y^3+7y\right]_0^1=\frac{1}{3}(1+7-0)=\frac{8}{3}
+\end{gather*}
+
+
+Si considera il seguente integrale:
+\begin{gather*}
+    \iint_D xy\df x \df y
+\end{gather*}
+Dove $D$ è il dominio delimitato nel primo quadrante costituito ad un quarto di cerchio, centrato nell'origine e di raggio 1. Questo dominio è normale sia rispetto all'asse $x$ che rispetto all'asse $y$. Si considera il dominio di integrazione normale rispetto all'asse $x$ e si applica la formula di riduzione:
+\begin{gather*}
+    x\in[0,1]
+    y\in\left[\alpha(x)=0,\beta(b)=\sqrt{1-x^2}\right]\\
+    \iint_D xy\df x \df y=\int_0^1\df x\int_0^{\sqrt{1-x^2}}xy\df y=\int_0^1 x\df x\int_0^{\sqrt{1-x^2}}y\df y=
+    \frac{1}{2}\int_0^1 x\left(\sqrt{1-x^2}\right)^2\df x\\
+    \frac{1}{2}\int_0^1 (x-x^3)\df x=\frac{1}{2}\left[\frac{1}{2}x^2-\frac{1}{4}x^4\right]_0^1=\frac{1}{2}\left(\frac{1}{2}-\frac{1}{4}\right)=\frac{1}{8}
+\end{gather*}
+
+Applicando la formula poiché $x$ è indipendente da $y$ si può spostare direttamente all'integrale esterno, ma i due integrali non si possono separare come il prodotto di due integrali, poiché la variabile $y$ dipende ancora da $x$ quindi devono essere calcolati insieme. 
+
+Si considera lo stesso integrale, dove il dominio di integrazione è dato da $D=[0,1]\times[0,1]$:
+\begin{gather*}
+    \iint_D xy\df x\df y=\int_0^1\df x\int_0^1 xy\df y
+\end{gather*}
+Poiché le due variabili sono indipendenti, e l'intervallo di integrazione di $y$ è indipendente dalla variabile $x$, si possono trattare i due integrali come indipendenti e quindi si può trattare come fosse un prodotto di integrali:
+\begin{gather*}
+    \int_0^1\df x\int_0^1 xy\df y=\int_0^1 x\df x\cdot\int_0^1 y\df y
+\end{gather*}
+
+
+Si considera l'integrale:
+\begin{gather*}
+    \iint_D(x+y)\df x \df y
+\end{gather*}
+Dove il dominio $D$ è definito sul primo quadrante tale che:
+\begin{gather*}
+    x^2+y^2\leq1\\
+    y\leq2x
+\end{gather*}
+Per definire il dominio si considerano le due equazioni $x^2+y^2=1$ e $y=2x$. I punti della prima equazione sono tutti i punti che si trovano sulla circonferenza di raggio 1 e centrata nell'origine, quindi si considerano tutti i punti dell'arco di circonferenza nel primo quadrante. Poiché la relazione è $x^2+y^2<1$, si considerano tutti i punti interni alla circonferenza, quindi tutti i punti nel primo quadrante appartenente a questo spicchio di circonferenza. 
+Considerando ora la seconda equazione, la retta $y=2x$, i punti del piano che la soddisfano sono tutti i punti del piano al di sotto di questa retta, $y<2x$. 
+%% TODO img dominio di integrazione intersezione tra primo quadrante, retta y=2x e cerchio (0,0) 1
+
+La funzione $\beta(x)$ è composta da due funzioni la prima è un tratto di retta, la seconda è un arco di circonferenza, quindi conviene utilizzare la proprietà additiva per dividere in due il domino $D$ nel punto di intersezione sull'asse $x$ di queste due funzioni:
+\begin{gather*}
+    \beta_1(x)=2x\\
+    \beta_2(x)=\sqrt{1-x^2}\\
+    2x=\sqrt{1-x^2}\\
+    4x^2=1-x^2\\
+    5x^2=1\implies x=\pm\frac{1}{\sqrt{5}}=\pm\frac{\sqrt{5}}{5}
+\end{gather*}
+Si considerano solo i punti nel primo quadrante si considerano solo i valori positivi. I due domini di integrazione $D_1$ e $D_2$ sono quindi:
+\begin{gather*}
+    D_1=\left\{(x,y)\in\mathbb{R}^2\bigg|0\leq x\leq \frac{\sqrt{5}}{5}\land 0\leq y\leq 2x\right\}\\
+    D_2=\left\{(x,y)\in\mathbb{R}^2\bigg|\frac{\sqrt{5}}{5}\leq x\leq 1\land 0\leq y\leq \sqrt{1-x^2}\right\}\\
+    \iint_D(x+y)\df x \df y=\overbrace{\iint_{D_1}(x+y)\df x \df y}^{I_1}+\underbrace{\iint_{D_2}(x+y)\df x \df y}_{I_2}
+\end{gather*}
+A questo punto si analizzano individualmente i due integrali $I_1$ e $I_2$. Si utilizza la formula di risoluzione:
+\begin{gather*}
+    I_1=\iint_{D_1}(x+y)\df x \df y=\int_0^{1/\sqrt{5}}\df x\int_0^{2x}(x+y)\df y=\int_0^{1/\sqrt{5}}\left[xy+\frac{1}{2}y^2\right]_0^{2x}\df x\\
+    \int_0^{1/\sqrt{5}}2x^2+2x^2\df x=4\int_0^{{1}/{\sqrt{5}}}x^2\df x=\left[\frac{4}{3}x^3\right]_0^{1/\sqrt{5}}=\frac{4}{3\sqrt{125}}
+\end{gather*}
+Si considera il secondo integrale:
+\begin{gather*}
+    I_2=\iint_{D_1}(x+y)\df x \df y=\int_{1/\sqrt{5}}^1\df x\int_0^{\sqrt{1-x^2}}(x+y)\df y=
+    \int_{1/\sqrt{5}}^1\left[xy+\frac{1}{2}y^2\right]_0^{\sqrt{1-x^2}}\df x\\
+    \int_{1/\sqrt{5}}^1x\sqrt{1-x^2}+\frac{1}{2}\left(\sqrt{1-x^2}\right)^2\df x=
+    \overbrace{\int_{1/\sqrt{5}}^1x\sqrt{1-x^2}\df x}_{I_3}+\underbrace{\frac{1}{2}\int_0^{1/\sqrt{5}}(1-x^2)\df x}_{I_4}\\
+    % I_4=\int_0^{1/\sqrt{5}}1-x^2\df x=\frac{1}{2}\left[\right]
+\end{gather*}
+%% TODO finire calcolo integrale
+
+
+
+Calcolare l'integrale doppio della funzione $x^2+y^2$ per un dominio che giace sul primo e secondo quadrante, sotteso dalle curve $y=0$ e $1-x^2$:
+\begin{gather*}
+    \iint_D(x^2+y^2)\df x\df y=\int_{-1}^1\df x\int_0^{1-x^2}(x^2+y^2)\df y=\int_{-1}^1\left[x^2y+\frac{1}{3}y^3\right]_0^{1-x^2}\df x\\
+    \int_{-1}^1x^2(1-x^2)+\frac{1}{3}(1-x^2)^3\df x=
+    \int_{-1}^1\cancel{x^2}\cancel{-x^4}+\frac{1}{3}\bcancel{-x^2}\bcancel{+x^4}-\frac{1}{3}x^6\df x\\
+    \frac{1}{3}\int_{-1}^11-x^6\df x=\frac{1}{3}\left[x-\frac{1}{7}x^7\right]_{-1}^1=\frac{2}{3}\left[x-\frac{1}{7}x^7\right]_0^1=\frac{2}{\cancel{3}}\cdot\frac{\cancelto{2}{6}}{7}=\frac{4}{7}
+\end{gather*}
+
+
+Calcolare l'area della regione giacente nel primo quadrante delimitata dalle curve di equazione $y=x$ e $y^2=2x$. Se la funzione integranda è costante ed uguale ad uno, allora l'integrale doppio rappresenta l'area del dominio di integrazione:
+\begin{gather*}
+    \iint_D\df x\df y=\int_0^{x_0}\df x\int_x^{\sqrt{2x}}\df y
+\end{gather*}
+Il problema è quindi determinare il dominio di integrazione. Dal punto di vista geometrico bisogna individuare l'ascissa $x_0$ dell'intersezione delle due curve:
+\begin{gather*}
+    y=\frac{y^2}{2}\implies y=2
+\end{gather*}
+Si risolve quindi l'integrale:
+\begin{gather*}
+    \iint_D\df x\df y=\int_0^2\df x\int_x^{\sqrt{2x}}\df y=\int_0^2(\sqrt{2x}-x)\df x=
+    \left[\frac{4\sqrt{2}}{3}x^{3/2}-\frac{1}{2}x^2\right]_0^2=\frac{4\sqrt{2}}{3}2\sqrt{2}-2=\frac{10}{3}
+\end{gather*}
+
+
 \clearpage
 
 \end{document}
