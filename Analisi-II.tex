@@ -97,6 +97,8 @@ Università degli Studi ``Roma Tre"}}
 
 \tableofcontents
 
+%% TODO numerare equazioni
+
 \clearpage
 \pagenumbering{arabic}
 
@@ -2394,6 +2396,176 @@ Integrando per parti si ha:
     \mathscr{L}[\sin at]=-e^{-st}\frac{\cos(at)}{a}-se^{-st}\frac{\sin(at)}{a^2}-\frac{s^2}{a^2}\int_0^{+\infty}e^{-st}\sin(at)\df t\\
     \left(1+\frac{s^2}{a^2}\right)\mathscr{L}[\sin(at)]=\left[-e^{-st}\frac{\cos(at)}{a}-se^{-st}\frac{\sin(at)}{a^2}\right]_0^{+\infty}=\frac{1}{a}\\
     \mathscr{L}[\sin(at)]=\frac{1}{a}\frac{a^2}{a^2+s^2}=\frac{a}{a^2+s^2}
+\end{gather*}
+
+
+Si determina la trasformata dell'esponenziale:
+\begin{gather*}
+    \mathscr{L}\left[e^{bt}\right]=\intpinf{e^{-st}e^{bt}}{t}=\intpinf{e^{-(s-b)t}}{t}=-\frac{1}{s-b}e^{-(s-b)}\bigg|_0^{+\infty}=\frac{1}{s-b}
+\end{gather*}
+Questa si può interpretare anche come il prodotto di una costante per questo esponenziale:
+\begin{gather*}
+    \mathscr{L}\left[e^{bt}\cdot 1\right]=\frac{1}{s-b}
+\end{gather*}
+Considerando ora invece della costante, una funzione generica $f(t)$:
+\begin{gather*}
+    \mathscr{L}\left[e^{bt}\cdot f(t)\right]=\intpinf{f(t)e^{-(s-b)t}}{t}=F(s-b)
+\end{gather*}
+Dato che la trasformata di Laplace della funzione $f(t)$ è:
+\begin{gather*}
+    \mathscr{L}[f(t)]=\intpinf{f(t)e^{-st}}{t}=F(s)
+\end{gather*}
+Quindi effettuando la trasformata di una funzione, moltiplicata per un esponenziale $e^{-bt}$, la funzione risultante è la trasformata della funzione traslata dal fattore costante all'esponente dell'esponenziale, nel dominio $s$. 
+
+\subsection{Trasformata della Derivata e dell'Integrale}
+
+Si vuole calcolare la trasformata della derivata di una funzione generica $f(t)$, sapendo il valore $f(0)$:
+\begin{gather*}
+    \mathscr{L}[f'(t)]=\intpinf{\frac{\df f(t)}{\df t}e^{-st}}{t}
+\end{gather*}
+Applicando l'integrazione per parti si ottiene:
+\begin{gather*}
+    \intpinf{\frac{\df f(t)}{\df t}e^{-st}}{t}=e^{-st}f(t)\bigg|_0^{+\infty}+s\intpinf{f(t)e^{-st}}{t}=-f(0)+sF(s)
+\end{gather*}
+
+
+Analogamente si determina la trasformata dell'integrale di una funzione generica $f(t)$:
+\begin{gather*}
+    \mathscr{L}\left[\int_0^t f(\varphi)\df \varphi\right]=\intpinf{e^{-st}\int_0^t f(\varphi)\df\varphi}{t}
+\end{gather*}
+Si considera questa funzione integrale $g(t)$, e la trasformata della sua derivata:
+\begin{gather*}
+    g(t)=\int_0^t f(\varphi)\df\varphi\\
+    g'(t)=f(t)\\
+    \mathscr{L}[g'(t)]=sG(s)-\cancelto{0}{g(0)}=F(s)=\mathscr{L}[f(t)]\\
+    \mathscr{L}\left[\int_0^tf(\varphi)\df\varphi\right]=G(s)=\frac{F(s)}{s}
+\end{gather*}
+
+\subsection{Derivate nel Dominio di Laplace}
+
+Si considera il seguente problema di Cauchy:
+\begin{gather*}
+    \begin{cases}
+        y'-y=0\\
+        y(0)=1
+    \end{cases}
+\end{gather*}
+La trasformata è un'operazione lineare, essendo l'integrale un operatore lineare, quindi è possibile scomporre la trasformata di una equazione differenziale come la combinazione lineare di trasformate:
+\begin{gather*}
+    \mathscr{L}[y'-y]=\mathscr{L}[0]\\
+    \mathscr{L}[y']-\mathscr{L}[y]=0\\
+    sY(s)-\cancelto{1}{y(0)}-Y(s)=0\\
+    Y(s)(s-1)=1\implies Y(s)=\frac{1}{s-1}
+\end{gather*}
+Considerando che $\mathscr{L}[1]=1/s$ e considerando la proprietà della traslazione nel piano di Laplace:
+\begin{gather*}
+    \frac{1}{s-1}=G(s-1)\\
+    G(s)=\frac{1}{s}=\implies g(t)=1\\
+    Y(s)=G(s-1)=\mathscr{L}[g(t)e^{bt}]=\mathscr{L}[e^t]\\
+    y(t)=e^{t}
+\end{gather*}
+
+
+Considerare ora il seguente problema di Cauchy:
+\begin{gather*}
+    \begin{cases}
+        y'+2y=e^t\\
+        y(0)=1
+    \end{cases}
+\end{gather*}
+Procedendo analogamente all'esercizio precedente si ottiene:
+\begin{gather*}
+    y'+2y=e^t\to sY(s)-\cancelto{1}{y(0)}+2Y(s)=\frac{1}{s-1}\\
+    Y(s)(s+2)=\frac{s-\cancel{1}+\bcancel{1}}{s-1}\\
+    Y(s)=\frac{s}{(s-1)(s+2)}
+\end{gather*}
+Tra le funzioni e le rispettive trasformate è presente una corrispondenza biunivoca, come per la trasformata esiste una trasformata inversa che le riporta in $t$. Il problema per risolvere le equazioni differenziali diventa la ricerca dell'antitrasformata corrispondente di $Y(s)$. Poiché la trasformata è un'operazione lineare, se si scompone in fratti semplici e si cercano le funzioni che trasformate le generano, la loro combinazione lineare sarà la funzione la cui trasformata corrisponde alla soluzione $y(t)$:
+\begin{gather*}
+    \frac{s}{(s-1)(s-2)}=\frac{A}{s-1}+\frac{B}{s-2}\\
+    A(s+2)+B(s-1)=s\\
+    \begin{cases}
+        A+B=s\\
+        2A-B=0
+    \end{cases}\implies\begin{cases}
+        A=\frac{1}{3}\\
+        B=\frac{2}{3}
+    \end{cases}\\
+    Y(s)=\frac{1}{3}\frac{1}{s-1}+\frac{2}{3}\frac{1}{s+2}\\
+    \mathscr{L}^{-1}[Y(s)]=\frac{1}{3}e^{t}+\frac{2}{3}e^{-2t}=y(t)
+\end{gather*}
+
+\subsection*{Esercizi 15/5/25}
+
+Risolvere la seguente trasformata di Laplace:
+\begin{gather*}
+    \mathscr{L}[2e^{3t}\sin(4t)]=\frac{2\cdot4}{(s-3)^2+16}
+\end{gather*}
+
+
+Risolvere le seguenti trasformate:
+\begin{gather*}
+    \mathscr{L}[(t+4)^2e^{-5t}]=\frac{e^{-4s}}{(s+5)^2}\\
+    \mathscr{L}\left[3\sin\left(t+\frac{\pi}{6}\right)e^{-t}\right]=\frac{3e^{\pi/6}}{1+(s+1)^2}\\
+    \mathscr{L}\left[2\sin(3t)+4e^{2t}\cos t\right]=\frac{6}{9+s^2}+\frac{4}{1+(s-2)^2}
+\end{gather*}
+
+
+Calcolare la seguente trasformata di Laplace:
+\begin{gather*}
+    \mathscr{L}[\cos^2(\alpha t)]
+\end{gather*}
+Si considera la derivata della funzione:
+\begin{gather*}
+    f(t)=\cos^2\alpha t\\
+    f'(t)=-2\alpha\cos(\alpha t)\sin(\alpha t)=-\alpha\sin(2\alpha t)\\
+    f(0)=1\\
+    \mathscr{L}[f'(t)]=s\mathscr{L}[f(t)]-1\\
+    \mathscr{L}[-\alpha\sin(2\alpha t)]=s\mathscr{L}[\cos^2\alpha t]-1\\
+    \frac{-2\alpha^2}{4\alpha^2+s^2}=s\mathscr{L}[\cos^2\alpha t]-1\\
+    \mathscr{L}[\cos^2\alpha t]=\left(1-\frac{-2\alpha^2}{4\alpha^2+s^2}\right)\frac{1}{s}
+\end{gather*}
+
+\subsection{?}
+
+Data una funzione generica $f(t)$ e la sua trasformata $F(s)$, con $s>a$, si considera la trasformata di $f(bt)$:
+\begin{gather*}
+    \mathscr{L}[f(bt)]=\frac{1}{b}F\left(\frac{s}{b}\right)
+\end{gather*}
+Con $s/b>a$, allora si effettua un cambio di variabile, con $u=t/b$:
+\begin{gather*}
+    \frac{1}{b}F\left(\frac{s}{b}\right)=\frac{1}{b}\intpinf{e^{-s/bt}f(t)}{t}\\
+    \frac{1}{\cancel{b}}\intpinf{e^{-su}f(ub)\bcancel{b}}{u}=\intpinf{e^{-su}f(ub)}{u}=\mathscr{L}[f(ub)]
+\end{gather*}
+Per cui si è verificata la proprietà. 
+
+
+\subsection{??}
+
+Si considera un numero $M$ positivo, ed una funzione $f$ continua a tratti, per $t>a$, presenta un numero finito di punti di discontinuità di prima o terza specie. Inoltre si ha $|f(t)|\leq g(t)$, per $t>M$, allora anche l'integrale improprio della funzione da $M$ ad $+\infty$ converge:
+\begin{gather*}
+    \int_M^{+\infty}g(t)\df t:\mbox{ converge}
+\end{gather*}
+
+Se $f(t)\geq g(t)\geq0$ per $t\geq M$, se l'integrale di $g(t)$ converge, allora anche $f(t)$ converge. 
+
+
+Una funzione $f(t)$ si dice di ordine esponenziale $e^{\alpha t}$ per $\alpha>0$, se esistono due costanti $\exists\,N,k>0$ tali che il modulo $f(t)\leq Ne^{\alpha t}$, per $t\geq k$. 
+Se una funzione è di ordine esponenziale, allora la funzione ammette trasformata. 
+
+\subsection{Traslazione sull'asse Temporale}
+
+Data una funzione $f(t)$ e la sua trasformata $F(s)$, si considera una traslazione nell'asse $t$ di una quantità $\tau>0$:
+\begin{gather*}
+    \mathscr{L}[f(t-\tau)]=\intpinf{f(t-\tau)e^{-st}}{t}
+\end{gather*}
+Applicando una sostituzione $u=t-\tau$ si ottiene:
+\begin{gather*}
+    \int_{-\tau}^{+\infty}{ f(u)e^{-(u+\tau)s}}{\df u}=e^{-s\tau}\intpinf{f(u)e^{-su}}{u}+e^{-s\tau}\int_{-\tau}^0f(u)e^{-su}\df u\\
+    \mathscr{L}[f(t-\tau)]=e^{-s\tau}F(s)+e^{-s\tau}\int_{-\tau}^0f(u)e^{-su}\df u
+\end{gather*}
+Se $f(t)=0$, per $\tau<0$, allora diventa:
+\begin{gather*}
+    \mathscr{L}[f(t-\tau)]=e^{-s\tau}F(s)
 \end{gather*}
 
 \clearpage
