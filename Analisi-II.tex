@@ -3163,6 +3163,196 @@ Si risolve quindi l'integrale:
     \left[\frac{4\sqrt{2}}{3}x^{3/2}-\frac{1}{2}x^2\right]_0^2=\frac{4\sqrt{2}}{3}2\sqrt{2}-2=\frac{10}{3}
 \end{gather*}
 
+\subsubsection*{Esercizi 16/5/25}
+
+Calcolare il seguente integrale doppio:
+\begin{gather*}
+    \iint_D\frac{x}{x+y+1}\df x\df y
+\end{gather*}
+Dove il dominio $D$ è dato da:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big|0\leq x\land x\leq y\land x+y\leq 2\right\}
+\end{gather*}
+Per la prima disequazione il dominio di integrazione si trova nel primo e quarto quadrante. La seconda disequazione divide il piano in due porzioni, essendo una bisettrice del primo quadrante, poiché contiene tutti i punti $(x,y)$ dove si ha $y\geq x$, allora si considera la porzione superiore di piano divisa da questa bisettrice, semiretta compresa, nel primo quadrante. 
+Si considera ora l'ultima disequazione:
+\begin{gather*}
+    x+y\leq2\\
+    y=2-x
+\end{gather*}
+Questa individua una retta che nel primo quadrante è individuata dai punti $(2,0)$ e $(0,2)$, questa interseca la seconda disequazione nel punto $(1,1)$. Si considerano tutti i punti nella parte inferiore individuati da questa retta, retta compresa. 
+Considerando l'intersezione con le altre disequazioni individuate, allora il dominio di integrazione $D$ è un triangolo individuato dai punti $(0,0)$, $(2,0)$ e $(1,1)$. Si può esprimere come:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big|0\leq x\leq1\land x\leq y\leq2-x\right\}
+\end{gather*}
+Questo dominio è normale rispetto all'asse $x$, quindi si considera la formula:
+\begin{gather*}
+    \iint_D\frac{x}{x+y+1}\df x\df y=\int_0^1\df x\int_{x}^{2-x}\frac{x}{x+y+1}\df y
+\end{gather*}
+Non essendo indipendenti non si possono separare. Si calcola quindi il primo integrale facilmente essendo immediato:
+\begin{gather*}
+    \int_0^1\df x\int_{x}^{2-x}\frac{x}{x+y+1}\df y=
+    \int_0^1x\left[\ln|x+y+1|\right]_x^{2-x}\df x=
+    \int_0^1x\ln3 - x\ln|2x+1|\df x\\
+    \ln3\left[\frac{x^2}{2}\right]_0^1-\int_0^1x\ln|2x+1|\df x    
+\end{gather*}
+Si risolve questo secondo integrale tramite integrazione per parti:
+\begin{gather*}
+    \ln\sqrt{3}-\left(\ln|2x+1|\cdot\frac{x^2}{2}\bigg|_0^1-\frac{2}{2}\int_0^1\frac{x^2}{2x+1}\df x\right)=
+    \cancel{\ln\sqrt{3}}-\bcancel{\ln\sqrt{3}}+\int_0^1\frac{x^2}{2x+1}\df x\\
+    \iint_D\frac{x}{x+y+1}\df x\df y=\int_0^1\frac{x^2}{2x+1}\df x=\frac{\ln3}{8}
+\end{gather*}
+% Si effettua la divisione tra polinomi: 
+% \begin{gather*}
+%     \frac{x^2}{2x+1}=Ax+\frac{Bx+C}{2x+1}\\
+%     Ax(2x+1)+Bx+C=x^2\\
+%     2Ax^2+Ax+Bx+C=x^2\\
+%     A=\frac{1}{2},B=-\frac{1}{2}
+% \end{gather*}
+%  x^2 0 0 | 2x 1
+%% TODO risolvere integrale
+
+
+Si considera lo stesso esercizio, dove il dominio di integrazione consiste nel trapezoide definito dai punti $(0,0)$, $(1,0)$, $(1,1)$ e $(2,0)$. Quindi è sufficiente aggiungere al valore ottenuto dal precedente esercizio all'integrale doppio sul dominio di integrazione individuato dai punti $(0,0)$, $(1,1)$, $(1,0)$:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big| 0\leq x\leq1\land 0\leq y\leq x\right\}
+\end{gather*}
+%% TODO risolvere esercizio
+
+
+Calcolare il volume del sotto-grafico della funzione $f(x,y)=e^x\cos(y-x)$, con un dominio di integrazione $D$ è dato da:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big|0\leq x\leq\frac{\pi}{2}\land x\leq y\leq\pi\right\}
+\end{gather*}
+% Bisogna determinare il segno della funzione per %% TODO ??
+Il dominio di integrazione risulta essere un trapezio individuato dai punti $(0,0)$, $(\pi/2, \pi/2)$, $(\pi/2,\pi)$ e $(0,\pi)$. Su questo insieme deve essere valutato il segno della funzione. Un esponenziale è un fattore sempre positivo, quindi il segno della funzione dipende dalla funzione sinusoidale. Bisogna che la funzione sia positiva sull'intero intervallo, altrimenti il calcolo del volume deve essere determinato differentemente, sui domini dov'è positivo e negativo ed in seguito effettuare la differenza. Si determina dov'è che la funzione è positiva:
+\begin{gather*}
+    f(x,y)\geq0\implies \cos(y-x)\geq0\\
+    -\frac{\pi}{2}+2k\pi\leq y-x\leq\frac{\pi}{2}+2k\pi\,\,\forall k\in\mathbb{Z}\\
+    x-\frac{\pi}{2}+2k\pi\leq y\leq x+\frac{\pi}{2}+2k\pi\,\,\forall k\in\mathbb{Z}
+\end{gather*}
+Per rimanere nel dominio di integrazione l'unico valore di $k$ accettato è $k=0$, quindi si ha:
+\begin{gather*}
+    x-\frac{\pi}{2}\leq y\leq x+\frac{\pi}{2}
+\end{gather*}
+Considerando l'intervallo di $x$ ammissibili $x\in[0,\pi/2]$, allora l'insieme dei punti dove la funzione è positiva è delimitata dai punti $(0,-\pi/2)$, $(\pi/2,0)$, $(\pi/2,\pi)$ e $(0,\pi/2)$. Considerando l'intersezione con il dominio di integrazione $D$, la funzione positiva nel dominio $D_1$ definito da $(0,0)$, $(\pi/2,\pi/2)$, $(\pi/2,\pi)$ e $(0,\pi/2)$, mentre è negativa nel dominio $D_2$ definito dai punti $(0,\pi/2)$, $(\pi/2,\pi)$ e $(\pi,0)$. Il volume è quindi dato da:
+\begin{gather*}
+    V=\iint_{D_+}e^x\cos(y-x)\df x\df y-\iint_{D_-}e^x\cos(y-x)\df x\df y
+\end{gather*}
+I domini di integrazione $D_1$ e $D_2$ sono definiti come:
+\begin{gather*}
+    D_+=\left\{(x,y)\in\mathbb{R}^2\big|0\leq x\leq\frac{\pi}{2}\land x\leq y\leq x+\frac{\pi}{2}\right\}\\
+    D_-=\left\{(x,y)\in\mathbb{R}^2\big|0\leq x\leq\frac{\pi}{2}\land x+\frac{\pi}{2}\leq y\leq {\pi}\right\}
+\end{gather*}
+Sono entrambi normali rispetto alla $x$, quindi si applica la formula:
+\begin{gather*}
+    I_+=\iint_{D_+}e^x\cos(y-x)\df x\df y=\int_0^{\pi/2}\df x\int_x^{x+\pi/2}e^x\cos(y-x)\df y\\
+    I_-=\iint_{D_-}e^x\cos(y-x)\df x\df y=\int_0^{\pi/2}\df x\int_{x+\pi/2}^\pi e^x\cos(y-x)\df y
+\end{gather*}
+Il fattore $e^x$ è costante rispetto alla $y$ per entrambi gli integrali quindi si può portare fuori dal primo integrale:
+\begin{gather*}
+    I_+=\int_0^{\pi/2}e^x\df x\int_x^{x+\pi/2}\cos(y-x)\df y=
+    \int_0^{\pi/2}e^x\left[\sin(y-x)\right]_x^{x+\pi/2}\df x\\
+    I_-=\int_0^{\pi/2}e^x\df x\int_{x+\pi/2}^\pi\cos(y-x)\df y=
+    \int_0^{\pi/2}e^x\left[\sin(y-x)\right]_{x+\pi/2}^\pi\df x
+\end{gather*}
+%% TODO risolvere
+\begin{gather*}
+    V=\frac{3}{2}e^{\pi/2}-\frac{5}{2}
+\end{gather*}
+
+
+\subsubsection{Trasformazione Regolare di Coordinate}
+
+Questo metodo è analogo al calcolo di un limite a multi-variabile, questo processo permette di semplificare il calcolo dell'integrale, e del dominio di integrazione. 
+Si suppone di avere un integrale doppio di una funzione continua $f(x,y)$ in un dominio di integrazione $D$:
+\begin{gather*}
+    \iint_Df(x,y)\df x\df y
+\end{gather*}
+Si suppone di avere un dominio di integrazione $D$ ed una funzione $f(x,y)$ eccessivamente complessi. 
+Si considera un trasferimento di coordinate, rispetto ad una nuova coppia di coordinate $(u,v)$:
+\begin{gather*}
+    \begin{cases}
+        x=x(u,v)\\
+        y=y(u,v)
+    \end{cases}
+\end{gather*}
+Per trasferire il dominio e la funzione si considera la seguente formula: 
+\begin{gather*}
+    \iint_Df(x,y)\df x\df y\to
+    \iint_{D'}f[x(u,v),y(u,v)]|\det J|\df u\df v
+\end{gather*}
+Dove $J$ è la matrice jacobiana, di cui bisogna calcolare il determinante, questa matrice è del tipo $2\times 2$, ed è definita come: %% TODO cambiare J in math-qualcosa
+\begin{gather*}
+    J(u,v)=\begin{pmatrix}
+        \displaystyle\frac{\partial\strut x}{\partial\strut u}&\displaystyle\frac{\partial\strut x}{\partial\strut v}\\
+        \displaystyle\frac{\partial\strut y}{\partial\strut u}&\displaystyle\frac{\partial\strut y}{\partial\strut v}
+    \end{pmatrix}
+\end{gather*}
+
+
+Si parla di trasformazione regolare di coordinate se sono soddisfatte tre ipotesi. Se le funzioni $x(u,v)$ e $y(u,v)$ sono funzioni di classe $C$ derivabili sia rispetto ad $x$ che ad $y$ con continuità; se queste funzioni sono invertibili; infine il determinante della matrice jacobiana deve essere diverso da zero. 
+
+
+Considerando una trasformazione in coordinate polari si ha:
+\begin{gather*}
+    \begin{cases}
+        x=x_0+\rho\cos\theta\\
+        y=y_0+\rho\sin\theta
+    \end{cases}
+\end{gather*}
+Dove $x_0$ e $y_0$ sono le coordinate del centro. Quando si considera la trasformazione in coordinate polari, il determinante della matrice jacobiana $\det J$ è sempre uguale a $\rho$. 
+
+\subsubsection*{Esercizi 16/5/25}
+
+Calcolare il seguente integrale doppio:
+\begin{gather*}
+    \iint_D(x^2+y^2)\df x\df y
+\end{gather*}
+Dove il dominio di integrazione $D$ è dato da:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big|x\geq0\land y\geq0\land x^2+y^2\leq 1\right\}
+\end{gather*}
+Questo esercizio si risolve prima in coordinate cartesiane e poi polari. Il dominio è un quarto di cerchio nel primo quadrante centrato nell'origine e di raggio unitario:
+\begin{gather*}
+    \iint_D(x^2+y^2)\df x\df y=\int_0^1\df x\int_0^{\sqrt{1-x^2}}(x^2+y^2)\df y
+    % =\int_0^1\left[x^2y+\frac{y^3}{3}\right]_0^{\sqrt{1-x^2}}\df x\\
+    % \int_0^1x^2\sqrt{1-x^2}+\frac{1}{3}\sqrt{1-x^2}-\frac{1}{3}\sqrt{1-x^2}\df x
+\end{gather*}
+
+Si effettua una trasformazione regolare in coordinate polari:
+\begin{gather*}
+    \begin{cases}
+        x=\rho\cos\theta\\
+        y=\rho\sin\theta
+    \end{cases}
+\end{gather*}
+Per rimanere nel quarto di circonferenza la variabile $\rho$ deve essere compresa in $[0,1]$, mentre la variabile $\theta$ effettua un quarto di rotazione, quindi deve essere contenuto in $[0,\pi/2]$ 
+L'integrale diventa quindi:
+\begin{gather*}
+    \iint_D(x^2+y^2)\df x\df y\to
+    \iint_{D'}\rho^2(\cancelto{1}{\cos^2\theta+\sin^2\theta})|\det J|\df\theta\df\rho
+\end{gather*}
+Dove il nuovo dominio di integrazione è $D'=[0,1]\times[0,\pi/2]$: %% TODO img del rettangolo corrispondente in coordinate polari, trasformazione dal quarto di cerchio
+\begin{gather*}
+    \iint_{D'}\rho^2\cdot\rho\df\theta\df\rho=\int_0^{\pi/2}\df\theta\cdot\int_0^{1}\rho^3\df\rho=
+    \left[\theta\right]_0^{\pi/2}\cdot\left[\frac{\rho^4}{4}\right]_0^{1}=\frac{\pi}{8}
+\end{gather*}
+
+
+
+Si considera la stessa funzione, ma in un dominio di integrazione diverso, corrispondente ad un ottavo di cerchio:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big|x\geq0\land 0\leq y\leq x\land x^2+y^2\leq 1\right\}
+\end{gather*}
+Si passa a coordinate polari, quindi si ha un nuovo dominio di integrazione $D'$:
+\begin{gather*}
+    D'=[0,1]\times\left[0,\frac{\pi}{4}\right]
+\end{gather*}
+L'integrale diventa:
+\begin{gather*}
+    \iint_D(x^2+y^2)\df x\df y\to\iint_{D'}\rho^3\df\theta\df\rho=\int_0^{\pi/4}\df\theta\cdot\int_0^{1}\rho^3\df\rho=\frac{\pi}{16}
+\end{gather*}
+
 
 \clearpage
 
