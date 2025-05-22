@@ -2538,7 +2538,6 @@ Con $s/b>a$, allora si effettua un cambio di variabile, con $u=t/b$:
 \end{gather*}
 Per cui si è verificata la proprietà. 
 
-
 \subsection{??}
 
 Si considera un numero $M$ positivo, ed una funzione $f$ continua a tratti, per $t>a$, presenta un numero finito di punti di discontinuità di prima o terza specie. Inoltre si ha $|f(t)|\leq g(t)$, per $t>M$, allora anche l'integrale improprio della funzione da $M$ ad $+\infty$ converge:
@@ -2567,6 +2566,211 @@ Se $f(t)=0$, per $\tau<0$, allora diventa:
 \begin{gather*}
     \mathscr{L}[f(t-\tau)]=e^{-s\tau}F(s)
 \end{gather*}
+
+\subsection*{Esercizi}
+
+Si considera la seguente equazione differenziale:
+\begin{gather*}
+    \begin{cases}
+        \diff{x}{t}+3x=\cos3t\\
+        x(0)=1
+    \end{cases}\\
+    sX(s)-\cancelto{1}{x(0)}+3X(s)=\frac{s}{9+s^2}\\
+    (s+3)X(s)=\frac{s}{9+s^2}+1\\
+    X(s)=\frac{s^2+s+9}{9+s^2}\frac{1}{s+3}
+\end{gather*}
+Si scompone in fratti semplici:
+\begin{gather*}
+    X(s)=\frac{s^2+s+9}{9+s^2}\frac{1}{s+3}=\frac{A}{s+3}+\frac{Bs+C}{9+s^2}\\
+    A(9+s^2)+(s+3)(Bs+C)=s^2+s+9\\
+    9A+As^2+Bs^2+Cs+3Bs+3C=s^2+s+9\\
+    \begin{cases}
+        As^2+Bs^2=s^2\\
+        Cs+3Bs=s\\
+        9A+3C=9
+    \end{cases}\begin{cases}
+        B=1-A\\
+        C=3A-2\\
+        18A=15
+    \end{cases}\begin{cases}
+        B=\displaystyle\frac{\strut1}{\strut6}\\
+        C=\displaystyle\frac{\strut1}{\strut2}\\
+        A=\displaystyle\frac{\strut5}{\strut6}
+    \end{cases}\\
+    X(s)=\frac{5}{6}\frac{1}{s+3}+\frac{1}{6}\frac{\cancel{s+3}}{\cancelto{s-3}{9+s^2}}\\
+    x(t)=
+\end{gather*}
+%% TODO finire
+
+Si considera ora un'equazione differenziale del secondo ordine:
+\begin{gather*}
+    \begin{cases}
+        y''-3y'+2y=t+3\\
+        y(0)=0\\
+        y'(0)=0
+    \end{cases}
+\end{gather*}
+Si effettua la trasformata:
+\begin{gather*}
+    s^2Y(s)-s\cancelto{0}{y'(0)}-\cancelto{0}{y(0)}-3sY(s)+3\cancelto{0}{y(0)}+2Y(s)=\frac{1}{s^2}+\frac{3}{s}\\
+    (s^2-4s+2)Y(s)=\frac{s+3}{s^2}\\
+    Y(s)=\frac{s+3}{s^2(s^2-3s+2)}
+\end{gather*}
+Si considerano i fratti semplici e si applicano l'anti-trasformata:
+\begin{gather*}
+    Y(s)=\frac{s+3}{s^2(s-1)(s-2)}=\frac{A}{s}+\frac{B}{s^2}+\frac{C}{s-1}+\frac{D}{s-2}\\
+    A(s^3-3s^2+2s)+B(s^2-3s+2)+C(s^3-s^2)+D(s^3-2s^2)=s+3\\
+    \begin{cases}
+        As^3+Cs^3+Ds^3=0\\
+        -3As^2+Bs^2-Cs^2-2Ds^2=0\\
+        2As-3Bs=3s\\
+        2B=1
+    \end{cases}\\
+    \begin{cases}
+        D=\displaystyle\frac{\strut9}{\strut4}-\displaystyle\frac{\strut25}{\strut4}\\
+        C=-\displaystyle\frac{\strut25}{\strut4}-2D\\
+        A=\displaystyle\frac{\strut9}{\strut4}\\
+        B=\displaystyle\frac{\strut1}{\strut2}
+    \end{cases}
+    \begin{cases}
+        D=-\displaystyle\frac{\strut16}{\strut4}=-4\\
+        C=-\displaystyle\frac{\strut21}{\strut4}+\frac{32}{\strut4}=\frac{7}{4}\\
+        A=\displaystyle\frac{\strut9}{\strut4}\\
+        B=\displaystyle\frac{\strut1}{\strut2}
+    \end{cases}\\
+    Y(s)=\frac{9}{4}\frac{1}{s}+\frac{1}{2}\frac{1}{s^2}+\frac{4}{s-1}+\frac{7}{4}\frac{1}{s-2}\\
+    y(t)=-\frac{9}{4}+\frac{1}{2}t+4e^t+\frac{7}{4}e^{2t}
+\end{gather*}
+
+
+Calcolare l'anti-trasformata della seguente funzione:
+\begin{gather*}
+    \mathscr{L}^{-1}\left[\frac{2s^2-4}{s^3-4s^2+s+6}\right]
+\end{gather*}
+Si scompone in fattori, il polinomio al denominatore è divisibile per $s+1$, quindi si scompone in:
+\begin{gather*}
+    \frac{2s^2-4}{s^3-4s^2+s+6}=2\frac{(s-1)\cancel{(s+1)}}{\cancel{(s+1)}(s^2-5s+6)}=\frac{s-1}{(s-2)(s-3)}
+\end{gather*}
+Si scompone in fratti semplici:
+% \begin{gather*}
+%     \frac{s-1}{(s-2)(s-3)}=\frac{A}{s-2}+\frac{B}{s-3}\\
+%     As-3A+Bs-2B=s-1\\
+%     \begin{cases}
+%         A+B=1\\
+%         A=\displaystyle\frac{\strut1-2B}{\strut3}
+%     \end{cases}\begin{cases}
+%         B=2\\
+%         A=-1
+%     \end{cases}\\
+%     \frac{s-1}{(s-2)(s-3)}=-\frac{1}{s-2}+\frac{2}{s-3}
+% \end{gather*}
+%% TODO fix
+L'antitrasformata è quindi:
+\begin{gather*}
+    \mathscr{L}^{-1}\left[\frac{2s^2-4}{s^3-4s^2+s+6}\right]=-\frac{1}{6}e^{-t}-\frac{4}{3}e^{2t}+\frac{7}{2}e^{3t}
+\end{gather*}
+
+%% TODO add somewhere -> diff eq
+
+% \subsection{??}
+
+Data un'equazione differenziale del terzo ordine generale
+\begin{gather*}
+    y'''+ay''+by'+cy=0
+\end{gather*}
+Con $y=e^{\lambda t}$, si ottiene il polinomio caratteristico di questa equazione differenziale:
+\begin{gather*}
+    \lambda^3+a\lambda^2+a\lambda+c=0
+\end{gather*}
+Note le radici di questo polinomio %% TODO ??
+
+% \subsection*{??}
+
+%% TODO section ?? -> diff eq
+
+\begin{gather*}
+    x^2y''-4xy'+4y=0
+\end{gather*}
+Questa è un'equazione differenziale del secondo ordine, lineare, dove i coefficienti non sono costanti. 
+Per risolverla si cercano soluzioni del tipo $y=x^\alpha$:
+\begin{gather*}
+    \alpha(\alpha-1)x^{\alpha}-4\alpha x^\alpha+4x^\alpha=0\\
+    x^\alpha\left(\alpha^2-\alpha-4\alpha+4\right)=0\\
+    \alpha^2-5\alpha+4=0
+\end{gather*}
+Questa è una situazione molto simile al polinomio caratteristico, poiché non esiste un esponente tale che $x^\alpha=0$. Questa si chiama equazione indiciale. Trovando le radici di questa equazioni, si ottengono le due soluzioni:
+\begin{gather*}
+    \alpha^2-5\alpha+4=0=(\alpha-1)(\alpha-4)\\
+    y(x)=c_1x+c_2x^4
+\end{gather*}
+Questo metodo è efficace quando le equazioni sono omogenee, altrimenti non conviene più di altri metodi. 
+
+
+Si considera la seguente equazione differenziale:
+\begin{gather*}
+    x^2y''+2xy'-2y=x^2
+\end{gather*}
+Poiché non è omogenea si considerano le seguenti sostituzioni, per trasformarla in un'equazione in termini di $y$ ed una nuova variabile $t$:
+\begin{gather*}
+    x=e^t\to t=\log x\\
+    \frac{\df y}{\df x}=\frac{\df y}{\df t}\frac{\df t}{\df x}=\frac{\df y}{\df t}\frac{1}{x}\\
+    \frac{\df^2y}{\df x^2}=\frac{\df }{\df x}\left[\frac{1}{x}\frac{\df y}{\df t}\right]=-\frac{1}{x^2}\frac{\df y}{\df t}+\frac{1}{x}\frac{\df^2y}{\df t\df x}\cdot\frac{\df t}{\df t}
+\end{gather*}
+Si moltiplica l'ultimo termine al numeratore ed al denominatore per $\df t$ per ottenere la seguente, inoltre si utilizza la notazione puntata di Newton per le derivate nel tempo $\dot y$:
+\begin{gather*}
+    \frac{\df^2y}{\df x^2}=-\frac{1}{x^2}\dot{y}+\frac{1}{x}\frac{\df y^2}{\df t^2}\frac{\df t}{\df x}=\frac{1}{x^2}\left(-\dot y+\ddot y\right)
+\end{gather*}
+La funzione originale diventa:
+\begin{gather*}
+    \cancel{x^2}\frac{1}{\cancel{x^2}}\left(-\dot y+\ddot y\right)+2\bcancel{x}\frac{1}{\bcancel{x}}\dot y-2y=e^{2t}
+\end{gather*}
+Prima si considera l'equazione omogenea, ed in seguito si aggiunge il termine forzante:
+\begin{gather*}
+    \ddot y+\dot y-2y=0
+\end{gather*}
+Si risolve ponendo $y=e^{\lambda t}$:
+\begin{gather*}
+    \lambda^2 +\lambda-2=0\\
+    (\lambda-1)(\lambda+2)=0
+\end{gather*}
+La soluzione omogenea $y(t)$ è quindi:
+\begin{gather*}
+    y(t)=c_1e^{-2t}+c_2e^{t}
+\end{gather*}
+
+Si risolve ora l'equazione non omogenea, considerando una funzione dello stesso tipo della forzante $e^{2t}$ per la soluzione particolare $\bar y(t)$:
+\begin{gather*}
+    \bar{y}(t)=ke^{2t}\\
+    e^{2t}\left(4k+2k-2k\right)=e^{2t}\\
+    4k=1\to k=\frac{1}{4}
+\end{gather*}
+L'integrale generale è quindi dato da:
+\begin{gather*}
+    y(t)=c_1e^{-2t}+c_2e^{t}+\frac{1}{4}e^{2t}
+\end{gather*}
+Per ritornare alla variabile originale $x$ si considera $t=\log x$:
+\begin{gather*}
+    y(x)=c_1x^{-2}+x_2x+\frac{1}{4}x^2
+\end{gather*}
+
+\subsection{Trasformata di Funzioni Periodiche}
+
+Si considera una funzione $f(t)$ periodica di periodo $\tau$, quindi si ha $f(t+\tau)=f(t)$. Le funzioni generalmente considerate dalla trasformata sono funzioni nulle per valori negativi della variabile $t$. 
+Poiché si possono considerare solo funzioni nulle per $t\leq 0$ per effettuare la trasformata, allora si ha che $f(t)=0$ per $t\leq 0$, ma dato che è periodica si ha $f(x+\tau)=f(x)=0$, per $0\leq x\leq\tau$, quindi deve essere presente un periodo di distanza dall'origine, prima che la funzione possa assumere valori diversi da zero. 
+%% TODO ??
+Invece può assumere valori non nulli $f(x-\tau+\tau)=f(x)$, per $x>\tau$. 
+%% TODO add img per cosa sus
+
+Data una funzione periodica, l'integrale nell'intervallo uguale ad un periodo $[0,\tau]$ corrisponde a:
+\begin{gather*}
+    \int_0^\tau e^{-st}f(t)\df t=\frac{1}{1-e^{-\tau s}}\mathscr{L}\left[f(t)\right]
+\end{gather*}
+
+Si considera una funzione seno $f(t)=\sin(at)$, di periodo $\tau=2\pi/a$. Applicando la formula si ottiene:
+\begin{gather*}
+    \int_0^{2\pi/a}e^{st}f(t)\df t=\frac{1}{1-e^{-2\pi t/a}}\mathscr{L}\left[\sin(at)\right]=\frac{1}{1-e^{-2\pi t/a}}\frac{a}{a^2+s^2}
+\end{gather*}
+
 
 \clearpage
 
