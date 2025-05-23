@@ -1238,6 +1238,161 @@ La funzione è derivabile in modo parziale rispetto a $x$ nell'origine, ma non r
     \displaystyle\frac{\partial f}{\partial x}(0,0)=0
 \end{gather*}
 
+\clearpage
+
+\section{Esercizi 23/5/25}
+
+Risolvere il seguente integrale doppio:
+\begin{gather*}
+    \iint_D \frac{xy^2}{x^2+y^2}\df x\df y
+\end{gather*}
+Dove il dominio di integrazione è dato da:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big| y\geq x\land 1\leq x^2+y^2\leq 4\right\}
+\end{gather*}
+La prima equazione rappresenta la bisettrice del primo e del terzo quadrante, tutti i punti appartenenti a questa retta, e superiore sono punti ammissibili. 
+Si può analizzare la seconda equazione come due equazioni di cerchi di raggio 1 e 4, quindi si può definire come tutti i cerchi di raggio maggiore o uguale a 1 e minore o uguale a 4. Questi sono tutti cerchi concentrici nell'origine, si considerano ammissibili tutti i punti presenti in questa corona circolare, al di sopra della bisettrice del primo e del terzo quadrante, retta compresa. 
+%% TODO add img D
+Il dominio non è normale rispetto a nessuno dei due assi, poiché si considerano due circonferenze, è più utile passare al dominio polare, trasferendo l'integrale in coordinate polari, centrate nell'origine, si ottiene:
+\begin{gather*}
+    \iint_D \frac{xy^2}{x^2+y^2}\df x\df y=\iint_{D'}\frac{\rho^{\cancelto{2}{4}}\cos\theta\sin^2\theta}{\cancel{\rho^2}}\df\rho\df\theta
+\end{gather*}
+Dove $D'$ è definito come:
+\begin{gather*}
+    \theta\in\left[\frac{\pi}{4},\frac{5\pi}{4}\right]\\
+    1\leq x^2+y^2\leq4\to1\leq\rho^2\leq4\to\rho\in[1,2]
+\end{gather*}
+Questo dominio si trasforma in un rettangolo poiché gli estremi del dominio sono costanti, quindi è possibile separare gli integrali:
+\begin{gather*}
+    \iint_{D'}\rho^2\cos\theta\sin^2\theta\df\rho\df\theta=\int_{\pi/4}^{5\pi/4}\cos\theta\sin^2\theta\df\theta\cdot\int_1^2\rho^2\df\rho\\
+    \left[\frac{\rho^3}{3}\right]_1^2\cdot\left[\frac{\sin^3\theta}{3}\right]_{\pi/4}^{5\pi/4}=\frac{7}{3}\cdot-\frac{4\sqrt{2}}{24}=-\frac{7\sqrt{2}}{18}
+\end{gather*}
+
+
+Calcolare l'integrale doppio:
+\begin{gather*}
+    \iint_D(x^2+2y^2)\df x\df y
+\end{gather*}
+Dove $D$ è definito da:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big|1\leq x^2+y^2\leq4\land x\geq0\land y\geq0\right\}
+\end{gather*}
+Il dominio è il quarto della corona circolare di raggio minore pari ad 1 e maggiore pari a 4, nel primo quadrante. 
+%% TODO add img
+Il dominio corrispondente in coordinate polari è:
+\begin{gather*}
+    \rho\in[1,2]\\
+    \theta\in\left[0,\frac{\pi}{2}\right]
+\end{gather*}
+L'integrale diventa quindi:
+\begin{gather*}
+    \iint_D(x^2+2y^2)\df x\df y=
+    \iint_{D'}\rho^2(\cos\theta^2+2\sin^2\theta)\rho\df\rho\df\theta=
+    \iint_{D'}\rho^3(1+\sin^2\theta)\df\rho\df\theta
+\end{gather*}
+Il dominio diventa un rettangolo, e i due fattori integrandi sono tra loro indipendenti, quindi si può trasformare in un prodotto di integrali:
+\begin{gather*}
+    \iint_{D'}\rho^3(1+\sin^2\theta)\df\rho\df\theta=
+    \int_0^{\pi/2}(1+\sin^2\theta)\df\theta\cdot\int_1^2\rho^3\df\rho=
+    \left[\frac{\rho^4}{4}\right]_1^2\left(\frac{\pi}{2}+\frac{1}{2}\int_0^{\pi/2}(1-\cos2\theta)\theta\df\theta\right)\\
+    \frac{15}{4}\left(\frac{\pi}{2}+\frac{\pi}{4}-\cancelto{0}{\left[\frac{\sin2\theta}{2}\right]_0^{\pi/2}}\right)=\frac{45\pi}{16}
+\end{gather*}
+
+
+
+Risolvere il seguente integrale doppio:
+\begin{gather*}
+    \iint_D\frac{x}{\sqrt{x^2+y^2}}\df x\df y
+\end{gather*}
+Dove il dominio $D$ è definito come:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big| x^2+y^2\geq 1\land 0\leq x\leq1\land -1\leq y\leq -x\right\}
+\end{gather*}
+Il primo vincolo rappresenta una circonferenza di raggio 1 e centrata nell'origine, sono ammissibili tutti i punti all'esterno della circonferenza, compresa. 
+Per la seconda condizione si considerano solo i punti nel primo e quarto quadrante, fino alla retta $x=1$, compresa.  
+La terza condizione si può scomporre, considerando solo i punti al di sopra della retta $y=-1$, compresa, ed i punti sottostanti alla bisettrice del secondo e quarto quadrane. 
+Il dominio risultante si trova nel quarto quadrante. 
+%% TODO add img 
+Il dominio è quindi dato da:
+\begin{gather*}
+    x\in[0,1]\\
+    y_1\in[-1,-\sqrt{1-x^2}]\\
+    y_2\in[-1,-x]
+\end{gather*}
+Per cambiare a coordinate polari, gli estremi degli intervalli non sono più costanti, quindi bisogna individuare le funzioni che li rappresentano:
+\begin{gather*}
+    \rho\in[\rho_{\min},\rho_{\max}]=[1,-\csc\theta]\\
+    \theta\in[\theta_{\min},\theta_{\max}]=\left[-\frac{\pi}{2},-\frac{\pi}{4}\right]
+\end{gather*}
+Per calcolare il valore massimo di $\rho$ si considera la retta $y=-1$ che lo identifica:
+\begin{gather*}
+    y=-1=\rho\sin\theta\\
+    \rho=-\frac{1}{\sin\theta}=-\csc\theta
+\end{gather*}
+%  -1  = \rho\sin\theta
+Il dominio  $D'$ è normale rispetto a $\theta$, l'integrale quindi diventa:
+\begin{gather*}
+    \iint_D\frac{x}{\sqrt{x^2+y^2}}\df x\df y=
+    \iint_{D'}\frac{\rho\cos\theta}{\cancel{\sqrt{\rho^2}}}\cancel{\rho}\df\rho\df\theta
+\end{gather*}
+Applicando la formula non si possono scomporre in due integrali indipendenti, quindi si ha:
+\begin{gather*}
+    \iint_{D'}{\rho\cos\theta}\df\rho\df\theta=
+    \int_{-\pi/2}^{-\pi/4}\df\theta\cos\theta\int_{1}^{-\csc\theta}\rho\df\rho=
+    \int_{-\pi/2}^{-\pi/4}\cos\theta\left[\frac{\rho^2}{2}\right]_{1}^{-\csc\theta}\df\theta\\
+    \frac{1}{2}\int_{-\pi/2}^{-\pi/4}\cos\theta\left(\csc^2\theta-1\right)\df\theta
+\end{gather*}
+Considerando la formula fondamentale della trigonometria:
+\begin{gather*}
+    \sin^2\theta+\cos^2\theta=1\\
+    1+\cot^2\theta=\csc^2\theta\to\cot^2\theta=\csc^2\theta-1
+\end{gather*}
+Si ottiene:
+\begin{gather*}
+    \frac{1}{2}\int_{-\pi/2}^{-\pi/4}\cos\theta\cot^2\theta\df\theta\to
+    u=\sin\theta\land \df u =\cos\theta\df\theta\to
+    \frac{1}{2}\int_{-1}^{-\sqrt{2}/2}\frac{1}{u^2}-1\df u\\
+    \frac{1}{2}\left[-\frac{1}{u}-u\right]_{-1}^{-\sqrt{2}/2}=\frac{1}{2}\left[\left(\frac{2}{\sqrt{2}}+\frac{\sqrt{2}}{2}\right)-\left(1+1\right)\right]=\frac{1}{2}\left(\frac{2\sqrt{2}+\sqrt{2}}{2}-2\right)=\frac{3\sqrt{2}}{4}-1
+\end{gather*}
+
+
+Determinare l'integrale doppio, partendo dalla stessa funzione integranda dell'esercizio precedente, considerando questo dominio $D$:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big| x^2+y^2\geq1\land 0\leq y\leq 1\land 0\leq x \leq y\right\}
+\end{gather*}
+Analogamente all'esercizio precedente si considerano tutti i punti esterni al cerchio unitario. Per il secondo vincolo si considerano tutti i punti del primo e secondo quadrante, fino alla retta $y=1$, compresa. Inoltre si considerano tutti i punti superiori alla bisettrice del primo e terzo quadrante. Il dominio è esattamente specchiato, rispetto all'asse $x$, dall'esercizio precedente. 
+Per cui il risultato è esattamente lo stesso dell'esercizio precedente:
+\begin{gather*}
+    \iint_D\frac{x}{\sqrt{x^2+y^2}}\df x\df y=
+    \iint_{D'}\rho\cos\theta\df\rho\df\theta=
+    \int_{\pi/4}^{\pi/2}\df\theta\cos\theta\int_{\csc\theta}^1\rho\df\rho=
+    \frac{3\sqrt{2}}{4}-1
+\end{gather*}
+
+
+Risolvere il seguente integrale doppio:
+\begin{gather*}
+    \iint_D\frac{y^2}{x^2+y^2}\df x\df y
+\end{gather*}
+Dove il dominio $D$ è dato da:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big| x^2+y^2\geq1\land0\leq y\leq x\land 0\leq x\leq2\right\}
+\end{gather*}
+Per il primo vincolo ci si trova all'esterno della circonferenza unitaria. Per il secondo ed il terzo vincolo ci si trova nel primo quadrante, inoltre i punti ammissibili sono al di sotto della bisettrice del primo quadrante, fino alla retta $x=2$. 
+%% TODO add img
+Il dominio in coordinate polari diventa:
+\begin{gather*}
+    \rho\in\left[0,\frac{\pi}{4}\right]\\
+    \rho\in[1,2\sec\theta]
+\end{gather*}
+%% TODO fare a casa:
+% risultato:
+\begin{gather*}
+    \frac{7}{8}-\frac{9\pi}{16}
+\end{gather*}
+
+
+
 
 
 \end{document}
