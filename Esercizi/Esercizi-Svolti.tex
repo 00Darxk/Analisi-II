@@ -1385,11 +1385,79 @@ Il dominio in coordinate polari diventa:
     \rho\in\left[0,\frac{\pi}{4}\right]\\
     \rho\in[1,2\sec\theta]
 \end{gather*}
-%% TODO fare a casa:
+% Si trasforma in coordinate polari:
+% \begin{gather*}
+%     \iint_D\frac{y^2}{x^2+y^2}\df x\df y
+% \end{gather*}
+%% TODO risolvere a casa
 % risultato:
 \begin{gather*}
     \frac{7}{8}-\frac{9\pi}{16}
 \end{gather*}
+
+\clearpage
+
+\section{Esercizi 27/5/25}
+
+Risolvere il seguente integrale doppio:
+\begin{gather*}
+    \iint_D\frac{x}{x^2+y^2}\df x\df y
+\end{gather*}
+Dove il dominio $D$ è dato da:
+\begin{gather*}
+    D=\left\{(x,y)\in\mathbb{R}^2\big|(x-1)^2+y^2\leq1\land y\geq0\right\}
+\end{gather*}
+Il primo vincolo racchiude tutti i punti interni alla circonferenza di raggio unitario centrata in $(1,0)$, mentre per il secondo vincolo si considerano tutti i punti nel primo e secondo quadrante. 
+
+Si considera una trasformazione in coordinate polari, centrate in $(1,0)$:
+\begin{gather*}
+    \begin{cases}
+        x=1+\rho\cos\theta\\
+        y=\rho\sin\theta
+    \end{cases}
+\end{gather*}
+Gli intervalli diventano:
+\begin{gather*}
+    \theta\in[0,\pi]\\
+    \rho\in[0,1]
+\end{gather*}
+Poiché i due intervalli sono indipendenti, l'integrale diventa:
+\begin{gather*}
+    \iint_D\frac{x}{x^2+y^2}\df x\df y=
+    \iint_{D'}\frac{1+\rho\cos\theta}{1+2\rho\cos\theta+1}\rho\df\rho\df\theta=
+    \iint_{D'}\rho\frac{1+\rho\cos\theta}{1+2\rho\cos\theta+\rho^2}\df\rho\df\theta\\
+\end{gather*}
+Avendo al denominatore $x^2+y^2$ si considerano coordinate polari centrate nell'origine, poiché complicando il dominio, si semplifica la funzione integranda:
+\begin{gather*}
+    \begin{cases}
+        x=\rho\cos\theta\\
+        y=\rho\sin\theta
+    \end{cases}\\
+    \theta\in[\theta_{\min},\theta_{\max}]\\
+    \rho\in[\rho_{\min},\rho_{\max}]
+\end{gather*}
+Il dominio si trova interamente nel primo quadrante, quindi l'intervallo di $\theta$ accettabile è:
+\begin{gather*}
+    \theta\in\left[0,\frac{\pi}{2}\right]
+\end{gather*}
+All'aumentare di $\theta$, il parametro $\rho$ diminuisce, deve esserci una dipendenza tra le due, il valore massimo è 2, ed il minimo è 0. Il valore minimo rimane costante, mentre quello massimo dipende da $\theta$. Al posto dell'equazione cartesiana dalla circonferenza si considera l'equazione polare:
+\begin{gather*}
+    \rho^2\cos^2\theta-2\rho\cos\theta+1+\rho^2\sin^2\theta=1\\
+    \rho^2-2\rho\cos\theta=0\\
+    \rho\neq0\land\rho=2\cos\theta
+\end{gather*}
+Quindi l'intervallo di $\rho$ è dato da:
+\begin{gather*}
+    \rho\in[0,2\cos\theta]
+\end{gather*}
+L'integrale diventa quindi:
+\begin{gather*}
+    \iint_D\frac{x}{x^2+y^2}\df x\df y=
+    \iint_{D'}\frac{\rho\cos\theta}{\rho^2}\rho\df\rho\df\theta=\int_0^{\pi/2}\df\theta\cos\theta\int_0^{2\cos\theta}\df\rho
+    \int_0^{\pi/2}\cos\theta\left[2\cos\theta\right]\df\theta\\
+    \int_0^{\pi/2}2\cos^2\theta\df\theta=\int_0^{\pi/2}(\cos2\theta+1)\df\theta=\frac{1}{2}\left[-\sin2\theta\right]_0^{\pi/2}+\frac{\pi}{2}=\frac{\pi}{2}
+\end{gather*}
+
 
 
 

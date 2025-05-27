@@ -3202,7 +3202,7 @@ Questo diventa un limite di una funzione ad una variabile. La derivata parziale 
     \displaystyle\frac{\partial f}{\partial y}(0,0)=0
 \end{gather*}
 
-\subsection{Integrai Doppi}
+\subsection{Integrali Doppi}
 
 Un'integrale doppio è definito su un dominio di integrazione $D\in\mathbb{R}^2$, e si indica come:
 \begin{gather*}
@@ -3556,6 +3556,49 @@ L'integrale diventa:
 \begin{gather*}
     \iint_D(x^2+y^2)\df x\df y\to\iint_{D'}\rho^3\df\theta\df\rho=\int_0^{\pi/4}\df\theta\cdot\int_0^{1}\rho^3\df\rho=\frac{\pi}{16}
 \end{gather*}
+
+\subsection{Integrali Tripli}
+
+Un integrale triplo, è un integrale su una funzione a tre variabili:
+\begin{gather*}
+    \iiint_Df(x,y,z)\df x\df y\df z
+\end{gather*}
+Si analizzeranno integrali a tre variabili su domini definito nel seguente modo:
+\begin{gather*}
+    D=\left\{(x,y,z)\in\mathbb{R}^3\big|x,y\in B\land \alpha(x,y)\leq z\leq \beta(x,y)\right\}
+\end{gather*}
+Dove $B$ deve essere normale rispetto all'asse $x$, e le funzioni $\alpha$ e $\beta$ sono continue nel dominio $B$, allora l'integrale si può calcolare come:
+\begin{gather*}
+    \iint_B\df x\df y\int_{\alpha(x,y)}^{\beta(x,y)}f(x,y,z)\df z
+\end{gather*}
+
+
+
+%% ESERCIZI
+Calcolare l'integrale triplo della seguente funzione:
+\begin{gather*}
+    \iiint_D\frac{1}{(x+y+z+1)^3}\df x\df y\df z
+\end{gather*}
+Dove il dominio $D$ è dato da:
+\begin{gather*}
+    D=\left\{(x,y,z)\in\mathbb{R}^3\big|(x,y)\in T\land0\leq z\leq 1-x-y\right\}
+\end{gather*}
+%% TODO add immagine 3d
+Dove $T$ è il triangolo di vertici $(0,0,0)$, $(1,0,0)$ e $(0,1,0)$. L'integrale diventa:
+\begin{gather*}
+    \iint_T\df x\df y\int_0^{1-x-y}\frac{1}{(x+y+z+1)^3}\df z=
+    -\frac{1}{2}\iint_D\frac{1}{(\cancel{x}+\cancel{y}+1-\bcancel{x}-\bcancel{y}+1)^2}-\frac{1}{(x+y+1)^2}\df x\df y\\
+    -\frac{1}{2}\iint_T\left(\frac{1}{4}-\frac{1}{(x+y+1)^2}\right)=-\frac{1}{8}\iint_T\df x\df y+\frac{1}{2}\iint_T\frac{1}{(x+y+1)^2}\df x\df y
+\end{gather*}
+Il primo integrale rappresenta l'area del triangolo e si può calcolare senza calcolarne l'integrale, il secondo si risolve come un integrale doppio: 
+\begin{gather*}
+    -\frac{1}{16}+\frac{1}{2}\int_0^1\df y\int_0^{1-x}\frac{1}{(x+y+1)^2}\df y=
+    -\frac{1}{16}+\frac{1}{2}\int_0^1\left(-\frac{1}{\cancel{x}+1-\bcancel{x}+1}+\frac{1}{x+1}\right)\df x\\
+    -\frac{1}{16}+\frac{1}{2}\left(-\frac{1}{2}+\ln2-\cancelto{0}{\ln1}\right)=\ln\sqrt{2}-\frac{5}{16}
+\end{gather*}
+
+
+
 
 
 \clearpage
