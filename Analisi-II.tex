@@ -3809,9 +3809,143 @@ Il primo integrale rappresenta l'area del triangolo e si può calcolare senza ca
     -\frac{1}{16}+\frac{1}{2}\left(-\frac{1}{2}+\ln2-\cancelto{0}{\ln1}\right)=\ln\sqrt{2}-\frac{5}{16}
 \end{gather*}
 
+\subsection{Integrali Curvilinei}
+
+Per definire il concetto di integrale curvilineo, bisogna definire il concetto di curva nello spazio, un arco di curva regolare, semplice, nel piano $\mathbb{R}^2$ o nello spazio $\mathbb{R}^3$. 
+Un arco di curva nel piano non è altro che un'applicazione di una funzione vettoriale $\varphi$ che ha come dominio in intervallo e restituisce un vettore nel piano:
+\begin{gather*}
+    \varphi:[a;b]\subset\mathbb{R}\to\mathbb{R}^2
+\end{gather*}
+Per ogni $t$ appartenente al dominio, la funzione restituisce un vettore $\varphi(t)$:
+\begin{gather*}
+    \varphi(t)=\begin{pmatrix}
+        x=x(t)\\
+        y=y(t)
+    \end{pmatrix}
+\end{gather*}
+Una curva $\gamma$ è parametrizzata rispetto ad una funzione $\varphi$:
+\begin{gather*}
+    \gamma=\begin{cases}
+        x=x(t)\\y=y(t)
+    \end{cases}
+\end{gather*}
+Un arco di curva nel piano è assegnato quando si assegna una funzione parametrica. 
+Solitamente si userà il simbolo $\gamma(A,B)$, dove $A$ e $B$ sono due punti del piano, che ne rappresentano gli estremi: 
+\begin{gather*}
+    \varphi(a)=(x(a),y(a))=A\\
+    \varphi(b)=(x(b),y(b))=B
+\end{gather*}
+Di solito data una curva vi è dato un orientamento, normalmente si assegna l'orientamento nell'ordine degli estremi, questa curva ha un orientamento da $A$ a $B$. Può essere che i due estremi sono coincidenti, in questo caso si dice che la curva è chiusa, non si tratta più di un arco. 
+
+Un arco di curva è regolare e semplice, se soddisfa tre condizioni:
+\begin{itemize}
+    \item Deve esistere il vettore tangente: $x(t),y(t)\in C^1([a;b])$
+    \item Bisogna verificare l'esistenza del versore tangente: $x'(t)^2+y'(t)^2>0$
+    \item Non possono esistere punti doppi: $\forall t_1,t_2\in(a,b)\to \varphi(t_1)\neq\varphi(t_2)$
+\end{itemize}
+Per la prima condizione, in ogni punto della curva è sempre possibile tracciare il vettore tangente, di componenti $(x'(t),y'(t))$. 
+Le prime due condizioni rendono la curva regolare, per essere anche semplice, non devono essere presenti punti ripetuti, ovvero la curva non può incrociare sé stessa. 
 
 
+Una curva, non regolare, che può essere scomposta in più curve regolari, si dice generalmente regolare. Per calcolare l'integrale curvilineo di una curva generalmente regolare, si sommano gli integrali delle curve regolari scomposte. Questa condizioni devono essere verificate almeno a tratti. 
 
+La lunghezza di una curva $\gamma$ si calcola come:
+\begin{gather*}
+    \text{length}(\gamma)=\int_a^b\sqrt{x'(t)^2+y'(t)^2}\df t
+\end{gather*}
+
+Tutte queste condizioni definite per le curve nel piano, valgono anche per le curve nello spazio, solamente è presente una condizione in più. 
+Si considera la curva $\gamma$:
+\begin{gather*}
+    \gamma:\begin{cases}
+        x=t^3\\
+        y=t^2
+    \end{cases}\,\, t\in[1,3]
+\end{gather*}
+
+Per poter disegnare la curva, bisogna convertire l'equazione parametrica in un'equazione cartesian, per poter disegnare l'arco di curva:
+\begin{gather*}
+    t=x^{1/3}\\
+    t=y^{1/2}\\
+    y=x^{2/3}
+\end{gather*}
+Gli estremi della curva sono $A=(1,1)$ e $B=(27,9)$, e l'orientamento è da $A$ a $B$. 
+%% TODO add img curva nel piano, estremi ed orientamento
+Si calcola la lunghezza della curva usando la formula:
+\begin{gather*}
+    \text{length}[\gamma(A,B)]=\int_1^3\sqrt{9t^4+4t^2}\df t=\int_1^3t\sqrt{9t^2+4}\df t
+\end{gather*}
+% Si sostituisce $t=4/9\tan\theta\to\df t=4/9\sec\theta\tan\theta\df\theta$:
+% \begin{gather*}
+%     \frac{4}{9}\int_{\theta(1)}^{\theta(3)}\tan^2\theta\sec^2\theta\df\theta
+% \end{gather*}
+% c^2+s^2=1
+% 1+t^2=s^2
+Considerando il differenziale di $9t^2+4$ si ha:
+\begin{gather*}
+    \frac{1}{18}\int_1^3(9t^2+4)^{1/2}\df(9t^2+4)=\frac{1}{8}\frac{(9t^2+4)^{2/3}}{18}\bigg|_1^3=\frac{85^{2/3}-13^{2/3}}{27}
+\end{gather*}
+
+
+L'integrale curvilineo di un campo scalare è definito da una funzione $f$ applicata su un sottoinsieme del piano $f:D_f\subseteq\mathbb{R}^2\to\mathbb{R}$. In realtà si parla di campo quando la dimensione del dominio e del codominio coincidono. 
+Si definisce una curva $\gamma$ attraverso la quale bisogna calcolare l'integrale di questa funzione. Le componenti della curva $x(t),y(t)$ sono veri campi scalari. 
+L'arco di curva deve essere contenuto al volume della funzione $f$: $\gamma\subset D_f$. 
+In maniera simbolica, l'integrale lungo una curva $\gamma$ di una funzione $f$ si rappresenta come:
+\begin{gather*}
+    \int_{\gamma(A,B)}f \df s=\int_a^bf[x(t),y(t)]\sqrt{x'(t)^2+y'(t)^2}\df t
+\end{gather*}
+Dove $s$ è la variabile curvilinea sulla curva. Questo integrale ha un'interpretazione geometrica importante, per calcolare il baricentro di vari solidi, nello spazio, e aree nel piano. 
+
+
+Calcolare il seguente integrale:
+\begin{gather*}
+    I=\int_{\gamma(A,B)}x^2y\df s
+\end{gather*}
+Dove la curva $\gamma$ è il minore dei due archi di curva di equazione cartesiana $x^2+y^2=9$ delimitata dai punti $A=(3,0)$ e $B=(-3/2,3\sqrt{3}/2)$. 
+Il minore arco è quello presente nel primo e secondo quadrante. L'equazione parametrica della curva è:
+\begin{gather*}
+    \gamma:\begin{cases}
+        x(t):3\cos t\\
+        y(t):3\sin t
+    \end{cases}\,\, t\in[0,2\pi/3]
+\end{gather*}
+Per calcolare gli intervalli si può utilizzare l'arcocoseno, poiché l'intervallo è compreso tra $0$ e $\pi$, mentre non è possibile utilizzare l'arcoseno, poiché si trova al di fuori del suo dominio di $[-\pi/2,\pi/2]$. Quindi è preferibile invertire la funzione che si trova già nel suo dominio di applicazione, oppure usare simmetrie delle funzioni. 
+Si risolve l'integrale applicando la formula:
+\begin{gather*}
+    I=\int_0^{2\pi/3}9\cos^2 t\cdot3\sin t\cdot3\sqrt{\sin^2t+\cos^2t}\df t=
+    81\int_0^{2\pi/3}\sin t\cos^2t\df t\\
+    I=-27\int_0^{2\pi/3}\sin t\df(3\cos^2t)=-27\cos^3t\bigg|_0^{2\pi/3}=\frac{243}{8}
+\end{gather*}
+
+
+Calcolare l'integrale curvilineo:
+\begin{gather*}
+    I=\int_{\gamma(A,B)}xy\df s
+\end{gather*}
+Data la seguente curva, da $A=(1,1)$ a $B=(0,1)$:
+%% TODO img curva (1,1) -- (0,1)
+Questa curva si può parametrizzare in diversi modi, si preferisce la parametrizzazione più utile:
+\begin{gather*}
+    \gamma:\begin{cases}
+        x=t\\y=1
+    \end{cases}\,\, t\in[0,1]
+\end{gather*}
+La parametrizzazione effettuata è di verso opposto all'orientamento proposto, assegnato alla curva. Tuttavia si ottiene lo stesso risultato anche utilizzando la parametrizzazione inversa. L'integrale curvilineo non dipende dall'orientamento, mentre l'integrale curvilineo dei campi vettoriali dipende dall'orientamento, quindi il risultato sarebbe diverso. 
+Si calcola l'integrale usando questa parametrizzazione:
+\begin{gather*}
+    I=\int_{\gamma}xy\df s=\int_0^1t\df t=\frac{1}{2}
+\end{gather*}
+Si considerano parametrizzazioni equivalenti per dimostrare che l'integrale curvilineo non dipende dall'orientamento:
+\begin{gather*}
+    \delta:\begin{cases}
+        x=1-t\\y=1
+    \end{cases}\,\,t\in[0,1]\\
+    I=\int_{\delta}xy\df s=\int_0^1(1-t)\df t=\frac{1}{2}
+\end{gather*}
+Queste due parametrizzazioni si dicono equivalenti. 
+
+%% TODO esercizio a casa
+%% copiare dalla banana 30/5/25
 
 \clearpage
 
