@@ -72,7 +72,7 @@
     \uline{\phantom{#1}}%
     \llap{\contour{white}{#1}}%
 }
-\fancypagestyle{link}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{Sorgente del file \LaTeX ed ultima versione del testo disponibile al link: \url{https://github.com/00Darxk/Analisi-II/}}}
+\fancypagestyle{link}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{Sorgente del file \LaTeX\space ed ultima versione del testo disponibile al link: \url{https://github.com/00Darxk/Analisi-II/}}}
 
 \begin{document}
 
@@ -3944,8 +3944,114 @@ Si considerano parametrizzazioni equivalenti per dimostrare che l'integrale curv
 \end{gather*}
 Queste due parametrizzazioni si dicono equivalenti. 
 
-%% TODO esercizio a casa
-%% copiare dalla banana 30/5/25
+
+
+Risolvere il seguente integrale curvilineo lungo una curva $\gamma$:
+\begin{gather*}
+    \int_\gamma(2x+y)df s
+\end{gather*}
+Dove la curva è il più piccolo arco di curva di equazione cartesiana:
+\begin{gather*}
+    x^2+y^2=25
+\end{gather*}
+Delimitato dai punti $A=(3,4)$ e $B=(4,3)$. L'equazione determina una circonferenza di raggio $r=5$, i due punti si trovano entrambi nel primo quadrante, quindi l'arco più piccolo si trova solamente nel primo quadrante. 
+%% TODO add img curva
+Si orienta in modo che vada dal punto $A$ al punto $B$. Si parametrizza la curva:
+\begin{gather*}
+    \gamma:\begin{cases}
+        x=5\cos t\\y=5\sin t
+    \end{cases}\,\,t\in[t_B=\arccos(4/5),t_A=\arcsin(4/5)]
+\end{gather*}
+Risolvendo ora l'integrale si ha:
+\begin{gather*}
+    \int_\gamma(2x+y)df s=5\int_{t_B}^{t_A}(10\cos t+5\sin t\df t)\sqrt{\sin^2t+\cos^2t}\df t=25\int_{t_B}^{t_A}2\cos t+\sin t\df t\\
+    50\sin t-25\cos t\bigg|_{t_B}^{t_A}=50(\sin t_A-\sin t_B)-25(\cos t_A-\cos t_B)\\
+    50(\sin(\arcsin(4/5))-\sin(\arcsin(3/5)))-25(\cos(\arccos(3/5))-\cos(\arccos(4/5)))=15
+\end{gather*}
+
+Per poter cambiare l'orientamento è possibile utilizzare la parametrizzazione $t=t_A+t_B-s$, usando la nuova variabile $s$, in questo modo è possibile seguire il senso della curva, se fosse richiesto
+\begin{gather*}
+    \gamma:\begin{cases}
+        x=5\cos(t_A+t_B-s)\\y=5\sin(t_A+t_B-s)
+    \end{cases}\,\, s\in[t_B,t_A]
+\end{gather*}
+
+\subsubsection{Integrali Curvilinei di Campi Vettoriali}
+
+Fino ad ora si è trattato di funzioni a più variabili, con codominio l'insieme dei reali, ma è possibile utilizzare funzioni ad immagine a più variabile per effettuare integrali curvilinei. Si definisce campo vettoriale, una funzione il cuo dominio e codominio hanno la stessa dimensione. 
+Si considera un campo vettoriale $\vec{F}:D_{\vec{F}}\subseteq\mathbb{R}^2\to\mathbb{R}^2$. Questa funzione può esprimere come:
+\begin{gather*}
+    (x,y)\to\vec{F}(x,y)=\begin{pmatrix}
+        X(x,y)\\Y(x,y)
+    \end{pmatrix}
+\end{gather*}
+Si considera una curva definite nel dominio del campo vettoriale $\gamma\in D_{\vec{F}}$:
+\begin{gather*}
+    \gamma:\begin{cases}
+        x=x(t)\\y=y(t)
+    \end{cases}\,\, t\in[t_A,t_B]
+\end{gather*}
+La curva ha anche un orientamento, ed in questo caso è rilevante per individuare la soluzione corretta. Nell'integrale curvilineo si indica per la curva anche i punti di partenza e di arrivo:
+\begin{gather*}
+    \int_{\gamma(A,B)}\vec{F}\cdot\df \vec{\alpha}=\int_{\gamma(A,B)}X(x,y)\df x+Y(x,y)\df y
+\end{gather*}
+In generale l'integrale di un campo vettoriale si rappresenta come il prodotto scalare tra il campo ed il differenziale del vettore direzione. 
+Spesso la somma mostrata nel secondo integrale si chiama forma differenziale, del prodotto scalare del campo vettoriale. 
+La formula per calcolare questo integrale è data da:
+\begin{gather*}
+    \int_{\gamma(A,B)}\vec{F}\cdot\df \vec{\alpha}=
+    \pm\int_{t_A}^{t_B}\left[X(x(t),y(t))\cdot x'(t)+Y(x(t),y(t))\cdot y'(t)\right]\df t    
+\end{gather*}
+La scelta del segno dell'integrale dipende dall'orientamento della curva. Se l'orientamento scelto dalla parametrizzazione è opposto a quello richiesto bisogna invertire il segno, se è concorde allora bisogna mantenere il segno positivo. 
+
+
+
+%% ESERCIZIO
+
+Considerare il seguente campo vettoriale:
+\begin{gather*}
+    \vec{F}=\begin{pmatrix}
+        2x+y\\y
+    \end{pmatrix}
+\end{gather*}
+Calcolare l'integrale curvilineo lungo l'arco di curva $\gamma(A,B)$, di equazione cartesiana $x^2+y^2=4$, tra i punti $A=(2,0)$ e $B(0,2)$:
+\begin{gather*}
+    \gamma:\begin{cases}
+        x=2\cos t\\y=2\sin t
+    \end{cases}\,\, t\in[0,\pi/2]
+\end{gather*}
+Scegliendo questa parametrizzazione si sta andando in senso antiorario, in seguito bisogna mettere a confronto con l'orientamento della curva. Andando da $A$ a $B$ si va nello stesso senso della curva, quindi si sceglie il segno positivo. Si utilizza ora la formula:
+\begin{gather*}
+    \int_{\gamma(A,B)}\vec{F}\cdot\df\vec{\alpha}=\int_{0}^{\pi/2}(4\cos t+2\sin t)\cdot(-2\sin t)+2\sin t\cdot2\cos t\df t\\
+    \int_{0}^{\pi/2}(4\cos t+2\sin t)\cdot(-2\sin t)+2\sin t\cdot2\cos t\df t=
+    2\int_0^{\pi/2}{-4\cos t\sin t}-2\sin^2t+2\sin t\cos t\df t\\
+    2\int_0^{\pi/2}-2\cos t\sin t-2\sin^2t\df t=
+    \int_0^{\pi/2}(2\cos2t-2-2\sin2t)\df t\\
+    \sin 2t\bigg|_0^{\pi/2}-\pi+\cos2t\bigg|_0^{\pi/2}=0-0-\pi-1+1
+\end{gather*}
+%% TODO rifare ?? -> \pi-2, il primo addendo diventa -2\sin^2t
+
+
+
+Calcolare l'integrale curvilineo di questa forma differenziabile lungo la curva $\gamma(A,B)$:
+\begin{gather*}
+    \int_{\gamma(A,B)}(2x+y)\df x+y\df y
+\end{gather*}
+Dove $\gamma$ è l'arco di parabola di equazione cartesiana $x=2-x^2/2$ e $A=(2,0)$ e $B=(0,2)$. Si rappresenta in forma parametrica:
+\begin{gather*}
+    \gamma:\begin{cases}
+        x=t\\y=\displaystyle\frac{\strut 4-t^2}{\strut2}
+    \end{cases}\,\, t\in[0,2]
+\end{gather*}
+Questa parametrizzazione è di orientamento inverso rispetto alla curva, quindi si inverte il segno nella formula:
+\begin{gather*}
+    \int_{\gamma(A,B)}(2x+y)\df x+y\df y=-\int_0^22t+\frac{4-t^2}{2}+\left(\frac{4-t^2}{2}\right)\cdot(-t)\df t\\
+    -\int_0^2\cancel{2t}+2-\frac{t^2}{2}-\bcancel{2t}+\frac{t^3}{2}\df t=-\int_0^22-\frac{t^2}{2}+\frac{t^3}{2}\df t=-\left[2t-\frac{t^3}{6}+\frac{t^4}{8}\right]_0^2\\
+    -4+\frac{4}{3}-2=\frac{4-18}{3}=-\frac{14}{3}
+\end{gather*}
+
+
+
 
 \clearpage
 
