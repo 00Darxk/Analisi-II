@@ -4050,7 +4050,161 @@ Questa parametrizzazione è di orientamento inverso rispetto alla curva, quindi 
     -4+\frac{4}{3}-2=\frac{4-18}{3}=-\frac{14}{3}
 \end{gather*}
 
+\subsubsection{Campi Vettoriali Conservativi}
 
+Si è già utilizzata la formula per calcolare integrali curvilinei su campi vettoriali, se il campo vettoriale è conservativo, il calcolo di questo integrale è considerevolmente semplificato. 
+
+Un campo vettoriale $\vec{F}$:
+\begin{gather*}
+    \vec{F}(x,y)=\begin{pmatrix}
+        X(x,y)\\Y(x,y)
+    \end{pmatrix}
+\end{gather*}
+Si dice conservativo in un insieme $S\subseteq D_{\vec{F}}\subseteq\mathbb{R}^2$, se rispetta delle condizioni. 
+Se esiste una funzione scalare, $\exists\varphi: S\to\mathbb{R}$, definita in $S$ e valore nel dominio reale, tale che per ogni punto dell'insieme $S$ si ha:
+\begin{gather*}
+    \forall(x,y)\in\mathbb{R}^2\to\displaystyle\frac{\partial \varphi}{\partial x}(x,y)=X(x,y)\land\frac{\partial \varphi}{\partial y}(x,y)=Y(x,y)
+\end{gather*}
+Spesso si scrive in maniera simbolico, definendo il gradiente $\nabla$ della funzione $\varphi$:
+\begin{gather*}
+    \vec{\nabla}\varphi(x,y)=\left(\frac{\partial\varphi}{\partial x}(x,y),\,\frac{\partial\varphi}{\partial y}(x,y)\right)
+\end{gather*}
+Tale che:
+\begin{gather*}
+    \vec{\nabla}\varphi(x,y)=\vec{F}(x,y)
+\end{gather*}
+
+
+%% TEOREMA
+
+Supponendo di avere un campo conservativo $\vec{F}$, conservativo in un sottoinsieme $S\subseteq D_{\vec{F}}$ e sia $\varphi:S\to\mathbb{R}$, il suo potenziale. Da notare che è possibile definire un numero infinito di potenziali, è sufficiente infatti sommare una costante generica $c$, e la funzione risultante $\varphi(x,y)+c$ è anch'essa un potenziale. 
+Sia $\gamma(A,B)\subset S$, una curva regolare, allora l'integrale curvilineo lungo la curva $\gamma$ del campo vettoriale è dato dalla seguente:
+\begin{gather*}
+    \int_{\gamma(A,B)}\vec{F}\cdot\df\vec{\alpha}=\varphi(B)-\varphi(A)
+\end{gather*}
+L'integrale curvilineo in $S$ su una curva in $S$, di un campo vettoriale conservativo non dipende dalla curva, ma solo dai suoi estremi. Date due curve qualsiasi $\gamma(A,B)$ e $\delta(A,B)$, il loro integrale curvilineo su un campo vettoriale conservativo è uguale. 
+Se il punto iniziale e finale coincidono, allora l'integrale è nullo, la circuitazione su una qualsiasi curva chiusa di un campo vettoriale conservativo è sempre nulla:
+\begin{gather*}
+    \oint_{\gamma}\vec{F}\cdot\df\vec{\alpha}=0
+\end{gather*}
+
+Inoltre se un campo è conservativo, ma non si ha il suo potenziale, per calcolare l'integrale curvilineo è possibile scegliere una curva il più semplice possibile con gli stessi estremi dell'originale, in modo da semplificare notevolmente il calcolo. 
+
+%% TEOREMA: condizioni sufficienti che il campo sia conservativo, condizioni su S e su \vec{F}
+
+Le condizioni sufficienti affinché il campo vettoriale $\vec{F}$ sia conservativo in $S\subseteq D_{\vec{F}}$ sono:
+\begin{enumerate}
+    \item $\forall(x,y)\in S\to\displaystyle\frac{\partial X}{\partial y}(x,y)=\frac{\partial Y}{\partial x}(x,y)$
+    \item $S$ è un'insieme semplicemente connesso. 
+\end{enumerate}
+Per la prima condizione le derivate miste devono essere uguali. Se è soddisfatta la prima condizione il campo vettoriale si dice chiuso. 
+Un insieme $S\subseteq\mathbb{R}^2$ si dice semplicemente connesso, se una qualunque curva chiusa $\gamma$ contenuta in $S$ è la frontiera di un sottoinsieme interamente contenuto in $S$. Ovvero l'insieme $S$ non presenta ``buchi''. 
+
+
+
+
+
+%% ESEMPIO
+
+Considerare il seguente campo vettoriale:
+\begin{gather*}
+    \vec{F}=\begin{pmatrix}
+        \displaystyle\frac{\strut-y}{\strut x^2+y^2}\\ \displaystyle\frac{\strut x}{\strut x^2+y^2}
+    \end{pmatrix}
+\end{gather*}
+Determinare se è conservativa nell'insieme $\mathbb{R}^2\setminus\left\{(0,0)\right\}$:
+\begin{gather*}
+    \frac{\partial}{\partial y}\frac{\strut-y}{\strut x^2+y^2}=\frac{-x^2-y^2-2y(-y)}{(x^2+y^2)^2}=\frac{y^2-x^2}{(x^2+y^2)^2}\\
+    \frac{\partial}{\partial x}\frac{\strut x}{\strut x^2+y^2}=\frac{x^2+y^2-x(2x)}{(x^2+y^2)^2}=\frac{y^2-x^2}{(x^2+y^2)^2}
+\end{gather*}
+Il campo vettoriale è chiuso, ma l'insieme $\mathbb{R}^2\setminus\left\{(0,0)\right\}$ non è semplicemente connesso, avendo un buco in $(0,0)$. 
+Dato un insieme $S$:
+\begin{gather*}
+    S=\left\{(x,y)\in\mathbb{R}^2\big|x>1\right\}
+\end{gather*}
+Allora in questo insieme il campo vettoriale è conservativo, poiché non contiene il buco in $(0,0)$. 
+
+
+
+%% ESERCIZI
+
+Calcolare la circuitazione lungo la curva chiusa $\gamma$ di un campo vettoriale $\vec{F}$, lo stesso dell'esercizio precedente. 
+\begin{gather*}
+    \vec{F}=\begin{pmatrix}
+        \displaystyle\frac{\strut-y}{\strut x^2+y^2}\\ \displaystyle\frac{\strut x}{\strut x^2+y^2}
+    \end{pmatrix}
+\end{gather*}
+E $\gamma$ è la circonferenza, di equazione $(x-1)^2+(y+1)^2=1$, percorsa in senso antiorario. La circuitazione è nulla, essendo l'insieme di definizione della circonferenza un insieme semplicemente connesso, non contiene l'unico punto di discontinuità in $(0,0)$. Si può scegliere un qualsiasi insieme contenente la circonferenza $S$, si considera il sottoinsieme che rappresenta il quarto quadrante:
+\begin{gather*}
+    S=\left\{(x,y)\in\mathbb{R}^2\big| x>0\land y<0\right\}\cup\left\{(0,-1),(1,0)\right\}\subset\mathbb{R}^2\setminus\left\{(0,0)\right\}
+\end{gather*}
+
+Considerare ora come curva una circonferenza di equazione $x^2+y^2=1$, non è possibile identificare un sottoinsieme contenente la curva semplicemente connesso, quindi non si può applicare la proprietà dei campi vettoriali conservativi. 
+Si parametrizza la curva:
+\begin{gather*}
+    \gamma:\begin{cases}
+        x=\cos t\\y=\sin t
+    \end{cases}\,\, t\in[0,2\pi]
+\end{gather*}
+La parametrizzazione è concorde con il senso della curva, quindi si mantiene il segno positivo:
+\begin{gather*}
+    \int_{\gamma}\vec{F}\cdot\df\vec{\alpha}=\int_0^{2\pi}-\sin t(-\sin t)+\cos t(\cos t)\df t=\int_0^{2\pi}\cos^2 t+\sin^2 t\df t=2\pi\neq0
+\end{gather*}
+
+
+Calcolare il seguente integrale:
+\begin{gather*}
+    \int_{\gamma(A,B)}(2x+5y^3)\df x+(15xy^2+2y)\df y
+\end{gather*}
+Dove $\gamma$ è il minore dei due archi di curva, di equazione cartesiana $(x-1)^2+(y-1)^2=1$, di estremi $A=(1,0)$ e $B=(2,1)$. 
+
+Si controlla se il campo è conservativo:
+\begin{gather*}
+    \frac{\partial X}{\partial y}=15y^2=\frac{\partial Y}{\partial x}
+\end{gather*}
+Il dominio del campo vettoriale è anche sicuramente semplicemente connesso. A meno che non venga esplicitamente espresso che vada calcolato sulla curva indicata, si può calcolare su una traiettoria qualsiasi, oppure calcolando il potenziale. 
+Il calcolo più semplice è scegliere una traiettoria più semplice. Invece di spostare il punto materiale sull'arco di circonferenza, si considerano due segmenti $\overline{AC}$ e $\overline{CB}$, dove $C=(2,0)$. I due segmenti vengono chiamati $\gamma_1$ e $\gamma_2$. L'integrale si divide quindi usando la proprietà additiva:
+\begin{gather*}
+    \int_{\gamma(A,B)}\vec{F}\cdot\df\vec{\alpha}=
+    \overbrace{\int_{\gamma_1(A,C)}\vec{F}\cdot\df\vec{\alpha}}^{I_1}+
+    \underbrace{\int_{\gamma_2(C,B)}\vec{F}\cdot\df\vec{\alpha}}_{I_2}
+\end{gather*}
+Si parametrizzano le due curve:
+\begin{gather*}
+    \gamma_1:\begin{cases}
+        x=t\\y=0
+    \end{cases}\,\, t\in[1,2]\\
+    \gamma_2:\begin{cases}
+        x=2\\y=t
+    \end{cases}\,\, t\in[0,1]
+\end{gather*}
+Entrambe le parametrizzazioni sono concordi con l'orientamento. Si calcolano quindi i due integrali:
+\begin{gather*}
+    I_1=\int_1^22t\df t=t^2\bigg|_1^2=3\\
+    I_2=\int_0^1 30t^2+2t\df t=10t^3+t^2\bigg|_0^1=11\\
+    I=I_1+I_2=14
+\end{gather*}
+
+
+Si calcola ora mediante il potenziale $\varphi$:
+\begin{gather*}
+    \varphi(x,y)=\int X(x,y)\df x=\int2x+5y^3\df x=x^2+5xy^3+\alpha(y)\\
+    \frac{\partial}{\partial y}(5xy^3+x^2+\alpha(y))=\cancel{15xy^2}+\alpha'(y)=Y(x,y)=\bcancel{15xy^2}+2y\\
+    \alpha'(y)=2y\to\alpha(y)=y^2+c\\
+    \varphi(x,y)=5xy^3+x^2+y^2+c
+\end{gather*}
+Si considera $c=0$ per semplicità, si calcola ora l'integrale:
+\begin{gather*}
+    I=\varphi(2,1)-\varphi(1,0)=5\cdot2+4+1-1=14
+\end{gather*}
+
+
+%% TODO casa (?)
+Calcolare il seguente integrale:
+\begin{gather*}
+    \int_{\gamma(A,B)}(2xy+y^2+2xy^2)\df x+(x^2+2xy+2x^y)\df y
+\end{gather*}
+Dove $\gamma$ è l'arco minore della circonferenza $(x-1)^2+y^2=1$, di estremi $A=(0,0)$ e $B=(1,-1)$. 
 
 
 \clearpage
