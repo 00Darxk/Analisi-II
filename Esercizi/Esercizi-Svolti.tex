@@ -1458,6 +1458,149 @@ L'integrale diventa quindi:
     \int_0^{\pi/2}2\cos^2\theta\df\theta=\int_0^{\pi/2}(\cos2\theta+1)\df\theta=\frac{1}{2}\left[-\sin2\theta\right]_0^{\pi/2}+\frac{\pi}{2}=\frac{\pi}{2}
 \end{gather*}
 
+\clearpage
+
+\section{Esercitazione 10/6/25}
+
+Verificare la conservatività in $\mathbb{R}^2$ del campo vettoriale  $\vec{F}$:
+\begin{gather*}
+    \vec{F}(x,y)=\begin{pmatrix}
+        2xy\\x^2+y^2
+    \end{pmatrix}
+\end{gather*}
+Quindi calcolarne il potenziale $\varphi(x,y)$ ed infine calcolare l'integrale curvilineo sulla curva $\gamma(A,B)$, minore arco dei due archi di circonferenza con centro nell'origine e raggio 2 con $A=(2,0)$ e $B=(0,-2)$. 
+
+Per determinare se un campo è conservativo si considerano le sue derivate miste:
+\begin{gather*}
+    \frac{\partial}{\partial y}2xy=2x=\frac{\partial}{\partial x}x^2+y^2
+\end{gather*}
+Inoltre il campo è definito in $\mathbb{R}^2$, quindi l'insieme di definizione è semplicemente connesso. Il campo è conservativo. 
+
+Si calcola il suo potenziale, considerando prima la componente $X(x,y)$:
+\begin{gather*}
+    \varphi(x,y)=\int 2xy\df x=x^2y+\alpha(y)
+\end{gather*}
+Si considera la componente $Y(x,y)$:
+\begin{gather*}
+    \frac{\partial}{\partial y}\varphi(x,y)=Y(x,y)\\
+    x^2+\alpha'(y)=x^2+y^2\to\alpha'(y)=y^2\to\alpha(y)=\frac{y^3}{3}+c
+\end{gather*}
+Quindi il potenziale è, per $c=0$:
+\begin{gather*}
+    \varphi(x,y)=x^2y+\frac{y^3}{3}
+\end{gather*}
+
+Poiché il campo è conservativo, il suo integrale curvilineo è indipendente dalla curva, quindi si considerano solamente i due estremi $A$ e $B$:
+\begin{gather*}
+    \int_{\gamma(A,B)}\vec{F}\cdot\df\vec{\alpha}=\varphi(B)-\varphi(A)=0\cdot(-2)-\frac{8}{3}-4\cdot0-0=-\frac{8}{3}
+\end{gather*}
+
+
+
+Considerare il seguente campo vettoriale:
+\begin{gather*}
+    X(x,y)=\frac{-y}{x^2+y^2}\\
+    Y(x,y)=\frac{x}{x^2+y^2}
+\end{gather*}
+Definito su $D_1$ e $D_2$:
+\begin{gather*}
+    D_1=\left\{(x,y)\in\mathbb{R}^2\big|y>x+1\right\}\\
+    D_2=\left\{(x,y)\in\mathbb{R}^2\big|y\leq x+1\right\}
+\end{gather*}
+Determinare se il campo è conservativo in $D_1$ ed in $D_2\setminus\{(0,0)\}$. 
+
+Si calcolano le derivate miste:
+\begin{gather*}
+    \frac{\partial X}{\partial y}=\frac{y^2-x^2}{(x^2+y^2)^2}=\frac{\partial Y}{\partial x}
+\end{gather*}
+Il campo è conservativo in $D_1$, poiché l'insieme è semplicemente connesso, mentre non lo è in $D_2$, avendo un buco in $(0,0)$. 
+
+
+Studiare la convergenza puntuale nell'intervallo $[0,2\pi]$ della serie:
+\begin{gather*}
+    \sum_{k=1}^\infty k(\sin x)^k
+\end{gather*}
+Questa è una serie di potenze con $a_k=k$, effettuando un cambiamento di variabile $t=\sin x$, con $t_0=0$:
+\begin{gather*}
+    \sum_{k=1}^\infty k(t)^k
+\end{gather*}
+Si calcola il raggio di convergenza di questa serie di potenze:
+\begin{gather*}
+    R=\lim_{k\to+\infty}\frac{k}{k+1}=1
+\end{gather*}
+Quindi si può dire che rispetto alla variabile $t$ la serie converge per $t\in(-1,1)$. 
+Riportando nella variabile $x$ si ha $-1<\sin x<1$: $x\in[0,2\pi]\setminus\{\pi/2,3\pi/2\}$. Bisogna analizzare gli estremi:
+\begin{gather*}
+    t=1\to\sum_{k=1}^\infty k\\
+    t=-1\to\sum_{k=1}^\infty k(-1)^k
+\end{gather*}
+Per $t=1$ e $t=-1$ la serie non converge. Quindi l'intervallo di convergenza è $[0,2\pi]\setminus\{\pi/2,3\pi/2\}$. 
+
+
+Risolvere mediante trasformata di Laplace il seguente problema di Cauchy:
+\begin{gather*}
+    \begin{cases}
+        y''+y=1\\
+        y'(0)=y(0)=0
+    \end{cases}
+\end{gather*}
+Si applica ad entrambi i membri la trasformata di Laplace:
+\begin{gather*}
+    s^2Y(s)+Y(s)=\frac{1}{s}\\
+    Y(s)=\frac{1}{s(s^2+1)}=\frac{A}{s}+\frac{Bs+C}{s^2+1}
+\end{gather*}
+Si calcolano i fratti semplici:
+\begin{gather*}
+    \begin{cases}
+        A+B=0\\\to B=-1
+        C=0
+        A=1
+    \end{cases}
+\end{gather*}
+La trasformata diventa:
+\begin{gather*}
+    Y(s)=\frac{1}{s}-\frac{s}{s^2+1}
+\end{gather*}
+APplicando l'antitrasformata si ottiene:
+\begin{gather*}
+    y(t)=1-\cos(t)
+\end{gather*}
+
+
+Risolvere il seguente problema di Cauchy:
+\begin{gather*}
+    \begin{cases}
+        y''-2y'+y=3x\\
+        y'(0)=1\\
+        y(0)=1
+    \end{cases}
+\end{gather*}
+Si esprime l'equazione caratteristica:
+\begin{gather*}
+    \lambda^2-2\lambda+1=0
+\end{gather*}
+La soluzione dell'omogenea è quindi:
+\begin{gather*}
+    y=c_1e^{x}+c_2xe^x
+\end{gather*}
+Considerando ora la forzante, per il criterio di similarità si considera la soluzione particolare $k_1x+k_2$:
+\begin{gather*}
+    -2k_1+k_1x+k_2=3x\\
+    \begin{cases}
+        k_1=3\\
+        k_2=6
+    \end{cases}
+\end{gather*}
+La soluzione generale è data da:
+\begin{gather*}
+    y=c_1e^{x}+c_2xe^x+3x
+\end{gather*}
+Si determina il valore delle costanti:
+\begin{gather*}
+    y(0)=c_1+6\to c_1=-5\\
+    y'(0)=-5+c_2+3\to c_2=2\\
+    y(x)=-5e^x+2xe^x+3x+6
+\end{gather*}
 
 
 
