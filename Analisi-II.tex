@@ -113,7 +113,7 @@ Una serie numerica $\{a_n\}$ è una \textit{particolare} successione numerica;
     \{a_n\}:\mathbb{N}\rightarrow\mathbb{C}\in\mathbb{R}
 \end{equation}
 
-Quindi è di interesse studiare il comportamento della serie numerica quando la variabile indipendente $n$ tende all'infinito. Data una successione numerica, si interessa quindi:
+È di interesse studiare il comportamento della serie numerica quando la variabile indipendente $n$ tende all'infinito. Data una successione numerica, si interessa quindi:
 \begin{equation}
     \lim_{n\to\infty}a_n
 \end{equation}
@@ -130,7 +130,7 @@ Una successione può convergere ad un numero reale, può divergere positivamente
     \end{cases}
 \end{equation}
 
-Si costruisce una serie numerica $\{s_n\}$, partendo da una sequenza nota $\{a_k\}$, si può costruire definendo per ogni valore $n$ il valore di $s_n$ tale sia pari alla somma dei primi $a_n$ elementi della sequenza:
+Si costruisce una serie numerica $\{s_n\}$, partendo da una sequenza nota $\{a_k\}$, si può costruire definendo per ogni valore $n$ il valore di $s_n$ tale che sia pari alla somma dei primi $a_n$ elementi della sequenza:
 \begin{equation}
     \forall n\in\mathbb{N}:\,
     s_n:=a_1+\cdots+a_n
@@ -140,7 +140,7 @@ $s_n$ viene chiamata somma parziale della serie $\{s_n\}$ e viene definita con i
 \begin{equation}
     s_n:=\displaystyle\sum_{k=1}^\infty a_k
 \end{equation}
-La serie numerica è la successione delle somme parziali che costruisce sulla successione $\{a_k\}$. 
+La serie numerica è la successione delle somme parziali costruite sulla successione $\{a_k\}$. 
 
 Una serie numerica si dice convergente se il limite della successione delle somme parziali, costruite a partire dalla successione $a_k$, è pari ad un numero $s$:
 \begin{equation}
@@ -154,7 +154,7 @@ Si dice divergente se il limite della successione delle somme parziali tende ad 
 
 Se converge o diverge la serie numerica si dice regolare, se invece studiando il comportamento delle somme parziali per $n\to\infty$, il limite della somma non è definito, quindi la serie si dice irregolare:
 \begin{equation}
-    \{s_n\}: \mbox{irregolare se}\,\lim_{n\to\infty}s_n=\nexists
+    \{s_n\}: \mbox{è irregolare se}\,\lim_{n\to\infty}s_n=\nexists
 \end{equation}
 
 Studiare il comportamento della serie vuol dire studiare il comportamento delle somme parziali. La somma parziali si avrà sempre in forma aperta, se fosse possibile esprimere in forma chiusa la forma parziale, allora il limite è di facile calcolo. 
@@ -170,7 +170,7 @@ Esiste una funzione per esprimere in forma chiusa questa funzione, dimostrabile 
     \lim_{n\to\infty}\left(\displaystyle\frac{n(n+1)}{2}\right)=+\infty
 \end{equation*}
 
-Quindi è facile determinare che si tratta di una serie divergente ad infinito positivo. Questo passaggio non d'ora in avanti non sarà più possibile, basterà stabilire il carattere di una serie, senza sapere il valore a cui converga. Solo nel caso della serie telescopica e della serie geometrica sarà possibile determinare il valore della convergenza. 
+Quindi è facile determinare che si tratta di una serie divergente ad infinito positivo. Questo passaggio d'ora in avanti non sarà più possibile, basterà stabilire il carattere di una serie, senza sapere il valore a cui converge. Solo nel caso della serie telescopica e della serie geometrica sarà possibile determinare il valore della convergenza. 
 
 \subsection{Serie Telescopica}
 
@@ -216,16 +216,16 @@ Considerando il limite di questa serie si ha:
 \end{equation*}
 
 In generale una serie telescopica, ha i suoi termini $a_k$ definiti come la differenza tra il termine $k+1$-esimo ed il termine $k$-esimo di una particolare successione $\{A_k\}$:
-\begin{equation*}
+\begin{equation}
     \displaystyle\sum_{k=1}^\infty a_k=\sum_{k=1}^\infty\left(A_{k+1}-A_{k}\right)
-\end{equation*} 
+\end{equation} 
 
 \subsection{Serie Geometrica}
 
-La serie geometrica è esprimibile come:
-\begin{equation*}
+Una serie geometrica esprimibile come:
+\begin{equation}
     \displaystyle\sum_{k=0}^\infty x^k
-\end{equation*}
+\end{equation}
 Come altre serie dipende da un parametro reale $x\in\mathbb{R}$, questo si chiama ragione della serie. 
 
 Si costruisce la somma parziale della serie:
@@ -251,7 +251,7 @@ Si considera noto il valore $s_n$:
 Si moltiplica la somma parziale per la ragione e si sottrae alla somma parziale:
 \begin{gather*}
     xs_n=x\cdot\displaystyle\sum_{k=0}^n x^k=\sum_{k=1}^nx^k\\
-    (1-x)s_n=1+x+x^2+\cdots+x^n-\left(x+x^2+x^3+\cdots+x^n+x^{n+1}\right)=1-x^{n+1}
+    (1-x)s_n=s_n-xs_n=1+\cancel{x}+\cancel{x^2}+\cdots+\cancel{x^n}-\left(\bcancel{x}+\bcancel{x^2}+\cdots+\bcancel{x^n}+x^{n+1}\right)=1-x^{n+1}
 \end{gather*}
 
 Della prima somma sopravvive solamente il primo addendo $1$, e della seconda l'ultimo addendo $x^{n+1}$, tutti gli altri si cancellano a vicenda, quindi per ottenere il valore della somma parziale si divide il primo ed il secondo membro per il fattore $1-x$:
@@ -262,18 +262,18 @@ Si provvede ora a calcolare il limite di questa somma parziale, dividendolo per 
 \begin{equation*}
     \lim_{n\to\infty}\displaystyle\frac{1-x^{n+1}}{1-x}=\lim_{n\to\infty}\frac{1}{1-x}-\lim_{n\to\infty}\frac{x^{n+1}}{1-x}
 \end{equation*}
-Il primo fattore non dipende da $n$, per il limite corrisponde a sé stesso, in seguito si mette in evidenza il fattore $1-x$ ottenendo:
+Il primo fattore non dipende da $n$ e si mette in evidenza, inoltre il primo limite è indipendente da $n$ e si ottiene:
 \begin{equation*}
     \displaystyle\frac{1}{1-x}\left(1-\lim_{n\to\infty}x^{n+1}\right)
 \end{equation*}
-Il comportamento di questo limite dipende dalla ragione:
-\begin{gather*}
+Il comportamento di questo limite dipende dalla ragione $x$:
+\begin{gather}
     \lim_{n\to\infty}x^{n+1}=\begin{cases}
         0 &-1<x<1\\
         +\infty  & x>1\\
         \nexists & x\leq-1
     \end{cases}
-\end{gather*}
+\end{gather}
 Per $|x|<1$ la funzione è decrescente, e tende a zero, mentre per $x>1$, la funzione è esponenziale e quindi tende ad infinito. Invece per $x<-1$ si considera il limite, mettendo in evidenza il segno negativo:
 \begin{gather*}
     \lim_{n\to\infty}(-|x|)^{n+1}=
@@ -283,42 +283,42 @@ Il secondo fattore diverge, mentre il primo fattore oscilla di segno in base all
 Per $x=-1$ il secondo fattore vale uno, mentre il primo fattore si considera comunque, per cui continua ad oscillare alla stessa ampiezza, quindi rappresenta allo stesso modo un comportamento irregolare. 
 
 Noto il comportamento di questo limite allora il valore della serie geometrica in base alla ragione è dato da:
-\begin{equation*}
-    \displaystyle\sum_{k=0}^\infty=\begin{cases}
+\begin{equation}
+    \displaystyle\sum_{k=0}^\infty x^k=\begin{cases}
         \displaystyle\frac{\strut 1}{\strut 1-x} &-1<x<1\\
         +\infty & x\geq1\\
         \nexists & x\leq-1
     \end{cases}
-\end{equation*}
+\end{equation}
 
-Questa serie ha un addendo in più poiché parte da $k=0$, per cui esprimendola come una serie partendo da $k=1$:
+Questa serie ha un addendo in più poiché parte da $k=0$, per cui esprimendola come una serie partendo da $k=1$ si ha:
 \begin{equation*}
-    \displaystyle\sum_{k=1}^\infty=\displaystyle\sum_{k=0}^\infty-1
+    \displaystyle\sum_{k=1}^\infty x^k=\displaystyle\sum_{k=0}^\infty x^k-1
 \end{equation*}
 Il valore di questa successione quindi si comporta analogamente al precedente, considerando l'addendo in più:
 
-\begin{equation*}
-    \displaystyle\sum_{k=1}^\infty=\begin{cases}
+\begin{equation}
+    \displaystyle\sum_{k=1}^\infty x^k=\begin{cases}
         \displaystyle\frac{\strut 1}{\strut 1-x}-1 &-1<x<1\\
         +\infty & x\geq1\\
         \nexists & x\leq-1
     \end{cases}
-\end{equation*}
+\end{equation}
 
 \subsection{Criteri di Convergenza}
 
 Esistono vari criteri per determinare la convergenza di una serie numerica. 
 
-%% PRIMO CRITERIO
+\subsubsection{Condizione Neccessaria Convergenza}
 
 Il primo criterio definisce una condizione necessaria per la convergenza di una serie geometrica. 
-Si considera per ipotesi che una data serie numerica converge, equivale a dire che la serie delle somme parziali converge:
+Si considera per ipotesi che una data serie numerica converge, questo equivale a dire che la serie delle somme parziali converge:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty a_k\rightarrow s_n=\sum_{k=1}^n a_k\\
+    \displaystyle\sum_{k=1}^\infty a_k\rightarrow s_n=\sum_{k=1}^n a_k:\mbox{converge}\\
     \lim_{n\to\infty}s_n=s
 \end{gather*}
 
-Considerando il limite della successione generata aumentando l'indice di uno $n+1$, la combinazione lineare tra queste due successioni converge a zero, poiché rappresentano la stessa successione traslata di un elemento:
+Considerando il limite della successione generata aumentando l'indice di uno: $n+1$, la differenza tra queste due successioni converge a zero, poiché rappresentano la stessa successione traslata di un elemento:
 \begin{gather*}
     \lim_{n\to\infty}s_{n+1}=s\\
     \lim_{n\to\infty}(s_{n+1}-s_n)=0
@@ -332,23 +332,12 @@ Quindi la successione può convergere se il termine infinitesimo della serie con
 \begin{equation}
     \lim_{n\to\infty}a_{n+1}=0
 \end{equation}
-Queste rappresenta solo una condizione necessaria, non garantisce che una serie converga, non è quindi una condizione sufficiente. 
+Queste rappresenta solo una condizione necessaria, non garantisce che una serie converga, non è una condizione sufficiente. 
 Se il termine infinitesimo di una serie non converge, allora la serie non può convergere, quindi diverge oppure è irregolare. 
 
-%% ESEMPIO
+\subsubsection{Teorema Per Serie Monotone (De)Crescenti}
 
-Si considera la seguine serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{3k^2+1}{2k^2+3}
-\end{gather*}
-Si vuole studiare il carattere della seguente serie utilizzando la condizione appena descritta:
-\begin{gather*}
-    \lim_{k\to\infty}\displaystyle\frac{3k^2+1}{2k^2+3}=\frac{3}{2}\neq0
-\end{gather*}
-Questa serie quindi non può converge, potrebbe quindi divergere oppure essere irregolare. 
-
-
-Esiste un teorema che tratta le successioni numeriche, e si riflette sulle serie. Questo teorema afferma che data una successione monotona crescente $\{a_k\}\uparrow$ o decrescente $\{a_k\}\downarrow$, ovvero se tra il termine $a_k$ ed il termine $a_{k+1}$ esiste una relazione d'ordine, definitivamente, $\forall k\geq k_0$. Allora la successione non può essere irregolare. 
+Esiste un teorema che tratta le successioni numeriche, e si riflette sulle serie. Questo teorema afferma che data una successione monotona crescente $\{a_k\}\uparrow$ o decrescente $\{a_k\}\downarrow$, ovvero se tra il termine $a_k$ ed il termine $a_{k+1}$ esiste definitivamente una relazione d'ordine, $\forall k\geq k_0$. Allora la successione non può essere irregolare. 
 
 Sia una serie $\sum_{k=0}^\infty a_k$, se $\forall k\geq k_0$ si ha $a_k>0$, allora la serie non è irregolare. Considerando un valore di $n\geq k_0$, si ha:
 \begin{gather*}
@@ -357,64 +346,20 @@ Sia una serie $\sum_{k=0}^\infty a_k$, se $\forall k\geq k_0$ si ha $a_k>0$, all
 
 Poiché viene sommato ad $s_n$ un valore non nullo positivo, quindi una serie di termini di segno costante positivo corrisponde ad una successione di somme parziali definitivamente monotona crescente. Questa serie allora converge o diverge, è regolare. 
 
-Considerando la serie dell'esempio precedente, con il primo criterio si è confermato che la serie non converge, analizzando i segni della serie si ha:
-\begin{gather*}
-    3k^2+1>0\,\land\,2k^2+3>0\implies\displaystyle\frac{3k^2+1}{2k^2+3}
-\end{gather*}
-
-Quindi la serie è composta da termini definitivamente positivi, quindi la serie non può essere irregolare. Questa serie allora diverge ad infinito positivo. 
-
-%% PROPRIETÀ
+\subsubsection{Proprietà di Linearità}
 
 Si considerano due serie $\sum a_k$ e $\sum b_k$, convergenti rispettivamente a $\alpha$ e $\beta$, la serie combinazione lineare delle due serie $\sum(Aa_k+Bb_k)$ allora converge al valore $A\alpha+B\beta$. Tramite questa proprietà è possibile scomporre una serie ed analizzare i singoli termini per determinare il carattere della serie da cui derivano. Se una delle due diverge, mentre l'altra converge, allora la serie combinazione lineare diverge, allo stesso segno della serie divergente, per qualunque valore di $A$ e $B$, vale anche se entrambe le serie convergono ad infinito di segno concorde. Se invece entrambe le serie divergono ed il segno discorde, allora questo genera una forma indeterminata e quindi non è possibile determinare il comportamento della serie combinazione lineare. 
 
 \subsubsection{Criterio del Confronto}
 
-Siano $\sum_{k=1}^\infty a_k$ e $\sum_{k=1}^\infty b_k$ due serie di segno definitivamente costante tale che vale la seguente condizione: $\forall k\geq k_0\rightarrow 0<a_k\leq b_k$. Allora se lla serie maggiorante $\sum_{k=1}^\infty b_k$ converge, allora si dimostra che anche la serie minorante $\sum_{k=1}^\infty a_k$ converge. Analogamente vale il duale di questa proprietà se la serie minorante $\sum_{k=1}^\infty a_k$ diverge, allora anche la serie maggiorante $\sum_{k=1}^\infty b_k$ diverge anch'essa. 
-
-%% ESERCIZIO 
-
-Si considera la seguente serie, bisogna analizzarne il comportamento, tramite il criterio del confronto:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{|\sin k|}{2^k}
-\end{gather*}
-Si considera il modulo per avere termini definitivamente positivi, allora il termine generico della serie sarà maggiorato dal termine generico:
-\begin{gather*}
-    \displaystyle\frac{|\sin k|}{2^k}<\frac{1}{2^k},\,\forall k\in\mathbb{N}
-\end{gather*}
-È certamente diverso dal termine generico, poiché $k$ non può essere un multiplo di $\pi$. 
-La serie maggiorante corrisponde ad una serie geometrica di ragione $1/2$, e converge poiché la ragione è di modulo minore di uno, quindi converge anche la serie minorante. 
-
-Si considera la seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{2+\cos k}{k}
-\end{gather*}
-Si può esprimere una serie maggiorante e minorante di questa serie:
-\begin{gather*}
-    \displaystyle\frac{1}{k}<\frac{2+\cos k}{k}<\frac{3}{k}
-\end{gather*}
-
-La serie minorante è una serie armonica, si dimostrerà che diverge a più infinito:
-\begin{equation*}
-    \displaystyle\sum_{k=1}^\infty\frac{1}{k}=+\infty
-\end{equation*}
-Mentre la serie armonica generalizzata, per $\alpha\in\mathbb{R}$ diverge solo per certi valori di $\alpha$:
-\begin{equation*}
-    \displaystyle\sum_{k=1}^\infty\frac{1}{k^\alpha}
-\end{equation*}
-
-Si considera la seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{|\cos k|}{k}
-\end{gather*}
-La serie maggiorante rappresenta la serie armonica descritta precedentemente, per cui non è possibile utilizzare il criterio del confronto. Non è possibile stabilire il carattere della serie utilizzando questo criterio. 
+Siano $\sum_{k=1}^\infty a_k$ e $\sum_{k=1}^\infty b_k$ due serie di segno definitivamente costante tale che vale la seguente condizione: $\forall k\geq k_0$ allora $0<a_k\leq b_k$. Allora se la serie maggiorante $\sum_{k=1}^\infty b_k$ converge, allora si dimostra che anche la serie minorante $\sum_{k=1}^\infty a_k$ converge. Analogamente vale il duale di questa proprietà se la serie minorante $\sum_{k=1}^\infty a_k$ diverge, allora anche la serie maggiorante $\sum_{k=1}^\infty b_k$ diverge.
 
 \subsubsection{Criterio della Radice}
 
 Sia una serie definitivamente monotona crescente $\sum_{k=1}^\infty a_k,\,\forall k\geq k_0$. 
-Si basa sulla definizione di una successione ausiliaria. Per costruire questa successione ausiliaria si considera, da $k>k_0$, $\{\sqrt[k]{a_k}\}$. Si considera per ipotesi che questa successione sia regolare:
+Si basa sulla definizione di una successione ausiliaria. Per costruire questa successione ausiliaria si considera, da $k>k_0$, $\{\sqrt[k]{|a_k|}\}$. Si considera per ipotesi che questa successione sia regolare:
 \begin{equation*}
-    \lim_{k\to\infty}\sqrt[k]{a_k}=\Lambda
+    \lim_{k\to\infty}\sqrt[k]{|a_k|}=\Lambda
 \end{equation*}
 
 Se questo limite converge ad un valore positivo maggiore di uno, oppure diverge ad infinito positivo, allora è dimostrabile che la serie di partenza diverge. 
@@ -428,16 +373,6 @@ Se questo limite è positivo e minore di uno, allora la serie converge. Mentre s
     \end{cases}
 \end{equation}
 
-Considerando la seguente serie, determinare il carattere tramite il metodo della radice:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\left(\frac{1}{k}\right)^k
-\end{gather*}
-La sua serie ausiliaria è:
-\begin{gather*}
-    \displaystyle\left\{\sqrt[k]{\left(\frac{1}{k}\right)^{k}}\right\}=\left\{\frac{1}{k}\right\}
-\end{gather*}
-Questa successione corrisponde alla serie armonica, e diverge quindi la serie di partenza diverge. 
-
 \subsubsection{Criterio del Rapporto}
 
 Sia una serie definitivamente monotona crescente $\sum_{k=1}^\infty a_k,\,\forall k\geq k_0$. 
@@ -445,12 +380,12 @@ Si basa sulla definizione di una successione ausiliaria. Per costruire questa su
 \begin{equation*}
     \displaystyle\left\{\frac{a_{k+1}}{a_k}\right\}
 \end{equation*}
-Si considera per ipotesi che questa successione sia regolare:
+Si considera per ipotesi che questa successione sia regolare, quindi converge a $\Lambda$
 \begin{equation*}
     \lim_{k\to\infty}\displaystyle\frac{a_{k+1}}{a_k}=\Lambda
 \end{equation*}
 
-Esistono casi dove la successione ausiliaria creata è irregolare, e quindi non è possibile utilizzare questi criteri. %% !! base55555555555555555555555555
+Esistono casi dove la successione ausiliaria creata è irregolare, e quindi non è possibile utilizzare questi criteri. 
 Analogamente al criterio precedente, in base al valore del limite la serie diverge, converge, oppure non è possibile determinarne il carattere:
 \begin{equation}
     \displaystyle\sum_{k=1}^\infty a_k:\begin{cases}
@@ -460,62 +395,42 @@ Analogamente al criterio precedente, in base al valore del limite la serie diver
     \end{cases}
 \end{equation}
 
-%% ESEMPIO
-
-Si considera la seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{2^k}{k!}
-\end{gather*}
-
-La sua serie ausiliaria è quindi:
-\begin{gather*}
-    \displaystyle\frac{\frac{2^{k+1}}{(k+1)!}}{\frac{2^k}{k!}}=
-    \frac{2^{k+1}}{(k+1)!}\cdot\frac{k!}{2^k}=\cancelto{\frac{1}{k+1}}{\frac{k!}{(k+1)!}}\cdot\cancelto{2}{\frac{2^{k+1}}{2^k}}=\frac{2}{k+1}\\
-    \lim_{k\to\infty}\frac{2}{k+1}=0
-\end{gather*}
-
-La serie quindi converge, invece se i termini della serie fossero inversi:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{k!}{2^k}
-\end{gather*}
-
 \subsubsection{Criterio dell'Integrale}
+
 Sia una serie definitivamente monotona crescente $\sum_{k=1}^\infty a_k,\,\forall k\geq k_0$. 
-Si considera la funzione associata che sostituisce $\{a_k\}\rightarrow\{f(x)\}$. La funzione associata deve essere decrescente a partire da $k_0$: $f(x)\downarrow \forall x>k_0$. Sia:
+Si considera la funzione associata che sostituisce la serie: $\{a_k\}\rightarrow\{f(x)\}$. La funzione associata deve essere decrescente a partire da $k_0$: $f(x)\downarrow \forall x>k_0$. Sia:
 \begin{equation*}
     t_n=\displaystyle\int_{k_0}^n f(x)\mathrm{d}x
 \end{equation*}
 
 Allora la successione definita su $t_n$: $\{t_n\}$ e la serie $\sum a_k$ hanno lo stesso carattere. 
-
 Si applica il criterio dell'integrale sulla serie armonica generalizzata, questa soddisfa l'ipotesi da $k_0=1$:
 \begin{gather*}
     \displaystyle\sum_{k=1}^\infty\frac{1}{k^\alpha},\,\alpha\in\mathbb{R}\\
     f(x)=\displaystyle\frac{1}{x^\alpha}
 \end{gather*}
-Se $\alpha$ fosse negativo, la funzione associata sarebbe monotona crescente, ma se fosse negativo la serie sarebbe $\sum k^{|\alpha|}$, per cui diverge. 
-Per $\alpha=0$, tutti i termini della serie sono pari ad uno, quindi il termine generico è uno e quindi la serie diverge allo stesso modo. Quindi solo per $\alpha>0$ la serie converge, e quindi solo per questo caso ha senso lo studio della serie armonica generalizzata
+Se $\alpha$ fosse negativo, la funzione associata sarebbe monotona crescente, ma la serie sarebbe $\sum k^{|\alpha|}$, per cui divergerebbe. 
+Per $\alpha=0$, tutti i termini della serie sono pari ad uno, quindi il termine generico è uno e la serie diverge allo stesso modo. Solo per $\alpha>0$ la serie converge, e quindi solo per questo caso ha senso lo studio della serie armonica generalizzata. 
 
 Nel caso $\alpha>0$ la condizione necessaria è soddisfatta, quindi la funzione potrebbe convergere. Si studia il suo carattere con il criterio dell'integrale, si ha la seguente serie ausiliaria:
 \begin{gather*}
     t_n=\displaystyle\int_{1}^n\frac{1}{x^\alpha}\mathrm{d}x=\begin{cases}
-        \bigg|\log(x)\bigg|_1^n &\alpha=1\\
+        \bigg|\ln(x)\bigg|_1^n &\alpha=1\\
         \displaystyle\frac{1}{1-\alpha}\bigg|x^{1-\alpha}\bigg|_1^n&\alpha\neq1
     \end{cases}=\begin{cases}
-        \log(n)&\alpha=1\\
+        \ln(n)&\alpha=1\\
         \displaystyle\frac{1}{1-\alpha}\left(n^{1-\alpha}-1\right)&\alpha\neq1
     \end{cases}
 \end{gather*}
 
-Per $\alpha=1$, la successione diverge, poiché il logaritmo è una funzione monotona crescente, mentre per $\alpha\neq1$:
+Per $\alpha=1$, la successione diverge, poiché il logaritmo è una funzione monotona crescente e non soddisfa la condizione necessaria di convergenza, mentre per $\alpha\neq1$:
 \begin{gather*}
     \displaystyle\frac{1}{1-\alpha}\lim_{n\to\infty}\left(n^{1-\alpha}-1\right)=\begin{cases}
         +\infty&\alpha<1\\
         \displaystyle\frac{1}{1-\alpha}&\alpha>1
     \end{cases}
 \end{gather*}
-La serie quindi diverge per $\alpha<1$, mentre converge per $\alpha>1$
-
+La serie diverge per $\alpha<1$, mentre converge per $\alpha>1$. 
 Il carattere della serie armonica generalizzata è quindi dato dal seguente:
 \begin{equation}
     \displaystyle\sum_{k=1}^\infty\frac{1}{k^\alpha}:\begin{cases}
@@ -525,200 +440,59 @@ Il carattere della serie armonica generalizzata è quindi dato dal seguente:
 \end{equation}
 
 
-Conviene applicare il criterio dell'integrale quando la funzione associata è facilmente integrabile. Considerata la seguente serie:
-\begin{equation*}
-    \displaystyle\sum_{k=1}^{\infty}\frac{\text{arctan}\, k}{1+k^2}
-\end{equation*}
-
-Per valutare il carattere di questa serie si potrebbe considerare il criterio del confronto, poiché l'arcotangente è una funzione superiormente limitata da $\pi/2$:
-\begin{gather*}
-    \displaystyle\frac{\text{arctan}\,k}{1+k^2}<\frac{\pi/2}{1+k^2}<\frac{\pi}{2k^2}
-\end{gather*}
-
-Considerando la serie maggiorante, questa è una serie armonica generalizzata con parametro $\alpha=2>1$, questa converge, quindi per il criterio del confronto converge anche la serie di partenza. 
-
-In questo caso funziona anche il criterio dell'integrale. La sua funzione associata è:
-\begin{gather*}
-    f(x)=\displaystyle\frac{\text{arctan}\, x}{1+x^2}
-\end{gather*}
-
-Si può notare come la funzione associata è il prodotto dell'arcotangente per la sua derivata, quindi l'integrale è immediato. Per utilizzare il criterio dell'integrale bisogna determinare che la funzione è monotona decrescente, si analizza quindi la sua derivata:
-\begin{gather*}
-    \displaystyle\frac{\mathrm{d}f(x)}{\mathrm{d}x}=\displaystyle\frac{\cancelto{1}{\frac{1}{1+x^2}(1+x^2)}-2x\text{arctan}\,x}{(1+x^2)^2}\\
-    1-2x\text{arctan}\,x <0
-\end{gather*}
-Il numeratore è sempre negativo per $x\in(1,\infty)$, per cui la funzione ausiliaria è monotona decrescente ed è possibile utilizzare il criterio dell'integrale:
-\begin{gather*}
-    t_k=\displaystyle\int_{1}^kf(x)\mathrm{d}x=\int_1^k\frac{\text{arctan}\,x}{1+x^2}\mathrm{d}x\\
-    u=\text{arctan}\,x\rightarrow\int_1^{\text{arctan}\,k}u \mathrm{d}u=\bigg|\frac{u^2}{2}+c\bigg|_1^{\text{arctan}\,k}=\frac{\arctan^2k}{2}-\frac{\pi^2}{8} %% TODO finire
-\end{gather*}
+Conviene applicare il criterio dell'integrale quando la funzione associata è facilmente integrabile. 
 
 \subsubsection{Criterio di Condensazione}
 
-Sia una serie di segno definitivamente positivo: $\sum_{k=1}^\infty a_k | a_k>0\,\forall k\geq k_0$. Si considera la serie monotona decrescente $a_k\downarrow$, allora la serie $\sum 2^ka_{2^k}$ ha lo stesso carattere della serie di partenza. Generalmente si applica solo nel caso dove in $a_k$ è presente un fattore logaritmo di $k$. 
-
-Si considera la serie:
-\begin{equation*}
-    \displaystyle\sum_{k=1}^\infty\frac{\ln k}{k}
-\end{equation*}
-
-Si calcola la derivata della sua funzione ausiliaria:
-\begin{gather*}
-    \displaystyle f(x)=\frac{\ln x}{x}\\
-    f'(x)=\displaystyle\frac{1-\ln x}{x^2}<0
-\end{gather*}
-Si è verificata l'ipotesi della monotonia della serie. 
-Si applica quindi il criterio di condensazione:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty \cancel{2^k}\frac{\ln 2^k}{\cancel{2^k}}
-\end{gather*}
-
-Sfruttando le proprietà del logaritmo questo diventa:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty k\cdot{\ln 2}=\ln 2\displaystyle\sum_{k=1}^\infty k
-\end{gather*}
-
-Non verificando l'ipotesi di convergenza, non può convergere. 
-
-Si considera ora la serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\frac{\ln k}{k^2}\\
-    \displaystyle f(x)=\frac{\ln x}{x^2}\\
-    f'(x)=\displaystyle\frac{x-2x\ln x}{x^4}=\frac{\cancel{x}(1-2\ln x)}{x^{\cancelto{3}{4}}}<0
-\end{gather*}
-
-Si applica il criterio di condensazione:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty \cancel{2^k}\frac{\ln 2^k}{(2^k)^{\cancel{2}}}=\ln2\sum_{k=1}^\infty\frac{k}{2^k}
-\end{gather*}
-Si studia il criterio del rapporto per poter determinarne il carattere:
-\begin{gather*}
-    \displaystyle\frac{\frac{k+1}{2^{k+1}}}{\frac{k}{2^k}}=\frac{k+1}{k}\frac{\cancel{2^k}}{2^{\cancel{k+1}}}=\frac{1}{2}\frac{k+1}{k}\\
-    \frac{1}{2}\lim_{k\to\infty}\frac{k+1}{k}=\frac{1}{2}<1
-\end{gather*}
-Poiché $a_{k+1}/a_{k}<1$ la serie converge, e quindi per il criterio di condensazione anche la serie di partenza converge.  
+Sia una serie di segno definitivamente positivo: $\sum_{k=1}^\infty a_k | a_k>0\,\forall k\geq k_0$. Si considera la serie monotona decrescente $a_k\downarrow$; allora la serie definita come:
+\begin{equation}
+    \sum_{k=1}^{\infty} 2^ka_{2^k}   
+\end{equation}
+Ha lo stesso carattere della serie di partenza. Generalmente si applica solo nel caso dove in $a_k$ è presente un fattore logaritmo di $k$. 
 
 \subsubsection{Criterio del Confronto Asintotico}
 
-In questo criterio si considerano due serie, entrambe a termini definitivamente positivi $\sum_{k=1}^\infty a_k \land \sum_{k=1}^\infty b_k | a_k>0,\,b>0\,\forall k\geq k_0$. Allora se il limite del rapporto all'infinito converge ad un numero reale non nullo, allora hanno lo stesso carattere
+In questo criterio si considerano due serie, entrambe a termini definitivamente positivi $\sum_{k=1}^\infty a_k$ e $\sum_{k=1}^\infty b_k$ con $a_k>0,\,b_k>0\,\forall k\geq k_0$. Allora se il limite del rapporto dei termini generici di queste due serie converge ad un numero reale non nullo, le due serie hanno lo stesso carattere:
 \begin{gather*}
-    \lim_{k\to\infty}\frac{a_k}{b_k}=l\in\mathbb{R}\setminus\{0\}
+    \lim_{k\to\infty}\frac{a_k}{b_k}=l\neq0\in\mathbb{R}
 \end{gather*}
-Se $l=1$ allora le due successioni, analogamente per le funzioni, si dicono asintoticamente equivalenti per $k\to\infty$: $a_k$~$b_k$. %% TODO tilde c'è?
-Spesso si userà questo simbolo generalizzandolo come due funzioni asintoticamente equivalenti a meno di una costante, poiché è di interessa solamente il carattere e non il valore effettivo esplicito di una serie. 
+Se $l=1$ allora le due successioni, analogamente per le funzioni, si dicono asintoticamente equivalenti per $k\to\infty$: $a_k\sim b_k$. 
+Spesso si userà questo simbolo generalizzandolo come due funzioni asintoticamente equivalenti a meno di una costante, poiché è di interesse solamente il carattere e non il valore effettivo di una serie. 
 Se invece il rapporto converge a zero e la serie $\sum b_k$ converge, allora anche la serie $\sum a_k$ converge, ovvero $a_k$ è un infinitesimo di ordine superiore a $b_k$. 
 Se invece il limite di questo rapporto tende ad infinito, e la serie $\sum b_k$ diverge, allora divergerà anche la serie $\sum a_k$, $b_k$ è un infinitesimo di ordine superiore di $a_k$. 
 
-Si considera la seguente serie:
+Per confrontare funzioni fattoriali si considera la formula di Stirling, afferma che un fattoriale di un numero intero si comporta al limite per $k\to\infty$ come:
 \begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k}\right)
+    \displaystyle\lim_{k\to\infty}\frac{k!}{\sqrt{2k\pi}\left(\frac{k}{e}\right)^k}=1\\
+    k!\sim\sqrt{2k\pi}\left(\frac{k}{e}\right)^k\tageq
 \end{gather*}
-È soddisfatta la condizione necessaria per la convergenza, avendo:
-\begin{gather*}
-    \displaystyle\lim_{k\to\infty}\sin\left(\frac{1}{k}\right)=0
-\end{gather*}
-
-Bisogna ora trovare una serie $\sum b_k$, tale che:
-\begin{gather*}
-    \displaystyle\lim_{k\to\infty}\frac{\sin\left(\frac{1}{k}\right)}{b_k}=l\in\mathbb{R}\setminus\{0\}
-\end{gather*}
-Per il limite notevole $\sin x/x$, questa serie è $b_k=1/k$, per cui il limite converge ad uno:
-\begin{gather*}
-    \displaystyle\lim_{k\to\infty}\frac{\sin\left(\frac{1}{k}\right)}{\frac{1}{k}}=1
-\end{gather*}
-
-Queste due serie sono asintoticamente equivalenti tra di loro:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k}\right)\sim\sum_{k=1}^\infty\frac{1}{k}
-\end{gather*}
-La serie di destra è una serie armonica e diverge, quindi diverge anche la serie di partenza. 5
-
-Data ora la seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k^2}\right)
-\end{gather*}
-
-I termini sono sempre positivi, ed è soddisfatta la condizione necessaria, la serie asintoticamente equivalente è data da:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k^2}\right)\sim\displaystyle\sum_{k=1}^\infty\frac{1}{k^2}
-\end{gather*}
-
-Questa è una serie armonia generalizzata per $\alpha=2>1$, quindi converge. Allora anche la serie di partenza converge.  
-
-
-Si considera la seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k+1}{k}\right)
-\end{gather*}
-
-La serie ha termini di segno definitivamente positivo, poiché l'argomento è certamente maggiore di uno: $k+1>k$. Si scrive in forma equivalente l'argomento per evidenziare il limite notevole:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k+1}{k}\right)=
-    \displaystyle\sum_{k=1}^\infty\ln\left(1+\frac{1}{k}\right)\sim\sum_{k=1}^\infty\frac{1}{k}
-\end{gather*}
-
-Questa serie ha lo stesso carattere di una serie armonica divergente, quindi diverge. 
-
-Si considera la seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\left(e^{1/k}-1\right)\sim\sum_{k=1}^\infty\frac{1}{k}
-\end{gather*}
-Per il limite notevole è asintoticamente equivalente ad una serie armonica divergente, quindi diverge. 
-
-Considerando ora la seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\left(e^{1/\sqrt{k}}-1\right)\sim\sum_{k=1}^\infty\frac{1}{k^{1/2}}
-\end{gather*}
-Essendo asintoticamente equivalente ad una serie armonica generalizzata divergente, diverge. 
-Per avere avere una serie convergente, deve avere come argomento almeno un $k^\alpha$, con $\alpha>1$.. 
-
-
-Si considera la seguente serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k^2+5k-2}{k^2+3}\right)
-\end{gather*}
-Sicuramente è una serie a termini positivi, si vuole quindi riscrivere l'argomento del logaritmo nella forma $1+x$:
-% !! 55555555555555555555
-% ?? 55555555555555555555555555555555555555555555558555555555555555555555555555555555555555555555555555555555555
-% todo 55555555555555555555255555555555555555525555555585555555555555555554555555555555555555555565565555565656565555555555555555555555555555
-\begin{gather*}
-    \displaystyle\frac{k^2+5k-2}{k^2+3}=1+\frac{5k-5}{k^2+3}
-\end{gather*}
-Questa serie si comporta in modo equivalente alla serie:
-\begin{gather*}
-    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k^2+5k-2}{k^2+3}\right)=
-    \displaystyle\sum_{k=1}^\infty\ln\left(1+\frac{5k-5}{k^2+3}\right)\sim\sum_{k=1}^\infty\frac{5k-5}{k^2+3}\sim\sum_{k=1}^\infty\frac{5k}{k^2}=5\sum_{k=1}^\infty\frac{\cancel{k}}{k^{\cancel{2}}}
-\end{gather*}
-Essendo asintoticamente equivalente ad una serie armonica divergente, anche essa diverge. 
 
 \subsubsection{Criterio di Leibniz}
 
-Una prima famiglia di serie a termini di segno alterni permette comunque di poter calcolare. Considerata una serie con $a_k>0\forall k>k_0$, si esprime il fattore che rende la serie alterna:
+Il criterio di Leibniz è relativo a serie numeriche con termini di segno alterno, una prima famiglia di serie a termini di segno alterno permette di calcolarne il carattere, per altre invece non può essere determinato. Considerata una serie con $a_k>0\,\forall k>k_0$, si esprime il fattore che rende la serie alterna:
 \begin{gather*}
     \displaystyle\sum_{k=1}^\infty(-1)^ka_k
 \end{gather*}
 
 Il criterio di Leibniz suppone di avere una serie del genere, siano i termini della serie decrescenti, tendenti a 0: $\{a_k\}\downarrow0$, allora la serie converge. 
 
-
-Detta $S$ la somma della serie:
+Detta $s$ la somma della serie:
 \begin{gather*}
     s=\displaystyle\sum_{k=0}^\infty(-1)^ka_k
 \end{gather*}
 
 All'aumentare di $n$, la somma $s_n$ dei primi $n$ elementi della serie, la serie oscilla sorpassando in positivo o in negativo la somma $s$, di valori sempre più piccoli, convergendo al valore $s$:
-
 %% TODO asse reale con S1, S2, ... S oscillazione
 \begin{gather*}
     |s-s_1| < |s_1-s_2|\\
     |s-s_n| \leq |s_n-s_{n-1}|=|a_n|
 \end{gather*}
 
-La somma $s_n$ si posizione al lato opposto di $s_{n-1}$ e si trova ad una posizione più vicina alla somma $s$ rispetto al precedente, quindi ha una distanza minore. 
+La somma $s_n$ si posiziona al lato opposto di $s_{n-1}$ e si trova ad una posizione più vicina alla somma $s$ rispetto al precedente, quindi ha una distanza minore. 
 
-\subsubsection{Criterio di Convergenza Assoluta}
+\subsubsection{Criterio della Convergenza Assoluta}
 
-Il criterio di Leibniz si può utilizzare solo quando le serie hanno segno alterno, mentre, per altri tipo di serie in cui il segno non è né definitivamente positivo, o negativo, e né alterno, è necessario un altro criterio per poter determinarne il carattere. 
+Il criterio di Leibniz si può utilizzare solo quando le serie hanno segno alterno, mentre, per altri tipo di serie in cui il segno non è né definitivamente positivo, o negativo, e né alterno, è necessario un altro criterio per poterne determinarne il carattere. 
 
 Un criterio generale consiste nell'analizzare il carattere della serie $|a_k|$, questa serie risultante è a termini di segno costante positivo:
 \begin{gather*}
@@ -732,9 +506,9 @@ Se la serie $\sum a_k$ converge assolutamente, allora la serie converge semplice
 \subsection{Serie di Potenze}
 
 In generale una serie di potenza viene espressa, partendo da 0 o 1, come:
-\begin{gather*}
+\begin{gather}
     \displaystyle\sum_{k=0}^\infty a_k(x-x_0)^k
-\end{gather*}
+\end{gather}
 Con $x_0\in\mathbb{R}$, si dice serie di potenze con centro in $x_0$. Le serie di potenze sono molto importanti e di facile analisi, anche se il calcolo del loro limite non è triviale. 
 
 Quando si analizzano serie di potenze si parla di intervallo di convergenza, poiché si analizza per quali valori del parametro $x$ la serie converge. Una serie geometrica è una particolare serie di potenze centrata in $x_0=0$, con $a_k=1$ per ogni valore di $k$, di cui si conosce anche la somma, per valori del parametro $x\in(-1,1)$:
@@ -746,7 +520,7 @@ Tutte le volte che si ha una serie di potenze, la prima cosa che bisogna calcola
 \begin{gather*}
     \left\{\displaystyle\left|\frac{a_k}{a_{k+1}}\right|\right\}
 \end{gather*}
-Questa serie si riferisce al criterio del rapporto, alternativamente si può usare la serie ausiliaria: %% TODO quale criterio
+Questa serie si riferisce al criterio del rapporto, alternativamente si può usare la serie ausiliaria del criterio della radice:
 \begin{gather*}
     \left\{\displaystyle\frac{1}{\sqrt[k]{a_k}}\right\}
 \end{gather*}
@@ -755,7 +529,7 @@ Bisogna dare per ipotesi che queste successioni siano regolari, per $k\to\infty$
     R=\lim_{k\to\infty}\displaystyle\left|\frac{a_k}{a_{k+1}}\right|=\lim_{k\to\infty}\frac{1}{\sqrt[k]{a_k}}=\begin{cases}
         +\infty\\
         0\\
-        \in\mathbb{R}^+
+        l\in\mathbb{R}^+
     \end{cases}
 \end{equation}
 
@@ -768,7 +542,7 @@ Sia $R$ il raggio di convergenza della serie di potenze $a_k$ con centro in $x_0
     \item Se $R\in\mathbb{R}^+$, finito positivo e diverso da zero, la serie converge assolutamente, e quindi semplicemente, in $(x_0-R, x_0+R)$. Inoltre la serie non converge nell'intervallo $(-\infty,x_0-R)$ e $(x_0+R, +\infty)$. 
 \end{enumerate}
 
-Nell'ultimo caso $R$ rappresenta il centro dell'intervallo di convergenza, se il raggio è zero, contiene solo il centro, se è infinito, contiene tutti i numeri reali. 
+$x_0$ rappresenta il centro dell'intervallo di convergenza, se il raggio è zero, contiene solo il centro, se è infinito, contiene tutti i numeri reali. 
 Per determinare il valore al limite dell'intervallo $x=x_0\pm R$, bisogna sostituire questo valore ad $x$ e studiare per via diretta il carattere della serie risultante. Per questo si distingue tra intervallo di convergenza ed insieme di convergenza, poiché potrebbero non coincidere, potrebbero comprendere gli estremi. Coincidono solo se ai valori estremi la serie non converge. 
 
 \subsubsection{Teorema della Serie Derivata e Integrale}
@@ -778,41 +552,41 @@ Sia una serie di potenze con centro $x_0$:
     \displaystyle\sum_{k=0}^\infty a_k(x-x_0)^k
 \end{gather*}
 Tale che il raggio di convergenza è un numero reale positivo, oppure diverge ad infinito: $R\in\mathbb{R}^+$ o $R=+\infty$. 
-Allora per ogni valore nell'intervallo di insieme di convergenza centrato in $x_0$: 
+Allora per ogni valore nell'intervallo di convergenza centrato in $x_0$: 
 $\forall x\in I_R(x_0)$, la funzione somma è di classe $S(x)\in C^{\infty}(I_R(x_0))$, quindi è derivabile infinite volte, e tutte le sue derivate sono funzioni continue. La derivata rispetto alla variabile $x$ della somma è:
-\begin{gather*}
+\begin{gather}
     \forall x \in I_R(x_0)\implies\displaystyle\frac{\mathrm{d}}{\mathrm{d}x}S(x)=
     \frac{\mathrm{d}}{\mathrm{d}x}\sum_{k=0}^\infty a_k(x-x_0)^k=
     \sum_{k=0}^\infty a_k\frac{\mathrm{d}}{\mathrm{d}x}(x-x_0)^k=
     \sum_{k=1}^\infty a_kk(x-x_0)^{k-1}
-\end{gather*}
+\end{gather}
 Il termine con $k=0$ è costante per cui la serie parte da $k=1$.
 Oltre a poter derivare termine a termine è possibile integrare termine a termine della funzione somma:
 \begin{gather*}
     \forall x\in I_R(x_0)\implies\displaystyle\int_{x_0}^xS(t)\mathrm{d}t=\int_{x_0}^x\sum_{k=0}^\infty a_k(t-x_0)^k\mathrm{d}t=\sum_{k=0}^\infty a_k\int_{t_0}^x(t-x_0)^k\mathrm{d}t\\
     \displaystyle\int_{x_0}^xS(t)\mathrm{d}t=
-    \sum_{k=0}^\infty a_k\frac{t-x_0}{k+1}^{k+1}
+    \sum_{k=0}^\infty a_k\frac{t-x_0}{k+1}^{k+1}\tageq
 \end{gather*}
 L'integrale della somma è uguale alla serie degli integrali, analogamente alla derivata. 
 
 \subsubsection{Espansione in Serie}
 
 Per ogni $x$ nell'intervallo $(-1,1)$ si è dimostrato per via diretta che la funzione definita in $\mathbb{R}\setminus\{1\}$: $(1-x)^{-1}$ si può esprimere come una serie di potenze con raggio di convergenza uno e centro nell'origine:
-\begin{gather}
+\begin{gather}\label{eq:1}
     \forall x\in(-1,1)\implies\displaystyle\frac{1}{1-x}=\sum_{k=0}^\infty x^k
 \end{gather}
-Si considera nell'intervallo $I_1(0)$ l'integrale di questa funzione, per il teorema appena enunciato si può esprimere come la somma di integrali, effettuando il passaggio sotto il segno dell'integrale alla sommatoria: %% TODO fix wording
+Si considera nell'intervallo $I_1(0)$ l'integrale di questa funzione, per il teorema appena enunciato si può esprimere come la somma di integrali, effettuando il passaggio sotto il segno dell'integrale alla sommatoria: 
 \begin{gather*}
     \forall x \in I_1(0)\implies\displaystyle\int_{0}^x\frac{1}{1-t}\mathrm{d}t=
     \sum_{k=0}^\infty\int_{0}^x t^k\mathrm{d}t=
     \sum_{k=0}^\infty\frac{t^{k+}1}{k+1}\bigg|_{0}^x=
     \sum_{k=0}^\infty\frac{x^{k+1}}{k+1}=\sum_{k=1}^\infty\frac{x^k}{k}
 \end{gather*}
-Calcolando l'integrale direttamente si ottiene che vale:
+Calcolando l'integrale direttamente si ottiene: 
 \begin{gather*}
     \forall x\in(-1,1)\implies\displaystyle\int_0^x\frac{1}{1-t}\mathrm{d}t=-\ln(1-x)
 \end{gather*}
-Si è scoperto che se la $x$ è contenuta in questo intervallo dato lo sviluppo in serie di una funzione si ottiene anche lo sviluppo in serie della funzione:
+Si è scoperto che se la $x$ è contenuta in questo intervallo dato lo sviluppo in serie di una funzione si ottiene anche lo sviluppo in serie dell'integrale della stessa:
 \begin{gather*}
     \forall x\in I_1(0)\implies -\ln(1-x)=\displaystyle\sum_{k=1}^\infty\frac{x^k}{k}
 \end{gather*}
@@ -827,27 +601,25 @@ Effettuando il cambio di variabile $-x=u$, l'intervallo di convergenza diventa $
     \displaystyle\sum_{k=1}^\infty(-1)^k\frac{u^k}{k}\\
     \ln(1+u)=-\displaystyle\sum_{k=1}^\infty(-1)^k\frac{u^k}{k}=
     \displaystyle\sum_{k=1}^\infty(-1)^{k+1}\frac{u^k}{k}\\
-    \forall x\in(-1,1]\implies\displaystyle\sum_{k=1}^\infty(-1)^{k+1}\frac{x^k}{k}\tageq
+    \forall x\in(-1,1]\implies\ln(1+x)=\displaystyle\sum_{k=1}^\infty(-1)^{k+1}\frac{x^k}{k}\tageq
 \end{gather*}
 
-
-%% TODO \ref alla prima eq
-Considerando la prima espansione, si effettua la sostituzione $x=-u^2$: 
+Considerando la prima espansione \ref{eq:1}, si effettua la sostituzione $x=-u^2$: 
 \begin{gather*}
     -1<x<1\\
     -1<-u^2<1\\
-    -u^2<1\,\forall n\in\mathbb{R}\implies u^2<1:\,-1<n<1\\
+    -u^2<1\,\forall u\in\mathbb{R}\implies u^2<1:\,-1<u<1\\
     u\in(-1,1)
 \end{gather*}
 
 La funzione e corrispondente serie diventa quindi:
 \begin{gather*}
-    \forall u\in(-1,1)\,\displaystyle\frac{1}{1+n^2}=\sum_{k=0}^\infty(-n^2)^k=
-    \sum_{k=0}^\infty(-1)^kn^{2k}
+    \forall u\in(-1,1)\implies\displaystyle\frac{1}{1+u^2}=\sum_{k=0}^\infty(-u^2)^k=
+    \sum_{k=0}^\infty(-1)^ku^{2k}
 \end{gather*}
 A questo punto si integra membro a membro e si scambia l'integrale sotto il segno della sommatoria:
 \begin{gather*}
-    \displaystyle\int_0^u\frac{1}{1+u^t}\mathrm{d}t=
+    \displaystyle\int_0^u\frac{1}{1+t^2}\mathrm{d}t=
     \int_0^u\sum_{k=0}^\infty(-1)^kt^{2k}\mathrm{d}t=
     \sum_{k=0}^\infty(-1)^k\int_0^ut^{2k}\mathrm{d}t=
     \sum_{k=0}^\infty(-1)^k\frac{u^{2k+1}}{2k+1}\\
@@ -855,9 +627,9 @@ A questo punto si integra membro a membro e si scambia l'integrale sotto il segn
 \end{gather*}
 
 Quindi l'arcotangente di $x$ nell'intervallo $(-1,1)$ si può esprimere come la seguente serie:
-\begin{equation*}
-    \forall x\in(-1,1)\,\arctan x=\sum_{k=0}^\infty(-1)^k\frac{x^{2k+1}}{2k+1}
-\end{equation*}
+\begin{equation}
+    \forall x\in(-1,1)\implies\arctan x=\sum_{k=0}^\infty(-1)^k\frac{x^{2k+1}}{2k+1}
+\end{equation}
 Bisogna comunque controllare se questa serie converge anche agli estremi dell'intervallo di convergenza. Per $x=1$ si ha:
 \begin{gather*}
     \displaystyle\sum_{k=0}^{\infty}\frac{(-1)^k}{2k+1}
@@ -865,7 +637,7 @@ Bisogna comunque controllare se questa serie converge anche agli estremi dell'in
 Questa serie converge per il criterio di Leibniz poiché la serie ha termini strettamente decrescenti convergenti a zero; mentre per $x=-1$ si ha:
 \begin{gather*}
     \displaystyle\sum_{k=0}^{\infty}\frac{(-1)^k(-1)^{2k+1}}{2k+1}=
-    \displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k+1}}{2k+1}
+    \displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{3k+1}}{2k+1}
 \end{gather*}
 Analogamente alla precedente vale il criterio di Leibniz quindi converge. L'identità diventa quindi:
 \begin{equation}
@@ -878,20 +650,20 @@ Questa serie venne utilizzata per calcolare il valore di pi greco, considerando 
 \end{gather*}
 Con un indice molto elevato si può ottenere un'approssimazione molto accurata del pi greco. 
 
-\subsubsection{Serie di Taylor Swift}
+\subsubsection{Serie di Taylor}
 
 Questa serie di potenze si può chiamare serie di Taylor. Data una funzione derivabile con continuità infinite volte $f\in C^\infty(I_R(x_0)) $, la sua serie di Taylor si definisce come la seguente:
 \begin{equation}
     \displaystyle\sum_{k=0}^\infty\frac{f^{(k)}(x_0)}{k!}(x-x_0)
 \end{equation}
 
-Per certe funzioni, e certi intervalli, si può estendere il grado del polinomio di Taylor fino all'infinito. 
+Per certe funzioni, e certi intervalli, si può estendere il grado del polinomio di Taylor fino all'infinito. L'espansione di Maclaurin si può ottenere dalla serie di Taylor, ponendo $x_0=0$.
 
-Il polinomio di Maclaurin della serie esponenziale è la seguente:
-\begin{gather*}
+Il polinomio di Maclaurin della funzione esponenziale è la seguente serie:
+\begin{gather}
     e^x=\displaystyle\sum_{k=0}^n\frac{x^k}{k!}+o[x^n]
-\end{gather*}
-Si può dimostrare che tendendo $n\to\infty$ la serie di Maclaurin ottenuta continua a coincidere alla serie esponenziale; si vuole ottenere lo sviluppo in serie dell'esponenziale. 
+\end{gather}
+Si può dimostrare che tendendo $n\to\infty$ la serie di Maclaurin ottenuta continua a coincidere alla serie esponenziale. Si vuole dimostrare lo sviluppo in serie dell'esponenziale. 
 Partendo dalla serie di potenze si cattura il suo raggio di convergenza:
 \begin{gather*}
     \displaystyle\sum_{k=0}^\infty\frac{x^k}{k!}\\
@@ -900,14 +672,14 @@ Partendo dalla serie di potenze si cattura il suo raggio di convergenza:
 \end{gather*}
 Essendo il raggio di convergenza infinito, la serie converge in $\mathbb{R}$:
 \begin{gather*}
-    \forall x\in\mathbb{R}\, S(x)=\displaystyle\sum_{k=0}^\infty\frac{x^k}{k!}
+    \forall x\in\mathbb{R}:\, S(x)=\displaystyle\sum_{k=0}^\infty\frac{x^k}{k!}
 \end{gather*}
-Si vuole dimostrare che la somma di questa serie $S(x)$ coincide all'esponenziale $e^x$. Si applica il teorema del passaggio della derivata sotto il segno della sommatoria:
+Si vuole dimostrare che la somma di questa serie $S(x)$ coincide all'esponenziale $e^x$. Si applica il teorema della derivata di una serie:
 \begin{gather*}
     \displaystyle\frac{\mathrm{d}}{\mathrm{d}x}S(x)=\frac{\mathrm{d}}{\mathrm{d}x}\sum_{k=0}^\infty\frac{x^k}{k!}=
-    \displaystyle\sum_{k=0}^\infty\frac{1}{k!}\frac{\mathrm{d}}{\mathrm{d}x}x^k=
+    \displaystyle\sum_{k=1}^\infty\frac{1}{k!}\frac{\mathrm{d}}{\mathrm{d}x}x^k=
     \sum_{k=1}^\infty x^{k-1}\frac{\cancel{k}}{\cancel{k}(k-1)!}=
-    \displaystyle\sum_{k=1}^\infty\frac{x^{k-1}}{(k-1)!}\\
+    \displaystyle\sum_{k=1}^\infty\frac{x^{k-1}}{(k-1)!}
 \end{gather*}
 La serie della derivata parte da $k=1$, poiché il primo addendo $a_0$ è costante e nel passaggio della derivata si annulla. 
 \begin{gather*}
@@ -915,13 +687,13 @@ La serie della derivata parte da $k=1$, poiché il primo addendo $a_0$ è costan
     \displaystyle\sum_{k=0}^\infty\frac{x^{k}}{k!}=S(x)
 \end{gather*}
 
-La derivata prima di questa funzione coincide con la funzione di partenza, a meno di una costante, per ogni $x\in\mathbb{R}$. Inoltre si ha che $S(0)=1$, questo rappresenta un problema di Cauchy:
+La derivata prima di questa funzione coincide con la funzione di partenza, a meno di una costante, per ogni $x\in\mathbb{R}$. Inoltre si ha che $S(0)=1$, questo rappresenta un problema di Cauchy, risolvendolo si ottiene la funzione $S(x)$:
 \begin{gather*}
     \begin{cases}
         S'(x)=S(x)&\forall x\in\mathbb{R}\\
         S(0)=1
     \end{cases}\\
-    \displaystyle\frac{S'(x)}{S(x)}=1\implies\int_0^x\frac{S'(t)}{S(t)}\mathrm{d}t=x\\
+    \displaystyle\frac{S'(x)}{S(x)}=1\implies\int_0^x\frac{\df S(t)}{S(t)}=x\\
     \ln|S(t)|\bigg|_0^x=x\implies \ln|S(x)|-\cancelto{0}{\ln|S(0)|}=x\\
     S(x)=e^x
 \end{gather*}
@@ -930,9 +702,9 @@ Per cui si è dimostrato che la funzione somma $S(x)$ è la funzione esponenzial
     \forall x\in\mathbb{R}\implies\,e^x=\displaystyle\sum_{k=0}^\infty\frac{x^k}{k!}
 \end{equation}
 
-Si considera l'approssimazione di Maclurin della funzione coseno:
+Si considera l'espansione di Maclaurin della funzione coseno:
 \begin{gather*}
-    \cos x=\displaystyle\sum_{k=1}^n(-1)^k\frac{x^{2k}}{(2k)!}+o[x^{2n}]
+    \cos x=\displaystyle\sum_{k=0}^n(-1)^k\frac{x^{2k}}{(2k)!}+o[x^{2n}]
 \end{gather*}
 Si effettua un procedimento analogo, partendo dalla serie, tendendola all'infinito, e ci si aspetta che $o[x^{2n}]$ tende a zero. Si dimostra che la somma di questa serie $S(x)$ non può essere altro che la funzione coseno. 
 Si determina il raggio di convergenza della serie:
@@ -942,19 +714,19 @@ Si determina il raggio di convergenza della serie:
     R=+\infty
 \end{gather*}
 
-Analogamente all'esponenziale la serie converge per ogni $x$ reale $x\in\mathbb{R}$. Si deriva membro a membro l'equazione:
+Analogamente all'esponenziale la serie converge per $\forall x\in\mathbb{R}$. Si deriva membro a membro l'equazione:
 \begin{gather*}
     S'(x)=\displaystyle\sum_{k=0}^\infty(-1)^k\frac{\mathrm{d}}{\mathrm{d}x}\frac{x^{2k}}{(2k)!}=
     \sum_{k=1}^\infty(-1)^k\frac{\cancel{2k}}{\cancel{2k}}\frac{x^{2k-1}}{(2k-1)!}
 \end{gather*}
-ANalogamente all'esponenziale il termine $a_0$ è una costante, quindi si annulla e la serie parte da $k=1$. Questa serie rappresenta, a meno del segno, lo sviluppo in serie del seno. Si deriva nuovamente membro a membro e si ottiene la seguente:
+Analogamente all'esponenziale il termine $a_0$ è una costante, quindi si annulla e la serie parte da $k=1$. Questa serie rappresenta, a meno del segno, lo sviluppo in serie del seno. Si deriva nuovamente membro a membro e si ottiene la seguente:
 \begin{gather*}
     S''(x)=\displaystyle\sum_{k=1}^\infty(-1)^k\frac{\cancel{2k-1}}{\cancel{2k-1}}\frac{x^{2k-2}}{(2k-2)!}
 \end{gather*}
-Si effettua una traslazione, per impostare il valore iniziale a $k=0$:
+Si effettua una traslazione, per impostare il valore iniziale a $k=0$, $k-1=n$:
 \begin{gather*}
     S''(x)=\displaystyle\sum_{k=1}^\infty(-1)^{k+1}\frac{x^{2k-2}}{(2k-2)!}=
-    -\sum_{k=0}^\infty(-1)^{k+1}\frac{x^{2k}}{(2k)!}=-S(x)
+    -\sum_{n=0}^\infty(-1)^{n+1}\frac{x^{2n}}{(2n)!}=-S(x)
 \end{gather*}
 La seconda derivata della funzione iniziale coincide alla funzione stessa, quindi la funzione è o un coseno o un seno, le uniche due funzioni che rispettano questa condizione. Inoltre deve soddisfare $S(0)=1$, e solo la funzione coseno rispetta questo problema di Cauchy:
 \begin{gather*}
@@ -966,15 +738,39 @@ La seconda derivata della funzione iniziale coincide alla funzione stessa, quind
 
 Quindi la funzione coseno si può esprimere nell'intero asse reale con la seguente espansione:
 \begin{equation}
-    \forall x\in\mathbb{R}\cos x=\displaystyle\sum_{k=0}^\infty (-1)^k\frac{x^{2k}}{(2k)!}
+    \forall x\in\mathbb{R}:\cos x=\displaystyle\sum_{k=0}^\infty (-1)^k\frac{x^{2k}}{(2k)!}
 \end{equation}
 
 %% TODO seno dimostrare
 
-Si può dimostrare allo stesso modo l'espansione seno sull'intero asse dei reali:
+Si può dimostrare allo stesso modo l'espansione del seno sull'intero asse dei reali, partendo dalla sua espansione di Maclaurin:
 \begin{gather*}
-    \forall x\in\mathbb{R} \sin x=\displaystyle\sum_{k=0}^\infty(-1)^k\frac{x^{2k+1}}{(2k+1)!}
+    \sin x =\sum_{k=0}^n(-1)^k\frac{x^{2k+1}}{(2k+1)!}+o[x^{2n+1}]
 \end{gather*}
+Si tende all'infinito, quindi l'infinitesimo $o[x^{2n+1}]$ tende a zero. Si considera la funzione somma della serie $S(x)$, e si determina il raggio di convergenza della serie:
+\begin{gather*}
+    S(x)=\sum_{k=0}^\infty (-1)^k\frac{x^{2k+1}}{(2k+1)!}\\
+    R=\lim_{k\to\infty}\frac{(2(k+1)+1)!}{(2k+1)!}=+\infty
+\end{gather*}
+L'intervallo di convergenza coincide all'asse dei reali $\mathbb{R}$. Si applica il teorema della derivata della serie:
+\begin{gather*}
+    S'(x)=\sum_{k=0}^\infty(-1)^{k}\frac{x^{2k}}{(2k)!}
+\end{gather*}
+Questa coincide all'espansione della funzione coseno. Si deriva nuovamente e si applica un cambio di variabile, si trasla la serie per partire da 0, $k-1=u$:
+\begin{gather*}
+    S''(x)=\sum_{k=1}^\infty(-1)^k\frac{x^{2k-1}}{(2k-1)!}=-\sum_{u=0}^\infty(-1)^{u}\frac{x^{2k+1}}{(2k+1)!}=-S(x)
+\end{gather*}
+Si esprime il problema di Cauchy:
+\begin{gather*}
+    \begin{cases}
+        S''(x)=-S(x)\\
+        S(0)=0
+    \end{cases}
+\end{gather*}
+L'unica funzione che rispetta questo problema di Cauchy è la funzione seno, quindi si è dimostrato che la funzione seno può essere espressa come la seguente serie:
+\begin{gather}
+    \forall x\in\mathbb{R} \sin x=\displaystyle\sum_{k=0}^\infty(-1)^k\frac{x^{2k+1}}{(2k+1)!}
+\end{gather}
 
 \clearpage
 

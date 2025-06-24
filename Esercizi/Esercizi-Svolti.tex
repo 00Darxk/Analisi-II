@@ -99,9 +99,259 @@ Università degli Studi ``Roma Tre"}}
 \clearpage
 \pagenumbering{arabic}
 
-%% TODO inserire date per esercizi
-
 \section{Serie Numeriche}
+
+\subsection{Condizione Necessaria di Convergenza}
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{3k^2+1}{2k^2+3}
+\end{gather*}
+Si vuole studiare il carattere della seguente serie utilizzando il primo criterio di convergenza:
+\begin{gather*}
+    \lim_{k\to\infty}\displaystyle\frac{3k^2+1}{2k^2+3}=\frac{3}{2}\neq0
+\end{gather*}
+Questa serie quindi non può converge, potrebbe quindi divergere oppure essere irregolare. 
+
+
+Considerando la serie dell'esempio precedente, con la condizione necessaria di convergenza si è confermato che la serie non converge, analizzando i segni della serie si ha:
+\begin{gather*}
+    3k^2+1>0\,\land\,2k^2+3>0\implies\displaystyle\frac{3k^2+1}{2k^2+3}>0
+\end{gather*}
+
+Quindi la serie è composta da termini definitivamente positivi, quindi la serie non può essere irregolare. Questa serie allora diverge ad infinito positivo. 
+
+\subsection{Criterio del Confronto}
+
+Si considera la seguente serie, bisogna analizzarne il comportamento, tramite il criterio del confronto:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{|\sin k|}{2^k}
+\end{gather*}
+Si considera il modulo per avere termini definitivamente positivi, allora il termine generico della serie sarà maggiorato dal termine generico:
+\begin{gather*}
+    \displaystyle\frac{|\sin k|}{2^k}<\frac{1}{2^k},\,\forall k\in\mathbb{N}
+\end{gather*}
+È certamente diverso dal termine generico, poiché $k$ non può essere un multiplo di $\pi$. 
+La serie maggiorante corrisponde ad una serie geometrica di ragione $1/2$, e converge poiché la ragione è di modulo minore di uno, quindi converge anche la serie minorante. 
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{2+\cos k}{k}
+\end{gather*}
+Si può esprimere una serie maggiorante e minorante di questa serie:
+\begin{gather*}
+    \displaystyle\frac{1}{k}<\frac{2+\cos k}{k}<\frac{3}{k}
+\end{gather*}
+
+La serie minorante è una serie armonica, si dimostrerà che diverge a più infinito:
+\begin{equation*}
+    \displaystyle\sum_{k=1}^\infty\frac{1}{k}=+\infty
+\end{equation*}
+Mentre la serie armonica generalizzata, per $\alpha\in\mathbb{R}$ diverge solo per certi valori di $\alpha$:
+\begin{equation*}
+    \displaystyle\sum_{k=1}^\infty\frac{1}{k^\alpha}
+\end{equation*}
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{|\cos k|}{k}
+\end{gather*}
+La serie maggiorante rappresenta la serie armonica descritta precedentemente, per cui non è possibile utilizzare il criterio del confronto. Non è possibile stabilire il carattere della serie utilizzando questo criterio. 
+
+\subsection{Criterio della Radice}
+
+Considerando la seguente serie, determinare il carattere tramite il metodo della radice:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\left(\frac{1}{k}\right)^k
+\end{gather*}
+La sua serie ausiliaria è:
+\begin{gather*}
+    \displaystyle\left\{\sqrt[k]{\left(\frac{1}{k}\right)^{k}}\right\}=\left\{\frac{1}{k}\right\}
+\end{gather*}
+Questa successione corrisponde alla serie armonica, e diverge quindi la serie di partenza diverge. 
+
+\subsection{Criterio del Rapporto}
+
+Si considera la seguente serie, determinarne il carattere mediante il criterio dell rapporto:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{2^k}{k!}
+\end{gather*}
+
+La sua serie ausiliaria è quindi:
+\begin{gather*}
+    \displaystyle\frac{\frac{2^{k+1}}{(k+1)!}}{\frac{2^k}{k!}}=
+    \frac{2^{k+1}}{(k+1)!}\cdot\frac{k!}{2^k}=\cancelto{\frac{1}{k+1}}{\frac{k!}{(k+1)!}}\cdot\cancelto{2}{\frac{2^{k+1}}{2^k}}=\frac{2}{k+1}\\
+    \lim_{k\to\infty}\frac{2}{k+1}=0
+\end{gather*}
+
+La serie quindi converge, invece se i termini della serie fossero inversi:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{k!}{2^k}
+\end{gather*}
+
+\subsection{Criterio dell'Integrale}
+
+Considerata la seguente serie, determinare il suo carattere usando il criterio dell'integrale:
+\begin{equation*}
+    \displaystyle\sum_{k=1}^{\infty}\frac{\text{arctan}\, k}{1+k^2}
+\end{equation*}
+
+Per valutare il carattere di questa serie si potrebbe considerare il criterio del confronto, poiché l'arcotangente è una funzione superiormente limitata da $\pi/2$:
+\begin{gather*}
+    \displaystyle\frac{\text{arctan}\,k}{1+k^2}<\frac{\pi/2}{1+k^2}<\frac{\pi}{2k^2}
+\end{gather*}
+
+Considerando la serie maggiorante, questa è una serie armonica generalizzata con parametro $\alpha=2>1$, questa converge, quindi per il criterio del confronto converge anche la serie di partenza. 
+
+In questo caso funziona anche il criterio dell'integrale. La sua funzione associata è:
+\begin{gather*}
+    f(x)=\displaystyle\frac{\text{arctan}\, x}{1+x^2}
+\end{gather*}
+
+Si può notare come la funzione associata è il prodotto dell'arcotangente per la sua derivata, quindi l'integrale è immediato. Per utilizzare il criterio dell'integrale bisogna determinare che la funzione è monotona decrescente, si analizza quindi la sua derivata:
+\begin{gather*}
+    \displaystyle\frac{\mathrm{d}f(x)}{\mathrm{d}x}=\displaystyle\frac{\cancelto{1}{\frac{1}{1+x^2}(1+x^2)}-2x\text{arctan}\,x}{(1+x^2)^2}\\
+    1-2x\text{arctan}\,x <0
+\end{gather*}
+Il numeratore è sempre negativo per $x\in(1,\infty)$, per cui la funzione ausiliaria è monotona decrescente ed è possibile utilizzare il criterio dell'integrale:
+\begin{gather*}
+    t_k=\displaystyle\int_{1}^kf(x)\mathrm{d}x=\int_1^k\frac{\text{arctan}\,x}{1+x^2}\mathrm{d}x\\
+    u=\text{arctan}\,x\rightarrow\int_{\pi/4}^{\text{arctan}\,k}u \mathrm{d}u=\bigg|\frac{u^2}{2}+c\bigg|_{\pi/4}^{\text{arctan}\,k}=\frac{\arctan^2k}{2}-\frac{\pi^2}{32}
+\end{gather*}
+La serie ausiliaria è data da:
+\begin{gather*}
+    \sum_{k=0}^{\infty}\frac{\arctan^2k}{2}-\frac{\pi^2}{32}
+\end{gather*}
+
+%% TODO finire
+
+\subsection{Criterio di Condensazione}
+
+Si considera la serie:
+\begin{equation*}
+    \displaystyle\sum_{k=1}^\infty\frac{\ln k}{k}
+\end{equation*}
+
+Si calcola la derivata della sua funzione ausiliaria per determinare se è possibile applicare il criterio di condensazione:
+\begin{gather*}
+    \displaystyle f(x)=\frac{\ln x}{x}\\
+    f'(x)=\displaystyle\frac{1-\ln x}{x^2}<0
+\end{gather*}
+Si è verificata l'ipotesi della monotonia della serie. 
+Si applica quindi il criterio di condensazione:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty \cancel{2^k}\frac{\ln 2^k}{\cancel{2^k}}
+\end{gather*}
+
+Sfruttando le proprietà del logaritmo questo diventa:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty k\cdot{\ln 2}=\ln 2\displaystyle\sum_{k=1}^\infty k
+\end{gather*}
+
+Non verificando l'ipotesi di convergenza, non può convergere. 
+
+Si considera ora la serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\frac{\ln k}{k^2}\\
+    \displaystyle f(x)=\frac{\ln x}{x^2}\\
+    f'(x)=\displaystyle\frac{x-2x\ln x}{x^4}=\frac{\cancel{x}(1-2\ln x)}{x^{\cancelto{3}{4}}}<0
+\end{gather*}
+
+Si applica il criterio di condensazione:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty \cancel{2^k}\frac{\ln 2^k}{(2^k)^{\cancel{2}}}=\ln2\sum_{k=1}^\infty\frac{k}{2^k}
+\end{gather*}
+Si studia il criterio del rapporto per poter determinarne il carattere:
+\begin{gather*}
+    \displaystyle\frac{\frac{k+1}{2^{k+1}}}{\frac{k}{2^k}}=\frac{k+1}{k}\frac{\cancel{2^k}}{2^{\cancel{k+1}}}=\frac{1}{2}\frac{k+1}{k}\\
+    \frac{1}{2}\lim_{k\to\infty}\frac{k+1}{k}=\frac{1}{2}<1
+\end{gather*}
+Poiché $a_{k+1}/a_{k}<1$ la serie converge, e quindi per il criterio di condensazione anche la serie di partenza converge.  
+
+\subsection{Criterio di Confronto Asintotica}
+
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k}\right)
+\end{gather*}
+È soddisfatta la condizione necessaria per la convergenza, avendo:
+\begin{gather*}
+    \displaystyle\lim_{k\to\infty}\sin\left(\frac{1}{k}\right)=0
+\end{gather*}
+
+Bisogna ora trovare una serie $\sum b_k$, tale che:
+\begin{gather*}
+    \displaystyle\lim_{k\to\infty}\frac{\sin\left(\frac{1}{k}\right)}{b_k}=l\in\mathbb{R}\setminus\{0\}
+\end{gather*}
+Per il limite notevole $\sin x/x$, questa serie è $b_k=1/k$, per cui il limite converge ad uno:
+\begin{gather*}
+    \displaystyle\lim_{k\to\infty}\frac{\sin\left(\frac{1}{k}\right)}{\frac{1}{k}}=1
+\end{gather*}
+
+Queste due serie sono asintoticamente equivalenti tra di loro:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k}\right)\sim\sum_{k=1}^\infty\frac{1}{k}
+\end{gather*}
+La serie di destra è una serie armonica e diverge, quindi diverge anche la serie di partenza. 
+
+Data ora la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k^2}\right)
+\end{gather*}
+
+I termini sono sempre positivi, ed è soddisfatta la condizione necessaria, la serie asintoticamente equivalente è data da:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\sin\left(\frac{1}{k^2}\right)\sim\displaystyle\sum_{k=1}^\infty\frac{1}{k^2}
+\end{gather*}
+
+Questa è una serie armonia generalizzata per $\alpha=2>1$, quindi converge. Allora anche la serie di partenza converge.  
+
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k+1}{k}\right)
+\end{gather*}
+
+La serie ha termini di segno definitivamente positivo, poiché l'argomento è certamente maggiore di uno: $k+1>k$. Si scrive in forma equivalente l'argomento per evidenziare il limite notevole:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k+1}{k}\right)=
+    \displaystyle\sum_{k=1}^\infty\ln\left(1+\frac{1}{k}\right)\sim\sum_{k=1}^\infty\frac{1}{k}
+\end{gather*}
+Questa serie ha lo stesso carattere di una serie armonica divergente, quindi diverge. 
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\left(e^{1/k}-1\right)\sim\sum_{k=1}^\infty\frac{1}{k}
+\end{gather*}
+Per il limite notevole è asintoticamente equivalente ad una serie armonica divergente, quindi diverge. 
+
+Considerando ora la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\left(e^{1/\sqrt{k}}-1\right)\sim\sum_{k=1}^\infty\frac{1}{k^{1/2}}
+\end{gather*}
+Essendo asintoticamente equivalente ad una serie armonica generalizzata divergente, diverge. 
+Per avere una serie convergente, deve avere come argomento almeno un $k^\alpha$, con $\alpha>1$. 
+
+
+Si considera la seguente serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k^2+5k-2}{k^2+3}\right)
+\end{gather*}
+Sicuramente è una serie a termini positivi, si vuole quindi riscrivere l'argomento del logaritmo nella forma $1+x$:
+\begin{gather*}
+    \displaystyle\frac{k^2+5k-2}{k^2+3}=1+\frac{5k-5}{k^2+3}
+\end{gather*}
+Questa serie si comporta in modo equivalente alla serie:
+\begin{gather*}
+    \displaystyle\sum_{k=1}^\infty\ln\left(\frac{k^2+5k-2}{k^2+3}\right)=
+    \displaystyle\sum_{k=1}^\infty\ln\left(1+\frac{5k-5}{k^2+3}\right)\sim\sum_{k=1}^\infty\frac{5k-5}{k^2+3}\sim\sum_{k=1}^\infty\frac{5k}{k^2}=5\sum_{k=1}^\infty\frac{\cancel{k}}{k^{\cancel{2}}}
+\end{gather*}
+Essendo asintoticamente equivalente ad una serie armonica divergente, anche essa diverge. 
+
+\subsection{Esercizi}
+
+%% TODO altre sezioni per i criteri
 
 Studiare il carattere della serie numerica:
 \begin{gather*}
@@ -205,16 +455,6 @@ Si applica il criterio del rapporto:
     \lim_{k\to\infty}\frac{2}{3}\left(\frac{k+1}{k}\right)^2=\frac{2}{3}<1
 \end{gather*}
 Essendo il limite minore di uno, la serie converge. 
-
-%% TODO SEGNARE EQUAZIONE
-
-La formula di Stirling afferma che un fattoriale di un numero intero si comporta al limite per $k\to\infty$ come:
-\begin{gather*}
-    \displaystyle\lim_{k\to\infty}\frac{k!}{\sqrt{2k\pi}\left(\frac{k}{e}\right)^k}=1\\
-    k!\sim\sqrt{2k\pi}\left(\frac{k}{e}\right)^k\tageq
-\end{gather*}
-
-
 
 Studiare il carattere della seguente serie:
 \begin{gather*}
