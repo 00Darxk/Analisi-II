@@ -105,8 +105,6 @@ Università degli Studi ``Roma Tre"}}
 
 \section{Serie Numerica}
 
-%% TODO aggiungere commento a qualche sezione Si vuole approssimare funzioni come la somma di una serie parametriche rispetto ad una fattore $x$, che diventerà la variabile indipendente della funzione. Una funzione algebrica si può rappresentare come una certa serie, dimostrato nel caso di una serie telescopica e geometrica. Per serie di segno definitivamente positivo è possibile rappresentarle in forma esplicita, mentre per serie che non rispettano questa condizione, molto probabilmente non è possibile, quindi non è possibile ottenere una rappresentazione algebrica di queste. 
-
 Una serie numerica $\{a_n\}$ è una \textit{particolare} successione numerica; 
 è una particolare funzione che ha come dominio l'insieme dei numeri naturali $\mathbb{N}$ e come codominio un sottoinsieme $\mathbb{C}$ dell'asse dei numeri reali $\mathbb{R}$. 
 \begin{equation}
@@ -571,6 +569,8 @@ L'integrale della somma è uguale alla serie degli integrali, analogamente alla 
 
 \subsubsection{Espansione in Serie}
 
+Si vogliono approssimare funzioni come la somma di una serie parametriche rispetto ad una fattore $x$, che diventerà la variabile indipendente della funzione. Una funzione algebrica si può rappresentare come una certa serie, dimostrato nel caso di una serie telescopica e geometrica. Per serie di segno definitivamente positivo è possibile rappresentarle in forma esplicita, mentre per serie che non rispettano questa condizione, molto probabilmente non è possibile, quindi non è possibile ottenere una rappresentazione algebrica di queste. 
+
 Per ogni $x$ nell'intervallo $(-1,1)$ si è dimostrato per via diretta che la funzione definita in $\mathbb{R}\setminus\{1\}$: $(1-x)^{-1}$ si può esprimere come una serie di potenze con raggio di convergenza uno e centro nell'origine:
 \begin{gather}\label{eq:1}
     \forall x\in(-1,1)\implies\displaystyle\frac{1}{1-x}=\sum_{k=0}^\infty x^k
@@ -741,8 +741,6 @@ Quindi la funzione coseno si può esprimere nell'intero asse reale con la seguen
     \forall x\in\mathbb{R}:\cos x=\displaystyle\sum_{k=0}^\infty (-1)^k\frac{x^{2k}}{(2k)!}
 \end{equation}
 
-%% TODO seno dimostrare
-
 Si può dimostrare allo stesso modo l'espansione del seno sull'intero asse dei reali, partendo dalla sua espansione di Maclaurin:
 \begin{gather*}
     \sin x =\sum_{k=0}^n(-1)^k\frac{x^{2k+1}}{(2k+1)!}+o[x^{2n+1}]
@@ -758,7 +756,7 @@ L'intervallo di convergenza coincide all'asse dei reali $\mathbb{R}$. Si applica
 \end{gather*}
 Questa coincide all'espansione della funzione coseno. Si deriva nuovamente e si applica un cambio di variabile, si trasla la serie per partire da 0, $k-1=u$:
 \begin{gather*}
-    S''(x)=\sum_{k=1}^\infty(-1)^k\frac{x^{2k-1}}{(2k-1)!}=-\sum_{u=0}^\infty(-1)^{u}\frac{x^{2k+1}}{(2k+1)!}=-S(x)
+    S''(x)=\sum_{k=1}^\infty(-1)^k\frac{x^{2k-1}}{(2k-1)!}=-\sum_{u=0}^\infty(-1)^{u}\frac{x^{2u+1}}{(2u+1)!}=-S(x)
 \end{gather*}
 Si esprime il problema di Cauchy:
 \begin{gather*}
@@ -769,22 +767,21 @@ Si esprime il problema di Cauchy:
 \end{gather*}
 L'unica funzione che rispetta questo problema di Cauchy è la funzione seno, quindi si è dimostrato che la funzione seno può essere espressa come la seguente serie:
 \begin{gather}
-    \forall x\in\mathbb{R} \sin x=\displaystyle\sum_{k=0}^\infty(-1)^k\frac{x^{2k+1}}{(2k+1)!}
+    \forall x\in\mathbb{R}:\sin x=\displaystyle\sum_{k=0}^\infty(-1)^k\frac{x^{2k+1}}{(2k+1)!}
 \end{gather}
 
 \clearpage
 
-\section{Serie di Fourier}
+\section{Integrali Impropri e Serie di Fourier}
 
-Prima di trattare la serie di Fourier, un altro metodo per esprimere funzioni tramite serie, oltre la serie di Taylor, necessita di conoscere gli integrali impropri. 
+Prima di trattare la serie di Fourier, un altro metodo per esprimere funzioni tramite serie, oltre la serie di Taylor, è necessario conoscere gli integrali impropri. 
 
-\subsection{Integrali Impropri}
+\subsection{Integrali Impropri di Seconda Specie}
 
-L'unica ipotesi per cui si definisce un integrale proprio su intervallo $[a,b]$ di una funzione $f$ è che sia continua nell'intervallo. Si dimostra che l'integrale:
+L'unica ipotesi per cui si definisce un integrale proprio su intervallo $[a,b]$ di una funzione $f$ è che sia continua nell'intervallo. Si dimostra che l'integrale è definito:
 \begin{gather*}
     \displaystyle\int_a^b f(x)\mathrm{d}x
 \end{gather*}
-È definito. 
 
 Si vuole allentare l'ipotesi per considerare intervalli con una o più discontinuità. Sia una funzione $f$ continua e limitata in $[a,b)$, 
 Per definire in termini più generali il concetto di integrale, con un punto di non continuità, si considera un intorno infinitesimo di $b$, ed agli estremi di questo interno $b-\varepsilon$, la funzione è continua: $[a,b-\varepsilon]$. In questo modo si rimuove la singolarità e si può definire l'integrale come:
@@ -792,56 +789,36 @@ Per definire in termini più generali il concetto di integrale, con un punto di 
     \displaystyle\int_a^{b-\varepsilon}f(x)\mathrm{d}x
 \end{gather*}
 Ottenuta una funzione in termini di $\varepsilon$, si calcola il valore del limite per $\varepsilon\to0^+$, sotto queste ipotesi si dimostra che questo limite esiste ed è finito:
-\begin{gather*}
+\begin{gather}
     \lim_{\varepsilon\to0^+}\displaystyle\int_a^{b-\varepsilon}f(x)\mathrm{d}x=\int_a^bf(x)\mathrm{d}x
-\end{gather*}
+\end{gather}
 Si poteva scegliere come punto di discontinuità $a$ oppure un punto intermedio, si può sempre utilizzare la proprietà di additività degli integrali. 
 Si allenta ulteriormente l'ipotesi, si suppone che la funzione $f$ sia continua ed illimitata nell'intervallo $[a,b)$.  
 
-Analogamente si toglie l'intorno sinistro di $b$, e si forma un'intervallo dove la funzione è continua $[a, b-\varepsilon]$, si calcola in seguito l'integrale in funzione di $\varepsilon$ in questo intervallo. Per ottenere il valore dell'integrale sull'intervallo $[a,b]$ si calcola il valore del limite per $\varepsilon\to0$. 
-Rinunciando all'ipotesi di limitatezza, non è più garantito che l'integrale sia definito, potrebbe esistere finito, infinito o irregolare:
-\begin{gather*}
+Analogamente si toglie l'intorno sinistro di $b$, e si forma un'intervallo dove la funzione è continua $[a, b-\varepsilon]$, si calcola in seguito l'integrale in funzione di $\varepsilon$ in questo intervallo. Per ottenere il valore dell'integrale sull'intervallo $[a,b]$ si calcola il valore del limite per $\varepsilon\to0^+$. 
+Rinunciando all'ipotesi di limitatezza, non è più garantito che l'integrale sia definito, potrebbe esistere finito o infinito, oppure irregolare:
+\begin{gather}
     \lim_{\varepsilon\to0^+}\displaystyle\int_a^{b-\varepsilon}f(x)\mathrm{d}x=
     \begin{cases}
-        l\in\mathbb{R} &l=\displaystyle\int_a^bf(x)\mathrm{d}x\\
-        \pm\infty&\\
-        \nexists&
+        l=\displaystyle\int_a^bf(x)\mathrm{d}x\in\mathbb{R}\\
+        \pm\infty\\
+        \nexists
     \end{cases}
-\end{gather*}
-Nel primo caso l'integrale è convergente al valore $l$, la funzione $f$ si dice integrabile in senso improprio nell'intervallo $[a,b]$ oppure in senso equivalente l'integrale improprio della funzione $f$ è convergente. Questo integrale si dice integrale improprio della seconda specie. Nel secondo caso è divertente ad infinito, la funzione non è integrabile nel senso improprio, l'integrale improprio di seconda specie diverge. Nell'ultimo caso l'integrale oscilla ed il limite non esiste, l'integrale improprio di seconda specie è irregolare. 
+\end{gather}
+Nel primo caso l'integrale è convergente al valore $l$, la funzione $f$ si dice integrabile in senso improprio nell'intervallo $[a,b]$; oppure in senso equivalente, l'integrale improprio della funzione $f$ è convergente. Questo integrale si dice integrale improprio della seconda specie. Nel secondo caso è divergente ad infinito, la funzione non è integrabile in senso improprio, l'integrale improprio di seconda specie diverge. Nell'ultimo caso l'integrale oscilla ed il limite non esiste, l'integrale improprio di seconda specie è irregolare. 
 
-%% ESEMPIO
+Segue il seguente teorema:
+\begin{quotation}
+    Sia $f$ una funzione continua ed illimitata in $[a,b)$, inoltre sia $f(x)\geq0$, o $\leq0$, nell'intorno sinistro del punto singolare $(b-\varepsilon, b)$. Allora l'integrale improprio di seconda specie su $f(x)$ in questo intervallo è regolare. 
+\end{quotation}
 
-Calcolare questo integrale:
-\begin{gather*}
-    \displaystyle\int_0^1\frac{1}{\sqrt{1-x^2}}\mathrm{d}x
-\end{gather*}
-Per prima cosa bisogna categorizzare l'integrale, presenta una singolarità di seconda specie nel punto $x=1$. La funzione integranda è una funzione continua ed illimitata nell'intervallo $[0,1)$. 
-Si rimuove la singolarità e si calcola il suo limite:
-\begin{gather*}
-    \lim_{\varepsilon\to0^+}\displaystyle\int_a^{1-\varepsilon}\frac{1}{\sqrt{1-x^2}}\mathrm{d}x=\lim_{\varepsilon\to0^+}\left\{\arcsin x\bigg|_0^{1-\varepsilon}\right\}=\lim_{\varepsilon\to0^+}\arcsin(1-\varepsilon)=\frac{\pi}{2}
-\end{gather*}
-
-Si considera il seguente integrale:
-\begin{gather*}
-    \displaystyle\int_1^e\frac{\mathrm{d}x}{x\sqrt[3]{\ln x}}
-\end{gather*}
-La funzione integranda è illimitata nel punto $x=1$, si rimuove il suo intorno destro per rimuovere la singolarità e si calcola il limite:
-\begin{gather*}
-    \lim_{\varepsilon\to0^+}\displaystyle\int_{1+\varepsilon}^e\frac{\mathrm{d}x}{x\sqrt[3]{\ln x}}=\lim_{\varepsilon\to0^+}\int_{1+\varepsilon}^e(\ln x)^{-1/3}\mathrm{d}\left(\ln x\right)=\lim_{\varepsilon\to0^+}\left\{\frac{3}{2}\left(\ln x\right)^{2/3}\bigg|_{1+\varepsilon}^e\right\}\\
-    \displaystyle\int_1^e\frac{\mathrm{d}x}{x\sqrt[3]{\ln x}}=
-    \frac{3}{2}\lim_{\varepsilon\to0^+}\left\{1-\left(\ln 1-\varepsilon\right)^{2/3}\right\}=\frac{3}{2}
-\end{gather*}
-In questo caso converge, quindi la funzione è integrabile. 
-
+\subsubsection{Integrali Impropri Notevoli}
 
 Calcolare al variare del parametro reale $\alpha\in\mathbb{R}$ la convergenza del seguente integrale:
 \begin{gather*}
 \displaystyle\int_a^b\frac{\mathrm{d}x}{(b-x)^\alpha}    
 \end{gather*}
-Se $\alpha<0$ l'integrale converge, poiché diventa un integrale classico, se $\alpha=0$, l'integrale converge. Diventa un'integrale improprio di seconda specie per $\alpha>0$, poiché $b$ diventa un punto singolare. In un caso si applica l'a regola delle potenze, nell'altro si %% TODO add qualcosa logaritmo
-
-Per $\alpha=1$:
+Se $\alpha<0$ l'integrale converge, poiché diventa un integrale classico, se $\alpha=0$, l'integrale converge, poiché è costante. Diventa un'integrale improprio di seconda specie per $\alpha>0$, poiché $b$ diventa un punto singolare. In un caso si applica la regola delle potenze, mentre per $\alpha=1$ si ha: 
 \begin{gather*}
     \displaystyle\int_a^b\frac{\mathrm{d}x}{b-x}=
     \lim_{\varepsilon\to0^+}\displaystyle\int_a^{b-\varepsilon}\frac{\mathrm{d}x}{b-x}=
@@ -858,122 +835,80 @@ Per $\alpha\neq1$:
     -\lim_{\varepsilon\to0^+}\int_a^{b-\varepsilon}(b-x)^{-\alpha}\mathrm{d}(b-x)\\
     \displaystyle\int_a^b\frac{\mathrm{d}x}{(b-x)^\alpha}=
     -\lim_{\varepsilon\to0^+}\left\{\frac{(b-x)^{1-\alpha}}{1-\alpha}\bigg|_a^{b-\varepsilon}\right\}=
-    \frac{\lim_{\varepsilon\to0^+}\left\{\varepsilon^{1-\alpha}-(b-a)^{1-\varepsilon}\right\}}{\alpha-1}\\
+    \frac{\lim_{\varepsilon\to0^+}\left\{\varepsilon^{1-\alpha}-(b-a)^{1-\alpha}\right\}}{\alpha-1}\\
     \lim_{\varepsilon\to0^+}\varepsilon^{1-\alpha}=\begin{cases}
         0&1-\alpha>0\\
         +\infty&1-\alpha<0
     \end{cases}\\
     \displaystyle\int_a^b\frac{\mathrm{d}x}{(b-x)^\alpha}=\begin{cases}
-        \displaystyle\frac{(b-a)^{1-\alpha}}{1-\alpha}&1-\alpha>0\\
-        -\infty&1-\alpha<0
-    \end{cases}
+        \displaystyle\frac{(b-a)^{1-\alpha}}{1-\alpha}&\alpha<1\\
+        +\infty&\alpha=1\\
+        -\infty&\alpha>1
+    \end{cases}\tageq
 \end{gather*}
 L'integrale improprio di seconda specie converge se $\alpha<1$, e diverge ad infinito se $\alpha\geq1$. 
 
-%% TODO caso analogo: 
+
 Calcolare al variare del parametro reale $\alpha\in\mathbb{R}$ la convergenza del seguente integrale:
 \begin{gather*}
-\displaystyle\int_a^b\frac{\mathrm{d}x}{(x-a)^\alpha}    
+    \displaystyle\int_a^b\frac{\mathrm{d}x}{(x-a)^\alpha}    
 \end{gather*}
-%% fine caso analogo
-
-
-\subsubsection{Teormea ??} %% TODO add nome
-
-Sia $f$ una funzione continua ed illimitata in $[a,b)$, inoltre sia $f(x)\geq0$, o $\leq0$, nell'intorno sinistro del punto singolare $(b-\varepsilon, b)$. Allora l'integrale improprio di seconda specie su $f(x)$ in questo intervallo è regolare. 
-
-\subsubsection{Teoream del Criterio del Confronto}
-
-Siano $f$ e $g$ continue e illimitate in $[a, b)$, e sia $\forall x\in(b-\varepsilon, b)$ la funzione $f$ maggiorata dalla funzione $g$: $0\leq f(x)\leq g(x)$. 
-Allora se l'integrale improprio della funzione maggiorante converge, allora converge anche l'integrale improprio della funzione minorante converge:
+Analogamente al precedente, converge per $\alpha\leq0$, mentre per $\alpha=1$ diventa:
 \begin{gather*}
-    \displaystyle\int_a^b g(x)\mathrm{d}x:\mbox{converge}\implies
-    \displaystyle\int_a^b f(x)\mathrm{d}x:\mbox{converge}
+    \lim_{\varepsilon\to0^+}\int_{a+\varepsilon}^b\frac{\df x}{x-a}=\lim_{\varepsilon\to0^+}\left\{\ln(x-a)\bigg|_{a+\varepsilon}^b\right\}=\lim_{\varepsilon\to0^+}\ln(b-a)-\ln(\varepsilon)=+\infty
 \end{gather*}
-Inoltre se l'integrale improprio della funzione minorante diverge, allora pure l'integrale improprio della funzione maggiorante diverge. 
+Quindi diverge, mentre per $\alpha\neq1$:
 \begin{gather*}
+    \lim_{\varepsilon\to0^+}\int_{a+\varepsilon}^b\frac{\mathrm{d}x}{(x-a)^\alpha}=\frac{1}{1-\alpha}\lim_{\varepsilon\to0^+}\left\{(x-a)^{1-\alpha}\bigg|_{a+\varepsilon}^b\right\}=\frac{1}{1-\alpha}\lim_{\varepsilon\to0^+}\left\{(b-a)^{1-\alpha}-\varepsilon^{1-\alpha}\right\}\\
+    \lim_{\varepsilon\to0^+}\varepsilon^{1-\alpha}=\begin{cases}
+        0&\alpha<1\\+\infty&\alpha>1
+    \end{cases}\\
+    \int_a^b\frac{\df x}{(x-a)^\alpha}=\begin{cases}
+        \displaystyle\frac{\strut(b-a)^{1-\alpha}}{\strut1-\alpha}&\alpha<1\\
+        +\infty&\alpha=1\\
+        -\infty&\alpha>1
+    \end{cases}\tageq
+\end{gather*}
+
+\subsubsection{Criterio del Confronto}
+
+Siano $f$ e $g$ due funzioni continue e illimitate in $[a, b)$, e sia $\forall x\in(b-\varepsilon, b)$ la funzione $f$ maggiorata dalla funzione $g$: $0\leq f(x)\leq g(x)$. 
+Allora se l'integrale improprio della funzione maggiorante converge, allora converge anche l'integrale improprio della funzione minorante:
+\begin{gather}
+    \displaystyle\int_a^b g(x)\mathrm{d}x=\mathbb{R}\implies
+    \displaystyle\int_a^b f(x)\mathrm{d}x=\mathbb{R}
+\end{gather}
+Inoltre se l'integrale improprio della funzione minorante diverge, allora anche l'integrale improprio della funzione maggiorante diverge. 
+\begin{gather}
     \displaystyle\int_a^b f(x)\mathrm{d}x=\pm\infty\implies
     \displaystyle\int_a^b g(x)\mathrm{d}x=\pm\infty
-\end{gather*}
+\end{gather}
 
+\subsubsection{Criterio del Confronto Asintotico}
 
-%% ESEMPIO
+Siano $f$ e $g$ continue e illimitate in $[a, b)$, e sia che $\forall x\in(b-\varepsilon, b)$ entrambe le funzioni $f(x)$ e $g(x)$ mantengano lo stesso segno: $f(x),g(x)\geq0$ o $f(x),g(x)\leq0$. 
 
-Studiare la convergenza di questo integrale improprio:
-\begin{gather*}
-    \displaystyle\int_0^1\frac{3-\sin x}{\sqrt{x}}\mathrm{d}X
-\end{gather*}
-È un integrale improprio di seconda specie, poiché in $x=0$ è presente una singolarità, ed è sempre positivo per $x\geq0$, essendo $\sin x<3$. 
-Si può maggiorare e minorare il numeratore:
-\begin{gather*}
-    2\leq3-\sin x\leq4
-\end{gather*}
-Poiché il valore massimo e minimo del seno sono $\pm1$. La funzione integranda è sicuramente maggiorabile con la funzione:
-\begin{gather*}
-    \displaystyle\frac{3-\sin x}{\sqrt{x}}\leq\frac{4}{\sqrt{x}}
-\end{gather*}
-Sicuramente questa condizione vale nell'intervallo $[0,1]$. Si calcola l'integrale improprio di seconda specie della funzione maggiorante:
-\begin{gather*}
-    \displaystyle\int_0^1\frac{\mathrm{d}x}{\sqrt{x}}:\mbox{converge}
-\end{gather*}
-Converge poiché è un integrale immediato già trattato. 
-
-
-%% ALTRO CRITERIO/TEOREMA
-
-Siano $f$ e $g$ continue e illimitate in $[a, b)$, e sia $\forall x\in(b-\varepsilon, b)$ che entrambi le funzioni $f(x)$ e $g(x)$ nell'intervallo $(b-\varepsilon, b)$ mantengano lo stesso segno: $0\leq f(x)\land0\leq g(x)$. %% TODO fix wording
-
-Allora se:
-\begin{gather*}
+Allora:
+\begin{gather}
     \lim_{x\to b^-}\frac{f(x)}{g(x)}=l\in\mathbb{R}^+\implies \int_a^b f(x)\mathrm{d}x\land\int_a^b f(x)\mathrm{d}x:\mbox{hanno lo stesso carattere}
-\end{gather*}
-Un caso particolare è che $f(x)\sim g(x)$, se questo è verificato allora gli integrali impropri di queste due funzioni hanno lo stesso carattere. Questa è una condizione parallela ed indipendente. 
+\end{gather}
+Un caso particolare è che le due funzioni siano asintoticamente equivalenti: $f(x)\sim g(x)$, se questo è verificato allora gli integrali impropri di queste due funzioni hanno lo stesso carattere. Questa è una condizione parallela ed indipendente. 
 Se invece il limite del rapporto per $x\to b^-$ è nullo ed inoltre, l'integrale sull'intervallo $[a,b)$ di $g(x)$ converge, allora converge anche l'integrale di $f(x)$:
-\begin{gather*}
+\begin{gather}
     \displaystyle\lim_{x\to b^-}\frac{f(x)}{g(x)}=0\land\int_a^bg(x)\mathrm{d}x\in\mathbb{R}\implies\int_a^bf(x)\mathrm{d}x\in\mathbb{R}
-\end{gather*}
+\end{gather}
 Invece se questo limite diverge ad infinito, e la funzione $g(x)$ non è integrabile in senso improprio, allora diverge anche l'integrale improprio della funzione $f(x)$:
-\begin{gather*}
+\begin{gather}
     \displaystyle\lim_{x\to b^-}\frac{f(x)}{g(x)}=\pm\infty\land\displaystyle\int_a^bg(x)\mathrm{d}x=\pm\infty\implies\int_a^bf(x)\mathrm{d}x=\pm\infty
-\end{gather*}
+\end{gather}
 
+\subsubsection{Criterio di Convergenza Assoluta}
 
-%% ALTRO CRITERIO/TEOREMA ?? Convergenza Assoluta?
+Sia $f$ continua e illimitata in $[a, b)$; se il modulo della funzione $|f(x)|$ è integrabile in senso improprio in $[a,b]$, allora converge anche l'integrale in senso improprio della funzione $f(x)$ in $[a,b]$. Si dice che la funzione $f(x)$ è assolutamente integrabile, se l'integrale converge in modo assoluto allora converge anche in modo semplice. 
 
-Siano $f$ continue e illimitate in $[a, b)$.  Se il modulo della funzione $|f(x)|$ è integrabile in senso improprio in $[a,b]$, allora converge anche l'integrale in senso improprio della funzione $f(x)$ in $[a,b]$. Si dice che la funzione $f(x)$ è assolutamente integrabile, se l'integrale converge in modo assoluto allora converge anche in modo semplice. 
-
-
-
-%% ESEMPIO
-
-Studiare la convergenza di questo integrale:
-\begin{gather*}
-    \displaystyle\int_0^1\frac{\sin\left(\frac{1}{x}\right)}{\sqrt[3]{x}}\mathrm{d}x
-\end{gather*}
-La funzione è continua ed illimitata in questo intervallo $(0,1]$. Questa funzione assume valori di segno diverso, e l'ampiezza dell'oscillazione aumenta per $x\to0^+$. Si valuta la convergenza della funzione di modulo per valutare eventuale convergenza assoluta:
-\begin{gather*}
-    \displaystyle\int_0^1\frac{\left|\sin\left(\frac{1}{x}\right)\right|}{\sqrt[3]{x}}\mathrm{d}x
-\end{gather*}
-Si utilizza il metodo del confronto:
-\begin{gather*}
-    \displaystyle\frac{\left|\sin\left(\frac{1}{x}\right)\right|}{\sqrt[3]{x}}\leq\frac{1}{\sqrt[3]{x}}
-\end{gather*}
-L'integrale improprio della funzione maggiorante converge, quindi anche l'integrale della funzione minorante converge. 
-%% TODO motivo: poiché $\alpha<1$. 
-
-
-%% ESERCIZIO
-
-Si considera il carattere del seguente integrale:
-\begin{gather*}
-    \displaystyle\int_0^1\frac{x^2}{\sqrt{1-x}}\mathrm{d}x
-\end{gather*}
-La funzione integranda è continua ed illimitata in $[0,1)$ ha un punto critico in $x=1$, ha segno definitivamente positivo nell'intervallo $(1-\varepsilon, 1)$. 
-
-\begin{gather*}
-    \mbox{per}x\to1^-\displaystyle\frac{x^2}{\sqrt{1-x}}\sim\frac{1}{(1-x)^{1/2}}
-\end{gather*}
-È asintoticamente equivalente ad una funzione campione $(1-x)^{-\alpha}$, essendo $\alpha<1$ la funzione converge. 
+\begin{gather}
+    \int_a^b |f(x)|\df x\in\mathbb{R}\implies\int_a^bf(x)\df x\in\mathbb{R}
+\end{gather}
 
 \subsection{Integrali Impropri di Prima Specie}
 
@@ -981,45 +916,17 @@ Sia la funzione $f$ continua in $[a,+\infty)$, allora ha senso parlare dell'inte
 \begin{gather*}
     \displaystyle\int_a^hf(x)\mathrm{d}x
 \end{gather*}
-Per $h>a$, una volta calcolato questo integrale, per ottenere il valore dell'integrale improprio sull'intero intervallo $[a,+\infty)$ si calcola il limite:
-\begin{gather*}
+Per $h>a$, una volta calcolato questo integrale, per ottenere il valore dell'integrale improprio sull'intero intervallo $[a,+\infty)$ si calcola il limite per $h\to+\infty$:
+\begin{gather}
     \lim_{h\to+\infty}\displaystyle\int_a^hf(x)\mathrm{d}x=\begin{cases}
-        \exists\displaystyle\int_a^{+\infty}f(x)\mathrm{d}x\\
+        l=\displaystyle\int_a^{+\infty}f(x)\mathrm{d}x\in\mathbb{R}\\
         \pm\infty\\
         \nexists
     \end{cases}
-\end{gather*}
+\end{gather}
 Se il limite esiste, la funzione è integrabile in modo improprio nell'intervallo $[a,+\infty)$, analogamente l'integrale improprio di prima specie della funzione $f$ converge. Altrimenti il limite può non converge, oppure può essere irregolare e non esistere. 
 
-Si determini il valore del seguente integrale improprio:
-\begin{gather*}
-    \displaystyle\int_{-\infty}^{+\infty}\frac{\df x}{1+x^2}
-    =\lim_{h\to+\infty}\int_{-h}^h\frac{1}{1+x^2}\df x
-\end{gather*}
-Essendo una funzione pari si può esprimere come:
-\begin{gather*}
-    \displaystyle\int_{-\infty}^{+\infty}\frac{\df x}{1+x^2}=
-    2\lim_{h\to+\infty}\int_0^h\frac{1}{1+x^2}\df x=
-    2\lim_{h\to+\infty}\arctan x\bigg|_0^h=\pi\in\mathbb{R}
-\end{gather*}
-
-
-Studiare la convergenza del seguente integrale:
-\begin{gather*}
-    \displaybreak\intpinf{xe^{-x}}{x}=\lim_{h\to+\infty}\int_0^hxe^{-x}\df x=-\lim_{h\to+\infty}\int_0^he\df(e^{-x})=
-    -\lim_{h\to+\infty}\left\{xe^{-x}\bigg|_0^h-\int_0^he^{-x}\df x\right\}\\
-    -\lim_{h\to+\infty}\left\{he^{-h}+e^{-x}\bigg|_0^h\right\}=
-    -\lim_{h\to+\infty}\left\{\overbrace{he^{-h}}^{\to0}+\underbrace{e^{-h}}{\to0}-1\right\}=-1
-\end{gather*}
-
-
-Studiare il seguente integrale:
-\begin{gather*}
-    \displaystyle\intab{e^2}{+\infty}{\frac{1}{x\ln^3 x}}{x}=\lim_{h\to+\infty}\int_{e^2}^{h}\frac{\df (\ln x)}{(\ln x)^3}=
-    \lim_{h\to+\infty}\int_{e^2}^h(\ln x)^{-3}\df(\ln x)=\lim_{h\to+\infty}\frac{(\ln x)^{-2}}{2}\bigg|_{e^2}^h\\
-    -\frac{1}{2}\lim_{h\to+\infty}\left\{\overbrace{\frac{1}{\ln^2 h}}^0-\frac{1}{\ln^2e^2}\right\}=\frac{1}{2}\frac{1}{4}=\frac{1}{8}
-\end{gather*}
-
+\subsubsection{Integrali Impropri Notevoli}
 
 Studiare la convergenza del seguente integrale, al variare del parametro reale $\alpha\in\mathbb{R}$, con $a>0$:
 \begin{gather*}
@@ -1031,7 +938,7 @@ Si considera il primo caso per $\alpha=1$:
 \end{gather*}
 Per $\alpha\neq1$:
 \begin{gather*}
-    \intab{a}{+\infty}{\frac{1}{x^\alpha}}{x}=\lim_{h\to\infty}\int_a^{+\infty}x^{-\alpha}\df x=\lim_{h\to\infty}\frac{x^{-\alpha+1}}{-\alpha+1}\bigg|_a^h=
+    \intab{a}{+\infty}{\frac{1}{x^\alpha}}{x}=\lim_{h\to\infty}\int_a^{h}x^{-\alpha}\df x=\lim_{h\to\infty}\frac{x^{1-\alpha}}{1-\alpha}\bigg|_a^h=
     \frac{1}{1-\alpha}\lim_{h\to\infty}\left\{h^{1-\alpha}-a^{1-\alpha}\right\}
 \end{gather*}
 Si considera per quali esponenti si ha $h$ divergente o convergente a zero:
@@ -1041,158 +948,100 @@ Si considera per quali esponenti si ha $h$ divergente o convergente a zero:
         0^+ & \alpha>1
     \end{cases}
 \end{gather*}
-Quindi l'integrale di partenza:
-\begin{gather*}
+Quindi l'integrale di partenza diventa:
+\begin{gather}
     \intab{a}{+\infty}{\frac{1}{x^\alpha}}{x}=
     \begin{cases}
         +\infty& \alpha\leq1\\
-        l\in\mathbb{R}&\alpha>1
+        \displaystyle\frac{\strut a^{1-\alpha}}{\strut\alpha-1}&\alpha>1
     \end{cases}
-\end{gather*}
+\end{gather}
 
-\subsubsection{Teorema Condizione Necessaria di Convergenza}
 
-Sia $f$ continua nell'intervallo $[a,+\infty)$ e sia l'integrale $\int_a^{+\infty}f(x)\df x$ convergente, allora:
+Si considera il seguente integrale notevole:
 \begin{gather*}
-    \lim_{x\to+\infty}f(x)=0
+    \displaystyle\int_{a}^{+\infty}\frac{\df x}{x^\alpha(\ln x)^\beta}
 \end{gather*}
+Può essere dimostrato, ma non verrà fatto, che questo converge se $\alpha>1$ e $\forall\beta\in\mathbb{R}$. Oppure converge sempre se $\alpha=1$ e $\beta>1$. Mentre l'integrale diverge a $+\infty$ se $\alpha<1$, qualunque sia $\beta$ reale: $\forall\beta\in\mathbb{R}$, oppure se $\alpha=1$ e $\beta\leq1$. 
+\begin{gather}
+    \displaystyle\int_{a}^{+\infty}\frac{\df x}{x^\alpha(\ln x)^\beta}=\begin{cases}
+        l\in\mathbb{R}&\alpha>1\land\forall\beta\in\mathbb{R}\\
+        l\in\mathbb{R}&\alpha=1\land\beta>1\\
+        +\infty&\alpha=1\land\beta\leq1\\
+        +\infty&\alpha<1\land\forall\beta\in\mathbb{R}
+    \end{cases}    
+\end{gather}
 
-\subsubsection{Teorema ??}
+\subsubsection{Condizione Necessaria di Convergenza}
 
-Sia $f$ continua nell'intervallo $[a,+\infty)$ e sia $f$ definitivamente non negativa $f(x)\geq0$ in $(\delta, +\infty)$.
+Sia $f$ continua nell'intervallo $[a,+\infty)$ e sia l'integrale improprio di prima specie su questo intervallo convergente, allora:
+\begin{gather}
+    \int_a^{+\infty}f(x)\df x\in\mathbb{R}\implies\lim_{x\to+\infty}f(x)=0
+\end{gather}
+
+\subsubsection{Teorema Regolarità dell'Integrale}
+
+Sia $f$ continua nell'intervallo $[a,+\infty)$ e sia $f$ definitivamente non negativa $f(x)\geq0$ in $(\delta, +\infty)$, dove $\delta$ è un numero reale arbitrariamente grande. 
 Allora l'integrale improprio della funzione $f(x)$ sull'intervallo $[a,+\infty)$ è regolare. 
 
 \subsubsection{Criterio del Confronto}
 
 Il criterio del confronto afferma le stesse nozioni enunciate nel criterio del confronto per integrali impropri di seconda specie. 
-Siano $f$ e $g$ due funzioni continue nello stesso intervallo illimitato superiormente $[a,+\infty)$. E sia $0\leq f(x)\leq g(x)$ definitamente. 
-%% TODO riscrivere in modo migliore
-Allora se l'integrale di $g(x)$ converge, allora converge anche l'integrale di $f(x)$, invece se l'integrale sulla funzione $f(x)$ diverge, anche l'integrale di $g(x)$ diverge. 
+Siano $f$ e $g$ due funzioni continue nello stesso intervallo illimitato superiormente $[a,+\infty)$. E sia $f$ definitivamente maggiorata da $g$: $0\leq f(x)\leq g(x)$. 
+
+Allora se l'integrale di $g(x)$ converge, allora converge anche l'integrale di $f(x)$, invece se l'integrale sulla funzione $f(x)$ diverge, anche l'integrale di $g(x)$ diverge:
+\begin{gather}
+    \int_a^{+\infty}g(x)\df x\in\mathbb{R}\implies\int_a^{+\infty}f(x)\df x\in\mathbb{R}\\
+    \int_a^{+\infty}f(x)\df x=\pm\infty\implies\int_a^{+\infty}g(x)\df x=\pm\infty
+\end{gather}
+
+\subsubsection{Criterio del Confronto Asintotico}
+
+Siano $f$ e $g$ due funzioni continue nello stesso intervallo illimitato superiormente $[a,+\infty)$. E siano definitivamente positive $f(x),\,g(x)\geq0$.
+
+Allora se il limite del rapporto tra $f$ e $g$ esiste ed è finito, gli integrali impropri di $f$ e $g$ hanno lo stesso carattere, in particolare $f(x)\sim_{+\infty} g(x)$:
+\begin{gather}
+    \lim_{x\to+\infty}\displaystyle\frac{f(x)}{g(x)}=l\in\mathbb{R}^+\implies\int_a^{+\infty}f(x)\df x\land\int_a^{+\infty}g(x)\df x:\mbox{ stesso carattere}
+\end{gather}
+
+Invece se il limite del rapporto è nullo, e l'integrale improprio della funzione $g$ converge, allora anche l'integrale improprio di $f$ converge:
+\begin{gather}
+    \lim_{x\to+\infty}\displaystyle\frac{f(x)}{g(x)}=0\land\int_a^{+\infty}g(x)\df x\in\mathbb{R}\implies\int_a^{+\infty}f(x)\df x\in\mathbb{R}
+\end{gather}
 
 
+Se il limite del rapporto diverge, e l'integrale improprio della funzione $g$ diverge, allora anche l'integrale improprio sulla funzione $f$ diverge:
+\begin{gather}
+    \lim_{x\to+\infty}\displaystyle\frac{f(x)}{g(x)}=+\infty\land\int_a^{+\infty}f(x)\df x=\pm\infty\int_a^{+\infty}g(x)\df x=\pm\infty
+\end{gather}
 
-Studiare il carattere del seguente integrale:
-\begin{gather*}
-    \displaystyle\int_1^{+\infty}\frac{2+\cos x}{x^2}\df x
-\end{gather*}
-Si può maggiorare e minorare:
-\begin{gather*}
-    \displaystyle\frac{1}{x^2}\leq\frac{2+\cos x}{x^2}\leq\frac{3}{x^2}\\
-    \displaystyle\int_1^{+\infty}\frac{3}{x^2}\df x\in\mathbb{R}
-\end{gather*}
-Quindi converge anche l'integrale di partenza. 
+\subsubsection{Criterio di Convergenza Assoluta}
 
+Sia $f$ continua in $[a,+\infty)$, allora se l'integrale improprio della funzione $|f(x)$ converge, anche l'integrale improprio senza valore assoluto converge. Questo si dice criterio di convergenza assoluta ed implica la convergenza semplice. La funzione $f$ si dice assolutamente integrabile. 
+\begin{gather}
+    \int_a^{+\infty}|f(x)|\df x\in\mathbb{R}\implies\int_a^{+\infty}f(x)\df x\in\mathbb{R}
+\end{gather}
+Un integrale può converge semplicemente in senso improprio, ma non in senso assoluto, dato che non si tratta di una condizione necessaria e sufficiente. 
 
-Studiare il carattere del seguente integrale:
-\begin{gather*}
-    \displaystyle\int_0^{+\infty}\frac{2+\cos x}{x^2}\df x
-\end{gather*}
-Questo integrale è sia di prima che seconda specie. Si divide in due integrali per studiarne il carattere separatamente:
-\begin{gather*}
-    \displaystyle\int_0^{+\infty}\frac{2+\cos x}{x^2}\df x=
-    \int_0^{1}\frac{2+\cos x}{x^2}\df x+
-    \underbrace{\int_1^{+\infty}\frac{2+\cos x}{x^2}\df x}_{\mbox{converge}}
-\end{gather*}
+\subsection{Serie di Fourier} 
 
-Per il teorema del confronto si ha:
-\begin{gather*}
-    \displaystyle\frac{1}{x^2}\leq\frac{2+\cos x}{x^2}\leq\frac{3}{x^2}\implies
-    \displaystyle\int_0^{1}\frac{3}{x^2}\df x=\infty
-\end{gather*}
-Poiché $\alpha<1$, quindi l'integrale di partenza non converge. 
-
-\subsubsection{Teorema del Confronto Asintotico}
-
-Siano $f$ e $g$ due funzioni continue nello stesso intervallo illimitato superiormente $[a,+\infty)$. E sia $f(x),\,g(x)\geq0$ definitamente.
-
-Allora se il limite:
-\begin{gather*}
-    \lim_{x\to+\infty}\displaystyle\frac{f(x)}{g(x)}=l\in\mathbb{R}^+
-\end{gather*}
-Allora gli integrali impropri di $f(x)$ e $g(x)$ hanno lo stesso carattere, in particolare $f(x)\sim g(x)$ per $x\to\infty$. 
-
-Invece se:
-\begin{gather*}
-    \lim_{x\to+\infty}\displaystyle\frac{f(x)}{g(x)}=0
-\end{gather*}
-E l'integrale impropri della funzione $g(x)$ converge, allora anche l'integrale improprio di $f(x)$ converge. 
-
-
-Se:
-\begin{gather*}
-    \lim_{x\to+\infty}\displaystyle\frac{f(x)}{g(x)}=+\infty
-\end{gather*}
-E l'integrale improprio della funzione $g(x)$ diverge, allora anche l'integrale improprio sulla funzione $f(x)$ diverge. 
-
-\subsubsection{Teorema Convergenza Assoluta}
-
-Sia $f$ continua in $[a,+\infty)$, allora se l'integrale improprio:
-\begin{gather*}
-    \displaystyle\int_a^{+\infty}|f(x)|\df x
-\end{gather*}
-Converge, anche l'integrale improprio senza valore assoluto converge. Questo si dice criterio di convergenza assoluta ed implica la convergenza semplice. La funzione $f$ si dice assolutamente integrabile. 
-
-%% TODO sin x/x^2 [1, inf) |sin x|/x^2
-%% TODO sin x/x [1, inf) |sin x|/x => conv smp, div abs
-
-\begin{gather*}
-    \displaystyle\int_{1}^{+\infty}\frac{\sin x}x\df x
-\end{gather*}
-Non potendo utilizzare i teoremi, si calcola direttamente:
-\begin{gather*}
-    \displaystyle\int_{1}^{+\infty}\frac{\sin x}x\df x=
-    \lim_{h\to\infty}\int_{1}^{h}\frac{-\df(\cos x)}x=
-    -\lim_{h\to\infty}\left\{\frac{\cos x}{x}\bigg|_1^h+\intab{1}{h}{\frac{\cos x}{x^2}}{x}\right\}\\
-    -\lim_{h\to\infty}\left\{\cancelto{0}{\frac{\cos h}{h}}-\cos1+\intab{1}{h}{\frac{\cos x}{x^2}}{x}\right\}=
-    \lim_{h\to\infty}\left\{\cos1-\intab{1}{h}{\frac{\cos x}{x^2}}{x}\right\}\\
-    \displaystyle\int_{1}^{+\infty}\frac{\sin x}x\df x=\cos1-\int_1^{+\infty}\frac{\cos x}{x^2}\df x
-\end{gather*}
-Si è trasformato l'integrale di partenza in un integrabile dove è applicabile il teorema del confronto, e si dimostra che converge. %% TODO
-
-%% TODO Dimostrare convergenza di cos x/x sullo stesso intervallo 
-
-Dimostrare che:
-\begin{gather*}
-    \displaystyle\int_1^{+\infty}\frac{|\sin x|}{x}\df x=+\infty
-\end{gather*}
-Si suppone per assurdo che questo integrale converga, la funzione è sicuramente maggiorabile da:
-\begin{gather*}
-    \sin^2x\leq|\sin x|\leq1
-\end{gather*}
-Ma per il teorema del confronto converge anche l'integrale della funzione minorante:
-\begin{gather*}
-    \displaystyle\int_{1}^{+\infty}\frac{\sin^2 x}x\df x
-\end{gather*}
-sfruttando la formula di duplicazione del coseno:
-\begin{gather*}
-    \displaystyle\int_{1}^{+\infty}\frac{\sin^2 x}x\df x=
-    \int_1^{+\infty}\frac{1-\cos2x}{2x}\df x=
-    \frac{1}{2}\int_1^{+\infty}\frac{\df x}{x}-\int_1^{+\infty}\frac{\cos(2x)}{2x}\df (2x)
-\end{gather*}
-Il secondo integrale corrisponde a quello dimostrato precedentemente, il primo è un integrale notevole che diverge, ma per ipotesi converge, quindi l'ipotesi iniziale è errata e quindi l'integrale non converge. 
-
-\subsection{Funzioni} %% TODO fix section name
-%% DEF 1
-Le serie di Fourier sono serie di funzioni utilizzate per approssimare funzioni periodiche. Una funzione $f$ definita su $D_f$ illimitato, si dice periodica di periodo $T$ se $\forall x\in D_f$ si ha:
+Le serie di Fourier sono serie di funzioni utilizzate per approssimare funzioni periodiche. 
+Una funzione $f$ definita su $D_f$ illimitato, si dice periodica di periodo $T$ se $\forall x\in D_f$ valgono le seguenti:
 \begin{enumerate}
     \item $x+kT\in D_f\,\,\forall k\in\mathbb{Z}$
     \item $f(x+kT)=f(x)$
 \end{enumerate}
-%% DEF 2
+
 Una funzione $f$ si dice continua a tratti in un intervallo limitato $I$, se $f$ è continua in $I$, tranne che in una quantità finita di punti di discontinuità di prima o terza specie. 
-
-È integrabile in $I$ ed il suo integrale esiste, è utile poiché per determinare la serie di Fourier bisognerà risolvere integrali. 
-
-%% DEF 3
-Una funzione $f$ si dice regolare a tratti in un intervallo limitato $I$, se è continua a tratti in $I$, e se ha derivata continua in $I$ tranne che nel punto di discontinuità più altri punti dove $f$ non è derivabile, in quantità finita. In tali punti esistono finiti i limiti $\lim_{x\to x_0^-}f'(x)\neq\lim_{x\to x_0^+}f'(x)$. 
-
-% punto angoloso , discontinuità a tratti
-Una funzione si dire continua o regolare a tratti in $\mathbb{R}$, se in lo è in ogni arbitrario intervallo limitato. 
+È integrabile in $I$ ed il suo integrale esiste, è utile poiché per determinare la serie di Fourier bisognerà risolvere integrali impropri su funzioni di questo tipo. 
 
 
-%% IMG serie di triangoli /\/\/\/\/\
+Una funzione $f$ si dice regolare a tratti in un intervallo limitato $I$, se è continua a tratti in $I$, e se ha derivata continua in $I$ tranne che nei punti di discontinuità più altri punti in quantità finita. In tali punti esistono finiti i limiti della derivata: $\lim_{x\to x_0^-}f'(x)\neq\lim_{x\to x_0^+}f'(x)$. 
 
-Sia $f$ una funzione continua a tratti in $\mathbb{R}$ è periodica di periodo $T$, l'integrale su un periodo $T$, $\forall a\in\mathbb{R}$, si può esprimere in maniera equivalente come:
+Una funzione si dice continua o regolare a tratti in $\mathbb{R}$, se in lo è in ogni arbitrario intervallo limitato. 
+
+
+Sia $f$ una funzione continua a tratti in $\mathbb{R}$, periodica di periodo $T$; l'integrale su un periodo $T$, $\forall a\in\mathbb{R}$, si può esprimere in maniera equivalente come:
 \begin{gather*}
     \displaystyle\intab{a}{a+T}{f(x)}{x}=
     \displaystyle\intab{0}{T}{f(x)}{x}=
@@ -1203,7 +1052,7 @@ Per semplicità si vuole considerare un intervallo simmetrico, per facilitare il
 
 La serie di Fourier di $f$ viene definita come:
 \begin{gather}
-    \displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)+b_k\sin\left(\frac{2k\pi}{T}x\right)
+    f(x)=\displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)+b_k\sin\left(\frac{2k\pi}{T}x\right)
 \end{gather}
 Dove i coefficienti $a_k$ e $b_k$ sono dati da:
 \begin{gather}
@@ -1211,28 +1060,29 @@ Dove i coefficienti $a_k$ e $b_k$ sono dati da:
     b_k=\displaystyle\frac{2}{T}\int_{-T/2}^{T/2}f(x)\sin\left(\frac{2k\pi}{T}x\right)\df x
 \end{gather}
 
-Può succedere che la funzione $f$ rispetta la simmetria, e quindi si possono semplificare queste formule. Se $f$ è pari:
+Può succedere che la funzione $f$ rispetta la simmetria, e quindi si possono semplificare queste formule. Se $f$ è pari si ha:
 \begin{gather*}
     a_k=\displaystyle\frac{4}{T}\int_{0}^{T/2}f(x)\cos\left(\frac{2k\pi}{T}x\right)\df x\\
     b_k=\displaystyle\frac{2}{T}\int_{-T/2}^{T/2}f(x)\sin\left(\frac{2k\pi}{T}x\right)\df x=0\\
-    \displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)
+    f(x)=\displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)
 \end{gather*}
 Mentre se $f$ è dispari si ha:
-
 \begin{gather*}
     a_k=\displaystyle\frac{4}{T}\int_{-T/2}^{T/2}f(x)\cos\left(\frac{2k\pi}{T}x\right)\df x=0\\
     b_k=\displaystyle\frac{4}{T}\int_{0}^{T/2}f(x)\sin\left(\frac{2k\pi}{T}x\right)\df x\\
-    \displaystyle\sum_{k=1}^\infty b_k\sin\left(\frac{2k\pi}{T}x\right)
+    f(x)=\displaystyle\sum_{k=1}^\infty b_k\sin\left(\frac{2k\pi}{T}x\right)
 \end{gather*}
 
-\subsubsection{Teorema}
 Sia $f$ regolare a tratti in $\mathbb{R}$ ed inoltre sia periodica di periodo $T$. Allora se $f$ è continua in $x_0$:
-\begin{gather*}
-    \displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)+b_k\sin\left(\frac{2k\pi}{T}x\right)=f(x_0)
-\end{gather*}
+\begin{gather}
+    f(x_0)=\displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x_0\right)+b_k\sin\left(\frac{2k\pi}{T}x_0\right)
+\end{gather}
 Se $f(x)$ non è continua in $x_0$ allora:
+\begin{gather}
+    f(x_0)=\displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x_0\right)+b_k\sin\left(\frac{2k\pi}{T}x_0\right)=\frac{f(x_0^-)+f(x_0^+)}{2}
+\end{gather}
+Dove:
 \begin{gather*}
-    \displaystyle\frac{a_0}{2}+\sum_{k=1}^\infty a_k\cos\left(\frac{2k\pi}{T}x\right)+b_k\sin\left(\frac{2k\pi}{T}x\right)=\frac{f(x_0^-)+f(x_0^+)}{2}\,\mbox{dove}\\
     f(x_0^-)=\lim_{x\to x_0^-}f(x)\\
     f(x_0^+)=\lim_{x\to x_0^+}f(x)
 \end{gather*}
