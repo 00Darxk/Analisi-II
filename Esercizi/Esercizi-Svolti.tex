@@ -1620,6 +1620,441 @@ Per arrivare alla serie iniziale si sceglie $x=\pi$:
 
 \clearpage
 
+\section{Equazioni Differenziali}
+
+\subsection{Equazioni a Variabili Separabili}
+
+Si considera la seguente equazione differenziale:
+\begin{gather*}
+    y'=y(1-y)
+\end{gather*}
+Si individuano gli integrali singolari in $y_0=0$ e $y_1=1$, si separano ora le variabili e si ottiene la seguente:
+\begin{gather*}
+    \displaystyle\frac{\df y}{y(1-y)}=\df x\\
+    \displaystyle\int \frac{\df y}{y(1-y)}=\int \df x=x+c_0
+\end{gather*}
+Si separa la funzione integranda del primo membro in fratti semplici:
+\begin{gather*}
+    \displaystyle\int\frac{\df y}{y(1-y)}=\int\frac{\df y}{y}-\int\frac{\df y}{y-1}=x+c_0\\
+    \ln|y|-\ln|y-1|+c_1=x+c_0\,\land c_2=c_0-c_1\\
+    \ln|y|-\ln|y-1|=x+c_2\\
+    \ln\left|\displaystyle\frac{y}{y-1}\right|=x+c_2
+\end{gather*}
+
+Per eliminare il logaritmo si considera entrambi i membri come l'argomento dell'esponenziale:
+\begin{gather*}
+    \displaystyle\frac{y}{y-1}=e^{c_2}e^x=c_3e^x\\
+    y=c_3e^x(y-1)=c_3ye^x-c_3e^x\\
+    y(1-c_3e^x)=-c_3e^x\implies y=-\frac{c_3e^x}{1-c_3e^x}=\frac{c_3e^x}{c_3e^x-1}
+\end{gather*}
+
+
+Si considera la seguente equazione differenziale:
+\begin{gather*}
+    y'=\displaystyle\frac{e^x+1}{e^y+1}
+\end{gather*}
+Integrali singolari corrispondono a $e^y+1=0$, ma non esistono valori reali di $y$ tali da annullare il denominatore: $\nexists y\in\mathbb{R}$. 
+Si separano le variabili:
+\begin{gather*}
+    \displaystyle\int(e^y+1)\df y=\int (e^x+1)\df x\\
+    e^y+y+c_0=e^x+x+c_1\implies e^y+y=e^x+x+c_2
+\end{gather*} 
+Anche se è invertibile, non è possibile determinare una funzione inversa della primitiva $H^{-1}(y)$, quindi si lascia la soluzione in forma implicita. 
+
+\subsection{Equazioni Differenziali Lineari del Primo Ordine}
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    y'+\displaystyle\frac{2}{x}y=\frac{2}{x^3}\\
+    x^2y'+2xy=\displaystyle\frac{\df (x^2y)}{\df x}=\frac{2}{x}\\
+    \displaystyle x^2y=\int \frac{2}{x}\df x=2\ln x + c
+\end{gather*}
+
+
+Si considera il seguente problema di Cauchy:
+\begin{gather*}
+    \begin{cases}
+        y'+5y=0\\
+        y(1)=-2
+    \end{cases}
+\end{gather*}
+Si determina il fattore integrante:
+\begin{gather*}
+    A(x)=\displaystyle\int p(x)\df x=\int5\df x=5x+c_0\\
+    \mu={A(x)}=c_1e^{5x}
+\end{gather*}
+Si moltiplica l'equazione differenziale per il fattore integrante appena trovato e si determina la derivata di partenza:
+\begin{gather*}
+    D[y\cdot c_1e^{5x}]=0
+\end{gather*}
+Poiché la derivata è nulla, la funzione è costante quindi si ha:
+\begin{gather*}
+    y\cdot c_1e^{5x}=c_2\implies y=ce^{-5x}
+\end{gather*}
+Per determinare il valore della costante $c$ si inserisce il vincolo:
+\begin{gather*}
+    y(1)=ce^{-5(1)}=-2\implies c=-2e^5\\
+    y=-2e^5e^{-5x}=-2e^{5(1-x)}
+\end{gather*}
+
+
+Considerare il seguente problema di Cauchy :
+\begin{gather*}
+    \begin{cases}
+        \displaystyle x'-\frac{x}{t+1}=3\\
+        x(0)=1 & t\in(-1,+\infty)
+    \end{cases}
+\end{gather*}
+Si determina il fattore integrante:
+\begin{gather*}
+    A(t)=\displaystyle-\int\frac{1}{t+1}\df t=-\ln(t+1)+c_0\implies e^{A(t)}=\frac{e^{c_0}}{t+1}
+\end{gather*}
+Si inserisce nell'equazione iniziale:
+\begin{gather*}
+    D\left[x\cdot\frac{e^{c_0}}{t+1}\right]=\frac{3e^{c_0}}{t+1}\\
+    \displaystyle\cancel{\int}\cancel{\df}\left(\frac{x}{t+1}\right)=\int \frac{3}{t+1}\df t=3\ln(t+1)+c_1\\
+    x=(t+1)\ln(t+1)^3+c_1(t+1)
+\end{gather*}
+
+\subsubsection{Operatore Differenziale}
+
+Risolvere questa equazione differenziale:
+\begin{gather*}
+    y'-\displaystyle\frac{1}{2}y=x^2-1\\
+    \bar{y}=ax^2+bx+c\\
+    2ax+b-\displaystyle\frac{1}{2}\left(ax^2+bx+c\right)=x^2-1
+\end{gather*}
+Per la proprietà di identità dei polinomi si ha:
+\begin{gather*}
+    \begin{cases}
+        \displaystyle-\frac{\strut 1}{\strut 2}a=1\\
+        2a-\displaystyle\frac{\strut1}{\strut2}b=0\\
+        b-\displaystyle\frac{\strut1}{\strut2}c=-1
+    \end{cases}\implies\begin{cases}
+        a=-2\\
+        -4-\displaystyle\frac{\strut1}{\strut2}b=0\implies b=-8\\
+        -8-\displaystyle\frac{\strut1}{\strut2}c=-1\implies c=-14
+    \end{cases}\\
+    \bar{y}=-2x^2-8x-14
+\end{gather*}
+La soluzione di questa equazione differenziale è quindi data dalla somma della soluzione dell'omogenea $e^{-A(x)}$ e la soluzione particolare $\bar{y}$ appena individuata:
+\begin{gather*}
+    y=c\cdot e^{-\frac{1}{2}x}-2x^2-8x-14
+\end{gather*}
+
+
+
+Considerare quest'equazione differenziale:
+\begin{gather*}
+    L[y]=y'+5y=\sin2x
+\end{gather*}
+La soluzione particolare è quindi del tipo:
+\begin{gather*}
+    \bar{y}=A\sin2x+B\cos2x\\
+    \bar{y}'=2A\cos2x-2B\sin2x\\
+    \bar{y}'+5\bar{y}=2A\cos2x-2B\sin2x+5(A\sin2x+B\cos2x)=\sin2x\\
+    \begin{cases}
+        2A+5B=0\\
+        -2B+5A=1
+    \end{cases}\implies\begin{cases}
+        A=\displaystyle-\frac{\strut5}{\strut2}B\\
+        -2B-\displaystyle\frac{\strut25}{\strut2}B=1\implies B=\displaystyle-\frac{2}{29}
+    \end{cases}\implies\begin{cases}
+        A=\displaystyle\frac{\strut5}{29}\\
+        B=\displaystyle-\frac{\strut2}{\strut29}
+    \end{cases}\\
+    \bar{y}=\displaystyle\frac{5}{29}\sin2x-\frac{2}{29}\cos2x
+\end{gather*}
+La soluzione dell'equazione differenziale è quindi:
+\begin{gather*}
+    y=c\cdot e^{-5x}+\displaystyle\frac{5}{29}\sin2x-\frac{2}{29}\cos2x
+\end{gather*}
+
+\subsection{Equazione di Bernoulli}
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    y'-2y=-e^xy^2
+\end{gather*}
+Per il metodo di Bernoulli diventa:
+\begin{gather*}
+    y^{-2}y'-2y^{-1}=-e^{x}\\
+    u=y^{-1}\implies u'=-y^{-2}y'\\
+    -u'-2u'=-e^{-x}\to u'+2u'=e^{x}
+\end{gather*}
+L'equazione omogenea ha per soluzione:
+\begin{gather*}
+    u_0=c\cdot e^{-2x}
+\end{gather*}
+La soluzione particolare è della forma:
+\begin{gather*}
+    \bar{u}=ke^{x}\to\bar{u}'=ke^x\\
+    ke^x+2ke^{x}=e^x\\
+    k=\displaystyle\frac{1}{3}\\
+    \bar{u}=\displaystyle\frac{1}{3}e^{x}
+\end{gather*}
+La soluzione dell'equazione differenziale è quindi data dalla somma tra la soluzione particolare ed omogenea:
+\begin{gather*}
+    u=c e^{-2x}+\bar{u}=c e^{-2 x}+\displaystyle\frac{1}{3}e^{x}
+\end{gather*}
+Per ottenere la soluzione in termini di $y$ si considera $u=y^{-1}$:
+\begin{gather*}
+    y=u^{-1}=\displaystyle\frac{1}{c e^{-2x}+\frac{1}{3}e^{x}}
+\end{gather*}
+
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    y'-\displaystyle\frac{y}{x}=-\frac{1}{y}
+\end{gather*}
+Questa rappresenta un'equazione di Bernoulli con $m=-1$, si pone $u=y^2$:
+\begin{gather*}
+    \frac{1}{2}u'-\frac{u}{x}=-1\\
+    u'-\frac{2u}{x}=-2
+\end{gather*}
+Si risolve rispetto ad $u$, considerando il fattore integrante:
+\begin{gather*}
+    A(x)=-\displaystyle\int\frac{2}{x}\df x=-2\ln x=\ln\frac{1}{x^2}\\
+    e^{-A(x)}=\frac{1}{x^2}
+\end{gather*}
+Si ha quindi:
+\begin{gather*}
+    \frac{u}{x^2}=\int-\frac{2}{x^2}\df x=\frac{2}{x}+c\\
+    u=2x+cx^2
+\end{gather*}
+La soluzione in termini di $y$ è quindi:
+\begin{gather*}
+    y=\pm\sqrt{2x+cx^2}
+\end{gather*}
+
+\subsection{Equazione di Manfredi}
+
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    y'=\displaystyle\frac{x-y}{x+y}
+\end{gather*}
+Applicando la sostituzione $z=y/x$, si divide tutto per $x$:
+\begin{gather*}
+    z+xz'=f(x,y)=F(z)=\displaystyle\frac{1-z}{1+z}
+\end{gather*}
+Allora si può scrivere come:
+\begin{gather*}
+    \displaystyle\frac{\df z}{\frac{1-z}{1+z}-z}=\frac{\df x}{x}\\
+    \displaystyle\frac{1+z}{1-z-z-z^2}\df z=\frac{\df x}{x}\\
+    \displaystyle\frac{1}{2}\frac{2z+2}{x^2+2z-1}\df z=\frac{1}{2}\frac{\df(z^2+2z-1)}{z^2+2z-1}=-\frac{\df x}{x}\\
+    \displaystyle\frac{1}{2}\ln|z^2+2z-1|=-\ln x+c\\
+    \displaystyle\ln|z^2+2z-1|=-\ln x^2+c
+\end{gather*}
+Elevando a potenza entrambi i membri si ottiene la seguente:
+\begin{gather*}
+    z^2+2z-1=\frac{c}{x^2}
+\end{gather*}
+Considerando la sostituzione $z=y/x$, si sostituisce e si ottiene:
+\begin{gather*}
+    \displaystyle\frac{y^2}{x^2}+2\frac{y}{x}-1=\frac{c}{x^2}\\
+    y^2+2xy-x^2=c
+\end{gather*}
+
+
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    y'=\displaystyle\frac{x^3+y^3}{xy^2}
+\end{gather*}
+Si sostituisce $z=y/x$, e si trasforma in un'equazione a variabili separabili:
+\begin{gather*}
+    \frac{\df z}{\frac{1+z^3}{z^2}-z}=\frac{\df x}{x}\\
+    \frac{z^2}{1+z^3-z^3}\df z=\ln|x|+c\\
+    \frac{z^3}{3}=\ln|x|+c\\
+    z=\sqrt[3]{3\ln|x|+c}
+\end{gather*}
+Si riporta la soluzione in termini di $y$:
+\begin{gather*}
+    y=x\cdot\sqrt[3]{3\ln|x|+c}
+\end{gather*}
+
+\subsection{Equazione di Riccati}
+
+Esempio perché non gli andava di continuare la cosa di prima:
+\begin{gather*}
+    \begin{cases}
+        y'+y^2-1=0\\
+        y(0)=-\displaystyle\frac{\strut 1}{\strut3}
+    \end{cases}\\
+    y=k=1
+\end{gather*}
+Si sostituisce $y=1+1/z$, supponendo che $y=1$ sia una soluzione:
+\begin{gather*}
+    \displaystyle-\frac{1}{z^2}z'+1+\frac{1}{z^2}+\frac{2}{z}-1=0\\
+    -z'+\cancel{z^2}+1+2z-\bcancel{z^2}=0\\
+    -z'+2z+1=0\to z'-2z=1
+\end{gather*}
+Si risolve ora quest'equazione semplificata:
+\begin{gather*}
+    A(t)=\displaystyle\int-2\df t=-2t\\
+    e^{-A(t)}=e^{2t}\implies D[ze^{2t}]=e^{2t}\\
+    \df(ze^{2t})=e^{2t}\df t\\
+    ze^{2t}=\frac{1}{2}e^{2t}+c\\
+    z=\frac{1}{2}+ce^{-2t}
+\end{gather*}
+Considerando la sostituzione iniziale, si ha:
+\begin{gather*}
+    y=1+\frac{1}{z}=1+\frac{1}{ce^{-2t}+\frac{1}{2}}
+\end{gather*}
+Si inserisce il vincolo $y(0)=-1/3$:
+\begin{gather*}
+    y(0)=1+\frac{1}{c+\frac{1}{2}}=-\frac{1}{3}\\
+    c+\frac{1}{2}+1=-\frac{1}{3}c-\frac{1}{6}\\
+    \frac{4}{3}c=-\frac{3}{2}\to c=-\frac{9}{8}
+\end{gather*}
+La soluzione a questo particolare problema di Cauchy è:
+\begin{gather*}
+    y=1+\frac{1}{\frac{1}{2}-\frac{9}{8}e^{-2t}}
+\end{gather*}
+
+\subsection{Equazioni Esatte e Fattore Integrante}
+
+Si considera un'equazione in forma esatta:
+\begin{gather*}
+    (4y^2+y-4x^2)\df x+(8xy+x)\df y=0
+\end{gather*}
+Si verifica la condizione di chiusura:
+\begin{gather*}
+    X_y=\frac{\partial}{\partial y}(4y^2+y-4x^2)=8y+1\\
+    Y_x=\frac{\partial}{\partial x}(8xy+x)=8y+1
+\end{gather*}
+La condizione di chiusura è verificata, quindi si può proseguire alla risoluzione. Dato che $\Phi_x=X$ e $\Phi_y=Y$, si possono integrare le funzioni $X$ e $Y$ rispetto ad $x$ ed a $y$ per ottenere la funzione di partenza $\Phi$:
+\begin{gather*}
+    \Phi=\int X\df x=\int(4y^2+y-4x)\df x=4xy^2+xy-\frac{4}{3}x^3+h(y)
+\end{gather*}
+La costante è una funzione in termini di $y$, poiché nella derivata parziale di $\Phi$ rispetto ad $x$, tutti i termini che non contengono la variabile $x$ sono costanti rispetto ad $x$. Per determinare il valore di queste costanti $h(y)$ effettuare la derivata parziale della primitiva ottenuta rispetto ad $y$ e confrontarla con la funzione $Y$:
+\begin{gather*}
+    \Phi_y=\frac{\partial}{\partial y}\left(4xy^2+xy-\frac{4}{3}x^3+h(y)\right)=\cancel{8xy}+\cancel{x}+h'(y)=\bcancel{8xy}+\bcancel{x}=Y\\
+    h'(y)=0\implies h(y)=c\\
+    \Phi(x,y)=4xy^2+xy-\frac{4}{3}x^3=c
+\end{gather*}
+
+
+
+Considerare la seguente equazione esatta:
+\begin{gather*}
+    2x\cos y\df x-x^2\sin y\df y=0
+\end{gather*}
+Si verifica la condizione di chiusura:
+\begin{gather*}
+    X_y=-2x\sin y=Y_x
+\end{gather*}
+Si considera $\Phi_x=X$ e si integra $X$ rispetto ad $x$:
+\begin{gather*}
+    \Phi_x=2x\cos y\\
+    \Phi=\int 2x\cos y\df x=x^2\cos y+h(y)
+\end{gather*}
+Si deriva rispetto ad $y$ e si confronta con $Y$ per determinare la funzione $h(y)$:
+\begin{gather*}
+    \frac{\partial}{\partial y}(x^2\cos y+h(y))=-\cancel{x^2\sin y}+h'(y)=-\bcancel{x^2\sin y}=Y\\
+    h'(y)=0\implies h(y)=c\\
+    \Phi(x,y)=x^2\cos y=c
+\end{gather*}
+
+
+Considerare la seguente equazione esatta:
+\begin{gather*}
+    (3x+2y)\df x+x\df y=0
+\end{gather*}
+Le due derivate parziali sono diverse:
+\begin{gather*}
+    X_y=2x\neq1=Y_x
+\end{gather*}
+Si può trasformare in un'altra equazione differenziale, equivalente moltiplicando entrambi i membri per $x$. Questa equazione intuitivamente ha le stesse soluzioni della prima equazione, ma in questo caso la condizione di chiusura è verificata:
+\begin{gather*}
+    (3x^2+2xy)\df x+x^2\df y=0\\
+    X_y=2x=Y_x
+\end{gather*}
+Si risolve questa nuova equazione che risulta esatta:
+\begin{gather*}
+    \Phi(x,y)=\int (3x^2+2xy)\df x=x^3+x^2y+h(y)\\
+    \Phi_y=\cancel{x^2}+h'(y)=\bcancel{x^2}=Y\\
+    h'(y)=0\implies h(y)=c\\
+    \Phi(x,y)=x^3+x^2y=c
+\end{gather*}
+
+
+
+Si considera la seguente equazione:
+\begin{gather*}
+    y\df x+(y-x)\df y=0\\
+    X_y=1\neq-1=Y_x
+\end{gather*}
+Non è verificata la condizione di chiusura, quindi si determina il fattore integrante rispetto ad $y$:
+\begin{gather*}
+    \mu(y)=e^{\int K(y)\df y}=e^{\int\frac{2}{-y}\df y}=e^{-2\ln y}=\frac{1}{y^2}
+\end{gather*}
+Quindi moltiplicando l'equazione di partenza per il fattore integrante $\mu$ si ha:
+\begin{gather*}
+    \frac{1}{y}\df x+\frac{y-x}{y^2}\df y=0
+\end{gather*}
+La condizione di chiusura è verificata poiché si è moltiplicato per il fattore integrante. A questo punto si determina $\Phi$, integrando $X$ rispetto alla $x$:
+\begin{gather*}
+    \Phi(x,y)=\int\frac{1}{y}\df x=\frac{x}{y}+h(y)
+\end{gather*}
+Si determina il valore della funzione $h(y)$:
+\begin{gather*}
+    Y=\frac{y-x}{y^2}=\frac{1}{y}-\cancel{\frac{x}{y^2}}=-\bcancel{\frac{x}{y^2}}+h'(y)=\Phi_y
+\end{gather*}
+La funzione $h'(y)$ non è nulla quindi si ha:
+\begin{gather*}
+    h'(y)=\frac{1}{y}\implies h(y)=\ln y
+\end{gather*}
+La soluzione è quindi:
+\begin{gather*}
+    \Phi(x,y)=\frac{x}{y}+\ln y=c
+\end{gather*}
+
+\subsection{Equazioni Differenziali Lineari del Secondo Ordine}
+
+
+Si considera un'equazione lineare omogenea:
+\begin{gather*}
+    y''+y=0\to\,y''=-y\\
+    y(0)=3\\
+    y'(0)=0
+\end{gather*}
+Una possibile soluzione è una funzione sinusoidale:
+\begin{gather*}
+    y=k\cos x\\
+    y'=-k\sin x\\
+    y''=-k\cos x
+\end{gather*}
+Per individuare la soluzione bisogna utilizzare le condizioni al contorno fornite:
+\begin{gather*}
+    y(0)=k\cos(0)=k=3\\
+    y'(0)=3\sin(0)=0
+\end{gather*}
+La soluzione individuata $y=3\cos x$ è unica. 
+
+
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    y''+2y'+y=0
+\end{gather*}
+Si considera la sua equazione caratteristica:
+\begin{gather*}
+    e^{\lambda t}(\lambda^2+2\lambda+1)=0
+\end{gather*}
+Il determinante è nullo $\Delta=0$, quindi si ha $\lambda=-1$ e le due soluzioni dell'equazione sono:
+\begin{gather*}
+    y_1=e^{-x}\\
+    y_2=xe^{-x}
+\end{gather*}
+La soluzione generale di quest'equazione è quindi del tipo:
+\begin{gather*}
+    y=c_1e^{-x}+c_2xe^{-x}
+\end{gather*}
+
+\clearpage
+
 \section{Esercizi 6/5/25}
 
 Considerare la seguente funzione:

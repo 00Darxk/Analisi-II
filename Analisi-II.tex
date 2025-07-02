@@ -103,7 +103,7 @@ Università degli Studi ``Roma Tre"}}
 \clearpage
 \pagenumbering{arabic}
 
-\section{Serie Numerica}
+\section{Serie Numeriche}
 
 Una serie numerica $\{a_n\}$ è una \textit{particolare} successione numerica; 
 è una particolare funzione che ha come dominio l'insieme dei numeri naturali $\mathbb{N}$ e come codominio un sottoinsieme $\mathbb{C}$ dell'asse dei numeri reali $\mathbb{R}$. 
@@ -1089,43 +1089,43 @@ Dove:
 
 \clearpage
 
-\section{Equazioni Differenziali} 
-%% 3/4/25
+\section{Equazioni Differenziali}
 
 Le equazioni differenziali sono un modello matematico di tipo algebrico, sono un modo di studiare un fenomeno, in genere fisico. Prima di studiare il fenomeno bisogna studiare le grandezze di questo fenomeno, ed in seguito bisogna individuare un legame per definire o possibilmente determinare l'evoluzione del fenomeno stesso. 
+Vengono usate per analizzare questi fenomeni poiché le equazioni che ne descrivono il comportamento spesso dipendono dal cambiamento stesso del fenomeno, rappresentato da termini derivati. 
 
-Un'equazione differenziale è un'equazione dove l'incognita è una funzione $y=f(x)$, continua nell'intervallo su cui è definita l'equazione, e sono presenti dei termini differenziali di $n$-esimo ordine della funzione $y$:
+Un'equazione differenziale è un'equazione dove l'incognita è una funzione $y(x)$, continua nell'intervallo su cui è definita l'equazione, e sono presenti dei termini differenziali di $n$-esimo ordine della funzione $y$ stessa:
 \begin{equation}
     f(x, y, y', \cdots, y^{(n)})=0
 \end{equation}
 La funzione e tutte le sue derivate sono tutte definite su un insieme dell'asse reale $\mathbb{R}$. 
 
-Considerando il valore generico della variabile indipendente $x$, l'equazione differenziale è una relazione tra i valori della $x$ ed i valori assunti dalla funzione incognita e le sue derivate. 
-Per ordine dell'equazione si intende ordine massimo della derivata presente nell'equazione, $n-$esimo. Se è possibile esplicitare la derivata $n-$esima dell'equazione, allora l'equazione si dice espressa in forma normale:
+Considerando il valore generico della variabile indipendente $x$, l'equazione differenziale è una relazione tra i valori della $x$ ed i valori assunti dalla funzione incognita $y$ e le sue derivate. 
+Per ordine dell'equazione si intende l'ordine massimo della derivata presente nell'equazione, $n$-esimo. Se è possibile esplicitare la derivata $n$-esima dell'equazione, allora l'equazione si dice espressa in forma normale:
 \begin{equation}
     y^{(n)}=f(x, y, y', \cdots, y^{(n-1)})
 \end{equation}
 
 Un'equazione differenziale si dice lineare se sia la funzione che le sue derivate sono elevate ad una potenza massima pari ad uno, e non sono presenti termini misti. 
 
+%% TODO informazione inutile ??
+% Si considera un'equazione differenziale ordinaria di primo ordine $y'=f(x,y)$, si possono rappresentare sul piano le coppie di questa funzione $(\bar{x},\bar{y})$, e la derivata ha un significato grafico ovvero la pendenza della funzione in questo punto. Questa funzione viene definita in un intervallo che individua un rettangolo, se per ogni punto di questo insieme si può disegnare 
+% un segmento che rappresenta la pendenza in questo punto, si genera una figura simile ad un campo vettoriale. La funzione $y'$ è l'inviluppo di tutti questi segmenti così individuati. 
 
-Si considera un'equazione differenziale ordinaria di primo ordine $y'=f(x,y)$, si possono rappresentare sul piano le coppie di questa funzione $(\bar{x},\bar{y})$, e la derivata ha un significato grafico ovvero la pendenza in questo punto. Questa funzione viene definita in un intervallo che individua un rettangolo, se per ogni punto di questo insieme si può disegnare 
-un segmento che rappresenta la pendenza in questo punto, si genera una figura simile ad un campo vettoriale. La funzione $y'$ è l'inviluppo di tutti questi segmenti così individuati. 
+%% TODO teorema per unicità problema di Cauchy
+Sia un valore $x_0\in I$, dove $I$ è l'intervallo su cui è definita l'equazione differenziale, e la funzione $y(x)$ continua, poiché derivabile. Se $y_0=y(x_0)\neq0$, nell'intorno di $x_0$, $I(x_0)$, la funzione $y(x)$ ha sempre lo stesso segno se:
+\begin{gather*}
+    \forall x\in I(x_0):y(x)\neq0\implies \displaystyle\frac{y(x)}{y_0}>0
+\end{gather*}
+Altrimenti esisterebbe una soluzione all'equazione differenziale $y(x)=0$. 
 
-%% TODO ??
-% Sia un valore $x_0\in I$, dove $I$ è l'intervallo su cui è definita l'equazione differenziale, e la funzione $f(x)$ è continua. Se $y_0=y(x_0)\neq0$, nell'intorno di $x_0$, $I(x_0)$, la funzione $y(x)$ ha sempre lo stesso segno:
-% \begin{gather*}
-%     x\in I(x_0):y(x)\neq0\implies \displaystyle\frac{y(x)}{y_0}>0
-% \end{gather*}
-
-
-\subsection{Equazione a Variabili Separabili}
+\subsection{Equazioni a Variabili Separabili}
 
 Un'equazione differenziale ordinaria a variabili separabili è un'equazione che può essere ricondotta ad una forma nota come la seguente:
 \begin{equation}
     y'=g(x)\cdot h(y)
 \end{equation}
-Si considerano integrali singolari, che corrispondono alle soluzioni di $h(y)=0$, questi integrali singolari vengono esclusi dai procedimenti successivi, per $h(y)\neq0$, si può risolvere considerando:
+Un'equazione a variabili separabili a tante soluzioni del tipo $y(x)=\bar{y}$, quanti sono gli zeri distinti della funzione $h(y)$, poiché l'equazione si riduce alla forma $0=0$. Queste soluzioni si dicono integrali singolari, questi integrali singolari vengono esclusi dai procedimenti successivi; non si cerca una soluzione costante. Per $h(y)\neq0$ quindi si può risolvere considerando:
 \begin{gather*}
     \displaystyle\frac{\df y}{\df x}=g(x)\cdot h(y)\\
     \displaystyle\frac{1}{h(y)}\df y=g(x)\df x\\
@@ -1136,6 +1136,7 @@ Si può risolvere in modo più rigoroso considerando la primitiva del primo memb
 \begin{gather*}
     H(y)=\displaystyle\int\frac{1}{h(y)}\df y\implies H'(y)=\frac{1}{h(y)}
 \end{gather*}
+Data una primitiva $H(y)$ per il teorema fondamentale del calcolo integrale, avendo una qualsiasi costante $c\in\mathbb{R}$, la funzione $G(y)$ definita come $G(y)=H(y)+c$ anch'essa rappresenta una primitiva. 
 Sostituendola nell'equazione di partenza si ottiene:
 \begin{gather*}
     H'(y)y'=g(x)
@@ -1145,145 +1146,102 @@ Il primo membro ora somiglia alla derivata di una funzione composta, quindi si p
     \displaystyle\frac{ \df H}{\df x}=g(x)\\
     \displaystyle H(y(x))=\int g(x)\df x+c
 \end{gather*}
-Quindi in teoria $H(y)$ è una funzione monotona, e quindi continua, poiché la sua derivata è il reciproco di $h(y)$ e non si annulla, quindi è invertibile. Si può quindi considerare la funzione inversa di $H(y)$: $H^{-1}(y)$. Applicandola membro a membro all'equazione ottenuta precedentemente si ottiene:
-\begin{gather}
-    H^{-1}\left[H(y(x))\right]=y(x)=H^{-1}\left[\displaystyle\int g(x)\df x+c\right]
-\end{gather}
+In teoria $H(y)$ è una funzione monotona, e quindi continua, poiché la sua derivata è il reciproco di $h(y)$ e non si annulla per l'ipotesi di lavoro iniziale, quindi è invertibile. Allora si considera la funzione inversa di $H(y)$: $H^{-1}(y)$. Applicandola membro a membro all'equazione ottenuta precedentemente si ha:
+\begin{gather*}
+    H^{-1}\left[H(y(x))\right]=H^{-1}\left[\displaystyle\int g(x)\df x+c\right]\\
+    y(x)=H^{-1}\left[\displaystyle\int g(x)\df x+c\right]\tageq
+\end{gather*}
+Avendo un numero infinito di primitive $H(y)$ possibili, allora esisteranno un numero non finito di soluzioni all'equazione differenziale. Alcune di queste soluzioni possono corrispondere agli integrali singolari dell'equazione determinati precedentemente. 
 Anche se la funzione è invertibile non è detto che si riesca ad individuare la sua inversa, per cui a volte bisogna accontentarsi dell'espressione implicita: 
 \begin{gather*}
     \displaystyle H(y(x))=\int g(x)\df x+c
 \end{gather*}
 
-
-%% ESEMPIO
-
-Si considera la seguente equazione differenziale:
-\begin{gather*}
-    y'=y(1-y)
-\end{gather*}
-Si individuano gli integrali singolari in $y_0=0$ e $y_1=1$, si separano ora le variabili e si ottiene la seguente:
-\begin{gather*}
-    \displaystyle\frac{\df y}{y(1-y)}=\df x\\
-    \displaystyle\int \frac{\df y}{y(1-y)}=\int \df x=x+c_0
-\end{gather*}
-Si separa la funzione integranda del primo membro in fratti semplici:
-\begin{gather*}
-    \displaystyle\int\frac{\df y}{y(1-y)}=\int\frac{\df y}{y}-\int\frac{\df y}{y-1}=x+c_0\\
-    \ln|y|-\ln|y-1|+c_1=x+c_0\,\land c_2=c_0-c_1\\
-    \ln|y|-\ln|y-1|=x+c_2\\
-    \ln\left|\displaystyle\frac{y}{y-1}\right|=x+c_2
-\end{gather*}
-
-Per eliminare il logaritmo si considera entrambi i membri come l'argomento dell'esponenziale:
-\begin{gather*}
-    \displaystyle\frac{y}{y-1}=e^{c_2}e^x=c_3e^x\\
-    y=c_3e^x(y-1)=c_3ye^x-c_3e^x\\
-    y(1-c_3e^x)=-c_3e^x\implies y=-\frac{c_3e^x}{1-c_3e^x}=\frac{c_3e^x}{c_3e^x-1}
-\end{gather*}
-
-
-Si considera la seguente equazione differenziale:
-\begin{gather*}
-    y'=\displaystyle\frac{e^x+1}{e^y+1}
-\end{gather*}
-Integrali singolari corrispondono a $e^y+1=0$, ma non esistono valori reali di $y$ tali da annullare il denominatore: $\nexists y\in\mathbb{R}$. 
-Si separano le variabili:
-\begin{gather*}
-    \displaystyle\int(e^y+1)\df y=\int (e^x+1)\df x\\
-    e^y+y+c_0=e^x+x+c_1\implies e^y+y=e^x+x+c_2
-\end{gather*} 
-
 \subsection{Problema di Cauchy}
 
-Il problema di Cauchy consiste nell'assegnare una condizione iniziale ad un'equazione differenziale:
-\begin{gather*}
+Il problema di Cauchy consiste nell'assegnare una condizione iniziale ad un'equazione differenziale, ovvero richiede che la soluzione dell'equazione differenziale $y(x)$ assuma un determinato valore $y_0$ in corrispondenza del valore $x_0$:
+\begin{gather}
     \begin{cases}
         y'=f(x,y)\\
-        y(x_0)y_0
+        y(x_0)=y_0
+    \end{cases}
+\end{gather}
+Una soluzione ad un problema di Cauchy è quindi unica. 
+Se l'equazione ha un ordine maggiore del primo, sono presenti tanti vincoli quanto è l'ordine $n$ dell'equazione:
+\begin{gather*}
+    \begin{cases}
+        y^{(n)}=f(x,y,\cdots,y^{(n-1)})\\
+        y(x_0)=y_0\\
+        y'(x_1)=y_1\\
+        \vdots\\
+        y^{(n-1)}(x_{n-1})=y_{n-1}
     \end{cases}
 \end{gather*}
 
+\subsubsection{Teorema di Picard: Esistenza ed Unicità di una Soluzione}
 
-%% TODO esercizi y'=(1+y^2)?? y'=cos^2y->y=arctan(x+c)
+Data un'equazione differenziale del primo ordine in forma normale, supponendo siano note le condizioni iniziali $y_0$:
+\begin{gather*}
+    y'=f(x,y)\\
+    y_0=y(x_0)
+\end{gather*}
+
+Il teorema di Picard afferma che:
+\begin{quotation}
+    Se le funzioni $f$ e $f_y$ sono continue in un rettangolo $(x,y)\in\mathbb{R}^2$, avente i lati paralleli agli assi, contente il punto $(x_0,y_0)$. Allora esiste un numero reale $h$, tale che nell'intervallo di $x_0$ di raggio $h$: $|x-x_0|\leq h$, il problema di Cauchy definito da $y'=f(x,y)$ e $y_0=y(x_0)$ ammette una ed una sola soluzione nell'intervallo $|x-x_0|\leq h$.      
+\end{quotation}
 
 \subsection{Equazioni Differenziali Lineari del Primo Ordine}
+\label{sec:eq-dff-1}
 
-Sono equazioni del tipo:
-\begin{gather*}
+Equazioni differenziali lineari del primo ordine, sono equazioni differenziali della seguente forma:
+\begin{gather}
     y'+p(x)y=f(x)
-\end{gather*}
-Dove le funzioni $p$ ed $f$ sono definite su un intervallo dove è definita anche la funzione incognita $y(x)$. La funzione $p$ viene chiamata funzione coefficiente e la funzione $f$ funzione forzante. Per risolvere questo tipo di equazioni è fondamentale la determinazione del fattore integrante.
-% cia u sei kattivaciaOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+\end{gather}
+Dove le funzioni $p$ ed $f$ sono definite su un intervallo dove è definita anche la funzione incognita $y(x)$. La funzione $p$ viene chiamata funzione coefficiente e la  $f$ funzione forzante. Per risolvere questo tipo di equazioni è fondamentale la determinazione del fattore integrante. 
 
-Si considera la seguente equazione differenziale:
-\begin{gather*}
-    y'+\displaystyle\frac{2}{x}y=\frac{2}{x^3}\\
-    x^2y'+2xy=\displaystyle\frac{\df (x^2y)}{\df x}=\frac{2}{x}\\
-    \displaystyle x^2y=\int \frac{2}{x}\df x=2\ln x + c
-\end{gather*}
 
 Si vuole lavorare in modo che un membro diventi una derivata, considerando l'equazione generale si moltiplicano ambo i lati per la funzione $\mu$:
 \begin{gather*}
     \mu y'+\mu p(x)y=\mu f(x)
-\end{gather*}% !! <3 ily 2
+\end{gather*}
+Si impone che il primo membro moltiplicato per questa funzione $\mu$ produca esattamente la derivata di $\mu\cdot y$:
 Si vuole avere la derivata del prodotto al primo membro:
 \begin{gather*}
-    (\mu y)'=\mu'x+\mu y'\\
-    \cancel{\mu y'}+\mu p(x)y=\mu'x+\cancel{\mu y'}\\
-    \mu p(x)=\mu'\implies\displaystyle\int\frac{y'}{y}=p(x)\\
+    \cancel{\mu y'}+\mu p(x)y=D[\mu\cdot y]=\mu'y+\cancel{\mu y'}\\
+    \mu p(x)=\mu'\implies\frac{\mu'}{\mu}=p(x)\\
     \ln\mu=\displaystyle\int p(x)\df x\\
     \mu=e^{\int p(x)\df x}
 \end{gather*}
+Imponendo questo vincolo si è riportata l'equazione in un'equazione di variabili separabili in termini di $\mu$ ed $x$. 
 
-%% TODO si può riportare in equazione a variabili separabili
-
-%% ESEMPIO
-
-Si considera il seguente problema di Cauchy:
+Ottenuto il fattore integrante si può ritornare alla funzione di partenza, considerando la forzante ed integrando ambo i membri, per ottenere la soluzione all'equazione:
 \begin{gather*}
-    \begin{cases}
-        y'+5y=0\\
-        y(1)=-2
-    \end{cases}
-\end{gather*}
-Si determina il fattore integrante:
-\begin{gather*}
-    A(x)=\displaystyle\int p(x)\df x=\int5\df x=5x\\
-    e^{A(x)}=e^{5x}
-\end{gather*}
-Si moltiplica l'equazione differenziale per il fattore integrante appena trovato e si determina la derivata di partenza:
-\begin{gather*}
-    e^{5x}(y'+5y)=D[y\cdot e^{5x}]=0
-\end{gather*}
-Poiché la derivata è nulla, la funzione è costante quindi si ha:
-\begin{gather*}
-    y\cdot e^{5x}=c\implies y=ce^{-5x}
-\end{gather*}
-Per determinare il valore della costante $c$ si inserisce il vincolo:
-\begin{gather*}
-    y(1)=ce^{-5(1)}=-2\implies c=-2e^5\\
-    y=-2e^5e^{-5x}=-2e^{5(1-x)}
+    \overbrace{\mu y'+\mu p(x)y}^{D[\mu\cdot y]}=\mu f(x)\\
+    \mu y=\int\mu f(x)\df x+c\\
+    y(x)=\mu^{-1}(x)\int\mu(x)f(x)\df x+c\mu^{-1}(x)\tageq
 \end{gather*}
 
 
-Considerare il seguente problema di Cauchy :
+Nel caso in cui la forzante è nulla, ci si trova nella situazione:
 \begin{gather*}
-    \begin{cases}
-        \displaystyle x'(t)-\frac{1}{t+1}x(t)=3\\
-        x(0)=1 & t\in(-1,+\infty)
-    \end{cases}\\
-    A(t)=\displaystyle-\int\frac{1}{t+1}\df t=-\ln(t+1)+c_0\implies e^{A(t)}=\frac{e^{c_0}}{t+1}\\
-    \displaystyle\frac{e^{c_0}}{t+1}\left[ x'(t)-\frac{1}{t+1}x(t)\right]=\frac{3}{t+1}=D\left[\frac{x}{t+1}\right]\\
-    \displaystyle\cancel{\int}\cancel{\df}\left(\frac{x}{t+1}\right)=e^{-c_0}\int \frac{3}{t+1}=3e^{-c_0}\ln(t+1)+c_1e^{-c_0}\\
-    x=(t+1)e^{-c_0}\ln(t+1)^3+c_1e^{-c_0}(t+1)
+    y'+a(x)y=0
+\end{gather*}
+Allora l'integrale particolare definito su $I$ è della forma:
+\begin{equation}
+    y(x)=ce^{-A(x)}\mbox{ con } A(x)=\int a(x)\df x
+\end{equation}
+Sostituendo la soluzione nell'equazione differenziale di partenza infatti si ottiene:
+\begin{gather*}
+    D[ce^{-A(x)}]+ca(x)e^{-A(x)}=-ca(x)e^{-A(x)}+ca(x)e^{-A(x)}=0
 \end{gather*}
 
-\subsection{Operatore Differenziale}
+\subsubsection{Operatore Differenziale}
 
-Sia $p(x)$ continua in $I$, l'operatore differenziale $L$ assegna ad ogni funzione $y$:
-\begin{gather*}
+Sia $p(x)$ continua in $I$, l'operatore differenziale $L$ assegna ad ogni funzione $y$ il seguente:
+\begin{gather}
     L[y]=y'+p(x)y
-\end{gather*}
+\end{gather}
 Questo operatore è molto comodo per rappresentare equazioni differenziali lineare di primo ordine. 
 L'operatore differenziale è lineare, per cui data una funzione $y_1$, tale che $L[y_1]=0$ e $y_2$ tale che $L[y_2]=0$, allora si ha:
 \begin{gather*}
@@ -1291,211 +1249,111 @@ L'operatore differenziale è lineare, per cui data una funzione $y_1$, tale che 
 \end{gather*}
 La combinazione lineare di due soluzioni è soluzione dell'equazione lineare omogenea. 
 
-Data una soluzione $\omega_1$ ed $\omega_2$ ad un'equazione differenziale lineare di primo ordine non omogenea: $L[\omega_1]=f(x)$, $L[\omega_2]=f(x)$, allora si ha che:
+Data una soluzione $\omega_1$ ed $\omega_2$ ad un'equazione differenziale lineare di primo ordine non omogenea: $L[\omega_1]=f(x)$ e $L[\omega_2]=f(x)$, allora si ha che:
 \begin{gather*}
     L[\omega_1-\omega_2]=L[\omega_1]-L[\omega_2]=f(x)-f(x)=0
 \end{gather*}
-Quindi la differenza tra queste due soluzioni, rappresenta una soluzione per l'equazione omogenea $\omega_1-\omega_2=y$. Ogni soluzione della omogenea si può esprimere come:
+La differenza tra queste due soluzioni, rappresenta una soluzione per l'equazione omogenea $\omega_1-\omega_2=y$; essendo queste due soluzioni generali, la differenza di due qualsiasi soluzioni generali dell'equazione differenziale produce una soluzione all'equazione omogenea. Ogni soluzione della omogenea si può esprimere come dimostrato precedentemente:
 \begin{gather*}
-    y=c\cdot y e^{-A(t)}\mbox{ dove } A(t)=\displaystyle\int p(x)\df x
+    \bar{y}=ce^{-A(t)}\mbox{ dove } A(t)=\displaystyle\int p(x)\df x
 \end{gather*}
-Per cui fissando $\omega_2$, la soluzione generale ad un'equazione non omogenea si ottiene fissando una particolare soluzione ed aggiungendo l'integrale generale per la sua soluzione omogenea:
+Per la soluzione generale ad un'equazione non omogenea si ottiene fissando una particolare soluzione non omogenea ed aggiungendo l'integrale generale per la sua soluzione omogenea:
 \begin{gather}
-    \omega_1-\omega_2=y=c\cdot e^{-A(t)}\implies\omega_1=\overbrace{\omega_2}^{\text{non omogenea}}+\underbrace{c\cdot e^{-A(t)}}_{\text{omogenea}}
+    \omega_1-\omega_2=\bar{y}\implies\omega_1=\omega_2+\bar{y}=\omega_2+c\cdot e^{-A(t)}
 \end{gather}
 Questo permette di semplificare l'integrazione in un caso abbastanza particolare. 
-Supponendo che $p(x)$ sia una costante $k$, allora la soluzione particolare $\bar{y}$ è dello stesso tipo della forzante $f(x)$, per il criterio della similarità. La funzione $f(x)$ può essere una costante, un polinomio, una funzione sinusoidale o esponenziale. Questo rappresenta un modo euristico per risolvere il problema, considerando una soluzione dello stesso tipo, a differenza di una costante, da individuare. 
-
-
-Sia questa equazione differenziale:
-\begin{gather*}
-    y'-\displaystyle\frac{1}{2}y=x^2-1\\
-    \bar{y}=ax^2+bx+c\\
-    2ax+b-\displaystyle\frac{1}{2}\left(ax^2+bx+c\right)=x^2-1
-\end{gather*}
-Per la proprietà di identità dei polinomi si ha:
-\begin{gather*}
-    \begin{cases}
-        \displaystyle-\frac{\strut 1}{\strut 2}a=1\\
-        2a-\displaystyle\frac{\strut1}{\strut2}b=0\\
-        b-\displaystyle\frac{\strut1}{\strut2}c=-1
-    \end{cases}\implies\begin{cases}
-        a=-2\\
-        -4-\displaystyle\frac{\strut1}{\strut2}b=0\implies b=-8\\
-        -8-\displaystyle\frac{\strut1}{\strut2}c=-1\implies c=-14
-    \end{cases}\\
-    \bar{y}=-2x^2-8x-14
-\end{gather*}
-La soluzione di questa equazione differenziale è quindi:
-\begin{gather*}
-    y=c\cdot e^{-\int\frac{1}{2}\df x}-2x^2-8x-14
-\end{gather*}
+Supponendo che $p(x)$ sia una costante $k$, allora la soluzione particolare $\bar{y}$ è dello stesso tipo della forzante $f(x)$, per il criterio della similarità. 
+La funzione $f(x)$ può essere una costante, un polinomio, una funzione sinusoidale o esponenziale, oppure una combinazione di lineare di queste, e per il criterio di similarità la funzione soluzione omogenea è una funzione della stessa classe. Questo rappresenta un modo euristico per risolvere il problema, considerando una soluzione dello stesso tipo, a differenza di una costante, da individuare. 
 
 
 
-Considerare quest'equazione differenziale:
-\begin{gather*}
-    L[y]=y'+5y=\sin2x
-\end{gather*}
-La soluzione particolare è quindi del tipo:
-\begin{gather*}
-    \bar{y}=A\sin2x+B\cos2x\\
-    \bar{y}'=2A\cos2x-2B\sin2x\\
-    \bar{y}'+5\bar{y}=2A\cos2x-2B\sin2x+5(A\sin2x+B\cos2x)=\sin2x\\
-    \begin{cases}
-        2A+5B=0\\
-        -2B+5A=1
-    \end{cases}\implies\begin{cases}
-        A=\displaystyle-\frac{\strut5}{\strut2}B\\
-        -2B-\displaystyle\frac{\strut25}{\strut2}B=1\implies B=\displaystyle-\frac{1}{29}
-    \end{cases}\implies\begin{cases}
-        A=\displaystyle\frac{\strut5}{29}\\
-        B=\displaystyle-\frac{\strut2}{\strut29}
-    \end{cases}\\
-    \bar{y}=\displaystyle\frac{5}{29}\sin2x-\frac{2}{29}\cos2x
-\end{gather*}
-La soluzione dell'equazione differenziale è quindi:
-\begin{gather*}
-    y=c\cdot e^{-\int 5\df  x}\displaystyle\frac{5}{29}\sin2x-\frac{2}{29}\cos2x
-\end{gather*}
-
-
-Se si ha un esponenziale nella soluzione particolare che coincide all'integrale omogeneo:
-\begin{gather*}
+Se si ha un esponenziale nella soluzione particolare che coincide all'integrale omogeneo e $p(x)=\alpha$:
+\begin{gather}
     L[y]=y'+\alpha y=\beta e^{-\alpha x}
-\end{gather*}
-La soluzione particolare non è del tipo $ke^{-\alpha x}$ come la forzante $\beta e^{-\alpha x}$, non segue completamente la regola della similarità:
+\end{gather}
+La soluzione particolare non è del tipo $ke^{-\alpha x}$ come la forzante $\beta e^{-\alpha x}$; non segue completamente la regola della similarità ed invece è del tipo:
 \begin{gather*}
     \bar{y}=kxe^{-\alpha x}\\
     \bar{y}'=ke^{-\alpha x}-\alpha kxe^{-\alpha x}
 \end{gather*}
 La costante $k$ è quindi:
 \begin{gather*}
-    ke^{-\alpha x}-\cancel{\alpha kxe^{-\alpha x}}+\bcancel{\alpha kxe^{-\alpha x}}=\beta\cdot e^{-\alpha x}\\
+    ke^{-\alpha x}-\cancel{\alpha kxe^{-\alpha x}}+\bcancel{\alpha kxe^{-\alpha x}}=\beta e^{-\alpha x}\\
     k=\beta
 \end{gather*}
 La soluzione generale dell'equazione differenziale è quindi:
-\begin{gather*}
-    y=ce^{-\int\alpha\df x}+\bar{y}=ce^{-\int\alpha\df x}+\beta xe^{-\alpha x}
-\end{gather*}
+\begin{gather}
+    y=ce^{-\alpha x}+\bar{y}=ce^{-\alpha x}+\beta xe^{-\alpha x}
+\end{gather}
 
+\subsubsection{Principio di Sovrapposizione}
 
-Sia $L[y]=y'p(x)y=0$, e siano due soluzioni particolari $\bar{y}_1$ e $\bar{y}_2$ rispettivamente $L[\bar{y}_1]=f(x)$ e $L[\bar{y}_2]=g(x)$, allora l'equazione differenziale $L[y]=f(x)+g(x)$ ha soluzione particolare in $\bar{y}_1+\bar{y}_2$. 
+Sia $L[y]=y'+p(x)y=0$, e siano due soluzioni particolari $\bar{y}_1$ e $\bar{y}_2$ rispettivamente $L[\bar{y}_1]=f(x)$ e $L[\bar{y}_2]=g(x)$, allora l'equazione differenziale $L[y]=f(x)+g(x)$ ha soluzione particolare in $\bar{y}_1+\bar{y}_2$. 
 Analogamente la loro combinazione lineare rappresenta integrale particolare dell'equazione differenziale: $c_1\bar{y}_1+c_2\bar{y}_2$. 
 
 \subsection{Riduzione dell'Ordine}
 
-Data un'equazione differenziale $y'=f(x,y)$, può essere che al secondo membro non sia presente la variabile $y$, e quindi assume la forma $y'=f(x)$. Questa equazione differenziale si può risolvere quindi per integrazione diretta:
+Data un'equazione differenziale $y'=f(x,y)$, può essere che al secondo membro non sia presente la variabile $y$, e quindi assuma la forma $y'=f(x)$. Questa equazione differenziale si può risolvere quindi per integrazione diretta:
 \begin{gather*}
-    y=\displaystyle\int f(x)\df x
+    y=\displaystyle\int f(x)\df x=F(x)+c
 \end{gather*}
 
-Analogamente per un'equazione differenziale del tipo $y''=f(x,y,y')$, se la costante per $y$ è nulla diventa: $y"=f(x,y')$. Si può effettuare una sostituzione con $z=y'$, per ridurre l'ordine dell'equazione differenziale:
-\begin{gather*}
-    z'=f(x,z)
-\end{gather*}
-Risolvendo per $z$, si può ottenere la soluzione $y$, effettuando un'integrazione diretta:
-\begin{gather*}
+Analogamente per un'equazione differenziale del tipo $y''=f(x,y,y')$, se non è presente il termine $y$ si ha $y''=f(x,y')$. Si può effettuare una sostituzione con $z=y'$, per ridurre l'ordine dell'equazione differenziale:
+\begin{gather}
+    y''=f(x,y'),\,z=y'\implies z'=f(x,z)
+\end{gather}
+Risolvendo per $z$, si può ottenere la soluzione $y$ tramite integrazione diretta:
+\begin{gather}
     y=\displaystyle\int z\df z
-\end{gather*}
+\end{gather}
 
-\subsection{Equazione Differenziale di Bernoulli}
+\subsection{Equazione di Bernoulli}
 
-Un'equazione di Bernoulli è un'equazione del tipo:
-\begin{gather*}
+Un'equazione di Bernoulli è un'equazione differenziale del tipo:
+\begin{gather}
     y'+p(x)y+q(x)y^m=0
-\end{gather*}
-Per risolvere l'equazione si dividono ambo i membri per $y^{m}$:
+\end{gather}
+Per risolvere questo tipo di equazioni si moltiplicano ambo i membri per $y^{-m}$:
 \begin{gather*}
     y^{-m}y'+p(x)y^{1-m}+q(x)=0
 \end{gather*}
-A questo punto si introduce un'altra variabile. Si pone $u=y^{1-m}$:
+A questo punto si introduce un'altra variabile $u$, si pone $u=y^{1-m}$:
 \begin{gather*}
-    u'=(1-m)y^{-m}y'\\
-    \displaystyle\frac{1}{1-m}u'+p(x)u+q(x)=0
+    u'=(1-m)y^{-m}y'\implies \frac{u'}{1-m}=y^{-m}y'\\
+    \displaystyle\frac{u'}{1-m}+p(x)u+q(x)=0
 \end{gather*}
 In questo modo è diventata un'equazione differenziale lineare del primo ordine, risolubile con i metodi precedenti. 
 
 
-Risolvere la seguente equazione differenziale:
-\begin{gather*}
-    y'-2y=-e^xy^2
-\end{gather*}
-Per il metodo di Bernoulli diventa:
-\begin{gather*}
-    y^{-2}y'-2y^{-1}=-e^{x}\\
-    u=y^{-1}\implies u'=-y^{-2}y'\\
-    -u'-2u'=-e^{-x}\to u'+2u'=e^{x}
-\end{gather*}
-L'equazione omogenea ha per soluzione:
-\begin{gather*}
-    u_0=c\cdot e^{-\int 2\df x}
-\end{gather*}
-La soluzione particolare è della forma:
-\begin{gather*}
-    \bar{u}=ke^{x}\to\bar{u}'=kxe^x\\
-    kxe^x+2ke^{x}=e^x\\
-    k=\displaystyle\frac{1}{3}\\
-    \bar{u}=\displaystyle\frac{1}{3}e^{x}
-\end{gather*}
-La soluzione dell'equazione differenziale è quindi data dalla somma tra la soluzione particolare ed omogenea:
-\begin{gather*}
-    u=c\cdot e^{-\int 2\df x}+\bar{u}=c\cdot e^{-\int 2\df x}+\displaystyle\frac{1}{3}e^{x}
-\end{gather*}
-Per ottenere la soluzione in termini di $y$ si considera $u=y^{-1}$:
-\begin{gather*}
-    y=u^{-1}=\displaystyle\frac{1}{c\cdot e^{-\int 2\df x}+\frac{1}{3}e^{x}}
-\end{gather*}
+Un'esercizio abbastanza frequente è l'esercizio inverso, dove viene data una soluzione ad un'equazione differenziale $y(x)$ e si chiede di ottenere un'equazione differenziale. 
 
-
-Risolvere la seguente equazione differenziale:
-\begin{gather*}
-    y'-\displaystyle\frac{y}{x}=-\frac{1}{y}
-\end{gather*}
-Questa rappresenta un'equazione di Bernoulli con $m=-1$, si pone $u=y^2$:
-\begin{gather*}
-    \frac{1}{2}u'-\frac{u}{x}=-1\\
-    u'-\frac{2u}{x}=-2
-\end{gather*}
-Si risolve rispetto ad $u$:
-\begin{gather*}
-    A(x)=-\displaystyle\int\frac{2}{x}\df x=-2\ln x=\ln\frac{1}{x^2}\\
-    e^{-A(x)}=x^2
-\end{gather*}
-
-%% TODO fix
-% u=2x+cx^2
-%% TODO solve: y'-2y/x=2x\sqrt{y}
-
-Un'esercizio abbastanza frequente è l'esercizio inverso, dove viene data una soluzione ad un'equazione differenziale $y(x)$ e si chide di ottenere un'equazione differenziale. 
-% y=cx+sinx
 Il primo metodo consiste nel derivare la soluzione per trovare il valore della costante, e poi sostituirlo nell'equazione originaria. 
-%% TODO risolvere con questo metodo
-Un altro metodo consiste nel prendere la porzione della soluzione corrispondente alla soluzione omogenea, tale che $L[y_0]=0$, ed eguagliarla a $cx^{-A(x)}$, per determinare $p(x)$, derivando $A(x)$. 
-%% TODO risolvere con questo metodo
+
+Un altro metodo consiste nel prendere la porzione della soluzione corrispondente alla soluzione omogenea, tale che $L[y_0]=0$, ed eguagliarla a $ce^{-A(x)}$, per determinare $p(x)$, derivando $A(x)$. 
 Quindi si può esprimere come:
 \begin{gather*}
     L[y]=f(x)\equiv y'+A'(x)y=f(x)
 \end{gather*}
-%% TODO finish 
-% y'-y/x=cosx-sinx/x
-%% TODO foto esercizi lavagna 10/4/25
 
-\subsection{?}
+\subsection{Equazione di Manfredi}
 
-Equazione di Manfredi:
+Le equazioni di Manfredi sono equazioni differenziali che riguardano funzioni omogenee di grado zero. Una funzione è detta omogenea di grado zero, se data una funzione $f(x,y)$ vale la seguente:
 \begin{gather*}
-    y'=f\left(\displaystyle\frac{ax+by}{cd+dy}\right)    
+    \forall t\in\mathbb{R}\implies f(tx,ty)=f(x,y)    
 \end{gather*}
-Si considera funzioni omogenee di grado zero:
-\begin{gather*}
+Quindi le equazioni di manfredi sono della forma:
+\begin{gather}
     y'=f(x,y)=f(tx,ty)
+\end{gather}
+Una forma comune per questo tipo di equazioni è la seguente:
+\begin{gather*}
+    y'=f\left(\frac{ax+by}{cx+dy}\right)
 \end{gather*}
-Se si considera $t=x^{-1}$ si ottiene:
+Per determinare l'integrale di queste equazioni si considera la seguente sostituzione $t=x^{-1}$:
 \begin{gather*}
     y'=f\left(1,\displaystyle\frac{y}{x}\right)
 \end{gather*}
-Per trovare una soluzione si effettua un'ulteriore sostituzione $z=yx^{-1}$:
+Per trovare una soluzione si effettua un'ulteriore sostituzione $z=y/x$:
 \begin{gather*}
     y=xz,\,y'=z+xz'\\
     z+xz'=f(1,z)=F(z)
@@ -1505,94 +1363,40 @@ Quest'ultima diventa un'equazione a variabili separabili del tipo:
     xz'=F(z)-z\\
     \displaystyle\frac{\df z}{F(z)-z}=\frac{\df x}{x}
 \end{gather*}
-
-
-Un esempio classico di questo tipo di funzione è:
-\begin{gather*}
-    y'=\displaystyle\frac{x-y}{x+y}
-\end{gather*}
-Applicando la sostituzione $z=y/x$, si divide tutto per $x$:
-\begin{gather*}
-    z+xz'=f(x,y)=F(z)=\displaystyle\frac{1-z}{1+z}
-\end{gather*}
-Allora si può scrivere come:
-\begin{gather*}
-    \displaystyle\frac{\df z}{\frac{1-z}{1+z}-z}=\frac{\df x}{x}\\
-    \displaystyle\frac{1+z}{1-z-z-z^2}\df z=\frac{\df x}{x}\\
-    \displaystyle\frac{1}{2}\frac{2z+2}{x^2+2z-1}\df z=\frac{1}{2}\frac{\df(z^2+2z-1)}{z^2+2z-1}=-\frac{\df x}{x}\\
-    \displaystyle\frac{1}{2}\ln|z^2+2z-1|=-\ln x+c\\
-    \displaystyle\ln|z^2+2z-1|=-\ln x^2+c
-\end{gather*}
-Elevando a potenza entrambi i membri si ottiene la seguente:
-\begin{gather*}
-    z^2+2z-1=\frac{c}{x^2}
-\end{gather*}
-Considerando la sostituzione $z=y/x$, si sostituisce e si ottiene:
-\begin{gather*}
-    \displaystyle\frac{y^2}{x^2}+2\frac{y}{x}-1=\frac{c}{x^2}
-\end{gather*}
-
-%% TODO ex a casa:
-Risolvere la seguente equazione differenziale;
-\begin{gather*}
-    y'=\displaystyle\frac{x^3+y^3}{xy^2}
-\end{gather*}
+Dopo aver ottenuto la soluzione in termini di $z$, si può riportare rispetto ad $y$ tramite:
+\begin{equation}
+    y=z\cdot x
+\end{equation}
 
 \subsection{Equazione di Riccati}
 
 La conoscenza di una radice permette di semplificare l'esercizio di determinare ulteriori radici di un polinomio. Analogamente conoscendo una soluzione di un'equazione differenziale, è possibile individuare più facilmente altre soluzioni. 
 L'equazione di Riccati del primo ordine è del tipo:
-\begin{gather*}
+\begin{gather}
     y'=p(t)y^2+q(t)y+r(t)
-\end{gather*}
-Sembra, anche se non lo è, un'equazione di Bernoulli. Si suppone si conosca una soluzione $u(t)$ di questa equazione, a questo punto si sostituisce $y=u(t)+1/z$:
+\end{gather}
+Sembra, anche se non lo è, un'equazione di Bernoulli. Si suppone si conosca una soluzione $y_1$ di questa equazione, a questo punto si sostituisce $y=y_1+1/z$:
 \begin{gather*}
-    u'(t)-\displaystyle\frac{z'}{z}=p(t)\left(u(t)+\frac{1}{z}\right)^2+q(t)\left(u(t)+\frac{1}{z}\right)+r(t)\\
-    u'(t)-\displaystyle\frac{z'}{z}=p(t)\left(u(t)^2+2\frac{u(t)}{z}+\frac{1}{z^2}\right)+q(t)\left(u(t)+\frac{1}{z}\right)+r(t)\\
-    \displaystyle-\frac{z'}{z^2}=-u'(t)+p(t)u^2+p(t)\frac{1}{z^2}+2\frac{p(t)u(t)}{z}+q(t)\left(u(t)+\frac{1}{z}\right)+r(t)
+    y_1'-\displaystyle\frac{z'}{z}=p(t)\left(y_1+\frac{1}{z}\right)^2+q(t)\left(y_1+\frac{1}{z^2}\right)+r(t)\\
+    y_1'-\displaystyle\frac{z'}{z^2}=p(t)\left(y_1^2+2\frac{y_1}{z}+\frac{1}{z^2}\right)+q(t)\left(y_1+\frac{1}{z}\right)+r(t)\\
+    \displaystyle-\frac{z'}{z^2}=-y_1'+p(t)y_1^2+p(t)\frac{1}{z^2}+2\frac{p(t)y_1}{z}+q(t)\left(y_1+\frac{1}{z}\right)+r(t)
 \end{gather*}
-Sapendo che $u(t)$ è una soluzione, si può sostituire: %% TODO ??
+Sapendo che $y_1$ è una soluzione, si possono eliminare alcuni termini:
 \begin{gather*}
-    -z'=\left(-u'(t)+p(t)u^2+p(t)\frac{1}{z^2}+2\frac{p(t)u(t)}{z}+q(t)\left(u(t)+\frac{1}{z}\right)+r(t)\right)z^2\\
-    -z'=(2u(t)p(t)+q(t))z-p(t)
+    -z'=\left(-\cancel{y_1'}+\bcancel{p(t)y_1^2}+p(t)\frac{1}{z^2}+2\frac{p(t)y_1}{z}+\bcancel{q(t)y_1}+\frac{q(t)}{z}+\bcancel{r(t)}\right)z^2\\
+    z'=-(2y_1p(t)+q(t))z-p(t)
 \end{gather*}
-
-%% TODO ??
-Esempio perché non gli andava di continuare la cosa di prima:
-\begin{gather*}
-    \begin{cases}
-        y'+y^2-1=0\\
-        y(0)=-\displaystyle\frac{\strut 1}{\strut3}
-    \end{cases}\\
-    y=k=1
-\end{gather*}
-Si sostituisce $y=1+1/z$, supponendo che $1$ sia una soluzione:
-\begin{gather*}
-    \displaystyle-\frac{1}{z^2}z'+1+\frac{1}{z^2}+\frac{2}{z}-1=0\\
-    -z'+\cancel{z^2}+1+2z-\bcancel{z^2}=0\\
-    -z'+2z+1=0\to z'-2z=1
-\end{gather*}
-Si risolve ora quest'equazione semplificata:
-\begin{gather*}
-    A(t)=\displaystyle\int-2\df v=-2t\\
-    e^{A(t)}=e^{-2t}\implies e^{-2t}\left[z'-2z\right]=e^{-2t}
-\end{gather*}
-\begin{gather*}
-    D[ze^{-2t}]=e^{-2t}\\
-    ze^{-2t}=\displaystyle\int e^{-2t}\df t+c=-\frac{1}{2}\int e^{-2t}\df(-2t)+c\\
-    z=e^{-2t}\left(-\frac{1}{2e^{-2t}}+c\right)=ce^{2t}-\frac{1}{2}
-\end{gather*}
-Considerando la sostituzione iniziale, si ha:
-\begin{gather*}
-    z=\displaystyle\frac{1}{y-1}=ce^{2t}-\frac{1}{2}
-\end{gather*}
+Risolvendo questa equazione differenziale rispetto a $z$, si può ottenere la soluzione $y$ come:
+\begin{equation}
+    y=y_1+\frac{1}{z}
+\end{equation}
 
 \subsection{Equazioni Esatte}
 
-Le equazioni frate sono un tipo di equazioni nella forma:
-\begin{gather*}
+Le equazioni esatte sono un tipo di equazioni differenziali nella forma:
+\begin{gather}
     X(x,y)\df x+Y(x,y)\df y=0
-\end{gather*}
+\end{gather}
 Si può portare nella forma di un'equazione differenziale come:
 \begin{gather*}
     X(x,y)+Y(x,y)\displaystyle\frac{\df y}{\df x}=0\\
@@ -1611,90 +1415,41 @@ E derivata nulla rispetto ad $x$:
 Le sue derivate parziali sono i coefficienti della forma lineare differenziale dell'equazione esatta:
 \begin{gather*}
     \displaystyle\frac{\df\Phi}{\df x}=\frac{\partial\Phi}{\partial x}+\frac{\partial\Phi}{\partial y}\frac{\df y}{\df x}=
-    X(x,y)+Y(x,y)\frac{\df y}{\df x}
+    X(x,y)+Y(x,y)\frac{\df y}{\df x}=0
 \end{gather*}
 Se questo è verificato la soluzione è del tipo $\Phi(x,y)=c$, ma devono essere verificate le condizioni per l'esistenza della soluzione. 
 
-La condizione da verificare è la condizione di chiusura, ovvero le derivate miste devono essere congruenti e deve quindi essere verificato il teorema di Schwarz:
+Deve essere verificato il teorema di Schwarz, la condizione di chiusura, ovvero le derivate miste devono essere congruenti:
 \begin{gather*}
     \displaystyle\frac{\partial\Phi}{\partial x\partial y}=\frac{\partial\Phi}{\partial y\partial x}
 \end{gather*}
-In un dominio rettangolare del piano $(x,y)$:
-%% TODO add img piano rettangolo
+In un dominio rettangolare del piano $(x,y)$, le funzioni $X$ e $Y$ devono essere continue, quindi devono essere continue le derivate parziali di $\Phi$. 
 
-Le funzioni $X$ e $Y$ devono essere continue, quindi devono essere continue le derivate parziali di $\Phi$. 
-
-
-
-Si considera un'equazione in forma esatta:
+Data un'equazione in forma esatta, per individuare la funzione $\Phi$, si può scegliere di integrare $X$ o $Y$, rispetto a $x$ o $y$, per ottenere una funzione della stessa forma di $\Phi$:
 \begin{gather*}
-    (4y^2+y-4x^2)\df x+(8xy+x)\df y=0
+    \Phi_x=X\\
+    \Phi=\int X\df x =F(x,y)+h(y)
 \end{gather*}
-Si verifica la condizione di chiusura:
+Dove $F(x,y)$ è una primitiva di $X$ e $h(y)$ rappresenta la costante di integrazione, poiché derivando su una sola variabile tutti i termini dipendenti interamente da $y$ diventano nulli. 
+Per determinare il valore di questa costante di integrazione, si deriva la funzione $\Phi$ così ottenuta rispetto a $y$ e si confronta con $Y$:
 \begin{gather*}
-    X_y=\frac{\partial}{\partial y}(4y^2+y-4x^2)=8y+1\\
-    Y_x=\frac{\partial}{\partial x}(8xy+x)=8y+1
+    \Phi_y=\frac{\partial F}{\partial y}+h'(y)=Y
 \end{gather*}
-La condizione di chiusura è verificata, quindi si può proseguire alla risoluzione. Dato che $\Phi_x=X$ e $\Phi_y=Y$, si possono integrare le funzioni $X$ e $Y$ rispetto ad $x$ ed a $y$ per ottenere la funzione di partenza $\Phi$:
+Dopo aver determinato $h(y)$, si ha che la funzione $\Phi$ è data da:
+\begin{gather}
+    \Phi(x,y)=F(x,y)+h(y)=c
+\end{gather}
+Questo procedimento è analogo se si fosse integrato il fattore $Y$ rispetto ad $y$:
 \begin{gather*}
-    \Phi=\int X\df x=\int(4y^2+y-4x)\df x=4xy^2+xy-\frac{4}{3}x^3+h(y)
-\end{gather*}
-La costante è una funzione in termini di $y$, poiché nella derivata parziale di $\Phi$ rispetto ad $x$, tutti i termini che non contengono la variabile $x$ sono costanti rispetto ad $x$. Per determinare il valore di queste costanti $h(y)$ effettuare la derivata parziale della primitiva ottenuta rispetto ad $y$ e confrontarla con la funzione $Y$:
-\begin{gather*}
-    \Phi_y=\frac{\partial}{\partial y}\left(4xy^2+xy-\frac{4}{3}x^3\right)=\cancel{8xy}+\cancel{x}+h'(y)=\bcancel{8xy}+\bcancel{x}=Y\\
-    h'(y)=0\implies h(y)=c\\
-    4xy^2+xy-\frac{4}{3}x^3=c
-\end{gather*}
-
-
-
-Considerare la seguente equazione esatta:
-\begin{gather*}
-    2x\cos y\df x-x^2\sin y\df y=0
-\end{gather*}
-Si verifica la condizione di chiusura:
-\begin{gather*}
-    X_y=-2x\sin y=Y_x
-\end{gather*}
-Si considera $\Phi_x=X$ e si integra rispetto $X$ rispetto ad $x$:
-\begin{gather*}
-    \Phi_x=2x\cos y\\
-    \Phi=\int 2x\cos y\df x=x^2\cos y+h(y)
-\end{gather*}
-Si deriva rispetto ad $y$ e si confronta con $Y$ per determinare la funzione $h(y)$:
-\begin{gather*}
-    \frac{\partial}{\partial y}(x^2\cos y+h(y))=-\cancel{x^2\sin y}+h'(y)=-\bcancel{x^2\sin y}=Y\\
-    h'(y)=0\implies h(y)=c\\
-    x^2\cos y=c
-\end{gather*}
-
-
-Considerare la seguente equazione esatta:
-\begin{gather*}
-    (3x+2y)\df x+x\df y=0
-\end{gather*}
-Le due derivate parziali sono diverse:
-\begin{gather*}
-    X_y=2x\neq1=Y_x
-\end{gather*}
-Si può trasformare in un'altra equazione differenziale, equivalente moltiplicando entrambi i membri per $x$. Questa equazione intuitivamente ha le stesse soluzioni della prima equazione, ma in questo caso la condizione di chiusura è verificata:
-\begin{gather*}
-    (3x^2+2xy)\df x+x^2\df y=0\\
-    X_y=2x=Y_x
-\end{gather*}
-Si risolve questa nuova equazione che risulta esatta:
-\begin{gather*}
-    \Phi(x,y)=\int (3x^2+2xy)\df x=x^3+x^2y+h(y)\\
-    \Phi_y=\cancel{x^2}+h'(y)=\bcancel{x^2}=Y\\
-    h'(y)=0\implies h(y)=c\\
-    \Phi(x,y)=x^3+x^2y=c
+    \Phi(x,y)=G(x,y)+h(x)=c
 \end{gather*}
 
 \subsubsection{Fattore Integrante}
 
-Il problema nella risoluzione di equazioni esatte, è la ricerca del fattore integrante $\mu$ che moltiplicato ad entrambi i membri rende l'equazione esatta. Nella precedenza equazione questo fattore era $x$, questo può dipendere da entrambe le variabili indipendenti, ma generalmente conviene scegliere un fattore integrante che dipende o solo dalla $x$ o solo dalla $y$. 
+Il problema nella risoluzione di equazioni esatte, è la ricerca del fattore integrante $\mu$ che moltiplicato ad entrambi i membri rende l'equazione esatta. Questo può dipendere da entrambe le variabili indipendenti, ma generalmente conviene scegliere un fattore integrante che dipende o solo dalla $x$ o solo dalla $y$. 
+Questo fattore integrante è lo stesso delle equazioni differenziali lineari di primo ordine \ref{sec:eq-dff-1}, poiché rappresentano una forma di equazioni esatte. 
 
-Data un'equazione:
+Data un'equazione in forma esatta:
 \begin{gather*}
     X(x,y)\df x+Y(x,y)\df y=0
 \end{gather*}
@@ -1708,7 +1463,7 @@ Si verifica la condizione di chiusura:
     \frac{\partial}{\partial x}\left(\mu(x)Y(x,y)\right)=\mu'(x)Y+\mu(x)Y_x\\
     \mu(x)X_y=\mu'(x)Y+\mu(x)Y_x  
 \end{gather*}
-Si dividono entrambi i membri per $\mu(x)$:
+Questo fattore integrante deve essere tale per verificare la condizione. Si dividono entrambi i membri per $\mu(x)$:
 \begin{gather*}
     \frac{\mu'}{\mu}Y+Y_x=X_y    
 \end{gather*}
@@ -1718,15 +1473,15 @@ Questa è un'equazione differenziale a variabili separabili in termini di $\mu$:
     \frac{\df \mu}{\df x}\frac{1}{\mu}=\frac{X_y-Y_x}{Y}\\
     \frac{\df\mu}{\mu}=\frac{X_y-Y_x}{Y}\df x
 \end{gather*}
-Si ha che $X_y-Y_x$ non rispetta la condizione di chiusura, e quindi è diverso da zero. Bisogna determinare la funzione $K$ e bisogna verificare che si tratta di una funzione nella sola $x$:
-\begin{gather*}
-    \frac{X_y-Y_x}{Y}=K(x)
-\end{gather*}
+Poiché l'equazione di partenza non rispetta la condizione di chiusura, il termine $X_y-Y_x$ è diverso da zero. Bisogna determinare la funzione $K$, definita come segue, e bisogna verificare che si tratta di una funzione nella sola $x$:
+\begin{gather}
+    K(x)=\frac{X_y-Y_x}{Y}
+\end{gather}
 Allora il fattore integrante $\mu$ è dato da:
 \begin{gather*}
     \int\frac{\df\mu}{\mu}=\int K(x)\df x\\
     \ln\mu=\int K(x)\df x\\
-    \mu(x)=e^{\int K(x)\df x}
+    \mu(x)=e^{\int K(x)\df x}\tageq
 \end{gather*}
 Analogamente se $\mu$ dipende interamente dalla $y$, si ha:
 \begin{gather*}
@@ -1740,95 +1495,49 @@ Si ottiene la seguente equazione a variabili separabili:
 \begin{gather*}
     \frac{\df\mu}{\mu}=\frac{X_y-Y_x}{-X}\df y
 \end{gather*}
-Si considera $-X$ al denominatore per mantenere il numeratore equivalente al precedente caso con $\mu(x)$, si verifica ora che il secondo membro sia un'equazione interamente in $y$, $K(y)$:
+Si considera $-X$ al denominatore per mantenere il numeratore equivalente al precedente caso con $\mu(x)$, si verifica ora che il secondo membro sia una funzione interamente in $y$:
 \begin{gather*}
-    \frac{Y_x-X_y}{X}=K(y)
+    K(y)=\frac{Y_x-X_y}{X}
 \end{gather*}
-Allora si risolve l'equazione a variabili separabili:
+Allora si risolve l'equazione a variabili separabili rispetto a $\mu(y)$:
 \begin{gather*}
     \mu(y)=e^{\int K(y)\df y}
 \end{gather*}
 
-
-Si considera la seguente equazione:
-\begin{gather*}
-    y\df x+(y-x)\df y=0\\
-    X_y=1\neq-1=Y_x
-\end{gather*}
-Si determina il fattore integrante rispetto ad $y$:
-\begin{gather*}
-    \mu(y)=e^{\int K(y)\df y}=e^{\int\frac{2}{-y}\df y}=e^{-2\ln y}=\frac{1}{y^2}
-\end{gather*}
-Quindi moltiplicando l'equazione di partenza per il fattore integrante $\mu$ si ha:
-\begin{gather*}
-    \frac{1}{y}\df x+\frac{y-x}{y^2}\df y=0
-\end{gather*}
-La condizione di chiusura è verificata poiché si è moltiplicati per il fattore integrante. A questo punto si determina $\Phi$, integrando $X$ rispetto alla $x$:
-\begin{gather*}
-    \Phi(x,y)=\int\frac{1}{y}\df x=\frac{x}{y}+h(y)
-\end{gather*}
-Si determina il valore della funzione $h(y)$:
-\begin{gather*}
-    Y=\frac{y-x}{y^2}=\frac{1}{y}-\cancel{\frac{x}{y^2}}=-\bcancel{\frac{x}{y^2}}+h'(y)=\Phi_y
-\end{gather*}
-La funzione $h'(y)$ non è nulla quindi si ha:
-\begin{gather*}
-    h'(y)=\frac{1}{y}\implies h(y)=\ln y
-\end{gather*}
-La soluzione è quindi:
-\begin{gather*}
-    \Phi(x,y)=\frac{x}{y}+\ln y=c
-\end{gather*}
-
-
-\subsection{Esistenza ed Unicità di una Soluzione}
-
-% Le equazioni differenziali del primo ordine trattate,
-Data un'equazione differenziale in forma normale, supponendo siano stat assegnate 
-\begin{gather*}
-    y'=f(x,y)\\
-    y_0=y(x_0)
-\end{gather*}
-
-Il teorema di Picard afferma che se la funzione $f$ è continua e se la derivata parziale rispetto ad $y$ è anch'essa una funzione continua in un rettangolo $x,y$, allora l'equazione differenziale assegnata ha sempre una ed una sola soluzione. 
-Ed esiste un numero reale $h$, tale che nell'intorno di $x_0$: $|x-x_0|<h$, ammette una ed una sola funzione. 
-
 \subsection{Equazioni Differenziali del Secondo Ordine}
 
 Un'equazione differenziale del secondo ordine è un'equazione che presente un termine $y$ derivato secondo. Molte equazioni di secondo grado non hanno una soluzione calcolabile in modo esplicito, ma sono presenti molte equazioni particolari di cui si può calcolare la soluzione. 
-Considerando un'equazione:
-\begin{gather*}
-    y''-xy=0
-\end{gather*}
-Questo tipo di equazioni si chiama equazioni di Airy. Si tratteranno solamente equazioni lineari del secondo ordine:
-\begin{gather*}
+Le equazioni di Airy sono un tipo di equazioni del secondo ordine, la cui soluzione è calcolabile esplicitamente del tipo $y''-xy=0$. 
+Si tratteranno solamente equazioni lineari del secondo ordine:
+\begin{gather}
     y''+P(x)y'+Q(x)y=R(x)
-\end{gather*}
-Il teorema dell'esistenza ed unicità delle soluzioni afferma che se queste funzioni $P(x),\,Q(x),\,R(x)$ sono continue su un'intervallo $[a,b]$ allora la soluzione esiste ed è unica, dati i vincoli $y_0=y(x_0)$ e $y_0'=y'(x_0)$. 
+\end{gather}
+Il teorema dell'esistenza ed unicità delle soluzioni afferma che se queste funzioni $P(x),\,Q(x),\,R(x)$ sono continue su un'intervallo $[a,b]$, con $x_0$ un punto in questo intervallo, allora la soluzione in questo intervallo esiste ed è unica, dati i vincoli $y_0=y(x_0)$ e $y_0'=y'(x_0)$. 
 
 
 Si considera un caso particolare:
-\begin{gather*}
+\begin{gather}
     y''=f(x)
-\end{gather*}
+\end{gather}
 La sua soluzione è immediata, è sufficiente integrare ambo le parti:
 \begin{gather*}
-    y'=\displaystyle\int f(t)\df t+c_1\\
-    y=\displaystyle\int\left(\int f(t)\df t+c_1\right) \df v+c_2
+    y'=\displaystyle\int f(t)\df x+c_1\\
+    y=\displaystyle\int\left(\int f(t)\df x+c_1\right) \df x+c_2\tageq
 \end{gather*}
 
-
-
-%% SKIP
 
 Si considerano prima equazioni di secondo grado lineari con il termine noto nullo:
 \begin{gather*}
     y''+a(x)y'+b(x)y=0
 \end{gather*}
-Si considera l'operatore differenziale $L[y]=0$. Questo problema di integrazione si risolve in modo semplice quando i coefficienti sono delle costanti:
+L'operatore differenziale $L[y]$, per funzioni integrabili due volte rappresenta la trasformazione che ad ogni funzione due volte derivabile associa:
 \begin{gather*}
-    y''+ay'+by=0
+    L[y]=y''+a(x)y'+b(x)y
 \end{gather*}
+Questo problema di integrazione si risolve in modo semplice quando i coefficienti sono delle costanti:
+\begin{gather}
+    y''+ay'+by=0
+\end{gather}
 Per individuare una soluzione si considerano funzioni del tipo $e^{\lambda t}$:
 \begin{gather*}
     y=e^{\lambda t}\\
@@ -1840,112 +1549,78 @@ Sostituendo nell'equazione di partenza si ottiene:
     \lambda^2e^{\lambda t}+a\lambda e^{\lambda t}+be^{\lambda t}=0\\
     e^{\lambda t}\left[\lambda^2+a\lambda+b\right]=0
 \end{gather*}
-
 L'esponenziale non può essere mai nullo, quindi solo se il polinomio in termini di $\lambda$ è nullo esiste una soluzione, con $\lambda$:
 \begin{gather*}
     \lambda=\displaystyle\frac{-a\pm\sqrt{a^2-4b}}{2}
 \end{gather*}
 Quest'equazione da risolvere si chiama equazione caratteristica, e la soluzione dipende dal discriminante $\Delta$:
-%% TODO vari casi per Delta >=< 0
-% \begin{gather*}
-%   \Delta:\begin{cases}
-%     >0\\
-%     =0\\
-%     <0
-% \end{cases}    
-% \end{gather*}
+\begin{gather}
+    \Delta:\begin{cases}
+    >0&y=c_1e^{\lambda_1t}+c_2e^{\lambda_2t}\\
+    =0&y=c_1te^{\lambda t}+c_2e^{\lambda t}\\
+    <0&y=e^{\mathrm{Re}\{\lambda\}t}\left(c_1\cos(\mathrm{Im}\{\lambda\}t)+c_2\sin(\mathrm{Im}\{\lambda\}t)\right)
+    \end{cases}    
+\end{gather}
 
-Si considera un'equazione lineare omogenea:
-\begin{gather*}
-    y''+y=0\to\,y''=-y\\
-    y(0)=3\\
-    y'(0)=0
-\end{gather*}
-Una possibile soluzione è una funzione sinusoidale:
-\begin{gather*}
-    y=k\cos x\\
-    y'=-k\sin x\\
-    y''=-k\cos x
-\end{gather*}
-Per individuare la soluzione bisogna utilizzare le condizioni al contorno fornite:
-\begin{gather*}
-    y(0)=k\cos(0)=k=3\\
-    y'(0)=3\sin(0)=0
-\end{gather*}
-La soluzione individuata $y=3\cos x$ è unica. 
-
+\subsubsection{Operatore Differenziale}
 
 Se i coefficienti dell'equazione differenziale ordinaria di secondo ordine non sono costanti si ha:
-\begin{gather*}
+\begin{gather}
     y''+P(x)y'+Q(x)y=0
-\end{gather*}
-Si utilizza allora l'operatore differenziale:
+\end{gather}
+Si considera l'operatore differenziale:
 \begin{gather*}
     L[y]=y''+P(x)y'+Q(x)y
 \end{gather*}
 Questo operatore è lineare, quindi siano $y_1$ e $y_2$ soluzioni dell'equazione non omogenea, allora una loro combinazione lineare è anch'essa una soluzione:
 \begin{gather*}
-    L[c_1y_2+c_2y_2]=c_1y_1''+c_1P(x)y_1'+c_1Q(x)y_1+c_2y_2''+c_2P(x)y_2'+c_2Q(x)y_2=c_1L[y_1]+c_2L[y_2]
+    L[c_1y_1
+    +c_2y_2]=c_1y_1''+c_1P(x)y_1'+c_1Q(x)y_1+c_2y_2''+c_2P(x)y_2'+c_2Q(x)y_2=c_1L[y_1]+c_2L[y_2]\\
+    L[c_1y_1+c_2y_2]=c_1L[y_1]+c_2L[y_2]\tageq
 \end{gather*}
-
 Considerando ora l'equazione non omogenea, data $\bar{y}$ la soluzione dell'equazione non omogenea, e $y_1$ una soluzione dell'equazione omogenea, allora l'operatore applicato alla loro combinazione lineare diventa:
-\begin{gather*}
-    L[y_1+\bar{y}]=L[y_1]+L[\bar{y}]
-\end{gather*}
-Il primo addendo è nullo poiché è soluzione dell'equazione omogenea quindi si ha:
-\begin{gather*}
-    L[y_1+\bar{y}]=\cancelto{0}{L[y_1]}+L[\bar{y}]=R(x)
-\end{gather*}
-Quindi la combinazione lineare tra una soluzione dell'equazione omogenea e di quella non omogenea, è una soluzione per l'equazione non omogenea.
+\begin{equation}
+    L[y_1+\bar{y}]=\cancelto{0}{L[y_1]}+L[\bar{y}]=L[\bar{y}]=R(x)
+\end{equation}
+Il primo addendo è nullo poiché è soluzione dell'equazione omogenea, quindi la combinazione lineare tra una soluzione dell'equazione omogenea e di quella non omogenea, è una soluzione per l'equazione non omogenea.
 Mentre date due soluzioni per l'equazione non omogenea $\bar{y}_1$ e $\bar{y}_2$, l'operatore differenziale applicato alla loro differenza sarà nullo:
-\begin{gather*}
+\begin{equation}
     L[\bar{y}_1-\bar{y_2}]=L[\bar{y}_1]-L[\bar{y}_2]=R(x)-R(x)=0
-\end{gather*}
-La differenza di due soluzioni dell'equazione non otogena è una soluzione all'equazione omogenea. Quindi fissando una delle due soluzioni si può attuare lo stesso procedimento per le equazioni lineari di primo ordine, dove 
-la soluzione generale per un'equazione di primo ordine è data dall'integrale particolare per l'omogenea più una soluzione generale per la non omogenea. %% TODO fix per secondo ordine scrivere soluzione tipo y+\bar{y}
+\end{equation}
+La differenza di due soluzioni dell'equazione non omogenea è una soluzione all'equazione omogenea. Quindi fissando una delle due soluzioni si può attuare lo stesso procedimento per le equazioni lineari di primo ordine, dove 
+la soluzione generale per un'equazione differenziale è data dalla combinazione lineare dell'integrale particolare dell'omogenea $\bar{y}$ e di una soluzione generale per la non omogenea $y_1$:
 \begin{gather*}
-    L[y+\bar{y}]
+    L[y_1+\bar{y}]=R(x)\\
+    y=y_1+\bar{y}\tageq
 \end{gather*}
 
 
-Esempio a caso:
-\begin{gather*}
-    y''+2y'+y=0
-\end{gather*}
-Si considera la sua equazione caratteristica:
-\begin{gather*}
-    e^{\lambda t}(\lambda^2+2\lambda+1)=0
-\end{gather*}
-Il determinante è nullo $\Delta=0$, quindi si ha $\lambda=-1$, quindi le due soluzioni dell'equazione sono:
-\begin{gather*}
-    y_1=e^{-x}\\
-    y_2=xe^{-x}
-\end{gather*}
-La soluzione generale di quest'equazione è quindi del tipo:
-\begin{gather*}
-    y=c_1e^{-x}+c_2xe^{-x}
-\end{gather*}
 
-%% ??
-%% TODO fix wording and shi
-Date due equazioni $y_1(x)$ e $y_2(x)$, se esse sono linearmente indipendenti se non esistono costanti $c_i\neq0$ tali che $c_1y_1(x)+c_2y_2(x)$. Se invece esistono queste costanti, sempre diverse da zero, le funzioni si dicono linearmente dipendenti. 
+Date due funzioni $y_1(x)$ e $y_2(x)$ queste si dicono linearmente indipendenti se non esistono costanti $c_i\neq0$ tali che $c_1y_1(x)+c_2y_2(x)=0$. Se invece esistono queste costanti, sempre diverse da zero, le funzioni si dicono linearmente dipendenti:
+\begin{gather}
+    \exists\,c_1,c_2\neq0:c_1y_1(x)+c_2y_2(x)=0\implies y_1,y_2\mbox{ linearmente dipendenti}\\
+    \forall\,c_1,c_2\neq0:c_1y_1(x)+c_2y_2(x)\neq0\implies y_1,y_2\mbox{ linearmente indipendenti}
+\end{gather}
 
 
-Date $y_1(x)$ e $y_2(x)$ soluzioni linearmente indipendenti, di un'equazione lineare di secondo ordine omogenea $y''+P(x)y'+Q(x)y=0$, allora ogni soluzione combinazione lineare di queste due soluzioni allora: $y=c_1y_1+c_2y_2$. 
+Siano $y_1(x)$ e $y_2(x)$ soluzioni linearmente indipendenti di un'equazione lineare di secondo ordine omogenea $L[y]=0$, allora ogni soluzione è data da una combinazione lineare di queste due soluzioni $y=c_1y_1+c_2y_2$:
+\begin{equation}
+    L[y_1]=L[y_2]=0\implies \forall c_1,c_2\in\mathbb{R}:L[c_1y_1+c_2y_2]=0
+\end{equation}
 Date le condizioni al contorno $y_0$ e $y_0'$, si possono individuare le costanti $c_1$ e $c_2$:
 \begin{gather*}
-    c_1y_1(x_0)+c_2y_2(x_0)=y_0\\
-    c_1y_1'(x_0)+c_2y_2'(x_0)=y_0'
+    y(x_0)=c_1y_1(x_0)+c_2y_2(x_0)=y_0\\
+    y'(x_0)=c_1y_1'(x_0)+c_2y_2'(x_0)=y_0'
 \end{gather*}
-Queste costanti esistono quando il determinante dei coefficienti è diverso da zero:
+Questo sistema ha soluzione se il determinante dei coefficienti è diverso da zero:
 \begin{gather*}
-    \begin{pmatrix}
+    \left|\begin{matrix}
         y_1(x_0) & y_2(x_0)\\
         y_1'(x_0) & y_2'(x_0)
-    \end{pmatrix}\neq0
+    \end{matrix}\right|=y_1(x_0)\cdot y_2'(x_0)-y_2(x_0)\cdot y_1'(x_0)\neq0
 \end{gather*}
-Questo si chiama il Wronskiano relativo a $y_1$ e $y_2$. 
-Si vuole trovare due soluzioni linearmente indipendenti, quindi considerando il Wronskiano se è nullo allora le soluzioni non solo linearmente indipendenti e quindi non può essere utilizzato per individuare la soluzione. 
+Questo si chiama il Wronskiano $W(x)$ relativo a $y_1$ e $y_2$: $W(y_1(x),y_2(x))$.  
+Si vogliono trovare due soluzioni linearmente indipendenti; se il Wronskiano è nullo allora le soluzioni non solo linearmente indipendenti e quindi non può essere utilizzato per individuare la soluzione. 
 
 \clearpage
 
