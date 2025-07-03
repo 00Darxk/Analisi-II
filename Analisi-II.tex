@@ -773,7 +773,7 @@ L'unica funzione che rispetta questo problema di Cauchy è la funzione seno, qui
 \clearpage
 
 \section{Integrali Impropri e Serie di Fourier}
-
+\label{sec:int-1}
 Prima di trattare la serie di Fourier, un altro metodo per esprimere funzioni tramite serie, oltre la serie di Taylor, è necessario conoscere gli integrali impropri. 
 
 \subsection{Integrali Impropri di Seconda Specie}
@@ -1307,7 +1307,7 @@ Risolvendo per $z$, si può ottenere la soluzione $y$ tramite integrazione diret
     y=\displaystyle\int z\df z
 \end{gather}
 
-\subsection{Equazione di Bernoulli}
+\subsection{Equazioni di Bernoulli}
 
 Un'equazione di Bernoulli è un'equazione differenziale del tipo:
 \begin{gather}
@@ -1335,7 +1335,7 @@ Quindi si può esprimere come:
     L[y]=f(x)\equiv y'+A'(x)y=f(x)
 \end{gather*}
 
-\subsection{Equazione di Manfredi}
+\subsection{Equazioni di Manfredi}
 
 Le equazioni di Manfredi sono equazioni differenziali che riguardano funzioni omogenee di grado zero. Una funzione è detta omogenea di grado zero, se data una funzione $f(x,y)$ vale la seguente:
 \begin{gather*}
@@ -1368,7 +1368,7 @@ Dopo aver ottenuto la soluzione in termini di $z$, si può riportare rispetto ad
     y=z\cdot x
 \end{equation}
 
-\subsection{Equazione di Riccati}
+\subsection{Equazioni di Riccati}
 
 La conoscenza di una radice permette di semplificare l'esercizio di determinare ulteriori radici di un polinomio. Analogamente conoscendo una soluzione di un'equazione differenziale, è possibile individuare più facilmente altre soluzioni. 
 L'equazione di Riccati del primo ordine è del tipo:
@@ -1622,34 +1622,84 @@ Questo sistema ha soluzione se il determinante dei coefficienti è diverso da ze
 Questo si chiama il Wronskiano $W(x)$ relativo a $y_1$ e $y_2$: $W(y_1(x),y_2(x))$.  
 Si vogliono trovare due soluzioni linearmente indipendenti; se il Wronskiano è nullo allora le soluzioni non solo linearmente indipendenti e quindi non può essere utilizzato per individuare la soluzione. 
 
+%% TODO ??
+
+\subsection{Equazioni di Eulero}
+
+Le equazioni di Eulero sono equazioni differenziali ordinarie lineari di ordine $n$, a coefficienti non costanti, del tipo:
+\begin{equation}
+    a_0x^ny^{(n)}+a_1x^{n-1}y^{(n-1)}+\cdots+a_ny=f(x)
+\end{equation}
+Con $a_0\neq0$. Si considerano solo equazioni del secondo ordine, anche se il metodo risolutivo è analogo per ordini superiori. Le soluzioni a questo tipo di equazioni sono del tipo $y=x^\alpha$, sostituendo la soluzione nell'equazione si ottiene:
+\begin{gather*}
+    a_0x^2\alpha(\alpha-1)x^{\alpha-2}+a_1x\alpha x^{\alpha}+a_2x^{\alpha}=f(x)\\
+    x^\alpha(a_0\alpha^2+(a_1-a_0)\alpha+a_2)=f(x)
+\end{gather*}
+Questa è una situazione molto simile al polinomio caratteristico, poiché non esiste un esponente tale che $x^\alpha=0$. Questa si chiama equazione indiciale. Trovando le radici di questa equazioni, si ottengono le due soluzioni all'omogenea:
+\begin{gather*}
+    a_0\alpha^2+(a_1-a_0)\alpha+a_2=0\\
+    y=c_1x^{\alpha_1}+c_2x^{\alpha_2}\tageq
+\end{gather*}
+Questo metodo è efficace quando le equazioni sono omogenee, altrimenti non conviene più di altri metodi. 
+
+
+Il metodo canonico per la risoluzione di queste equazioni prevede il cambio di variabile $x=e^t$ e $t=\ln x$, per eliminare i termini polinomiali rispetto alla $x$. Le derivate dell'equazione differenziale diventano quindi:
+\begin{gather*}
+    \diff{y}{x}=\diff{y}{t}\cdot\diff{t}{x}=\dot y\cdot\frac{1}{x}\\
+    \diffn{y}{x}{2}=\frac{\df}{\df x}\left[\dot y\cdot\frac{1}{x}\right]=\left(\diff{\dot y}{t}\cdot\diff{t}{x}\right)\frac{1}{x}-\dot y\frac{1}{x^2}=\frac{1}{x^2}(\ddot y-\dot y)
+\end{gather*}
+Si utilizza la notazione puntata di Newton per le derivate nel tempo; l'equazione diventa:
+\begin{gather*}
+    a_0\cancel{x^2}\frac{1}{\cancel{x^2}}(\ddot y-\dot y)+a_1\cancel{x}\frac{1}{\cancel{x}}\dot y+a_2y=0\\
+    a_0\ddot y+(a_1-a_0)\dot y+a_2y=0
+\end{gather*}
+Quest'equazione ha la stessa forma dell'equazione indiciale, quindi si può vedere come le soluzioni ottenute con i due metodi sono le stesse. Passando al polinomio caratteristico si ottiene esattamente l'equazione indiciale:
+\begin{gather*}
+    a_0\lambda^2+(a_1-a_0)\lambda+a_2=0
+\end{gather*}
+Ottenute le due soluzioni $\lambda_1$ e $\lambda_2$, la soluzione omogenea dell'equazione, rispetto a $t$, è quindi:
+\begin{gather*}
+    y=c_1e^{\lambda_1t}+c_2e^{\lambda_2t}
+\end{gather*}
+Sostituendo $t=\ln x$, si ottiene:
+\begin{gather}
+    y=c_1x^{\lambda_1}+c_2x^{\lambda_2}
+\end{gather}
+Questa è la stessa soluzione, ottenuta tramite l'equazione indiciale. 
+
+% \subsection{??}
+
+% Data un'equazione differenziale del terzo ordine generale
+% \begin{gather*}
+%     y'''+ay''+by'+cy=0
+% \end{gather*}
+% Con $y=e^{\lambda t}$, si ottiene il polinomio caratteristico di questa equazione differenziale:
+% \begin{gather*}
+%     \lambda^3+a\lambda^2+a\lambda+c=0
+% \end{gather*}
+% Note le radici di questo polinomio 
+
 \clearpage
 
 \section{Trasformata di Laplace}
 
-La trasformata di Laplace essenzialmente è un'integrale improprio di seconda specie. 
-%% TODO ??
+La trasformata di Laplace essenzialmente è un'integrale improprio di prima specie. 
+Una funzione si dice discontinua a tratti in un intervallo $[a,b]$, se è continua tranne che in un numero finito di punti, dove presenta delle discontinuità di prima o di seconda specie. Queste funzioni sono integrabili sull'intervallo $[a,b]$, e questi integrali si chiamano integrali impropri. Questi integrali e le regole per il loro calcolo sono già stati discussi in una sezione precedente \ref{sec:int-1}. 
 
-% funzione discontinua a tratti e etc
-
-La discontinuità in questi punti deve essere di prima o terza specie%% TODO ??
-
-Se una funzione rinuncia alla limitatezza della funzione, allora è discontinua in un numero finito di punti, dove può presentare discontinuità di seconda specie, questa è una funzione a tratti. 
-
-
-La trasformata di Laplace è una funzione di questo tipo. Data una funzione $f(t)$ definita per $t\geq0$, allora la funzione di Laplace $\mathscr{L}$ di questa funzione è definita come:
-\begin{gather*}
-    F(s)=\mathscr{L}[f(t)]=\intpinf{f(t)e^{-st}}{t}
-\end{gather*}
-Quest'integrale deve essere finito per certi valori $s>a$. La trasformata di Laplace è una funzione in $s$ $F(s)$, più propriamente la trasformata è un limite:
-\begin{gather*}
-    \mathscr{L}[f(t)]=\lim_{w\to\infty}\int_0^\omega f(t)e^{-st}\df t
-\end{gather*}
+La trasformata di Laplace è una funzione di questo tipo. Data una funzione $f(t)$ definita per $t\geq0$, allora la trasformata di Laplace $\mathcal{L}$ di questa funzione è definita come il seguente integrale improprio:
+\begin{gather}
+    F(s)=\mathcal{L}[f(t)]=\intpinf{f(t)e^{-st}}{t}
+\end{gather}
+Quest'integrale deve essere finito per certi valori di $s$ maggiori di una certa soglia. La trasformata di Laplace è una funzione in $s$, $F(s)$, più propriamente la trasformata è un limite:
+\begin{gather}
+    \mathcal{L}[f(t)]=\lim_{\omega\to\infty}\int_0^\omega f(t)e^{-st}\df t
+\end{gather}
 
 \subsection{Trasformate di Funzioni Elementari}
 
-Si determina la trasformata di una costante $f(t)=k$, utilizzando la funzione come limite:
+Si determina la trasformata di una costante $f(t)=k$, utilizzando la definizione della trasformata di Laplace:
 \begin{gather*}
-    \mathscr{L}[f(t)]=\lim_{w\to\infty}\int_0^\omega ke^{-st}\df t
+    \mathcal{L}[k]=\lim_{w\to\infty}\int_0^\omega ke^{-st}\df t
 \end{gather*}
 Quest'integrale è immediato:
 \begin{gather*}
@@ -1658,51 +1708,56 @@ Quest'integrale è immediato:
 Si possono invertire i limite di integrazione:
 \begin{gather*}
     F(s)=\lim_{\omega\to\infty}\left\{\frac{1}{s}ke^{-st}\bigg|_\omega^0\right\}=
-    \frac{k}{s}-\cancelto{0}{\lim_{\omega\to\infty}\frac{k}{s}e^{-s\omega}}
+    \frac{k}{s}-\cancelto{0}{\frac{k}{s}\lim_{\omega\to\infty}e^{-s\omega}}
 \end{gather*}
 La trasformata di una costante è quindi:
-\begin{gather*}
-    \mathscr{L}[k]=\frac{k}{s}
-\end{gather*}
+\begin{gather}
+    \mathcal{L}[k]=\frac{k}{s}
+\end{gather}
 
 
 Si considera la trasformata di una funzione lineare:
 \begin{gather*}
-    \mathscr{L}[t]=\lim_{\omega\to\infty}\int_0^\omega te^{-st}\df t
+    \mathcal{L}[t]=\lim_{\omega\to\infty}\int_0^\omega te^{-st}\df t
 \end{gather*}
 Si integra per parti:
 \begin{gather*}
-    \mathscr{L}[t]=\lim_{\omega\to\infty}-\frac{1}{s}\left\{te^{-st}+\frac{1}{s}e^{-st}\bigg|_0^\omega\right\}=
-    \lim_{\omega\to\infty}\left\{\cancelto{0}{-\frac{\omega}{s} e^{-s\omega}}+\cancelto{0}{-\frac{1}{s^2}e^{-s\omega}}+\frac{1}{s^2}\right\}=\frac{1}{s^2}
+    \mathcal{L}[t]=\lim_{\omega\to\infty}-\frac{1}{s}\left\{te^{-st}+\frac{1}{s}e^{-st}\bigg|_0^\omega\right\}=
+    \lim_{\omega\to\infty}\left\{\cancelto{0}{-\frac{\omega}{s} e^{-s\omega}}+\cancelto{0}{-\frac{1}{s^2}e^{-s\omega}}+\frac{1}{s^2}\right\}=\frac{1}{s^2}\\
+    \mathcal{L}[t]=\frac{1}{s^2}\tageq
 \end{gather*}
 
 
-In generale una funzione del tipo $f(t)=t^n$ ha una trasformata di Laplace:
-\begin{gather*}
-    \mathscr{L}\left[t^n\right]=\frac{n!}{s^{n+1}}
-\end{gather*}
+In generale una funzione del tipo $f(t)=t^n$ ha una trasformata di Laplace del tipo:
+\begin{gather}
+    \mathcal{L}\left[t^n\right]=\frac{n!}{s^{n+1}}
+\end{gather}
 Si dimostra per induzione, per $n=0$ si ha:
 \begin{gather*}
-    \mathscr{L}[1]=\frac{1}{s}
+    \mathcal{L}[1]=\frac{1}{s}
 \end{gather*}
 Questo si è già calcolato precedentemente. 
 Si suppone che sia vero per $n=k$, quindi si ha:
 \begin{gather*}
-    \mathscr{L}\left[t^{k}\right]=\frac{k!}{s^{k+1}}
+    \mathcal{L}\left[t^{k}\right]=\frac{k!}{s^{k+1}}
 \end{gather*}
 Si determina allora per $n=k+1$:
 \begin{gather*}
-    \mathscr{L}\left[t^{k+1}\right]=\int_0^{+\infty} t^{k+1}e^{-st}\df t
+    \mathcal{L}\left[t^{k+1}\right]=\int_0^{+\infty} t^{k+1}e^{-st}\df t
 \end{gather*}
 Integrando per parti si ha:
 \begin{gather*}
-    \mathscr{L}\left[t^{k+1}\right]=\overbrace{\left[-\frac{t^{k+1}e^{-st}}{s}\right]_0^{+\infty}}^0+\frac{k+1}{s}\int_0^{+\infty}t^ke^{-st}\df t=\frac{k+1}{s}\mathscr{L}\left[t^k\right]=\frac{k+1}{s}\frac{k!}{s^{k+1}}=\frac{(k+1)!}{s^{k+2}}
+    \mathcal{L}\left[t^{k+1}\right]=\overbrace{\left[-\frac{t^{k+1}e^{-st}}{s}\right]_0^{+\infty}}^0+\frac{k+1}{s}\int_0^{+\infty}t^ke^{-st}\df t=\frac{k+1}{s}\mathcal{L}\left[t^k\right]=\frac{k+1}{s}\frac{k!}{s^{k+1}}=\frac{(k+1)!}{s^{k+2}}
 \end{gather*}
+Si è quindi verificata la tesi. In genere queste funzioni si chiamano funzioni di tipo $k$ polinomiale, e si rappresentano come $f(t)=t^k/k!$, poiché la loro trasformata è più semplice, essendo indipendente dalla costante $k!$:
+\begin{equation}
+    \mathcal{L}\left[\frac{t^k}{k!}\right]=\frac{1}{s^{k+1}}
+\end{equation}
 
 
 Si determina la trasformata di Laplace del seno:
 \begin{gather*}
-    \mathscr{L}\left[\sin(at)\right]=\int_0^{+\infty}\sin(at)e^{-st}\df t
+    \mathcal{L}\left[\sin(at)\right]=\int_0^{+\infty}\sin(at)e^{-st}\df t
 \end{gather*}
 Integrando per parti si ha:
 \begin{center}
@@ -1715,55 +1770,64 @@ Integrando per parti si ha:
     \end{tabular}
 \end{center}
 \begin{gather*}
-    \mathscr{L}[\sin at]=-e^{-st}\frac{\cos(at)}{a}-se^{-st}\frac{\sin(at)}{a^2}-\frac{s^2}{a^2}\int_0^{+\infty}e^{-st}\sin(at)\df t\\
-    \left(1+\frac{s^2}{a^2}\right)\mathscr{L}[\sin(at)]=\left[-e^{-st}\frac{\cos(at)}{a}-se^{-st}\frac{\sin(at)}{a^2}\right]_0^{+\infty}=\frac{1}{a}\\
-    \mathscr{L}[\sin(at)]=\frac{1}{a}\frac{a^2}{a^2+s^2}=\frac{a}{a^2+s^2}
+    \mathcal{L}[\sin at]=-e^{-st}\frac{\cos(at)}{a}-se^{-st}\frac{\sin(at)}{a^2}-\frac{s^2}{a^2}\overbrace{\int_0^{+\infty}e^{-st}\sin(at)\df t}^{\mathcal{L}[\sin(at)]}\\
+    \left(1+\frac{s^2}{a^2}\right)\mathcal{L}[\sin(at)]=\left[-e^{-st}\frac{\cos(at)}{a}-se^{-st}\frac{\sin(at)}{a^2}\right]_0^{+\infty}=\frac{1}{a}\\
+    \mathcal{L}[\sin(at)]=\frac{1}{a}\frac{a^2}{a^2+s^2}=\frac{a}{a^2+s^2}\tageq
 \end{gather*}
+Analogamente per il coseno si ha:
+\begin{equation}
+    \mathcal{L}[\cos(at)]=\frac{s}{a^2+s^2}\tageq
+\end{equation}
 
 
 Si determina la trasformata dell'esponenziale:
+\begin{gather}
+    \mathcal{L}\left[e^{bt}\right]=\intpinf{e^{-st}e^{bt}}{t}=\intpinf{e^{-(s-b)t}}{t}=-\frac{1}{s-b}e^{-(s-b)}\bigg|_0^{+\infty}=\frac{1}{s-b}
+\end{gather}
+
+\subsection{Proprietà della Traslazione in Frequenza}
+
+La trasformata di un'esponenziale si può interpretare anche come il prodotto di una costante per l'esponenziale:
 \begin{gather*}
-    \mathscr{L}\left[e^{bt}\right]=\intpinf{e^{-st}e^{bt}}{t}=\intpinf{e^{-(s-b)t}}{t}=-\frac{1}{s-b}e^{-(s-b)}\bigg|_0^{+\infty}=\frac{1}{s-b}
+    \mathcal{L}\left[e^{bt}\cdot 1\right]=\frac{1}{s-b}
 \end{gather*}
-Questa si può interpretare anche come il prodotto di una costante per questo esponenziale:
-\begin{gather*}
-    \mathscr{L}\left[e^{bt}\cdot 1\right]=\frac{1}{s-b}
-\end{gather*}
-Considerando ora invece della costante, una funzione generica $f(t)$:
-\begin{gather*}
-    \mathscr{L}\left[e^{bt}\cdot f(t)\right]=\intpinf{f(t)e^{-(s-b)t}}{t}=F(s-b)
-\end{gather*}
+Considerando ora invece della costante, una funzione generica $f(t)$ si ha:
+\begin{gather}
+    \mathcal{L}\left[e^{bt}\cdot f(t)\right]=\intpinf{f(t)e^{-(s-b)t}}{t}=F(s-b)
+\end{gather}
 Dato che la trasformata di Laplace della funzione $f(t)$ è:
 \begin{gather*}
-    \mathscr{L}[f(t)]=\intpinf{f(t)e^{-st}}{t}=F(s)
+    \mathcal{L}[f(t)]=\intpinf{f(t)e^{-st}}{t}=F(s)
 \end{gather*}
 Quindi effettuando la trasformata di una funzione, moltiplicata per un esponenziale $e^{-bt}$, la funzione risultante è la trasformata della funzione traslata dal fattore costante all'esponente dell'esponenziale, nel dominio $s$. 
+Questa proprietà della trasformata si chiama traslazione in frequenza. 
 
-\subsection{Trasformata della Derivata e dell'Integrale}
+\subsection{Teorema della Derivata e dell'Integrale}
 
 Si vuole calcolare la trasformata della derivata di una funzione generica $f(t)$, sapendo il valore $f(0)$:
 \begin{gather*}
-    \mathscr{L}[f'(t)]=\intpinf{\frac{\df f(t)}{\df t}e^{-st}}{t}
+    \mathcal{L}[f'(t)]=\intpinf{\frac{\df f(t)}{\df t}e^{-st}}{t}
 \end{gather*}
 Applicando l'integrazione per parti si ottiene:
 \begin{gather*}
-    \intpinf{\frac{\df f(t)}{\df t}e^{-st}}{t}=e^{-st}f(t)\bigg|_0^{+\infty}+s\intpinf{f(t)e^{-st}}{t}=-f(0)+sF(s)
+    \intpinf{\frac{\df f(t)}{\df t}e^{-st}}{t}=e^{-st}f(t)\bigg|_0^{+\infty}+s\intpinf{f(t)e^{-st}}{t}=-f(0)+sF(s)\\
+    \mathcal{L}\left[\frac{\df f(t)}{\df t}\right]=sF(s)-f(0)\tageq
 \end{gather*}
 
 
 Analogamente si determina la trasformata dell'integrale di una funzione generica $f(t)$:
 \begin{gather*}
-    \mathscr{L}\left[\int_0^t f(\varphi)\df \varphi\right]=\intpinf{e^{-st}\int_0^t f(\varphi)\df\varphi}{t}
+    \mathcal{L}\left[\int_0^t f(\varphi)\df \varphi\right]=\intpinf{e^{-st}\left(\int_0^t f(\varphi)\df\varphi\right)}{t}
 \end{gather*}
 Si considera questa funzione integrale $g(t)$, e la trasformata della sua derivata:
 \begin{gather*}
     g(t)=\int_0^t f(\varphi)\df\varphi\\
     g'(t)=f(t)\\
-    \mathscr{L}[g'(t)]=sG(s)-\cancelto{0}{g(0)}=F(s)=\mathscr{L}[f(t)]\\
-    \mathscr{L}\left[\int_0^tf(\varphi)\df\varphi\right]=G(s)=\frac{F(s)}{s}
+    \mathcal{L}[g'(t)]=sG(s)-\cancelto{0}{g(0)}=F(s)=\mathcal{L}[f(t)]\\
+    \mathcal{L}\left[\int_0^tf(\varphi)\df\varphi\right]=G(s)=\frac{F(s)}{s}\tageq
 \end{gather*}
 
-\subsection{Derivate nel Dominio di Laplace}
+\subsection{Equazioni Differenziali nel Dominio di Laplace}
 
 Si considera il seguente problema di Cauchy:
 \begin{gather*}
@@ -1772,538 +1836,104 @@ Si considera il seguente problema di Cauchy:
         y(0)=1
     \end{cases}
 \end{gather*}
-La trasformata è un'operazione lineare, essendo l'integrale un operatore lineare, quindi è possibile scomporre la trasformata di una equazione differenziale come la combinazione lineare di trasformate:
+La trasformata è un'operazione lineare, dato che l'integrale un operatore lineare; quindi è possibile scomporre la trasformata di una equazione differenziale come la combinazione lineare di trasformate:
 \begin{gather*}
-    \mathscr{L}[y'-y]=\mathscr{L}[0]\\
-    \mathscr{L}[y']-\mathscr{L}[y]=0\\
+    \mathcal{L}[y'-y]=\mathcal{L}[0]\\
+    \mathcal{L}[y']-\mathcal{L}[y]=0\\
     sY(s)-\cancelto{1}{y(0)}-Y(s)=0\\
     Y(s)(s-1)=1\implies Y(s)=\frac{1}{s-1}
 \end{gather*}
-Considerando che $\mathscr{L}[1]=1/s$ e considerando la proprietà della traslazione nel piano di Laplace:
+Considerando che $\mathcal{L}[1]=1/s$ e considerando la proprietà della traslazione in frequenza:
 \begin{gather*}
     \frac{1}{s-1}=G(s-1)\\
     G(s)=\frac{1}{s}=\implies g(t)=1\\
-    Y(s)=G(s-1)=\mathscr{L}[g(t)e^{bt}]=\mathscr{L}[e^t]\\
+    Y(s)=G(s-1)=\mathcal{L}[g(t)e^{bt}]=\mathcal{L}[e^t]\\
     y(t)=e^{t}
 \end{gather*}
+Passando per il dominio di Laplace quindi è possibile risolvere più semplicemente equazioni differenziali, poiché la derivata nel tempo diventa una moltiplicazione per $s$ in frequenza, quindi invece di risolvere un'equazione differenziale si risolve un polinomio rispetto ad $s$. Il passaggio importante è l'antitrasformata, o immediata attraverso trasformate notevoli, oppure utilizzando la definizione per l'antitrasformata, anche se questa non verrà trattata in questo corso. 
 
+Tra le funzioni e le rispettive trasformate è presente una corrispondenza biunivoca, come per la trasformata esiste una trasformata inversa che le riporta in $t$, chiamata antitrasformata di Laplace. Il problema per risolvere le equazioni differenziali diventa quindi la ricerca dell'antitrasformata corrispondente di $Y(s)$. 
+Poiché la trasformata è un'operazione lineare, se si scompone $Y(s)$ in fratti semplici e si cercano le funzioni, che trasformate, generano questi termini; allora la loro combinazione lineare sarà la funzione $y(t)$, la cui trasformata corrisponde alla soluzione $Y(s)$ in Laplace. 
 
-Considerare ora il seguente problema di Cauchy:
+\subsection{Proprietà di Scala}
+
+Data una funzione generica $f(t)$ e la sua trasformata $F(s)$, con $s>a$, la trasformata di $f(bt)$ è data da:
+\begin{gather}
+    \mathcal{L}[f(bt)]=\frac{1}{b}F\left(\frac{s}{b}\right)
+\end{gather}
+Rimanendo sopra alla soglia $a$, con $s/b>a$, si effettua un cambio di variabile, $u=t/b$ per calcolare direttamente questa proprietà:
 \begin{gather*}
-    \begin{cases}
-        y'+2y=e^t\\
-        y(0)=1
-    \end{cases}
-\end{gather*}
-Procedendo analogamente all'esercizio precedente si ottiene:
-\begin{gather*}
-    y'+2y=e^t\to sY(s)-\cancelto{1}{y(0)}+2Y(s)=\frac{1}{s-1}\\
-    Y(s)(s+2)=\frac{s-\cancel{1}+\bcancel{1}}{s-1}\\
-    Y(s)=\frac{s}{(s-1)(s+2)}
-\end{gather*}
-Tra le funzioni e le rispettive trasformate è presente una corrispondenza biunivoca, come per la trasformata esiste una trasformata inversa che le riporta in $t$. Il problema per risolvere le equazioni differenziali diventa la ricerca dell'antitrasformata corrispondente di $Y(s)$. Poiché la trasformata è un'operazione lineare, se si scompone in fratti semplici e si cercano le funzioni che trasformate le generano, la loro combinazione lineare sarà la funzione la cui trasformata corrisponde alla soluzione $y(t)$:
-\begin{gather*}
-    \frac{s}{(s-1)(s-2)}=\frac{A}{s-1}+\frac{B}{s-2}\\
-    A(s+2)+B(s-1)=s\\
-    \begin{cases}
-        A+B=s\\
-        2A-B=0
-    \end{cases}\implies\begin{cases}
-        A=\frac{1}{3}\\
-        B=\frac{2}{3}
-    \end{cases}\\
-    Y(s)=\frac{1}{3}\frac{1}{s-1}+\frac{2}{3}\frac{1}{s+2}\\
-    \mathscr{L}^{-1}[Y(s)]=\frac{1}{3}e^{t}+\frac{2}{3}e^{-2t}=y(t)
-\end{gather*}
-
-\subsection*{Esercizi 15/5/25}
-
-Risolvere la seguente trasformata di Laplace:
-\begin{gather*}
-    \mathscr{L}[2e^{3t}\sin(4t)]=\frac{2\cdot4}{(s-3)^2+16}
-\end{gather*}
-
-
-Risolvere le seguenti trasformate:
-\begin{gather*}
-    \mathscr{L}[(t+4)^2e^{-5t}]=\frac{e^{-4s}}{(s+5)^2}\\
-    \mathscr{L}\left[3\sin\left(t+\frac{\pi}{6}\right)e^{-t}\right]=\frac{3e^{\pi/6}}{1+(s+1)^2}\\
-    \mathscr{L}\left[2\sin(3t)+4e^{2t}\cos t\right]=\frac{6}{9+s^2}+\frac{4}{1+(s-2)^2}
-\end{gather*}
-
-
-Calcolare la seguente trasformata di Laplace:
-\begin{gather*}
-    \mathscr{L}[\cos^2(\alpha t)]
-\end{gather*}
-Si considera la derivata della funzione:
-\begin{gather*}
-    f(t)=\cos^2\alpha t\\
-    f'(t)=-2\alpha\cos(\alpha t)\sin(\alpha t)=-\alpha\sin(2\alpha t)\\
-    f(0)=1\\
-    \mathscr{L}[f'(t)]=s\mathscr{L}[f(t)]-1\\
-    \mathscr{L}[-\alpha\sin(2\alpha t)]=s\mathscr{L}[\cos^2\alpha t]-1\\
-    \frac{-2\alpha^2}{4\alpha^2+s^2}=s\mathscr{L}[\cos^2\alpha t]-1\\
-    \mathscr{L}[\cos^2\alpha t]=\left(1-\frac{-2\alpha^2}{4\alpha^2+s^2}\right)\frac{1}{s}
-\end{gather*}
-
-\subsection{?}
-
-Data una funzione generica $f(t)$ e la sua trasformata $F(s)$, con $s>a$, si considera la trasformata di $f(bt)$:
-\begin{gather*}
-    \mathscr{L}[f(bt)]=\frac{1}{b}F\left(\frac{s}{b}\right)
-\end{gather*}
-Con $s/b>a$, allora si effettua un cambio di variabile, con $u=t/b$:
-\begin{gather*}
-    \frac{1}{b}F\left(\frac{s}{b}\right)=\frac{1}{b}\intpinf{e^{-s/bt}f(t)}{t}\\
-    \frac{1}{\cancel{b}}\intpinf{e^{-su}f(ub)\bcancel{b}}{u}=\intpinf{e^{-su}f(ub)}{u}=\mathscr{L}[f(ub)]
+    \frac{1}{b}F\left(\frac{s}{b}\right)=\frac{1}{b}\intpinf{e^{-s/bt}f(t)}{t},\,t=ub\\
+    \frac{1}{\cancel{b}}\intpinf{e^{-su}f(ub)\bcancel{b}}{u}=\intpinf{e^{-su}f(ub)}{u}=\mathcal{L}[f(ub)]
 \end{gather*}
 Per cui si è verificata la proprietà. 
 
-\subsection{??}
+\subsection{Teorema dell'Esistenza della Trasformata}
 
-Si considera un numero $M$ positivo, ed una funzione $f$ continua a tratti, per $t>a$, presenta un numero finito di punti di discontinuità di prima o terza specie. Inoltre si ha $|f(t)|\leq g(t)$, per $t>M$, allora anche l'integrale improprio della funzione da $M$ ad $+\infty$ converge:
-\begin{gather*}
-    \int_M^{+\infty}g(t)\df t:\mbox{ converge}
-\end{gather*}
+Si considerano due proprietà importanti relative agli integrali impropri. La prima è relativa al criterio del confronto per gli integrali impropri:
+\begin{quotation}
+    Siano due funzioni $f$ e $g$ continue a tratti per $t>a$, ed un numero arbitrariamente grande $M$. Se si ha $|f(t)|\leq g(t)$ per $t>M$, allora se l'integrale improprio di $g$ converge su $[M,+\infty)$, allora converge anche l'integrale improprio di $f$ sullo stesso intervallo:
+    \begin{gather*}
+        |f(t)|\leq g(t),\,\,\int_M^{+\infty}g(t)\df t\in\mathbb{R}\implies\int_M^{+\infty}f(t)\df t\in\mathbb{R}
+    \end{gather*}
 
-Se $f(t)\geq g(t)\geq0$ per $t\geq M$, se l'integrale di $g(t)$ converge, allora anche $f(t)$ converge. 
+    Analogamente, se $f(t)\geq g(t)\geq0$ per $t\geq M$, allora se l'integrale di $g$ diverge, allora diverge anche l'integrale su $f$:
+    \begin{gather*}
+        f(t)\geq g(t)\geq0,\,\,\int_M^{+\infty}g(t)\df t=\infty\implies\int_M^{+\infty}f(t)\df t=\infty
+    \end{gather*} 
+\end{quotation}
+%% why tho?? like, is this (^^^) needed at all? idk 
 
+Una funzione $f(t)$ si dice di ordine esponenziale $e^{\alpha t}$ per $\alpha>0$, se esistono due costanti $\exists\,N,k>0$ tali che per $t\geq k$ vale la seguente:
+\begin{equation}
+    |f(t)|\leq Ne^{\alpha t}
+\end{equation} 
+Se una funzione $f$ è di ordine esponenziale, allora la funzione ammette trasformata. 
 
-Una funzione $f(t)$ si dice di ordine esponenziale $e^{\alpha t}$ per $\alpha>0$, se esistono due costanti $\exists\,N,k>0$ tali che il modulo $f(t)\leq Ne^{\alpha t}$, per $t\geq k$. 
-Se una funzione è di ordine esponenziale, allora la funzione ammette trasformata. 
-
-\subsection{Traslazione sull'asse Temporale}
+\subsection{Proprietà della Traslazione nel Tempo}
 
 Data una funzione $f(t)$ e la sua trasformata $F(s)$, si considera una traslazione nell'asse $t$ di una quantità $\tau>0$:
 \begin{gather*}
-    \mathscr{L}[f(t-\tau)]=\intpinf{f(t-\tau)e^{-st}}{t}
+    \mathcal{L}[f(t-\tau)]=\intpinf{f(t-\tau)e^{-st}}{t}
 \end{gather*}
 Applicando una sostituzione $u=t-\tau$ si ottiene:
 \begin{gather*}
     \int_{-\tau}^{+\infty}{ f(u)e^{-(u+\tau)s}}{\df u}=e^{-s\tau}\intpinf{f(u)e^{-su}}{u}+e^{-s\tau}\int_{-\tau}^0f(u)e^{-su}\df u\\
-    \mathscr{L}[f(t-\tau)]=e^{-s\tau}F(s)+e^{-s\tau}\int_{-\tau}^0f(u)e^{-su}\df u
+    \mathcal{L}[f(t-\tau)]=e^{-s\tau}F(s)+e^{-s\tau}\int_{-\tau}^0f(u)e^{-su}\df u
 \end{gather*}
-Se $f(t)=0$, per $\tau<0$, allora diventa:
-\begin{gather*}
-    \mathscr{L}[f(t-\tau)]=e^{-s\tau}F(s)
-\end{gather*}
-
-\subsection*{Esercizi}
-
-Si considera la seguente equazione differenziale:
-\begin{gather*}
-    \begin{cases}
-        \diff{x}{t}+3x=\cos3t\\
-        x(0)=1
-    \end{cases}\\
-    sX(s)-\cancelto{1}{x(0)}+3X(s)=\frac{s}{9+s^2}\\
-    (s+3)X(s)=\frac{s}{9+s^2}+1\\
-    X(s)=\frac{s^2+s+9}{9+s^2}\frac{1}{s+3}
-\end{gather*}
-Si scompone in fratti semplici:
-\begin{gather*}
-    X(s)=\frac{s^2+s+9}{9+s^2}\frac{1}{s+3}=\frac{A}{s+3}+\frac{Bs+C}{9+s^2}\\
-    A(9+s^2)+(s+3)(Bs+C)=s^2+s+9\\
-    9A+As^2+Bs^2+Cs+3Bs+3C=s^2+s+9\\
-    \begin{cases}
-        As^2+Bs^2=s^2\\
-        Cs+3Bs=s\\
-        9A+3C=9
-    \end{cases}\begin{cases}
-        B=1-A\\
-        C=3A-2\\
-        18A=15
-    \end{cases}\begin{cases}
-        B=\displaystyle\frac{\strut1}{\strut6}\\
-        C=\displaystyle\frac{\strut1}{\strut2}\\
-        A=\displaystyle\frac{\strut5}{\strut6}
-    \end{cases}\\
-    X(s)=\frac{5}{6}\frac{1}{s+3}+\frac{1}{6}\frac{\cancel{s+3}}{\cancelto{s-3}{9+s^2}}\\
-    x(t)=
-\end{gather*}
-%% TODO finire
-
-Si considera ora un'equazione differenziale del secondo ordine:
-\begin{gather*}
-    \begin{cases}
-        y''-3y'+2y=t+3\\
-        y(0)=0\\
-        y'(0)=0
-    \end{cases}
-\end{gather*}
-Si effettua la trasformata:
-\begin{gather*}
-    s^2Y(s)-s\cancelto{0}{y'(0)}-\cancelto{0}{y(0)}-3sY(s)+3\cancelto{0}{y(0)}+2Y(s)=\frac{1}{s^2}+\frac{3}{s}\\
-    (s^2-4s+2)Y(s)=\frac{s+3}{s^2}\\
-    Y(s)=\frac{s+3}{s^2(s^2-3s+2)}
-\end{gather*}
-Si considerano i fratti semplici e si applicano l'anti-trasformata:
-\begin{gather*}
-    Y(s)=\frac{s+3}{s^2(s-1)(s-2)}=\frac{A}{s}+\frac{B}{s^2}+\frac{C}{s-1}+\frac{D}{s-2}\\
-    A(s^3-3s^2+2s)+B(s^2-3s+2)+C(s^3-s^2)+D(s^3-2s^2)=s+3\\
-    \begin{cases}
-        As^3+Cs^3+Ds^3=0\\
-        -3As^2+Bs^2-Cs^2-2Ds^2=0\\
-        2As-3Bs=3s\\
-        2B=1
-    \end{cases}\\
-    \begin{cases}
-        D=\displaystyle\frac{\strut9}{\strut4}-\displaystyle\frac{\strut25}{\strut4}\\
-        C=-\displaystyle\frac{\strut25}{\strut4}-2D\\
-        A=\displaystyle\frac{\strut9}{\strut4}\\
-        B=\displaystyle\frac{\strut1}{\strut2}
-    \end{cases}
-    \begin{cases}
-        D=-\displaystyle\frac{\strut16}{\strut4}=-4\\
-        C=-\displaystyle\frac{\strut21}{\strut4}+\frac{32}{\strut4}=\frac{7}{4}\\
-        A=\displaystyle\frac{\strut9}{\strut4}\\
-        B=\displaystyle\frac{\strut1}{\strut2}
-    \end{cases}\\
-    Y(s)=\frac{9}{4}\frac{1}{s}+\frac{1}{2}\frac{1}{s^2}+\frac{4}{s-1}+\frac{7}{4}\frac{1}{s-2}\\
-    y(t)=-\frac{9}{4}+\frac{1}{2}t+4e^t+\frac{7}{4}e^{2t}
-\end{gather*}
-
-
-Calcolare l'anti-trasformata della seguente funzione:
-\begin{gather*}
-    \mathscr{L}^{-1}\left[\frac{2s^2-4}{s^3-4s^2+s+6}\right]
-\end{gather*}
-Si scompone in fattori, il polinomio al denominatore è divisibile per $s+1$, quindi si scompone in:
-\begin{gather*}
-    \frac{2s^2-4}{s^3-4s^2+s+6}=2\frac{(s-1)\cancel{(s+1)}}{\cancel{(s+1)}(s^2-5s+6)}=\frac{s-1}{(s-2)(s-3)}
-\end{gather*}
-Si scompone in fratti semplici:
-% \begin{gather*}
-%     \frac{s-1}{(s-2)(s-3)}=\frac{A}{s-2}+\frac{B}{s-3}\\
-%     As-3A+Bs-2B=s-1\\
-%     \begin{cases}
-%         A+B=1\\
-%         A=\displaystyle\frac{\strut1-2B}{\strut3}
-%     \end{cases}\begin{cases}
-%         B=2\\
-%         A=-1
-%     \end{cases}\\
-%     \frac{s-1}{(s-2)(s-3)}=-\frac{1}{s-2}+\frac{2}{s-3}
-% \end{gather*}
-%% TODO fix
-L'antitrasformata è quindi:
-\begin{gather*}
-    \mathscr{L}^{-1}\left[\frac{2s^2-4}{s^3-4s^2+s+6}\right]=-\frac{1}{6}e^{-t}-\frac{4}{3}e^{2t}+\frac{7}{2}e^{3t}
-\end{gather*}
-
-%% TODO add somewhere -> diff eq
-
-\subsection{??}
-
-Data un'equazione differenziale del terzo ordine generale
-\begin{gather*}
-    y'''+ay''+by'+cy=0
-\end{gather*}
-Con $y=e^{\lambda t}$, si ottiene il polinomio caratteristico di questa equazione differenziale:
-\begin{gather*}
-    \lambda^3+a\lambda^2+a\lambda+c=0
-\end{gather*}
-Note le radici di questo polinomio %% TODO ??
-
-\subsection{``Metodo Pulito''}
-
-%% TODO section ?? -> diff eq
-
-\begin{gather*}
-    x^2y''-4xy'+4y=0
-\end{gather*}
-Questa è un'equazione differenziale del secondo ordine, lineare, dove i coefficienti non sono costanti. 
-Per risolverla si cercano soluzioni del tipo $y=x^\alpha$:
-\begin{gather*}
-    \alpha(\alpha-1)x^{\alpha}-4\alpha x^\alpha+4x^\alpha=0\\
-    x^\alpha\left(\alpha^2-\alpha-4\alpha+4\right)=0\\
-    \alpha^2-5\alpha+4=0
-\end{gather*}
-Questa è una situazione molto simile al polinomio caratteristico, poiché non esiste un esponente tale che $x^\alpha=0$. Questa si chiama equazione indiciale. Trovando le radici di questa equazioni, si ottengono le due soluzioni:
-\begin{gather*}
-    \alpha^2-5\alpha+4=0=(\alpha-1)(\alpha-4)\\
-    y(x)=c_1x+c_2x^4
-\end{gather*}
-Questo metodo è efficace quando le equazioni sono omogenee, altrimenti non conviene più di altri metodi. 
-
-
-Si considera la seguente equazione differenziale:
-\begin{gather*}
-    x^2y''+2xy'-2y=x^2
-\end{gather*}
-Poiché non è omogenea si considerano le seguenti sostituzioni, per trasformarla in un'equazione in termini di $y$ ed una nuova variabile $t$:
-\begin{gather*}
-    x=e^t\to t=\log x\\
-    \frac{\df y}{\df x}=\frac{\df y}{\df t}\frac{\df t}{\df x}=\frac{\df y}{\df t}\frac{1}{x}\\
-    \frac{\df^2y}{\df x^2}=\frac{\df }{\df x}\left[\frac{1}{x}\frac{\df y}{\df t}\right]=-\frac{1}{x^2}\frac{\df y}{\df t}+\frac{1}{x}\frac{\df^2y}{\df t\df x}\cdot\frac{\df t}{\df t}
-\end{gather*}
-Si moltiplica l'ultimo termine al numeratore ed al denominatore per $\df t$ per ottenere la seguente, inoltre si utilizza la notazione puntata di Newton per le derivate nel tempo $\dot y$:
-\begin{gather*}
-    \frac{\df^2y}{\df x^2}=-\frac{1}{x^2}\dot{y}+\frac{1}{x}\frac{\df y^2}{\df t^2}\frac{\df t}{\df x}=\frac{1}{x^2}\left(-\dot y+\ddot y\right)
-\end{gather*}
-La funzione originale diventa:
-\begin{gather*}
-    \cancel{x^2}\frac{1}{\cancel{x^2}}\left(-\dot y+\ddot y\right)+2\bcancel{x}\frac{1}{\bcancel{x}}\dot y-2y=e^{2t}
-\end{gather*}
-Prima si considera l'equazione omogenea, ed in seguito si aggiunge il termine forzante:
-\begin{gather*}
-    \ddot y+\dot y-2y=0
-\end{gather*}
-Si risolve ponendo $y=e^{\lambda t}$:
-\begin{gather*}
-    \lambda^2 +\lambda-2=0\\
-    (\lambda-1)(\lambda+2)=0
-\end{gather*}
-La soluzione omogenea $y(t)$ è quindi:
-\begin{gather*}
-    y(t)=c_1e^{-2t}+c_2e^{t}
-\end{gather*}
-
-Si risolve ora l'equazione non omogenea, considerando una funzione dello stesso tipo della forzante $e^{2t}$ per la soluzione particolare $\bar y(t)$:
-\begin{gather*}
-    \bar{y}(t)=ke^{2t}\\
-    e^{2t}\left(4k+2k-2k\right)=e^{2t}\\
-    4k=1\to k=\frac{1}{4}
-\end{gather*}
-L'integrale generale è quindi dato da:
-\begin{gather*}
-    y(t)=c_1e^{-2t}+c_2e^{t}+\frac{1}{4}e^{2t}
-\end{gather*}
-Per ritornare alla variabile originale $x$ si considera $t=\log x$:
-\begin{gather*}
-    y(x)=c_1x^{-2}+x_2x+\frac{1}{4}x^2
-\end{gather*}
+Se $f(t)=0$, per $\tau<0$, come definito all'inizio della sezione per le funzioni trattate, allora l'integrale su $[-\tau,0]$ è nullo, e diventa:
+\begin{gather}
+    \mathcal{L}[f(t-\tau)]=e^{-s\tau}F(s)
+\end{gather}
 
 \subsection{Trasformata di Funzioni Periodiche}
 
 Si considera una funzione $f(t)$ periodica di periodo $\tau$, quindi si ha $f(t+\tau)=f(t)$. Le funzioni generalmente considerate dalla trasformata sono funzioni nulle per valori negativi della variabile $t$. 
-Poiché si possono considerare solo funzioni nulle per $t\leq 0$ per effettuare la trasformata, allora si ha che $f(t)=0$ per $t\leq 0$, ma dato che è periodica si ha $f(x-\tau)=f(x-\tau+\tau)=f(t)=0$, per $0\leq x\leq\tau$. Quindi deve essere presente un periodo di distanza dall'origine, prima che la funzione possa assumere valori diversi da zero. 
- 
-%% TODO add img per cosa sus
-
-Data una funzione periodica, l'integrale nell'intervallo uguale ad un periodo $[0,\tau]$ corrisponde a:
-\begin{gather*}
-    \int_0^\tau e^{-st}f(t)\df t=\frac{1}{1-e^{-\tau s}}\mathscr{L}\left[f(t)\right]
-\end{gather*}
-
-Si considera una funzione seno $f(t)=\sin(at)$, di periodo $\tau=2\pi/a$. Applicando la formula si ottiene:
-\begin{gather*}
-    \int_0^{2\pi/a}e^{st}f(t)\df t=\frac{1}{1-e^{-2\pi t/a}}\mathscr{L}\left[\sin(at)\right]=\frac{1}{1-e^{-2\pi t/a}}\frac{a}{a^2+s^2}
-\end{gather*}
+Poiché si possono considerare solo funzioni nulle per $t\leq 0$, $f(t)=0$, ma dato che è periodica si ha che deve essere nulla anche per un primo periodo $f(t-\tau)=f(t-\tau+\tau)=f(t)=0$, per $0\leq x\leq\tau$. Quindi deve essere presente un periodo di distanza dall'origine, prima che la funzione possa assumere valori diversi da zero. 
 
 
-Si ricorda la proprietà di traslazione nel tempo della trasformata. 
-%% TODO move --> traslazione nel tempo
-Supponendo di avere la trasformata:
-\begin{gather*}
-    \mathscr{L}\left[f(t)\right]
-\end{gather*}
-Si considera la trasformata della funzione $f$ traslata di una quantità $\tau$:
-\begin{gather*}
-    \mathscr{L}\left[f(t-\tau)\right]=\int_0^{+\infty}e^{-st}f(t-\tau)\df t
-\end{gather*}
-Si risolve mediante la definizione, applicando la sostituzione $z=t-\tau$:
-\begin{gather*}
-    \int_0^{+\infty}e^{-st}f(t-\tau)\df t=
-    \int_{-\tau}^{+\infty}e^{-s(z+\tau)}f(z)\df z=
-    e^{-s\tau}\left(\int_{-\tau}^{0}e^{-sz}f(z)\df z+
-    \int_{0}^{+\infty}e^{-sz}f(z)\df z\right)\\
-    \mathscr{L}\left[f(t-\tau)\right]=e^{-s\tau}\int_{-\tau}^0e^{-sz}f(z)\df z+e^{-s\tau}\mathscr{L}\left[f(t)\right]
-\end{gather*}
-
-Le funzioni considerate nella trasformata di Laplace sono null per valori $t<0$, quindi il primo integrale è nullo, quindi:
-\begin{gather*}
-    \mathscr{L}\left[f(t-\tau)\right]=e^{-s\tau}\mathscr{L}\left[f(t)\right]
-\end{gather*}
-%% END move
-
-
+Data una funzione $f$ periodica di periodo $\tau$, la sua trasformata di Laplace è data da:
+\begin{equation}
+    \mathcal{L}\left[f(t)\right]=\frac{1}{1-e^{-\tau s}}\int_0^\tau e^{-st}f(t)\df t
+\end{equation}
 Considerando una funzione periodica, di periodo $\tau$, e considerando la sua trasformata di Laplace traslata di $\tau$ si ottiene per la formula di traslazione nel tempo:
 \begin{gather*}
-    \mathscr{L}\left[f(t-\tau)\right]=e^{-s\tau}\mathscr{L}\left[f(t)\right]
+    \mathcal{L}\left[f(t-\tau)\right]=e^{-s\tau}\mathcal{L}\left[f(t)\right]
 \end{gather*}
 Mentre per la definizione della trasformata di Laplace, considerando che $f(t)=0$ in $t\in(-\infty,\tau]$:
 \begin{gather*}
-    \mathscr{L}\left[f(t-\tau)\right]=
-    \int_{\tau}^{+\infty}e^{-st}f(t)\df t=\mathscr{L}\left[f(t)\right]-\int_0^\tau e^{-st}f(t)\df t
+    \mathcal{L}\left[f(t-\tau)\right]=
+    \int_{\tau}^{+\infty}e^{-st}f(t)\df t=
+    \int_{0}^{+\infty}e^{-st}f(t)\df t-\int_{0}^{\tau}e^{-st}f(t)\df t=
+    \mathcal{L}\left[f(t)\right]-\int_0^\tau e^{-st}f(t)\df t
 \end{gather*}
 Eguagliando le due forme ottenute si ha:
 \begin{gather*}
-    e^{-s\tau}\mathscr{L}\left[f(t)\right]=\mathscr{L}\left[f(t)\right]-\int_0^\tau e^{-st}f(t)\df t\\
-    \mathscr{L}\left[f(t)\right]\left(1-e^{-s\tau}\right)=\int_0^\tau e^{-st}f(t)\df t\\
-    \mathscr{L}\left[f(t)\right]=\frac{1}{1-e^{-s\tau}}\int_0^\tau e^{-st}f(t)\df t\tageq
+    e^{-s\tau}\mathcal{L}\left[f(t)\right]=\mathcal{L}\left[f(t)\right]-\int_0^\tau e^{-st}f(t)\df t\\
+    \mathcal{L}\left[f(t)\right]\left(1-e^{-s\tau}\right)=\int_0^\tau e^{-st}f(t)\df t\\
+    \mathcal{L}\left[f(t)\right]=\frac{1}{1-e^{-s\tau}}\int_0^\tau e^{-st}f(t)\df t
 \end{gather*}
-La seguente formula è quindi la trasformata di una trasformazione periodica. 
-
-
-
-Calcolare la trasformata di Laplace della seguente funzione periodica, un treno di triangoli:
-\begin{gather*}
-    f(t)=\begin{cases}
-        t&0\leq t\leq1\\
-        2-t&1\leq t\leq2
-    \end{cases}
-\end{gather*}
-%% TODO add immagine treno di triangoli
-Il periodo di questa funzione è $\tau=2$, quindi applicando la formula si ha:
-\begin{gather*}
-    \mathscr{L}[f(t)]=\frac{1}{1-e^{-2s}}\int_0^2e^{-st}f(t)\df t=\frac{1}{1-e^{-2s}}\left(\int_0^1e^{-st}t\df t+\int_1^2e^{-st}(2-t)\df t\right)\\
-    \int_0^1e^{-st}\df t=-\frac{1}{s}te^{-st}-\frac{1}{s^2}e^{-st}\bigg|_0^1=-\frac{1}{se^{s}}-\frac{1}{s^2e^s}+\frac{1}{s^2}\\
-    \int_1^2e^{-st}(2-t)\df t=2\int_1^2e^{-st}\df t+\left[\frac{1}{s}te^{-st}+\frac{1}{s^2}e^{-st}\right.\bigg|_1^2\\
-    -\cancel{\frac{2}{s}\left(e^{-2s}-e^{-s}\right)}+\bcancel{\frac{2}{s}\left(e^{-2s}-e^{-s}\right)}+\frac{1}{s^2}\left(e^{-2s}-e^{-s}\right)=\frac{1}{s^2}\left(e^{-2s}-e^{-s}\right)\\
-    \mathscr{L}\left[f(t)\right]=
-    \frac{1}{1-e^{-2s}}\left[-\frac{1}{se^{s}}-\frac{1}{s^2e^s}+\frac{1}{s^2}+\frac{1}{s^2}\left(e^{-2s}-e^{-s}\right)\right]=\frac{1}{1-e^{-2s}}\left[\frac{e^{-2s}-2e^{-s}+1}{s^2}-\frac{1}{se^{s}}\right]
-\end{gather*} 
-%% TODO rifare, termine 1/se^s da cancellare (?)
-\begin{gather*}
-    \mathscr{L}\left[f(t)\right]=\frac{1}{\cancel{(1-e^{-s})}(1+e^{-s})}\frac{(1-e^{-s})^{\bcancel{2}}}{s^2}=\frac{1}{s^2}\frac{1-e^{-s}}{1+e^{-s}}
-\end{gather*}
-
-
-
-Calcolare ora la trasformata di questa funzione periodica $f(t)$ di periodo $\tau=2\pi$
-\begin{gather*}
-    f(t)=\begin{cases}
-        \sin t&0\leq t\leq\pi\\
-        0&\pi\leq t\leq2\pi
-    \end{cases}
-\end{gather*}
-%% TODO add immagine
-Si considera la formula:
-\begin{gather*}
-    \mathscr{L}\left[f(t)\right]=\frac{1}{1-e^{-2s\pi}}\overbrace{\int_0^{2\pi}e^{-st}f(t)\df t}^I\\
-    I=\int_0^\pi e^{-st}\sin t\df t+\cancelto{0}{\int_\pi^{2\pi}e^{-st}0\df t}
-\end{gather*}
-Per l'integrazione per parti si ha:
-\begin{center}
-    \begin{tabular}{|c||c|c|}
-        \hline
-        &$D$&$I$\\\hline
-        +&$\sin t$&$e^{-st}$\\\hline
-        -&$\cos t$&$-1/se^{-st}$\\\hline
-        +&$-\sin t$&$-1/s^2e^{-st}$\\\hline
-    \end{tabular}
-\end{center}
-\begin{gather*}
-    I=-\cancelto{0}{\frac{1}{s}e^{-st}\sin t}+\frac{1}{s^2}e^{-st}\cos t\bigg|_0^{\pi}-\frac{1}{s^2}I\\
-    I=\frac{1}{1+\frac{1}{s^2}}\left(-\frac{1}{s^2}e^{-s\pi}-\frac{1}{s^2}\right)=-\frac{e^{-s\pi}+1}{s^2+1}\\
-    \mathscr{L}\left[f(t)\right]=-\frac{1}{1-e^{-2s\pi}}\frac{e^{-s\pi}+1}{s^2+1}=-\frac{1}{1-e^{-s\pi}}\frac{1}{1+s^2}
-\end{gather*}
-
-
-
-%% TODO fare a casa:
-Calcolare ora la trasformata di questa funzione periodica $f(t)$ di periodo $\tau=\pi$
-\begin{gather*}
-    f(t)=\begin{cases}
-        |\sin t|&0\leq t\leq\pi
-    \end{cases}
-\end{gather*}
-%% TODO add immagine
-
-Calcolare la trasformata di Laplace della funzione onda quadra $f(t)$, di periodo 2:
-\begin{gather*}
-    f(t)=\begin{cases}
-        1 & 0\leq t\leq1\\
-        0 & 1\leq t\leq2
-    \end{cases}
-\end{gather*}
-%% TODO add immagine onda quadra
-
-
-
-%% TODO add esercizi --> eq diff ex:
-Risolvere la seguente equazione differenziale:
-\begin{gather*}
-    y''-2y'-3y=8e^{3x}
-\end{gather*}
-Si considera l'equazione omogenea e la sua funzione caratteristica:
-\begin{gather*}
-    y''-2y'-3y=0\\
-    \lambda^2-2\lambda-3=0
-\end{gather*}
-Le radici dell'equazione caratteristica sono $\lambda_1=-1$ e $\lambda_2=3$, quindi la soluzione omogenea è data da:
-\begin{gather*}
-    y=c_1e^{-x}+c_2e^{3x}
-\end{gather*}
-Per la similarità la soluzione particolare è del tipo $\bar{y}=kxe^{3x}$, poiché la soluzione $e^{3x}$ comprare nell'integrale omogeneo
-\begin{gather*}
-    6ke^{3x}+3ke^{3x}+9kxe^{3x}-2ke^{3x}-6kxe^{3x}-3kxe^{3x}=8e^{3x}\\
-    4ke^{3x}=8e^{3x}\to k=2
-\end{gather*}
-Quindi la soluzione generale è data da:
-\begin{gather*}
-    y=c_1e^{-x}+c_2e^{3x}+2e^{3x}
-\end{gather*}
-
-
-Risolvere la seguente equazione differenziale:
-\begin{gather*}
-    x^2y''-4xy'+6y=12
-\end{gather*}
-Si può risolvere con il ``metodo pulito'', partendo dall'omogenea e ponendo $y=x^{\alpha}$:
-\begin{gather*}
-    \alpha(\alpha-1)x^{\alpha}-4\alpha x^\alpha+6x^\alpha=0\\
-    \alpha^2-5\alpha+6=0
-\end{gather*}
-Le radici dell'equazione indicale sono quindi $\alpha_1=2$ e $\alpha_2=3$:
-\begin{gather*}
-    y=c_1e^{2x}+c_2e^{3x}
-\end{gather*}
-Per trovare la soluzione particolare si pone $\bar{y}=k$:
-\begin{gather*}
-    6k=12\to k=2
-\end{gather*}
-Quindi la soluzione generale è data da:
-\begin{gather*}
-    y=c_1e^{2x}+c_2e^{3x}+2
-\end{gather*}
-
-
-
-Risolvere la seguente equazione differenziale:
-\begin{gather*}
-    y''-5y'+6y=e^x(\sin x-3\cos x)
-\end{gather*}
-Si risolvere l'omogenea:
-\begin{gather*}
-    y=c_1e^{2x}+c_2e^{3x}
-\end{gather*}
-Per il criterio della somiglianza si pone $\bar{y}=ke^{x}(A\sin x+B\cos x)$:
-%% TODO risolvere a casa
-
-
-\subsubsection{?? \textit{why} ??}
-
-%% TODO add img circuito
-Si considera questo circuito, in convenzione degli utilizzatori:
-\begin{center}
-    \begin{circuitikz}
-        \draw  
-        (0,0)to[R=$R$]++(3,0)
-            to[short]++(0,-2)
-            to[L=$L$]++(-3,0)
-            to[european voltage source=fem,i=$i$]++(0,2)
-            ;
-    \end{circuitikz}
-\end{center}
-L'equazione che descrive il comportamento di questo circuito RL è un'equazione differenziale del tipo:
-\begin{gather*}
-    \text{fem}=Ri+L\frac{\df i}{\df t}\\
-\end{gather*}
-Dove fem, la forza elettro-motrice, è la forzante. 
-
-Questa è un'equazione differenziale ordinaria lineare del tipo:
-\begin{gather*}
-    y'+a(t)y=f(t)\\
-    e^{A(t)}\\
-    A(t)=\int a(t)\df t
-\end{gather*}
-Quindi il comportamento della corrente in questo circuito RL nel tempo, dopo l'applicazione della forzante in $t=0$, è dato da:
-\begin{gather*}
-    i(t)=e^{-R/Lt}\left[\int\frac{\text{fem}}{L}e^{R/Lt}\df t+c\right]
-\end{gather*}
+La seguente formula è quindi la trasformata di una funzione periodica. 
 
 \clearpage
 

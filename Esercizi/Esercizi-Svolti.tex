@@ -1770,7 +1770,7 @@ La soluzione dell'equazione differenziale è quindi:
     y=c\cdot e^{-5x}+\displaystyle\frac{5}{29}\sin2x-\frac{2}{29}\cos2x
 \end{gather*}
 
-\subsection{Equazione di Bernoulli}
+\subsection{Equazioni di Bernoulli}
 
 Risolvere la seguente equazione differenziale:
 \begin{gather*}
@@ -1827,7 +1827,7 @@ La soluzione in termini di $y$ è quindi:
     y=\pm\sqrt{2x+cx^2}
 \end{gather*}
 
-\subsection{Equazione di Manfredi}
+\subsection{Equazioni di Manfredi}
 
 
 Risolvere la seguente equazione differenziale:
@@ -1874,7 +1874,7 @@ Si riporta la soluzione in termini di $y$:
     y=x\cdot\sqrt[3]{3\ln|x|+c}
 \end{gather*}
 
-\subsection{Equazione di Riccati}
+\subsection{Equazioni di Riccati}
 
 Esempio perché non gli andava di continuare la cosa di prima:
 \begin{gather*}
@@ -2052,6 +2052,400 @@ La soluzione generale di quest'equazione è quindi del tipo:
 \begin{gather*}
     y=c_1e^{-x}+c_2xe^{-x}
 \end{gather*}
+
+
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    y''-5y'+6y=e^x(\sin x-3\cos x)
+\end{gather*}
+Si risolve l'omogenea:
+\begin{gather*}
+    y=c_1e^{2x}+c_2e^{3x}
+\end{gather*}
+Per il criterio della similarità si pone $\bar{y}=ke^{x}(A\sin x+B\cos x)$:
+\begin{gather*}
+    \bar{y}'=ke^x(A\sin x+B\cos x)+ke^x(A\cos x-B\sin x)=ke^x((A+B)\cos x+(A-B)\sin x)\\
+    \bar{y}''=ke^x((A+B)\cos x+(A-B)\sin x)+ke^x((A-B)\cos x-(A+B)\sin x)\\
+    \bar{y}''=ke^x(2A\cos x-2B\sin x)\\
+    ke^x(2A\cos x-2B\sin x-5(A+B)\cos x-5(A-B)\sin x+6A\sin x+6B\cos x)=e^x(\sin x-3\cos x)\\
+    \begin{cases}
+        2A-5(A+B)+6B=-3\\
+        -2B-5(A-B)+6A=1\\
+        k=1
+    \end{cases}\begin{cases}
+        -3A+B=-3\\
+        A+3B=1\\
+        k=1
+    \end{cases}\begin{cases}
+        B=0\\
+        A=1
+        k=1
+    \end{cases}\\
+    \bar{y}=e^x\sin x
+\end{gather*}
+Ottenuta la soluzione particolare, la soluzione generale all'equazione differenziale è:
+\begin{gather*}
+    y=c_1e^{2x}+c_2e^{3x}+e^x\sin x
+\end{gather*}
+
+\subsection{Equazioni di Eulero}
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    x^2y''-4xy'+4y=0
+\end{gather*}
+Per risolverla si cercano soluzioni del tipo $y=x^\alpha$:
+\begin{gather*}
+    \alpha(\alpha-1)x^{\alpha}-4\alpha x^\alpha+4x^\alpha=0\\
+    x^\alpha\left(\alpha^2-\alpha-4\alpha+4\right)=0\\
+    \alpha^2-5\alpha+4=0
+\end{gather*}
+Trovando le radici di questa equazioni, si ottengono le due soluzioni:
+\begin{gather*}
+    \alpha^2-5\alpha+4=0=(\alpha-1)(\alpha-4)\\
+    y(x)=c_1x+c_2x^4
+\end{gather*}
+
+
+Si considera la seguente equazione differenziale:
+\begin{gather*}
+    x^2y''+2xy'-2y=x^2
+\end{gather*}
+Poiché non è omogenea si considerano le seguenti sostituzioni, per trasformarla in un'equazione in termini di $y$ ed una nuova variabile $x=e^t$:
+\begin{gather*}
+    \cancel{x^2}\frac{1}{\cancel{x^2}}\left(-\dot y+\ddot y\right)+2\bcancel{x}\frac{1}{\bcancel{x}}\dot y-2y=e^{2t}
+\end{gather*}
+Prima si considera l'equazione omogenea, ed in seguito si aggiunge il termine forzante:
+\begin{gather*}
+    \ddot y+\dot y-2y=0
+\end{gather*}
+Si risolve ponendo $y=e^{\lambda t}$:
+\begin{gather*}
+    \lambda^2 +\lambda-2=0\\
+    (\lambda-1)(\lambda+2)=0
+\end{gather*}
+La soluzione omogenea $y(t)$ è quindi:
+\begin{gather*}
+    y(t)=c_1e^{-2t}+c_2e^{t}
+\end{gather*}
+Si risolve ora l'equazione non omogenea, considerando una funzione dello stesso tipo della forzante $e^{2t}$ per la soluzione particolare $\bar y(t)$:
+\begin{gather*}
+    \bar{y}(t)=ke^{2t}\\
+    e^{2t}\left(4k+2k-2k\right)=e^{2t}\\
+    4k=1\to k=\frac{1}{4}
+\end{gather*}
+L'integrale generale è quindi dato da:
+\begin{gather*}
+    y(t)=c_1e^{-2t}+c_2e^{t}+\frac{1}{4}e^{2t}
+\end{gather*}
+Per ritornare alla variabile originale $x$ si considera $t=\log x$:
+\begin{gather*}
+    y(x)=c_1x^{-2}+x_2x+\frac{1}{4}x^2
+\end{gather*}
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    y''-2y'-3y=8e^{3x}
+\end{gather*}
+Si considera l'equazione omogenea e la sua funzione caratteristica:
+\begin{gather*}
+    y''-2y'-3y=0\\
+    \lambda^2-2\lambda-3=0
+\end{gather*}
+Le radici dell'equazione caratteristica sono $\lambda_1=-1$ e $\lambda_2=3$, quindi la soluzione omogenea è data da:
+\begin{gather*}
+    y=c_1e^{-x}+c_2e^{3x}
+\end{gather*}
+Per la similarità la soluzione particolare è del tipo $\bar{y}=kxe^{3x}$, poiché la soluzione $e^{3x}$ comprare nell'integrale omogeneo
+\begin{gather*}
+    6ke^{3x}+3ke^{3x}+9kxe^{3x}-2ke^{3x}-6kxe^{3x}-3kxe^{3x}=8e^{3x}\\
+    4ke^{3x}=8e^{3x}\to k=2
+\end{gather*}
+Quindi la soluzione generale è data da:
+\begin{gather*}
+    y=c_1e^{-x}+c_2e^{3x}+2e^{3x}
+\end{gather*}
+
+
+Risolvere la seguente equazione differenziale:
+\begin{gather*}
+    x^2y''-4xy'+6y=12
+\end{gather*}
+Si può risolvere con il ``metodo pulito'', partendo dall'omogenea e ponendo $y=x^{\alpha}$:
+\begin{gather*}
+    \alpha(\alpha-1)x^{\alpha}-4\alpha x^\alpha+6x^\alpha=0\\
+    \alpha^2-5\alpha+6=0
+\end{gather*}
+Le radici dell'equazione indicale sono quindi $\alpha_1=2$ e $\alpha_2=3$:
+\begin{gather*}
+    y=c_1x^{2}+c_2x^{3}
+\end{gather*}
+Per trovare la soluzione particolare si pone $\bar{y}=k$:
+\begin{gather*}
+    6k=12\to k=2
+\end{gather*}
+Quindi la soluzione generale è data da:
+\begin{gather*}
+    y=c_1x^{2}+c_2x^{3}+2
+\end{gather*}
+
+
+
+\clearpage
+
+\section{Trasformata di Laplace}
+
+\subsection{Calcolo Diretto}
+
+
+Risolvere la seguente trasformata di Laplace:
+\begin{gather*}
+    \mathcal{L}[2e^{3t}\sin(4t)]=\frac{2\cdot4}{(s-3)^2+16}
+\end{gather*}
+
+
+Risolvere le seguenti trasformate:
+\begin{gather*}
+    \mathcal{L}[(t+4)^2e^{-5t}]=\frac{e^{4s}}{(s+5)^2}\\
+    \mathcal{L}\left[3\sin\left(t+\frac{\pi}{6}\right)e^{-t}\right]=\frac{3e^{\pi/6}}{1+(s+1)^2}\\
+    \mathcal{L}\left[2\sin(3t)+4e^{2t}\cos t\right]=\frac{6}{9+s^2}+\frac{4s}{1+(s-2)^2}
+\end{gather*}
+
+
+Calcolare la seguente trasformata di Laplace:
+\begin{gather*}
+    \mathcal{L}[\cos^2(\alpha t)]
+\end{gather*}
+Si considera la derivata della funzione:
+\begin{gather*}
+    f(t)=\cos^2\alpha t\\
+    f'(t)=-2\alpha\cos(\alpha t)\sin(\alpha t)=-\alpha\sin(2\alpha t)\\
+    f(0)=1\\
+    \mathcal{L}[f'(t)]=s\mathcal{L}[f(t)]-1\\
+    \mathcal{L}[-\alpha\sin(2\alpha t)]=s\mathcal{L}[\cos^2\alpha t]-1\\
+    \frac{-2\alpha^2}{4\alpha^2+s^2}=s\mathcal{L}[\cos^2\alpha t]-1\\
+    \mathcal{L}[\cos^2\alpha t]=\left(1-\frac{2\alpha^2}{4\alpha^2+s^2}\right)\frac{1}{s}
+\end{gather*}
+
+\subsection{Equazioni Differenziali}
+
+Considerare ora il seguente problema di Cauchy:
+\begin{gather*}
+    \begin{cases}
+        y'+2y=e^t\\
+        y(0)=1
+    \end{cases}
+\end{gather*}
+Procedendo analogamente all'esercizio precedente si ottiene:
+\begin{gather*}
+    y'+2y=e^t\to sY(s)-\cancelto{1}{y(0)}+2Y(s)=\frac{1}{s-1}\\
+    Y(s)(s+2)=\frac{s-\cancel{1}+\bcancel{1}}{s-1}\\
+    Y(s)=\frac{s}{(s-1)(s+2)}
+\end{gather*}
+Si scompone la soluzione $Y(s)$ in fratti semplici per trovare la soluzione nel dominio del tempo $y(t)$:
+\begin{gather*}
+    \frac{s}{(s-1)(s-2)}=\frac{A}{s-1}+\frac{B}{s-2}\\
+    A(s+2)+B(s-1)=s\\
+    \begin{cases}
+        A+B=s\\
+        2A-B=0
+    \end{cases}\implies\begin{cases}
+        A=\displaystyle\frac{\strut1}{\strut3}\\
+        B=\displaystyle\frac{\strut2}{\strut3}
+    \end{cases}\\
+    Y(s)=\frac{1}{3}\frac{1}{s-1}+\frac{2}{3}\frac{1}{s+2}\\
+    \mathcal{L}^{-1}[Y(s)]=\frac{1}{3}e^{t}+\frac{2}{3}e^{-2t}=y(t)
+\end{gather*}
+
+Si considera la seguente equazione differenziale:
+\begin{gather*}
+    \begin{cases}
+        \displaystyle\frac{\strut\df x}{\strut\df t}+3x=\cos3t\\
+        x(0)=0
+    \end{cases}\\
+    sX(s)-\cancelto{0}{x(0)}+3X(s)=\frac{s}{9+s^2}\\
+    (s+3)X(s)=\frac{s}{9+s^2}+1\\
+    X(s)=\frac{s}{9+s^2}\frac{1}{s+3}
+\end{gather*}
+Si scompone in fratti semplici:
+\begin{gather*}
+    X(s)=\frac{s}{9+s^2}\frac{1}{s+3}=\frac{A}{s+3}+\frac{Bs+C}{9+s^2}\\
+    A(9+s^2)+(s+3)(Bs+C)=s\\
+    9A+As^2+Bs^2+Cs+3Bs+3C=s\\
+    \begin{cases}
+        As^2+Bs^2=0\\
+        Cs+3Bs=s\\
+        9A+3C=0
+    \end{cases}\begin{cases}
+        B=-A\\
+        C=3A+1\\
+        18A=-3
+    \end{cases}\begin{cases}
+        B=\displaystyle\frac{\strut1}{\strut6}\\
+        C=\displaystyle\frac{\strut1}{\strut2}\\
+        A=\displaystyle-\frac{\strut1}{\strut6}
+    \end{cases}\\
+    X(s)=-\frac{1}{6}\frac{1}{s+3}+\frac{1}{6}\frac{s+3}{s^2+9}=-\frac{1}{6}\frac{1}{s+3}+\frac{1}{6}\frac{s}{s^2+9}+\frac{1}{6}\frac{3}{s^2+9}\\
+    x(t)=-\frac{1}{6}e^{-3t}+\frac{1}{6}\cos(3t)+\frac{1}{6}\sin(3t)
+\end{gather*}
+
+
+
+Si considera ora un'equazione differenziale del secondo ordine:
+\begin{gather*}
+    \begin{cases}
+        y''-3y'+2y=t+3\\
+        y(0)=0\\
+        y'(0)=0
+    \end{cases}
+\end{gather*}
+Si effettua la trasformata:
+\begin{gather*}
+    s^2Y(s)-s\cancelto{0}{y'(0)}-\cancelto{0}{y(0)}-3sY(s)+3\cancelto{0}{y(0)}+2Y(s)=\frac{1}{s^2}+\frac{3}{s}\\
+    (s^2-4s+2)Y(s)=\frac{s+3}{s^2}\\
+    Y(s)=\frac{s+3}{s^2(s^2-3s+2)}
+\end{gather*}
+Si considerano i fratti semplici e si applicano l'anti-trasformata:
+\begin{gather*}
+    Y(s)=\frac{s+3}{s^2(s-1)(s-2)}=\frac{A}{s}+\frac{B}{s^2}+\frac{C}{s-1}+\frac{D}{s-2}\\
+    A(s^3-3s^2+2s)+B(s^2-3s+2)+C(s^3-s^2)+D(s^3-2s^2)=s+3\\
+    \begin{cases}
+        As^3+Cs^3+Ds^3=0\\
+        -3As^2+Bs^2-Cs^2-2Ds^2=0\\
+        2As-3Bs=3s\\
+        2B=1
+    \end{cases}\\
+    \begin{cases}
+        D=\displaystyle\frac{\strut9}{\strut4}-\displaystyle\frac{\strut25}{\strut4}\\
+        C=-\displaystyle\frac{\strut25}{\strut4}-2D\\
+        A=\displaystyle\frac{\strut9}{\strut4}\\
+        B=\displaystyle\frac{\strut1}{\strut2}
+    \end{cases}
+    \begin{cases}
+        D=-\displaystyle\frac{\strut16}{\strut4}=-4\\
+        C=-\displaystyle\frac{\strut21}{\strut4}+\frac{32}{\strut4}=\frac{7}{4}\\
+        A=\displaystyle\frac{\strut9}{\strut4}\\
+        B=\displaystyle\frac{\strut1}{\strut2}
+    \end{cases}\\
+    Y(s)=\frac{9}{4}\frac{1}{s}+\frac{1}{2}\frac{1}{s^2}+\frac{4}{s-1}+\frac{7}{4}\frac{1}{s-2}\\
+    y(t)=\frac{9}{4}+\frac{1}{2}t+4e^t+\frac{7}{4}e^{2t}
+\end{gather*}
+
+\subsection{Antitrasformata}
+
+Calcolare l'anti-trasformata della seguente funzione:
+\begin{gather*}
+    \mathcal{L}^{-1}\left[\frac{2s^2-4}{s^3-4s^2+s+6}\right]
+\end{gather*}
+Si scompone in fattori, il polinomio al denominatore è divisibile per $s+1$, quindi si scompone in:
+\begin{gather*}
+    \frac{2s^2-4}{s^3-4s^2+s+6}=\frac{2s^2-4}{(s+1)(s-2)(s-3)}    
+\end{gather*}
+Si scompone in fratti semplici:
+\begin{gather*}
+    \frac{2s^2-4}{(s+1)(s-2)(s-3)}=\frac{A}{s+1}+\frac{B}{s-2}+\frac{C}{s-3}\\
+    A(s-2)(s-3)+B(s+1)(s-3)+C(s+1)(s-2)=2s^2-4\\
+    As^2-5As+6A+Bs^2-2Bs-3B+Cs^2-Cs-2C=2s^2-4\\
+    \begin{cases}
+        A+B+C=2\\-5A-2B-C=0\\6A-3B-2C=-4
+    \end{cases}\begin{cases}
+        C=2-A-B\\B=-4A-2\\12A=-2
+    \end{cases}\begin{cases}
+        C=\frac{\strut7}{\strut2}\\
+        B=-\frac{\strut4}{\strut3}\\
+        A=-\frac{\strut1}{\strut6}
+    \end{cases}\\
+    F(s)=-\frac{1}{6}\frac{1}{s+1}-\frac{4}{3}\frac{1}{s-2}+\frac{7}{2}\frac{1}{s-3}
+\end{gather*}
+L'antitrasformata è quindi:
+\begin{gather*}
+    \mathcal{L}^{-1}\left[\frac{2s^2-4}{s^3-4s^2+s+6}\right]=-\frac{1}{6}e^{-t}-\frac{4}{3}e^{2t}+\frac{7}{2}e^{3t}
+\end{gather*}
+
+\subsection{Funzioni Periodiche}
+
+Si considera una funzione seno $f(t)=\sin(at)$, di periodo $\tau=2\pi/a$. Applicando la formula si ottiene:
+\begin{gather*}
+    \int_0^{2\pi/a}e^{st}f(t)\df t=\frac{1}{1-e^{-2\pi t/a}}\mathcal{L}\left[\sin(at)\right]=\frac{1}{1-e^{-2\pi t/a}}\frac{a}{a^2+s^2}
+\end{gather*}
+
+
+
+Calcolare la trasformata di Laplace della seguente funzione periodica, un treno di triangoli:
+\begin{gather*}
+    f(t)=\begin{cases}
+        t&0\leq t\leq1\\
+        2-t&1\leq t\leq2
+    \end{cases}
+\end{gather*}
+%% TODO add immagine treno di triangoli
+Il periodo di questa funzione è $\tau=2$, quindi applicando la formula si ha:
+\begin{gather*}
+    \mathcal{L}[f(t)]=\frac{1}{1-e^{-2s}}\int_0^2e^{-st}f(t)\df t=\frac{1}{1-e^{-2s}}\left(\int_0^1e^{-st}t\df t+\int_1^2e^{-st}(2-t)\df t\right)\\
+    \int_0^1te^{-st}\df t=-\frac{1}{s}te^{-st}-\frac{1}{s^2}e^{-st}\bigg|_0^1=-\frac{1}{se^{s}}-\frac{1}{s^2e^s}+\frac{1}{s^2}\\
+    \int_1^2e^{-st}(2-t)\df t=2\int_1^2e^{-st}\df t-\int_1^2te^{-st}\df t\\
+    -\frac{2}{s}te^{-st}-\frac{2}{s^2}e^{-st}\bigg|_1^2=-\frac{2}{s}e^{-st}+\frac{1}{s}te^{-st}+\frac{1}{s^2}e^{-st}\bigg|_1^2\\
+    -\cancel{\frac{2}{s}e^{-2s}}+\bcancel{\frac{2}{s}e^{-2s}}+\frac{1}{s^2}e^{-2s}-\left(-\frac{2}{s}e^{-s}+\frac{1}{s}e^{-s}+\frac{1}{s}e^{-s}\right)=\frac{1}{s^2}e^{-2s}+\frac{1}{s}e^{-s}-\frac{1}{s^2}e^{-s}\\
+    \mathcal{L}\left[f(t)\right]=
+    \frac{1}{1-e^{-2s}}\left[-\cancel{\frac{1}{s}e^{-s}}-\frac{1}{s^2}e^{-s}+\frac{1}{s^2}+\frac{1}{s^2}e^{-2s}+\bcancel{\frac{1}{s}e^{-s}}-\frac{1}{s^2}e^{-s}\right]\\
+    \mathcal{L}[f(t)]=
+    \frac{1}{1-e^{-2s}}\left[-\frac{2}{s^2}e^{-s}+\frac{1}{s^2}+\frac{1}{s^2}e^{-2s}\right]=
+    \frac{e^{-2s}-2e^{-s}+1}{s^2(1-e^{-2s})}=
+    \frac{(1-e^{-s})^{\cancel{2}}}{s^2\cancel{(1-e^{-s})}(1+e^{-s})}\\
+    \mathcal{L}[f(t)]=\frac{1}{s^2}\frac{1-e^{-s}}{1+e^{-s}}
+\end{gather*}
+
+
+
+Calcolare ora la trasformata di questa funzione periodica $f(t)$ di periodo $\tau=2\pi$
+\begin{gather*}
+    f(t)=\begin{cases}
+        \sin t&0\leq t\leq\pi\\
+        0&\pi\leq t\leq2\pi
+    \end{cases}
+\end{gather*}
+%% TODO add immagine
+Si considera la formula:
+\begin{gather*}
+    \mathcal{L}\left[f(t)\right]=\frac{1}{1-e^{-2s\pi}}\overbrace{\int_0^{2\pi}e^{-st}f(t)\df t}^I\\
+    I=\int_0^\pi e^{-st}\sin t\df t+\cancelto{0}{\int_\pi^{2\pi}e^{-st}0\df t}
+\end{gather*}
+Per l'integrazione per parti si ha:
+\begin{center}
+    \begin{tabular}{|c||c|c|}
+        \hline
+        &$D$&$I$\\\hline
+        +&$\sin t$&$e^{-st}$\\\hline
+        -&$\cos t$&$-1/se^{-st}$\\\hline
+        +&$-\sin t$&$-1/s^2e^{-st}$\\\hline
+    \end{tabular}
+\end{center}
+\begin{gather*}
+    I=-\cancelto{0}{\frac{1}{s}e^{-st}\sin t}+\frac{1}{s^2}e^{-st}\cos t\bigg|_0^{\pi}-\frac{1}{s^2}I\\
+    I=\frac{1}{1+\frac{1}{s^2}}\left(-\frac{1}{s^2}e^{-s\pi}-\frac{1}{s^2}\right)=-\frac{e^{-s\pi}+1}{s^2+1}\\
+    \mathcal{L}\left[f(t)\right]=-\frac{1}{1-e^{-2s\pi}}\frac{e^{-s\pi}+1}{s^2+1}=-\frac{1}{1-e^{-s\pi}}\frac{1}{1+s^2}
+\end{gather*}
+
+
+
+%% TODO fare a casa:
+Calcolare ora la trasformata di questa funzione periodica $f(t)$ di periodo $\tau=\pi$
+\begin{gather*}
+    f(t)=\begin{cases}
+        |\sin t|&0\leq t\leq\pi
+    \end{cases}
+\end{gather*}
+%% TODO add immagine
+
+Calcolare la trasformata di Laplace della funzione onda quadra $f(t)$, di periodo 2:
+\begin{gather*}
+    f(t)=\begin{cases}
+        1 & 0\leq t\leq1\\
+        0 & 1\leq t\leq2
+    \end{cases}
+\end{gather*}
+%% TODO add immagine onda quadra
 
 \clearpage
 
